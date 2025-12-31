@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Fred J. Hickernell">
+  <meta name="dcterms.date" content="2025-12-31">
+  <title>MATH 563 — Spring 2026 – MATH 476 — Statistics</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-79a017b362d573496892559a8dc4e319.css">
+  <link rel="stylesheet" href="../classlib/classlib/quarto/slides/fontscale-28.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      startup: {
+        typeset: false,
+        pageReady: () => {
+          const typesetAndLayout = (() => {
+            let busy = false;
+            let queued = false;
+
+            const run = async () => {
+              if (busy) {
+                queued = true;
+                return;
+              }
+              busy = true;
+              queued = false;
+
+              try {
+                await MathJax.typesetPromise();
+                if (window.Reveal && typeof Reveal.layout === "function") {
+                  Reveal.layout();
+                }
+              } finally {
+                busy = false;
+                if (queued) {
+                  requestAnimationFrame(run);
+                }
+              }
+            };
+
+            return () => requestAnimationFrame(run);
+          })();
+
+          return MathJax.startup.defaultPageReady().then(() => {
+            if (window.Reveal) {
+              Reveal.on("ready", typesetAndLayout);
+              Reveal.on("slidechanged", typesetAndLayout);
+              Reveal.on("fragmentshown", typesetAndLayout);
+              Reveal.on("fragmenthidden", typesetAndLayout);
+            }
+            typesetAndLayout();
+          });
+        }
+      },
+      
+      svg: {
+        mtextInheritFont: true,
+        fontCache: "global"
+      },
+      
+      tex: {
+        macros: {
+
+          frag: ["{\\class{fragment}{#2}}", 2],
+
+          success: "{\\operatorname{succ}}",
+          sinc:    "{\\operatorname{sinc}}",
+          sech:    "{\\operatorname{sech}}",
+          csch:    "{\\operatorname{csch}}",
+
+          Prob: "{\\mathbb{P}}",
+          Ex:   "{\\mathbb{E}}",
+
+          dist:  "{\\operatorname{dist}}",
+          spn:   "{\\operatorname{span}}",
+          sgn:   "{\\operatorname{sgn}}",
+          rmse:  "{\\operatorname{rmse}}",
+          rank:  "{\\operatorname{rank}}",
+          erfc:  "{\\operatorname{erfc}}",
+          erf:   "{\\operatorname{erf}}",
+          cov:   "{\\operatorname{cov}}",
+          cost:  "{\\operatorname{cost}}",
+          comp:  "{\\operatorname{comp}}",
+          corr:  "{\\operatorname{corr}}",
+          diag:  "{\\operatorname{diag}}",
+          var:   "{\\operatorname{var}}",
+          opt:   "{\\operatorname{opt}}",
+          brandnew: "{\\operatorname{new}}",
+          std:   "{\\operatorname{std}}",
+          kurt:  "{\\operatorname{kurt}}",
+          med:   "{\\operatorname{med}}",
+          vol:   "{\\operatorname{vol}}",
+          bias:  "{\\operatorname{bias}}",
+
+          Bern:  "{\\operatorname{Bern}}",
+          Bin:   "{\\operatorname{Bin}}",
+          Unif:  "{\\operatorname{Unif}}",
+          Norm:  "{\\operatorname{N}}",
+          Exp:   "{\\operatorname{Exp}}",
+          Pois:  "{\\operatorname{Pois}}",
+          Geom:  "{\\operatorname{Geom}}",
+          Cauchy:"{\\operatorname{Cauchy}}",
+          Laplace:"{\\operatorname{Laplace}}",
+          Gamma: "{\\operatorname{Gamma}}",
+          Beta:  "{\\operatorname{Beta}}",
+          Weibull:"{\\operatorname{Weibull}}",
+          Lognorm:"{\\operatorname{Lognormal}}",
+
+          Var: "{\\operatorname{Var}}",
+          Cov: "{\\operatorname{Cov}}",
+
+          argmax: "{\\mathop{\\operatorname{argmax}}\\limits}",
+          argmin: "{\\mathop{\\operatorname{argmin}}\\limits}",
+
+          sign:  "{\\operatorname{sign}}",
+          spann: "{\\operatorname{span}}",
+          cond:  "{\\operatorname{cond}}",
+          trace: "{\\operatorname{trace}}",
+          Si:    "{\\operatorname{Si}}",
+          col:   "{\\operatorname{col}}",
+          nullspace: "{\\operatorname{null}}",
+          Order: "{\\mathcal{O}}",
+
+          IIDsim: "\\mathrel{\\stackrel{\\mathrm{IID}}{\\sim}}",
+          LDsim:  "\\mathrel{\\stackrel{\\mathrm{LD}}{\\sim}}",
+          appxsim: "\\mathrel{\\stackrel{\\cdot}{\\sim}}",
+
+          naturals:  "{\\mathbb{N}}",
+          natzero:   "{\\mathbb{N}_0}",
+          integers:  "{\\mathbb{Z}}",
+          rationals: "{\\mathbb{Q}}",
+          reals:     "{\\mathbb{R}}",
+          complex:   "{\\mathbb{C}}",
+
+          abs:  ["{\\left\\lvert #1 \\right\\rvert}", 1],
+          norm: ["{\\left\\lVert #1 \\right\\rVert}", 1],
+          ip:   ["{\\left\\langle #1, #2 \\right\\rangle}", 2],
+
+          bvec: ["{\\boldsymbol{#1}}", 1],
+          avec: ["{\\vec{#1}}", 1],
+          vecsym: ["{\\boldsymbol{#1}}", 1],
+
+          vzero: "{\\boldsymbol{0}}",
+          vone:  "{\\boldsymbol{1}}",
+          vinf:  "{\\boldsymbol{\\infty}}",
+
+          barX: "{\\overline{X}}",
+          barY: "{\\overline{Y}}",
+          barZ: "{\\overline{Z}}",
+
+          me:  "{\\mathrm{e}}",
+          mi:  "{\\mathrm{i}}",
+          mpi: "{\\mathrm{\\pi}}",
+
+          dif: "{\\mathrm{d}}"
+        }
+      }
+    };
+  </script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#f5f7fb" data-background-image="../classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
+  <h1 class="title">MATH 476 — Statistics</h1>
+  <p class="subtitle">Template Slide Deck</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Fred J. Hickernell 
+</div>
+</div>
+</div>
+
+  <p class="date">December 31, 2025</p>
+</section>
+<section id="math-476-statistics" class="title-slide slide level1 center">
+<h1>MATH 476 — Statistics</h1>
+<p>Welcome to <strong>MATH 476</strong>.</p>
+<p>This course introduces probability and statistics with an emphasis on modeling and data and not running over the margins.</p>
+</section>
+
+<section>
+<section id="basic-probability-notation" class="title-slide slide level1 center">
+<h1>Basic Probability Notation</h1>
+<ul>
+<li>Sample space: <span class="math inline">\(\Omega\)</span></li>
+<li>Event: <span class="math inline">\(A \subseteq \Omega\)</span></li>
+<li>Probability of <span class="math inline">\(A\)</span>: <span class="math inline">\(\Prob(A)\)</span></li>
+<li>Complement: <span class="math inline">\(A^{c}\)</span></li>
+<li>Conditional probability: <span class="math display">\[
+  \Prob(A \mid B) = \frac{\Prob(A \cap B)}{\Prob(B)}, \qquad \Prob(B) &gt; 0
+\]</span></li>
+<li>Expectation <span class="math inline">\(\Ex[Y]=\)</span></li>
+</ul>
+<p><span class="alert">Key idea: probabilities are always between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</span></p>
+</section>
+<section id="more-probability" class="slide level2">
+<h2>More probability</h2>
+<p>You need to know expectation, mean, etc. with a h2 header</p>
+<p><span class="math display">\[\begin{gather*}
+\var(Y) = \operatorname{var}(Y) \\
+\DeclareMathOperator{\var}{var}
+\var(Y) = \operatorname{var}(Y) \\
+\Ex[Y] = \Ex[f(X)], Y \in \reals \\
+\end{gather*}\]</span></p>
+<h3 id="random-variables">Random variables</h3>
+<p>an h3 header</p>
+</section>
+<section id="section" class="slide level2 headerless">
+<h2></h2>
+<p>and even more on this slide without the header</p>
+</section></section>
+<section id="example-slide-with-alerts" class="title-slide slide level1 center">
+<h1>Example Slide With Alerts</h1>
+<ul>
+<li>Plain text is dark gray.</li>
+<li><span class="alert">Alerted term</span> stands out in blue.</li>
+<li>You can also color math: <span class="alert"><span class="math inline">\(\Pr(A \mid B)\)</span></span></li>
+</ul>
+</section>
+
+<section>
+<section id="python-test-slide" class="title-slide slide level1 center">
+<h1>Python Test Slide</h1>
+<p>This slide verifies that Python runs inside your Quarto RevealJS slides.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">4</span><span class="op">*</span>np.pi, <span class="dv">400</span>)</span>
+<span id="cb1-5"><a></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>plt.plot(x, y)</span>
+<span id="cb1-8"><a></a>plt.title(<span class="st">"Sine Wave Test"</span>)</span>
+<span id="cb1-9"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="Template_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="code-that-does-not-show" class="slide level2">
+<h2>Code that does not show</h2>
+<p><span class="math inline">\(\pi = 3.141592653589793\)</span></p>
+</section>
+<section id="interactive-plot-plotly" class="slide level2">
+<h2>Interactive Plot (Plotly)</h2>
+<p>This slide tests interactive graphics.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb2-5"><a></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a>px.line(x<span class="op">=</span>x, y<span class="op">=</span>y, title<span class="op">=</span><span class="st">"Interactive Sine Wave"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="5633b216-9d62-4f81-8790-2a01303c17d8" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("5633b216-9d62-4f81-8790-2a01303c17d8")) {                    Plotly.newPlot(                        "5633b216-9d62-4f81-8790-2a01303c17d8",                        [{"hovertemplate":"x=%{x}\u003cbr\u003ey=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAAAACBhJ9ciLqpP4GEn1yIurk\u002fYaN3ReZLwz+BhJ9ciLrJP9Gy4zmVFNA\u002fYaN3ReZL0z\u002fxkwtRN4PWP4GEn1yIutk\u002fEXUzaNnx3D\u002fRsuM5lRTgPxmrrb89sOE\u002fYaN3ReZL4z+pm0HLjufkP\u002fGTC1E3g+Y\u002fOYzV1t8e6D+BhJ9ciLrpP8l8aeIwVus\u002fEXUzaNnx7D9Zbf3tgY3uP9Gy4zmVFPA\u002f9a7IfGni8D8Zq62\u002fPbDxPz2nkgISfvI\u002fYaN3ReZL8z+Fn1yIuhn0P6mbQcuO5\u002fQ\u002fzZcmDmO19T\u002fxkwtRN4P2PxWQ8JMLUfc\u002fOYzV1t8e+D9diLoZtOz4P4GEn1yIuvk\u002fpYCEn1yI+j\u002fJfGniMFb7P+14TiUFJPw\u002fEXUzaNnx\u002fD81cRirrb\u002f9P1lt\u002fe2Bjf4\u002ffWniMFZb\u002fz\u002fRsuM5lRQAQOMwVlt\u002fewBA9a7IfGniAEAHLTueU0kBQBmrrb89sAFAKykg4ScXAkA9p5ICEn4CQE8lBST85AJAYaN3ReZLA0BzIepm0LIDQIWfXIi6GQRAlx3PqaSABECpm0HLjucEQLsZtOx4TgVAzZcmDmO1BUDfFZkvTRwGQPGTC1E3gwZAAxJ+ciHqBkAVkPCTC1EHQCcOY7X1twdAOYzV1t8eCEBLCkj4yYUIQF2Iuhm07AhAbwYtO55TCUCBhJ9ciLoJQJMCEn5yIQpApYCEn1yICkC3\u002fvbARu8KQMl8aeIwVgtA2\u002frbAxu9C0DteE4lBSQMQP\u002f2wEbvigxAEXUzaNnxDEAj86WJw1gNQDVxGKutvw1AR++KzJcmDkBZbf3tgY0OQGvrbw9s9A5AfWniMFZbD0CP51RSQMIPQNGy4zmVFBBA2vGcSgpIEEDjMFZbf3sQQOxvD2z0rhBA9a7IfGniEED+7YGN3hURQActO55TSRFAEGz0rsh8EUAZq62\u002fPbARQCLqZtCy4xFAKykg4ScXEkA0aNnxnEoSQD2nkgISfhJARuZLE4exEkBPJQUk\u002fOQSQFhkvjRxGBNAYaN3ReZLE0Bq4jBWW38TQHMh6mbQshNAfGCjd0XmE0CFn1yIuhkUQI7eFZkvTRRAlx3PqaSAFECgXIi6GbQUQKmbQcuO5xRAstr62wMbFUC7GbTseE4VQMRYbf3tgRVAzZcmDmO1FUDW1t8e2OgVQN8VmS9NHBZA6FRSQMJPFkDxkwtRN4MWQPrSxGGsthZAAxJ+ciHqFkAMUTeDlh0XQBWQ8JMLURdAHs+ppICEF0AnDmO19bcXQDBNHMZq6xdAOYzV1t8eGEBCy47nVFIYQEsKSPjJhRhAVEkBCT+5GEBdiLoZtOwYQGbHcyopIBlAbwYtO55TGUB4ReZLE4cZQIGEn1yIuhlAisNYbf3tGUCTAhJ+ciEaQJxBy47nVBpApYCEn1yIGkCuvz2w0bsaQLf+9sBG7xpAwD2w0bsiG0DJfGniMFYbQNK7IvOliRtA2\u002frbAxu9G0DkOZUUkPAbQO14TiUFJBxA9rcHNnpXHED\u002f9sBG74ocQAg2eldkvhxAEXUzaNnxHEAatOx4TiUdQCPzpYnDWB1ALDJfmjiMHUA1cRirrb8dQD6w0bsi8x1AR++KzJcmHkBQLkTdDFoeQFlt\u002fe2BjR5AYqy2\u002fvbAHkBr628PbPQeQHQqKSDhJx9AfWniMFZbH0CGqJtBy44fQI\u002fnVFJAwh9AmCYOY7X1H0DRsuM5lRQgQFVSQMJPLiBA2vGcSgpIIEBekfnSxGEgQOMwVlt\u002feyBAZ9Cy4zmVIEDsbw9s9K4gQHAPbPSuyCBA9a7IfGniIEB5TiUFJPwgQP7tgY3eFSFAgo3eFZkvIUAHLTueU0khQIvMlyYOYyFAEGz0rsh8IUCUC1E3g5YhQBmrrb89sCFAnUoKSPjJIUAi6mbQsuMhQKaJw1ht\u002fSFAKykg4ScXIkCvyHxp4jAiQDRo2fGcSiJAuAc2eldkIkA9p5ICEn4iQMFG74rMlyJARuZLE4exIkDKhaibQcsiQE8lBST85CJA08RhrLb+IkBYZL40cRgjQNwDG70rMiNAYaN3ReZLI0DlQtTNoGUjQGriMFZbfyNA7oGN3hWZI0BzIepm0LIjQPfARu+KzCNAfGCjd0XmI0AAAAAAAAAkQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAC3OCrPwrepP+iw9Dlzr7k\u002feDl\u002foDU5wz8k66EARY7JP+yqWgfQ0s8\u002fUqC71WQB0z\u002faYG0XGQ3WP\u002fXvEtqMCtk\u002fZRAOZdH32z8HfpB1AtPeP5Dky7sjzeA\u002fTRquW+ol4j\u002fFlzZF9nLjP4+x3Tdws+Q\u002fmhXrEonm5T+EUlRbegvnP5WkBLyGIeg\u002fhx87gPon6T+xHrAHLB7qP3LqNjR8A+s\u002ftLeU0FbX6z8VikrwMpnsP+QPFEiTSO0\u002f1EXifgbl7T\u002f2ix13J27uP\u002fTS\u002f4+d4+4\u002fpaTc3hxF7z9nAjJgZpLvPxRjYiBIy+8\u002fBX79W53v7z+TBYOXTv\u002fvP7z1j65R+u8\u002fxqds2qng7z9QbvevZ7LvP5oS7RSpb+8\u002fHyCWLJkY7z+oe+U7cK3uP9NKGoVzLu4\u002fSa38GvWb7T\u002ftNdKrU\u002fbsP5tsLET6Pew\u002fRuW4CWBz6z\u002fmoz\u002fuB5fqP1KSAVuAqek\u002fzrqt1GKr6D8WxCiYU53nP7fPZjABgOY\u002fjlWcBSRU5T9v5Q7mfRrkP8TW0ojZ0+I\u002f7NrGCgqB4T8HICJm6iLgP2tn2sm5dN0\u002f7DyCHZWQ2j86fFYkRZvXP3VtLlSzltQ\u002fNsZF\u002f9KE0T\u002fI\u002fQkjQM\u002fMP4xfdZA7gsY\u002fTEI0yqomwD+xIFl1U4GzP37bLlvYopo\u002fz82EOdTQmL+huTe5HQ2zvyPWLkC22b+\u002fqOyAd9xIxr8XlbGvdpbMv4FtRXLLaNG\u002fjYB\u002fERt71L+y5rABLoDXv3NkKZ0Qdtq\u002fsjpMD9la3b8Rw5JIVBbgv1pjbU\u002fWdOG\u002fO0iXEhDI4r8nQypTJg\u002fkv2IurKpFSeW\u002f9FywE6N15r\u002fvqg5tfJPnv69fW\u002fcYoui\u002fgMpOzMmg6b+vbc9P6o7qv6ioVZrga+u\u002fiB5k3B037L8yj9S6HvDsvzN7vaNrlu2\u002fzbO5G5kp7r\u002fR5F8DSKnuv3syvdQlFe+\u002fVS+r2Oxs779gsd5TZLDvv2Jnkqtg3++\u002fwXu1gcP577\u002fqDYzIe\u002f\u002fvv\u002fnStM2F8O+\u002f7b2MPOvM778eJO8Xw5Tvv+5nVqsxSO+\u002fecZmc2jn7r96cfL9pXLuv1ahi8E16u2\u002flcC+7G9O7b+LNhQtuZ\u002fsvwWn\u002fm2C3uu\u002fF7Xfj0gL6782dFIXlCbqv4ix79T4MOm\u002f\u002fhvFhRUr6L8jCr1skxXnv1ssOeUl8eW\u002f5N8m74m+5L89Dti0hX7jv\u002fGL7wroMeK\u002fxb2z6ofZ4L\u002f\u002f0zvOh+zev3wEADoDEty\u002fO747PVol2b8drzO2cCjWv\u002fCgLgQ1HdO\u002fO6jwx54F0L\u002f4yXU8W8fJv5ZqRKrPcsO\u002feD9KdGQjur90P7yyiaCqv33juwScIl2\u002fmuwql\u002fbOqD8+yeqsfDu5P2Be2ZqX\u002f8I\u002fug36eClVyT8A\u002fHjmW5rPP9wv+baQ5dI\u002fh2bB5rzx1T\u002fbV2JGuu\u002fYP\u002fbZTMSZ3ds\u002fVW6NuXa53j9ja4QRvMDgP6RgmenoGeI\u002faXq8zWJn4z+SYlE2UqjkP3A2tbbn2+U\u002f5h5Og1wB5z+KLgfy8hfoP0t75fT2Huk\u002frTlnjr4V6j8uo2E\u002fqvvqP8WlFm4l0Os\u002fd7w\u002fxqaS7D9E3s+RsELtP+glMwrR3+0\u002fa6\u002fXoaJp7j+2JNBFzN\u002fuP4GNZZcBQu8\u002fZy1zHQOQ7z9TiWxtnsnvP8oQ80uu7u8\u002fq1vmxBr\u002f7z8Hb9862frvP3oHDW7s4e8\u002f+3lsemS07z9DUWDNXnLvP3NiqxIGHO8\u002fyaPcGJKx7j+kmD2tRzPuPzyiWm94oe0\u002fBvNBnIL87D+WPJvR0ETsPzh2v8jZeus\u002fk0T9CSCf6j8YmzuYMbLpP+gcMZWntOg\u002fbpBr3iWn5z\u002fbW2ejWormP9Z++\u002fT9XuU\u002f58piTtEl5D8yPy8Yn9\u002fiP09YeCU6jeE\u002feOKYK30v4D+zuqhplI7dP9mdfhwUq9o\u002fMt+RYle21z9g4I5SR7LUPwRW1erWoNE\u002f\u002fqHtnQMIzT82tz3\u002flbvGP7V2cRt3YMA\u002fF9CnJoX1sz8Ai7P31nScP21KSfPK\u002fpa\u002fL\u002fpYCuSYsr+3FSxSEGa\u002fv0ckRMB4D8a\u002fVCqpT6ddzL\u002fVXaNJwEzRvz0bOpB+X9S\u002fml0+ABJl17\u002f17\u002fKghlvav0wfWz\u002fyQN2\u002f7IyG1boJ4L9ST\u002fP1nmjhvw=="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"x"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"y"}},"legend":{"tracegroupgap":0},"title":{"text":"Interactive Sine Wave"}},                        {"responsive": true}                    )                };            </script>        </div>
+</div>
+</div>
+</section></section>
+<section id="a-small-r-example" class="title-slide slide level1 center">
+<h1>A small R example</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Simulate data</span></span>
+<span id="cb3-2"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="co"># Basic summaries</span></span>
+<span id="cb3-6"><a></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.09040591</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9128159</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Simple plot</span></span>
+<span id="cb7-2"><a></a><span class="fu">hist</span>(x, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">main =</span> <span class="st">"Histogram of x"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="Template_files/figure-revealjs/unnamed-chunk-4-3.png" width="960" class="r-stretch"><p>That’s it.</p>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>© Fred J. Hickernell</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'grid',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1400,
+
+        height: 800,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/fjhickernell\.github\.io\/MATH563Spring2026\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
