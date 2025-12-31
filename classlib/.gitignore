@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+*.pyo
+*.pyd
+
+*ipynb_checkpoints
+*.jupyter*
+
+# C extensions
+*.so
+
+
+.sass-cache/
+*.css.map

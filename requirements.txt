@@ -1,0 +1,4 @@
+# Course-site-only Python deps (temporary).
+# Prefer promoting dependencies into:
+# - HickernellClassLib (pyproject.toml), or
+# - QMCSoftware extras: [class]

@@ -1,0 +1,11 @@
+---
+title: "Resources"
+---
+
+## Textbook
+
+- Wackerly, Mendenhall, and Scheaffer, *Mathematical Statistics with Applications*.
+
+## Additional Resources
+
+- Office hours and online discussion information will be added here.

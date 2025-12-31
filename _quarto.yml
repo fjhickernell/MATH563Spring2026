@@ -1,0 +1,52 @@
+# _quarto.yml
+
+project:
+  type: website
+  render:
+    - index.qmd
+    - pages/**/*.qmd
+    - slides/**/*.qmd
+  resources:
+    - classlib/classlib/quarto/slides/hickernell-latex-macros.js
+    - classlib/classlib/quarto/assets/images/normal-scatter.png
+    - classlib/classlib/quarto/slides/hickernell-slides.scss
+    - classlib/classlib/quarto/website/hickernell-website.css
+    - classlib/classlib/notebooks/**
+    - classlib/classlib/quarto/js/stats-questions.js
+    - classlib/classlib/quarto/css/stats-questions.css
+
+metadata:
+  instructor_photo: classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg
+    
+# Navigation must live here (cannot be delegated via metadata-files).
+# Styling/layout lives in HickernellClassLib (hickernell-website.yml).
+website:
+  title: "MATH 476 — Spring 2026"
+  navbar:
+    logo: /classlib/classlib/quarto/assets/images/normal-scatter.png
+    left:
+      - href: index.qmd
+        text: Welcome
+      - href: pages/stats-qs.qmd
+        text: Stats Qs
+      - href: pages/schedule.qmd
+        text: Schedule
+      - href: pages/notebooks.qmd
+        text: Notebooks
+      - href: pages/homework.qmd
+        text: Homework
+      - href: pages/tests.qmd
+        text: Tests
+      - text: Resources
+        menu:
+          - href: pages/resources.qmd
+            text: Resources
+          - href: pages/policies.qmd
+            text: Policies
+  page-footer:
+    left: "© 2026 Fred J. Hickernell"
+    right: "Illinois Institute of Technology"
+
+execute:
+  env:
+    RETICULATE_PYTHON: ${HOME}/miniconda3/envs/qmcpy/bin/python

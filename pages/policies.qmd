@@ -1,0 +1,8 @@
+---
+title: Policies
+format:
+  html:
+    number-sections: false
+---
+
+{{< include ../classlib/classlib/quarto/pages/shared/policies.md >}}

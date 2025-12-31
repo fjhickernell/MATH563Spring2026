@@ -1,0 +1,169 @@
+---
+title: "Welcome to MATH 476 Statistics"
+subtitle: "Spring 2026"
+metadata-files:
+  - classlib/classlib/quarto/website/hickernell-website.yml
+title-block-banner: false
+---
+
+## Course Description
+
+Estimation theory; hypothesis tests; confidence intervals; goodness-of-fit tests; correlation and linear regression; analysis of variance; non-parametric methods
+
+<details>
+<summary><strong>Instructor:</strong> Fred J. Hickernell</summary>
+
+[![]({{< meta instructor_photo >}}){.instructor-photo alt="Fred J. Hickernell"}]({{< meta instructor_photo >}})
+
+* *Office:* Galvin Tower 18C3-1  
+* *Office hours:* By appointment (details will be posted)  
+* *Phone:* 312-567-8983  
+* *Email:* <hickernell@illinoistech.edu>  
+* [_Website_](https://www.iit.edu/directory/people/fred-hickernell)  &nbsp;&nbsp;&nbsp; 
+[_LinkedIn_](https://www.linkedin.com/in/fjhickernell/)  &nbsp;&nbsp;&nbsp; 
+[_Google Scholar_](https://scholar.google.com/citations?user=dJbMJG8AAAAJ&hl=en)   &nbsp;&nbsp;&nbsp; 
+[_Mathematics Genealogy Profile_](https://mathgenealogy.org/id.php?id=57571)
+
+*Brief bio:* Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis.  He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity. 
+
+Hickernell speaks Cantonese and enjoys Chinese food. He is married with adult children.  He enjoys discussing matters of substance.  His most important identity is a disciple of Jesus.
+</details>
+
+<details>
+<summary><strong>Teaching Assistant:</strong> TBA</summary>
+
+* **Office hours:** TBA  
+* **Email:** TBA  
+
+</details>
+
+<div style="margin-top:1em; margin-bottom:0.4em;">
+<strong>Textbook:</strong> Wackerly, Mendenhall, and Scheaffer
+</div>
+
+<details>
+<summary><strong>Recommended resources</strong></summary>
+
+* [Python](https://www.python.org)
+* [Anaconda / Miniconda](https://www.anaconda.com)
+* [pip (Python package manager)](https://pip.pypa.io/en/stable/)
+* [R](https://www.r-project.org)
+* [RStudio (Posit)](https://posit.co/download/rstudio-desktop/)* [VS Code](https://code.visualstudio.com)
+* [Jupyter](https://docs.jupyter.org/en/latest/)
+* [Github](https://github.com)
+* [LaTeX](https://www.latex-project.org/get/)
+* [Overleaf](https://www.overleaf.com)
+* [qmcpy](https://qmcpy.org)
+* [Course Repository](https://github.com/fjhickernell/MATH476Spring2026)
+
+</details>
+
+<details>
+<summary><strong>Prerequisites</strong></summary>
+
+* Multivariate calculus
+* Linear algebra
+* Calculus-based probability
+* Comfortable with code
+
+</details>
+
+<details>
+<summary><strong>Objectives</strong></summary>
+
+By the end of this course, students will be able to:
+
+- Summarize and visualize data appropriately.
+- Use probability models to reason about randomness.
+- Construct and interpret confidence intervals.
+- Perform and interpret hypothesis tests.
+- Fit and interpret simple regression models.
+- Use Python to support statistical computation and reproducible analysis.
+
+</details>
+
+<details>
+<summary><strong>Where to find it</strong></summary>
+
+| **This course website** | **Canvas** |
+|---|---|
+| <a href="pages/syllabus.html">Syllabus</a> | Grades |
+| <a href="pages/schedule.html">Schedule</a> | Announcements |
+| <a href="pages/homework.html">Homework</a> | Submissions |
+| <a href="pages/resources.html">Resources</a> | Discussions |
+
+</details>
+
+## Course Outline
+
+<details>
+<summary><strong>Introduction</strong></summary>
+
+- What is statistical inference?  
+- Review of probability
+  - Random variables and their distributions
+  - Populations and samples
+  - Sample statistics
+
+</details>
+
+
+<details>
+<summary><strong>Estimates of Population Parameters</strong></summary>
+
+- Bias of estimates
+- Confidence intervals
+- Relative efficiency, consistency and sufficiency
+- Minimum variance unbiased estimation
+- Moment Estimators
+- Maximum Likelihood Estimates
+
+</details>
+
+<details>
+<summary><strong>Hypothesis Testing</strong></summary>
+
+- Common tests for means and variances
+- Relationship between hypothesis tests and confidence intervals
+- Power of tests
+- Likelihood ratio tests
+- Comparison of more than two means
+- Analysis of categorical data
+
+</details>
+
+<details>
+<summary><strong>Linear Models and Least Squares</strong></summary>
+
+- Linear Model
+- Method of Least Squares
+- Inferences concerning regression coefficients
+- Hypothesis testing and model selection
+- Correlation
+
+</details>
+
+
+<details>
+<summary><strong>Nonparametric Statistics</strong></summary>
+
+- Matched pairs of experiments
+- Comparison of two populations
+- Comparison of more than two populations
+
+</details>
+
+## Assessment
+
+- **Homework:** 15%  
+- **Midterm Tests:** 20%  
+- **Project:** 25%  
+- **Final Exam:** 40%  
+
+
+---
+
+<small>
+**prepared by:** Fred Hickernell  
+**Date:** 2025-12-18 to the present
+</small>
