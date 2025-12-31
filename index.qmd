@@ -1,5 +1,5 @@
 ---
-title: "Welcome to MATH 476 Statistics"
+title: "Welcome to MATH 563 Mathematical Statistics"
 subtitle: "Spring 2026"
 metadata-files:
   - classlib/classlib/quarto/website/hickernell-website.yml
@@ -8,7 +8,7 @@ title-block-banner: false
 
 ## Course Description
 
-Estimation theory; hypothesis tests; confidence intervals; goodness-of-fit tests; correlation and linear regression; analysis of variance; non-parametric methods
+Theory of sampling distributions; principles of data reduction; interval and point estimation, sufficient statistics, order statistics, hypothesis testing, correlation and linear regression; introduction to linear models.
 
 <details>
 <summary><strong>Instructor:</strong> Fred J. Hickernell</summary>
@@ -16,7 +16,7 @@ Estimation theory; hypothesis tests; confidence intervals; goodness-of-fit tests
 [![]({{< meta instructor_photo >}}){.instructor-photo alt="Fred J. Hickernell"}]({{< meta instructor_photo >}})
 
 * *Office:* Galvin Tower 18C3-1  
-* *Office hours:* By appointment (details will be posted)  
+* *Office hours:* By appointment [(book here)](https://outlook.office.com/bookwithme/user/037b70c376b1407ea8aa7e57c242da0e@illinoistech.edu?anonymous&ep=plink)
 * *Phone:* 312-567-8983  
 * *Email:* <hickernell@illinoistech.edu>  
 * [_Website_](https://www.iit.edu/directory/people/fred-hickernell)  &nbsp;&nbsp;&nbsp; 
@@ -38,7 +38,7 @@ Hickernell speaks Cantonese and enjoys Chinese food. He is married with adult ch
 </details>
 
 <div style="margin-top:1em; margin-bottom:0.4em;">
-<strong>Textbook:</strong> Wackerly, Mendenhall, and Scheaffer
+<strong>Textbook:</strong> [Casella and Berger, _Statistical Inference_, 2nd Ed.](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036)
 </div>
 
 <details>
@@ -70,27 +70,31 @@ Hickernell speaks Cantonese and enjoys Chinese food. He is married with adult ch
 
 <details>
 <summary><strong>Objectives</strong></summary>
+You will learn
 
-By the end of this course, students will be able to:
-
-- Summarize and visualize data appropriately.
-- Use probability models to reason about randomness.
-- Construct and interpret confidence intervals.
-- Perform and interpret hypothesis tests.
-- Fit and interpret simple regression models.
-- Use Python to support statistical computation and reproducible analysis.
+- The concept of statistical inference and the difference between population characteristics and sample estimates; 
+- The probabilistic basis for statistical inference and the qualities of a good estimator;
+- How to correctly perform hypothesis tests and construct confidence intervals;
+- The appropriateness of asymptotic considerations;
+- Use statistical software—primarily Python or R—to perform basic computations for statistical
+inference and sampling; and
+- How to communicate the results of their statistical analyses of substantial
+data sets through explanatory text, tables and graphs.
 
 </details>
 
 <details>
 <summary><strong>Where to find it</strong></summary>
 
+
 | **This course website** | **Canvas** |
 |---|---|
-| <a href="pages/syllabus.html">Syllabus</a> | Grades |
-| <a href="pages/schedule.html">Schedule</a> | Announcements |
-| <a href="pages/homework.html">Homework</a> | Submissions |
-| <a href="pages/resources.html">Resources</a> | Discussions |
+| <a href="pages/statqs.html">Big Questions</a> | Grades |
+| <a href="pages/schedule.html">Schedule</a> | Assignments and Submissions |
+| <a href="pages/notebooks.html">Jupyter Notebooks</a> | Announcements |
+| <a href="pages/homework.html">Homework</a> | Discussions |
+| <a href="pages/tests.html">Tests and Exams</a> |  
+| <a href="pages/policies.html">Policies</a> |  
 
 </details>
 
@@ -109,61 +113,69 @@ By the end of this course, students will be able to:
 
 
 <details>
-<summary><strong>Estimates of Population Parameters</strong></summary>
+<summary><strong>Properties of a random sample</strong></summary>
 
-- Bias of estimates
-- Confidence intervals
-- Relative efficiency, consistency and sufficiency
-- Minimum variance unbiased estimation
-- Moment Estimators
-- Maximum Likelihood Estimates
+- Sampling from Normal distribution
+- Order statistics
+- Convergence concepts
 
 </details>
 
 <details>
-<summary><strong>Hypothesis Testing</strong></summary>
+<summary><strong>Principles of data reduction</strong></summary>
 
-- Common tests for means and variances
-- Relationship between hypothesis tests and confidence intervals
-- Power of tests
-- Likelihood ratio tests
-- Comparison of more than two means
-- Analysis of categorical data
+- The sufficiency principle
+- The likelihood principle
 
 </details>
 
 <details>
-<summary><strong>Linear Models and Least Squares</strong></summary>
+<summary><strong>Point estimation</strong></summary>
 
-- Linear Model
-- Method of Least Squares
-- Inferences concerning regression coefficients
-- Hypothesis testing and model selection
-- Correlation
+- Methods of finding estimators: moment, MLE, Bayes
+- Methods of evaluating estimators: MSE, bias, sufficiency, Rao-­Blackwell theorem, loss function optimality
 
 </details>
-
 
 <details>
-<summary><strong>Nonparametric Statistics</strong></summary>
+<summary><strong>Hypothesis testing</strong></summary>
 
-- Matched pairs of experiments
-- Comparison of two populations
-- Comparison of more than two populations
+- Methods of finding tests: likelihood ratio test, Bayesian test
+- Methods of evaluating tests: error probabilities, power function, p-alues, Neyman-­Pearson Lemma
 
 </details>
+
+<details>
+<summary><strong>Interval estimation</strong></summary>
+
+- Pivoting method
+- Size and coverage probability
+
+</details>
+
+<details>
+<summary><strong>Asymptotic evaluation</strong></summary>
+
+- Point estimation: consistency, efficiency, comparisons
+- Asymptotic distribution of LRTs / confidence intervals
+
+</details>
+
+<details>
+<summary><strong>Introduction to linear models</strong></summary>
+
+- Simple linear regression: least squares
+- One-­way ANOVA
+
+</details>
+
 
 ## Assessment
 
 - **Homework:** 15%  
-- **Midterm Tests:** 20%  
-- **Project:** 25%  
+- **Midterm Tests:** 25%  
+- **Project:** 20%  
 - **Final Exam:** 40%  
 
 
 ---
-
-<small>
-**prepared by:** Fred Hickernell  
-**Date:** 2025-12-18 to the present
-</small>
