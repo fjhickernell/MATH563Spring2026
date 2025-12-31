@@ -9,3 +9,5 @@ docs/
 .Renviron
 
 /.quarto/
+
+/devclasslib
