@@ -21,7 +21,7 @@ metadata:
 # Navigation must live here (cannot be delegated via metadata-files).
 # Styling/layout lives in HickernellClassLib (hickernell-website.yml).
 website:
-  title: "MATH 476 — Spring 2026"
+  title: "MATH 563 — Spring 2026"
   navbar:
     logo: /classlib/classlib/quarto/assets/images/normal-scatter.png
     left:

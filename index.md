@@ -1,4 +1,4 @@
-# MATH 476 — Spring 2026
+# MATH 563 — Spring 2026
 
 ➡️ **Canonical course site (Quarto):**  
 [index.qmd](index.qmd)

@@ -1,5 +1,5 @@
 ---
-title: "MATH 476 — Statistics"
+title: "MATH 563 — Mathematical Statistics"
 subtitle: "Introduction and Probability Review"
 author: "Fred J. Hickernell"
 date: last-modified
