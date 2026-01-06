@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-01-02">
+  <meta name="dcterms.date" content="2026-01-06">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-d21c0438f088a5fe0cfb9306ee6900a5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-913ee2881b478161c3ffda38a0d735bc.css">
   <link rel="stylesheet" href="../classlib/classlib/quarto/slides/fontscale-28.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -338,6 +338,79 @@
       }
     };
   </script>
+  <script id="course-website-meta" type="application/json">
+  {"course_website":"?meta:course_website"}
+  </script>
+
+  <script>
+  (function () {
+    function getCourseWebsite() {
+      const el = document.getElementById("course-website-meta");
+      if (!el) return "";
+      try {
+        const obj = JSON.parse(el.textContent || "{}");
+        const v = (obj.course_website || "").trim();
+        // If meta wasn't set, Quarto may leave the shortcode text or empty
+        if (!v || v.includes("meta course_website")) return "";
+        return v;
+      } catch (e) {
+        return "";
+      }
+    }
+
+    function insertCourseWebsite() {
+      const courseWebsite = getCourseWebsite();
+      if (!courseWebsite) return;
+
+      const titleSlide = document.querySelector(".reveal #title-slide");
+      if (!titleSlide) return;
+
+      if (titleSlide.querySelector(".course-website")) return;
+
+      const p = document.createElement("p");
+      p.className = "course-website";
+      p.innerHTML = `<a href="${courseWebsite}">${courseWebsite}</a>`;
+
+      const authorBlock =
+        titleSlide.querySelector(".quarto-title-authors") ||
+        titleSlide.querySelector(".quarto-title-author") ||
+        titleSlide.querySelector(".quarto-title-author-name");
+
+      const subtitle = titleSlide.querySelector("p.subtitle");
+
+      if (authorBlock && authorBlock.parentNode) {
+        // Insert BEFORE the author block (i.e., above your name)
+        authorBlock.parentNode.insertBefore(p, authorBlock);
+      } else if (subtitle && subtitle.parentNode) {
+        // Fallback: insert after subtitle
+        subtitle.parentNode.insertBefore(p, subtitle.nextSibling);
+      } else {
+        titleSlide.appendChild(p);
+      }
+    }
+
+    function hookReveal() {
+      if (window.Reveal && typeof window.Reveal.on === "function") {
+        window.Reveal.on("ready", insertCourseWebsite);
+        window.Reveal.on("slidechanged", insertCourseWebsite);
+        insertCourseWebsite();
+        return;
+      }
+      let tries = 0;
+      const t = setInterval(() => {
+        insertCourseWebsite();
+        tries += 1;
+        if (tries >= 20) clearInterval(t);
+      }, 250);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", hookReveal);
+    } else {
+      hookReveal();
+    }
+  })();
+  </script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -355,7 +428,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">January 2, 2026</p>
+  <p class="date">January 6, 2026</p>
 </section>
 <section>
 <section id="statistics" class="title-slide slide level1 center" data-state="goldborder">
