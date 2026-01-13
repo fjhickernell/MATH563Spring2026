@@ -213,7 +213,9 @@ $$
 \Ex\biggl[\int_0^1 f(x) \, \dif x \mid \vf  = \vy\biggr] = \vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x
 $$
 
-For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}
+For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/Bayesian_quadrature.ipynb" download>
+⬇ Bayesian Quadrature 📓
+</a>
 </div>
 
 ## Numerical integration (cont'd)
