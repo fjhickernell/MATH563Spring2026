@@ -1,4 +1,4 @@
-# MATH 476 Quarto Website — Author Workflow
+# MATH Course Quarto Website — Author Workflow
 
 This document is a reminder to **the course author (me)** of how this
 Quarto website is structured and how to safely edit, preview, and publish it.

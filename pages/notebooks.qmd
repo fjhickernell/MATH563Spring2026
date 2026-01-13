@@ -1,5 +1,12 @@
 ---
-title: Notebooks
+title: Jupyter Notebooks
 ---
 
-Notebooks and labs will be posted here.
+Here you will find Jupyter notebooks used in the course.  
+Click the link to download, and then open in JupyterLab on your computer.
+
+- [Approval Ratings: Bernoulli, Binomial, CLT, and Confidence Intervals](../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb)
+
+- [Bayesian Quadrature](../classlib/classlib/notebooks/Bayesian_quadrature.ipynb)
+
+- [Health, Wealth, and Life Expectancy (Gapminder)](../classlib/classlib/notebooks/health_wealth_gapminder_regression.ipynb)

@@ -4,168 +4,226 @@ subtitle: "Introduction and Probability Review"
 author: "Fred J. Hickernell"
 date: last-modified
 date-format: "MMMM D, YYYY"
+reveal-options:
+  disableLayout: false
 ---
 
-# Statistics {data-state="goldborder"}
+# Statistics{data-state="goldborder"}
 
-### Principled
+<div class="h3">Principled</div>
 - Clear assumptions
 - Probability as a basis
 - Efficient and accurate computation
 
-### Inference about a population
-- Want to know parameters that describe a large number or individuals or the relationships among them
+<div class="h3">Inference about a population</div>
+- Want to know parameters that describe a large number of individuals or the relationships among them
 - Should provide a level of uncertainty
 
-### From Data
+<div class="h3">From Data</div> 
 - Carefully sampled
 - Observations, surveys, experiments, or computer simulations
 
-# Examples
-- Approval ratings
-- Numerical integration (quadrature)
+&nbsp;
 
-## Approval ratings
+See [Big Statistics Questions](/pages/stats-qs.html)
+
+# Examples
+
+Let's look at 
+
+- [Approval ratings](#approval-ratings)
+- [Life expectancy explained by gross domestic (GDP) product per capita](#life-gdp)
+- [Numerical integration (quadrature)](#trapezoidal)
+
+## Approval ratings {#approval-ratings}
 
 The Gallup Poll tracks the [approval ratings of US presidents](https://news.gallup.com/poll/203198/presidential-approval-ratings-donald-trump.aspx) according to a [careful polling methodology](https://www.gallup.com/224855/gallup-poll-work.aspx)
 
-Each day they telephone $n=1500$ adults and their sampling error for the approval ratings is about $4\%$
+- Each day they telephone $n=1500$ adults 
+- Their sampling error for the approval ratings is about $4\%$
 
-Let $Y \sim \Bern(\mu)$, a [Bernoulli]{.alert} (free throw shooting) distribution wth probability  of success $\mu$, 
+Let $Y \sim \Bern(\mu)$, a [Bernoulli]{.alert} (free throw shooting) distribution with probability of success $\mu$, 
 $$
 \Prob(Y =y) = \begin{cases} \mu, & y=1, \text{ (yes, approve)}\\
 1-\mu, & y = 0, \text{ (no, do not approve)}
 \end{cases}
 $$
+
+:::: {.columns}
+::: {.column width="70%"}
+
 If $Y_1, \ldots, Y_n \IIDsim \Bern(\mu)$, then
 \begin{align*}
-T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &:= \frac 1n (Y_1 + \cdots + Y_n)
-\appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
+T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \; \Prob(T = t) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
+\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \\
+& \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
 \end{align*}
+:::
+
+::: {.column width="27%"}
+
+![](/classlib/classlib/notebooks/figures/approval_rating/ybar_histogram_approval.png){fig-align="center" width="100%"}
+:::
+
+::::
 
 ## Approval ratings (cont'd)
 
 If $Y_1, \ldots, Y_n \IIDsim \Bern(\mu)$, then we can construct a [confidence interval]{.alert} that [captures]{.alert} the true approval rating with high probability:
-
-::: {.r-stack style="width:100%"}
-<div class="fragment fade-out" data-fragment-index="1"  style="width:100%; margin:0;"  markdown="1">
 \begin{align*}
 T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}} \\
-95\% & \approx \Prob\Bigl[\mu - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\barY} \le \mu + 1.96\sqrt{\mu(1-\mu)/n}\Bigr]
+\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
 \end{align*}
-</div>
 
-<div class="fragment current-visible" data-fragment-index="1" style="width:100%; margin:0;">
+:::: {.columns}
+
+::: {.column width="75%"}
+
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
 \begin{align*}
-T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}} \\
 95\% & \approx \Prob\Bigl[\mu - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\barY} \le \mu + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
 & = \Prob\Bigl[\barY - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
 & \approx \Prob\Bigl[\barY - 1.96\sqrt{\barY(1-\barY)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\barY(1-\barY)/n}\Bigr] \\
 & \le \Prob\Bigl[\barY - 1/\sqrt{n} \le \class{alert}{\mu} \le \barY + 1/\sqrt{n} \Bigr] \quad \text{since } \sqrt{\barY(1-\barY)} \le 1/2
 \end{align*}
-<span class="fragment" data-fragment-index="1">
-For $n = 1000$ we get $1/\sqrt{n} \approx 3\%$. <a class="button" style="margin-left:10em;" href="../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb" download>
+For $n = 1000$ we get $1/\sqrt{n} \approx 3\%$.
+<a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb" download>
 ⬇ Approval Rating Jupyter 📓
 </a>
-</span>
 </div>
+
 :::
 
+::: {.column width="23%"}
+
+<span class="fragment" data-fragment-index="1">
+<img src="/classlib/classlib/notebooks/figures/approval_rating/ci_failure_approval.png" style="width:100%; display:block; margin:0 auto;">
+</span>
+
+:::
+
+:::: 
+
+## Approval ratings (cont'd)
+
+- [Population]{.alert} is US adults
+- [Model]{.alert} 
+  - Bernoulli distribution
+  - Ignores demographic factors that might explain approvals
+- [Uncertainty]{.alert} of the estimate of the proportion, $\mu$
+  - Provided by a [confidence interval (CI)]{.alert}
+  - Facilitated by the [Central Limit Theorem]{.alert}
+  - This is the CI capturing $\mu$, _not_ probabiity of $\mu$ in the CI
+
+## Life expectancy vs gross domestic product (GDP) per capita {#life-gdp}
+
+Countries differ dramatically in both [life expectancy]{.alert} and
+[economic output]{.alert}. A classic dataset (World Bank / Gapminder) records, for each country,
+
+- Life $=$ Life expectancy at birth (years)
+- GDP $=$ Gross domestic product per capita (USD, purchasing-power adjusted)
+
+Each point represents **one country**, not one individual.  We are interested in the conditional behavior of life expectancy with given national income:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+$$
+\Ex(\text{Life} | \text{GDP} = x)
+$$
+:::
+
+::: {.column width="47%"}
+
+![](/classlib/classlib/notebooks/figures/health_wealth_gapminder/health_wealth_linear_scale.png){fig-align="center" width="100%"}
+:::
+
+::::
 
 
-# MATH 476 — Statistics 
+## Life expectancy vs GDP (cont'd)
 
-Welcome to **MATH 476**.
+The scatterplot of life expectancy versus GDP per capita reveals two important statistical features.
 
-\noindent This course introduces probability and statistics with an emphasis on
-modeling and data and not running over the margins.
+### Nonlinearity
+Increases in GDP have a [much larger effect]{.alert} on life expectancy at low
+income levels than at high income levels
 
-# Basic Probability Notation 
+### Heteroscedasticity
+Countries with low GDP exhibit [much greater variability]{.alert} in life
+expectancy
 
-- Sample space: $\Omega$
-- Event: $A \subseteq \Omega$
-- Probability of $A$: $\Prob(A)$
-- Complement: $A^{c}$
-- Conditional probability:
-  $$
-    \Prob(A \mid B) = \frac{\Prob(A \cap B)}{\Prob(B)}, \qquad \Prob(B) > 0
-  $$
-- Expectation $\Ex[Y]=$
+:::: {.columns}
+::: {.column width="65%"}
 
-[Key idea: probabilities are always between $0$ and $1$.]{.alert}
+Take logarithm to treat this
+$$
+\Ex(\text{Life}  \mid \text{GDP} = x) \approx \alpha + \beta \log(x)
+$$
 
+- $\beta$ measures years of life gained per [multiplicative]{.alert} increase in GDP
+- The log scale naturally reflects [diminishing returns]{.alert}
 
-## More probability
+<a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/health_wealth_gapminder_regression.ipynb" download>
+⬇ Health vs. Wealth 📓
+</a>
+:::
 
-You need to know expectation, mean, etc. with a h2 header
+::: {.column width="35%"}
 
-\begin{gather*}
-\var(Y) = \operatorname{var}(Y) \\
-\DeclareMathOperator{\var}{var}
-\var(Y) = \operatorname{var}(Y) \\
-\Ex[Y] = \Ex[f(X)], Y \in \reals \\
-\end{gather*}
-
-### Random variables
-
-an h3 header
-
-## {.headerless}
-
-and even more on this slide without the header
-
-# Example Slide With Alerts 
-
-- Plain text is dark gray.
-- [Alerted term]{.alert} stands out in blue.
-- You can also color math: [ $\Pr(A \mid B)$ ]{.alert}
+![](/classlib/classlib/notebooks/figures/health_wealth_gapminder/health_wealth_semilogx_scale.png){fig-align="center" width="100%"}
 
 
-# Python Test Slide 
+:::
 
-This slide verifies that Python runs inside your Quarto RevealJS slides.
+::::
 
-```{python}
-#| echo: true
-import numpy as np
-import matplotlib.pyplot as plt
 
-x = np.linspace(0, 4*np.pi, 400)
-y = np.sin(x)
+## Life expectancy vs GDP (cont'd)
 
-plt.plot(x, y)
-plt.title("Sine Wave Test")
-plt.show()
-```
+- [Population]{.alert} is all hypothetical countries
+- [Model]{.alert} 
+  - Linear regression 
+  - Incorporates transformation of the explanatory variable
+- [Uncertainty]{.alert}
+  - $R^2$ measures the proporation of variance in $Y$ captured by the model
+- [Intepretation]{.alert}
+  - This describes relationship, not cause and effect
+  - The variation in the residuals point to other explanatory factors that have been left out of the model
 
-## Code that does not show
-```{python}
-#| results: asis
-import numpy as np
-import matplotlib.pyplot as plt
-print(rf"$\pi = {np.pi}$")
-```
+## Numerical integration {#trapezoidal}
 
-# A small R example
+Computational mathematics seems distinct from statistics, but there is an overlap.
 
-```{r}
-#| echo: true
-#| warning: false
-#| message: false
+Suppose that $f$ is a random function defined in $[0,1]$, in particular, a [Gaussian process]{.alert}, i.e., $f \sim \GP(0,K)$.  This means that for any distinct $x_1, \ldots, x_n \in [0,1]$, the random vector of function values, $\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top$, has a [multivariate Gaussian distribution]{.alert} with 
 
-# Simulate data
-set.seed(123)
-x <- rnorm(100)
+- [Mean]{.alert} $\vmu = \Ex(\vf) = \vzero$
+- [Covariance matrix]{.alert} $\mSigma := \Ex(\vf \vf^\top) = \bigl(\Ex[f(x_i)f(x_j)]\bigr)_{i,j=1}^n  = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n =: \mK$
 
-# Basic summaries
-mean(x)
-sd(x)
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
+If this is the Bayesian prior belief about $f$, then the [Bayesian posterior]{.alert} mean of the function conditioned on the data $\vf = \vy$ is
+$$
+\Ex\bigl[f(x) \mid \vf  = \vy\bigr] = \vy^\top \mK^{-1} \vk(x) , \quad 
+\text{where } \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
+$$
 
-# Simple plot
-hist(x, col = "steelblue", main = "Histogram of x")
-```
+The Bayesian posterior mean integral of $f$ conditioned on the data is
 
-That’s it.
+$$
+\Ex\biggl[\int_0^1 f(x) \, \dif x \mid \vf  = \vy\biggr] = \vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x
+$$
+
+For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}
+</div>
+
+## Numerical integration (cont'd)
+
+- [Population]{.alert} all (continuous) functions
+- [Model]{.alert} 
+  - Stochastic processes
+  - Bayesian inference
+  - Often one would the parameters in $K$ from data
+- [Uncertainty]{.alert}
+  - You may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable $K$
+- [Intepretation]{.alert}
+  - Provides a statistical interpretation of computational mathematics

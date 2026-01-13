@@ -1,9 +1,0 @@
-# Dev-only metadata for Quarto preview
-# Uses local HickernellClassLib via dev symlink
-# DO NOT COMMIT
-
-format:
-  revealjs:
-    theme: simple
-    css:
-      - /Users/fredjhickernell/SoftwareRepositories/HickernellClassLib/classlib/quarto/slides/hickernell-slides.scss

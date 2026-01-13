@@ -1,9 +1,22 @@
 ---
-title: "Homework"
+title: "Assignments"
 ---
 
-Homework assignments will be posted here as the semester progresses.
+## Ground rules for assignments
 
-## Homework 1
+* Unless otherwise stated, you may work on assignments **individually** or in **pairs**, and your choice may change from one assignment to the next.  
+* For each assignment, I will create a **group set in Canvas**; you will sign up to form your group.  
+* **Only one person per group submits** the assignment in Canvas. The submission is automatically shared with all group members.  
+* Grades and feedback are shared with the whole group. By default, all members receive the **same grade**.  
+* Assignments are due by **11:59 PM** on the due date.  
+* Each submission must include **all relevant files**:
 
-To be announced.
+  1. A self-contained, working copy of any code used  
+     **AND**
+  2. A PDF version of item 1, including the output, plus any analytic work.  
+     (You may embed the analytic work as markdown in the code if you wish.)
+ 
+
+| Assignment     | Due Date
+|-------------------------------------|-----------|
+| Assignment 1 — Diagnostic survey (Canvas / Microsoft Forms) | January 16

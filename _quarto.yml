@@ -14,6 +14,7 @@ project:
     - classlib/classlib/notebooks/**
     - classlib/classlib/quarto/js/stats-questions.js
     - classlib/classlib/quarto/css/stats-questions.css
+    - classlib/classlib/notebooks/figures/**
 
 metadata:
   instructor_photo: classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg
@@ -27,18 +28,24 @@ website:
     left:
       - href: index.qmd
         text: Welcome
-      - href: pages/stats-qs.qmd
+      - href: classlib/classlib/quarto/pages/stats-qs.qmd
         text: Stats Qs
       - href: pages/schedule.qmd
         text: Schedule
       - href: pages/notebooks.qmd
         text: Notebooks
       - href: pages/homework.qmd
-        text: Homework
+        text: Assignments
       - href: pages/tests.qmd
         text: Tests
-      - href: pages/policies.qmd
-        text: Policies
+      - text: Resources
+        menu:
+          - href: classlib/classlib/quarto/pages/policies.qmd
+            text: Policies
+          - href: classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd
+            text: Accessing repo
+          - text: Interesting articles & links
+            href: classlib/classlib/quarto/pages/interesting-articles-links.qmd
     right:
       - text: Related
         menu:

@@ -2,7 +2,9 @@
 title: "Schedule"
 ---
 
+Classes are held in RE 102
+
 | Date   | Lecture | Topic                    | Slides                             |
 |--------|---------|-------------------------|------------------------------------|
-| Jan 13 | 1       | Intro & Course Overview | [Introduction](../slides/01-intro.html)  |
+| Jan 13 | 1       | Intro & Course Overview | [Introduction and Probability Review](../slides/01-intro.html)  |
 | Jan 15 | 2       | Review of Probability   |                                    |
