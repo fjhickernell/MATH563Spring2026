@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-01-12">
+  <meta name="dcterms.date" content="2026-01-13">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,72 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-03675596addc7ab2d016e0e2a9312774.css">
   <link rel="stylesheet" href="../classlib/classlib/quarto/slides/fontscale-28.css">
@@ -439,165 +373,218 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">January 12, 2026</p>
+  <p class="date">January 13, 2026</p>
 </section>
-<section>
 <section id="statistics" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Statistics</h1>
-
-</section>
-<h3 id="principled">Principled</h3>
+<div class="h3">
+Principled
+</div>
 <ul>
 <li>Clear assumptions</li>
 <li>Probability as a basis</li>
 <li>Efficient and accurate computation</li>
 </ul>
-<h3 id="inference-about-a-population">Inference about a population</h3>
+<div class="h3">
+Inference about a population
+</div>
 <ul>
-<li>Want to know parameters that describe a large number or individuals or the relationships among them</li>
+<li>Want to know parameters that describe a large number of individuals or the relationships among them</li>
 <li>Should provide a level of uncertainty</li>
 </ul>
-<h3 id="from-data">From Data</h3>
+<div class="h3">
+From Data
+</div>
 <ul>
 <li>Carefully sampled</li>
 <li>Observations, surveys, experiments, or computer simulations</li>
-</ul></section>
+</ul>
+<p>&nbsp;</p>
+<p>See <a href="../pages/stats-qs.html">Big Statistics Questions</a></p>
+</section>
+
 <section>
 <section id="examples" class="title-slide slide level1 center">
 <h1>Examples</h1>
+<p>Let’s look at</p>
 <ul>
-<li>Approval ratings</li>
-<li>Numerical integration (quadrature)</li>
+<li><a href="#/approval-ratings">Approval ratings</a></li>
+<li><a href="#/life-gdp">Life expectancy explained by gross domestic (GDP) product per capita</a></li>
+<li><a href="#/trapezoidal">Numerical integration (quadrature)</a></li>
 </ul>
 </section>
 <section id="approval-ratings" class="slide level2">
 <h2>Approval ratings</h2>
 <p>The Gallup Poll tracks the <a href="https://news.gallup.com/poll/203198/presidential-approval-ratings-donald-trump.aspx">approval ratings of US presidents</a> according to a <a href="https://www.gallup.com/224855/gallup-poll-work.aspx">careful polling methodology</a></p>
-<p>Each day they telephone <span class="math inline">\(n=1500\)</span> adults and their sampling error for the approval ratings is about <span class="math inline">\(4\%\)</span></p>
-<p>Let <span class="math inline">\(Y \sim \Bern(\mu)\)</span>, a <span class="alert">Bernoulli</span> (free throw shooting) distribution wth probability of success <span class="math inline">\(\mu\)</span>, <span class="math display">\[
+<ul>
+<li>Each day they telephone <span class="math inline">\(n=1500\)</span> adults</li>
+<li>Their sampling error for the approval ratings is about <span class="math inline">\(4\%\)</span></li>
+</ul>
+<p>Let <span class="math inline">\(Y \sim \Bern(\mu)\)</span>, a <span class="alert">Bernoulli</span> (free throw shooting) distribution with probability of success <span class="math inline">\(\mu\)</span>, <span class="math display">\[
 \Prob(Y =y) = \begin{cases} \mu, &amp; y=1, \text{ (yes, approve)}\\
 1-\mu, &amp; y = 0, \text{ (no, do not approve)}
 \end{cases}
-\]</span> If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then <span class="math display">\[\begin{align*}
-T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n)
-\appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then <span class="math display">\[\begin{align*}
+T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \; \Prob(T = t) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
+\barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \\
+&amp; \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
 \end{align*}\]</span></p>
+</div><div class="column" style="width:27%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../classlib/classlib/notebooks/figures/approval_rating/ybar_histogram_approval.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="approval-ratings-contd" class="slide level2">
 <h2>Approval ratings (cont’d)</h2>
-<p>If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then we can construct a <span class="alert">confidence interval</span> that <span class="alert">captures</span> the true approval rating with high probability:</p>
-<div class="r-stack" style="width:100%">
-<div class="fragment fade-out" data-fragment-index="1" style="width:100%; margin:0;" data-markdown="1">
-<p><span class="math display">\[\begin{align*}
+<p>If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then we can construct a <span class="alert">confidence interval</span> that <span class="alert">captures</span> the true approval rating with high probability: <span class="math display">\[\begin{align*}
 T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}} \\
-95\% &amp; \approx \Prob\Bigl[\mu - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\barY} \le \mu + 1.96\sqrt{\mu(1-\mu)/n}\Bigr]
+\barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
 \end{align*}\]</span></p>
-</div>
-<div class="fragment current-visible" data-fragment-index="1" style="width:100%; margin:0;">
+<div class="columns">
+<div class="column" style="width:75%;">
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" data-markdown="1">
 <p><span class="math display">\[\begin{align*}
-T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y} \mu^y (1-\mu)^{n-y}\\
-\barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}} \\
 95\% &amp; \approx \Prob\Bigl[\mu - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\barY} \le \mu + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
 &amp; = \Prob\Bigl[\barY - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
 &amp; \approx \Prob\Bigl[\barY - 1.96\sqrt{\barY(1-\barY)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\barY(1-\barY)/n}\Bigr] \\
 &amp; \le \Prob\Bigl[\barY - 1/\sqrt{n} \le \class{alert}{\mu} \le \barY + 1/\sqrt{n} \Bigr] \quad \text{since } \sqrt{\barY(1-\barY)} \le 1/2
-\end{align*}\]</span> <span class="fragment" data-fragment-index="1"> For <span class="math inline">\(n = 1000\)</span> we get <span class="math inline">\(1/\sqrt{n} \approx 3\%\)</span>. <a class="button" style="margin-left:10em;" href="../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb" download=""> ⬇ Approval Rating Jupyter 📓 </a> </span></p>
+\end{align*}\]</span> For <span class="math inline">\(n = 1000\)</span> we get <span class="math inline">\(1/\sqrt{n} \approx 3\%\)</span>. <a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb" download=""> ⬇ Approval Rating Jupyter 📓 </a></p>
 </div>
-</div>
-</section></section>
-<section id="math-476-statistics" class="title-slide slide level1 center">
-<h1>MATH 476 — Statistics</h1>
-<p>Welcome to <strong>MATH 476</strong>.</p>
-<p>This course introduces probability and statistics with an emphasis on modeling and data and not running over the margins.</p>
+</div><div class="column" style="width:23%;">
+<p><span class="fragment" data-fragment-index="1"> <img src="../classlib/classlib/notebooks/figures/approval_rating/ci_failure_approval.png" style="width:100%; display:block; margin:0 auto;"> </span></p>
+</div></div>
 </section>
-
-<section>
-<section id="basic-probability-notation" class="title-slide slide level1 center">
-<h1>Basic Probability Notation</h1>
+<section id="approval-ratings-contd-1" class="slide level2">
+<h2>Approval ratings (cont’d)</h2>
 <ul>
-<li>Sample space: <span class="math inline">\(\Omega\)</span></li>
-<li>Event: <span class="math inline">\(A \subseteq \Omega\)</span></li>
-<li>Probability of <span class="math inline">\(A\)</span>: <span class="math inline">\(\Prob(A)\)</span></li>
-<li>Complement: <span class="math inline">\(A^{c}\)</span></li>
-<li>Conditional probability: <span class="math display">\[
-  \Prob(A \mid B) = \frac{\Prob(A \cap B)}{\Prob(B)}, \qquad \Prob(B) &gt; 0
-\]</span></li>
-<li>Expectation <span class="math inline">\(\Ex[Y]=\)</span></li>
-</ul>
-<p><span class="alert">Key idea: probabilities are always between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</span></p>
-</section>
-<section id="more-probability" class="slide level2">
-<h2>More probability</h2>
-<p>You need to know expectation, mean, etc. with a h2 header</p>
-<p><span class="math display">\[\begin{gather*}
-\var(Y) = \operatorname{var}(Y) \\
-\DeclareMathOperator{\var}{var}
-\var(Y) = \operatorname{var}(Y) \\
-\Ex[Y] = \Ex[f(X)], Y \in \reals \\
-\end{gather*}\]</span></p>
-<h3 id="random-variables">Random variables</h3>
-<p>an h3 header</p>
-</section>
-<section id="section" class="slide level2 headerless">
-<h2></h2>
-<p>and even more on this slide without the header</p>
-</section></section>
-<section id="example-slide-with-alerts" class="title-slide slide level1 center">
-<h1>Example Slide With Alerts</h1>
+<li><span class="alert">Population</span> is US adults</li>
+<li><span class="alert">Model</span>
 <ul>
-<li>Plain text is dark gray.</li>
-<li><span class="alert">Alerted term</span> stands out in blue.</li>
-<li>You can also color math: <span class="alert"><span class="math inline">\(\Pr(A \mid B)\)</span></span></li>
+<li>Bernoulli distribution</li>
+<li>Ignores demographic factors that might explain approvals</li>
+</ul></li>
+<li><span class="alert">Uncertainty</span> of the estimate of the proportion, <span class="math inline">\(\mu\)</span>
+<ul>
+<li>Provided by a <span class="alert">confidence interval (CI)</span></li>
+<li>Facilitated by the <span class="alert">Central Limit Theorem</span></li>
+<li>This is the CI capturing <span class="math inline">\(\mu\)</span>, <em>not</em> probabiity of <span class="math inline">\(\mu\)</span> in the CI</li>
+</ul></li>
 </ul>
 </section>
-
-<section>
-<section id="python-test-slide" class="title-slide slide level1 center">
-<h1>Python Test Slide</h1>
-<p>This slide verifies that Python runs inside your Quarto RevealJS slides.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">4</span><span class="op">*</span>np.pi, <span class="dv">400</span>)</span>
-<span id="cb1-5"><a></a>y <span class="op">=</span> np.sin(x)</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a>plt.plot(x, y)</span>
-<span id="cb1-8"><a></a>plt.title(<span class="st">"Sine Wave Test"</span>)</span>
-<span id="cb1-9"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
+<section id="life-gdp" class="slide level2">
+<h2>Life expectancy vs gross domestic product (GDP) per capita</h2>
+<p>Countries differ dramatically in both <span class="alert">life expectancy</span> and <span class="alert">economic output</span>. A classic dataset (World Bank / Gapminder) records, for each country,</p>
+<ul>
+<li>Life <span class="math inline">\(=\)</span> Life expectancy at birth (years)</li>
+<li>GDP <span class="math inline">\(=\)</span> Gross domestic product per capita (USD, purchasing-power adjusted)</li>
+</ul>
+<p>Each point represents <strong>one country</strong>, not one individual. We are interested in the conditional behavior of life expectancy with given national income:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\Ex(\text{Life} | \text{GDP} = x)
+\]</span></p>
+</div><div class="column" style="width:47%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../classlib/classlib/notebooks/figures/health_wealth_gapminder/health_wealth_linear_scale.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
 </div>
-<img data-src="01-intro_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="code-that-does-not-show" class="slide level2">
-<h2>Code that does not show</h2>
-<p><span class="math inline">\(\pi = 3.141592653589793\)</span></p>
-</section></section>
-<section id="a-small-r-example" class="title-slide slide level1 center">
-<h1>A small R example</h1>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Simulate data</span></span>
-<span id="cb2-2"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># Basic summaries</span></span>
-<span id="cb2-6"><a></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09040591</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9128159</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Simple plot</span></span>
-<span id="cb6-2"><a></a><span class="fu">hist</span>(x, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">main =</span> <span class="st">"Histogram of x"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
-</div>
-<img data-src="01-intro_files/figure-revealjs/unnamed-chunk-3-3.png" width="960" class="r-stretch"><p>That’s it.</p>
-
-
+</div></div>
 </section>
+<section id="life-expectancy-vs-gdp-contd" class="slide level2">
+<h2>Life expectancy vs GDP (cont’d)</h2>
+<p>The scatterplot of life expectancy versus GDP per capita reveals two important statistical features.</p>
+<h3 id="nonlinearity">Nonlinearity</h3>
+<p>Increases in GDP have a <span class="alert">much larger effect</span> on life expectancy at low income levels than at high income levels</p>
+<h3 id="heteroscedasticity">Heteroscedasticity</h3>
+<p>Countries with low GDP exhibit <span class="alert">much greater variability</span> in life expectancy</p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Take logarithm to treat this <span class="math display">\[
+\Ex(\text{Life}  \mid \text{GDP} = x) \approx \alpha + \beta \log(x)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta\)</span> measures years of life gained per <span class="alert">multiplicative</span> increase in GDP</li>
+<li>The log scale naturally reflects <span class="alert">diminishing returns</span></li>
+</ul>
+<p><a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/health_wealth_gapminder_regression.ipynb" download=""> ⬇ Health vs.&nbsp;Wealth 📓 </a></p>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../classlib/classlib/notebooks/figures/health_wealth_gapminder/health_wealth_semilogx_scale.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="life-expectancy-vs-gdp-contd-1" class="slide level2">
+<h2>Life expectancy vs GDP (cont’d)</h2>
+<ul>
+<li><span class="alert">Population</span> is all hypothetical countries</li>
+<li><span class="alert">Model</span>
+<ul>
+<li>Linear regression</li>
+<li>Incorporates transformation of the explanatory variable</li>
+</ul></li>
+<li><span class="alert">Uncertainty</span>
+<ul>
+<li><span class="math inline">\(R^2\)</span> measures the proporation of variance in <span class="math inline">\(Y\)</span> captured by the model</li>
+</ul></li>
+<li><span class="alert">Intepretation</span>
+<ul>
+<li>This describes relationship, not cause and effect</li>
+<li>The variation in the residuals point to other explanatory factors that have been left out of the model</li>
+</ul></li>
+</ul>
+</section>
+<section id="trapezoidal" class="slide level2">
+<h2>Numerical integration</h2>
+<p>Computational mathematics seems distinct from statistics, but there is an overlap.</p>
+<p>Suppose that <span class="math inline">\(f\)</span> is a random function defined in <span class="math inline">\([0,1]\)</span>, in particular, a <span class="alert">Gaussian process</span>, i.e., <span class="math inline">\(f \sim \GP(0,K)\)</span>. This means that for any distinct <span class="math inline">\(x_1, \ldots, x_n \in [0,1]\)</span>, the random vector of function values, <span class="math inline">\(\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top\)</span>, has a <span class="alert">multivariate Gaussian distribution</span> with</p>
+<ul>
+<li><span class="alert">Mean</span> <span class="math inline">\(\vmu = \Ex(\vf) = \vzero\)</span></li>
+<li><span class="alert">Covariance matrix</span> <span class="math inline">\(\mSigma := \Ex(\vf \vf^\top) = \bigl(\Ex[f(x_i)f(x_j)]\bigr)_{i,j=1}^n  = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n =: \mK\)</span></li>
+</ul>
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" data-markdown="1">
+<p>If this is the Bayesian prior belief about <span class="math inline">\(f\)</span>, then the <span class="alert">Bayesian posterior</span> mean of the function conditioned on the data <span class="math inline">\(\vf = \vy\)</span> is <span class="math display">\[
+\Ex\bigl[f(x) \mid \vf  = \vy\bigr] = \vy^\top \mK^{-1} \vk(x) , \quad
+\text{where } \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
+\]</span></p>
+<p>The Bayesian posterior mean integral of <span class="math inline">\(f\)</span> conditioned on the data is</p>
+<p><span class="math display">\[
+\Ex\biggl[\int_0^1 f(x) \, \dif x \mid \vf  = \vy\biggr] = \vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x
+\]</span></p>
+<p>For <span class="math inline">\(K(t,x) = 2 - \lvert t - x\rvert\)</span> this is the <span class="alert">trapezoidal rule</span></p>
+</div>
+</section>
+<section id="numerical-integration-contd" class="slide level2">
+<h2>Numerical integration (cont’d)</h2>
+<ul>
+<li><span class="alert">Population</span> all (continuous) functions</li>
+<li><span class="alert">Model</span>
+<ul>
+<li>Stochastic processes</li>
+<li>Bayesian inference</li>
+<li>Often one would the parameters in <span class="math inline">\(K\)</span> from data</li>
+</ul></li>
+<li><span class="alert">Uncertainty</span>
+<ul>
+<li>You may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable <span class="math inline">\(K\)</span></li>
+</ul></li>
+<li><span class="alert">Intepretation</span>
+<ul>
+<li>Provides a statistical interpretation of computational mathematics</li>
+</ul></li>
+</ul>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -813,44 +800,6 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{y}
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
