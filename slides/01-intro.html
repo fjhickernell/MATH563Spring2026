@@ -640,6 +640,10 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
 <li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p></li>
 <li><p><span class="alert">Correlation</span> <span class="math inline">\(\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}\)</span></p></li>
+<li><p>Independence <em>implies</em> zero correlation, but zero correlation <em>does not imply</em> independence</p>
+<ul>
+<li>E.g., <span class="math inline">\(X = \cos(2 \pi T)\)</span>, <span class="math inline">\(Y = \sin(2 \pi T)\)</span>, <span class="math inline">\(T \sim \Unif[0,1]\)</span></li>
+</ul></li>
 </ul>
 </section>
 <section id="important-distributions" class="slide level2">

@@ -74,7 +74,7 @@
     "href": "slides/01-intro.html#key-probability-concepts-contd-1",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\n\\((X,Y)\\) are independent iff \\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\\) or equivalently \\(\\varrho_{X,Y}(x,y) = \\varrho_X(x) \\varrho_Y(y)\\)\nCovariance \\(\\cov(X,Y) : = \\Ex[(X- \\mu_X)(Y - \\mu_Y)]\\)\nCorrelation \\(\\displaystyle \\corr(X,Y) : = \\frac{\\cov(X,Y)}{\\std(X) \\std(Y)}\\)"
+    "text": "Key probability concepts (cont’d)\n\n\\((X,Y)\\) are independent iff \\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\\) or equivalently \\(\\varrho_{X,Y}(x,y) = \\varrho_X(x) \\varrho_Y(y)\\)\nCovariance \\(\\cov(X,Y) : = \\Ex[(X- \\mu_X)(Y - \\mu_Y)]\\)\nCorrelation \\(\\displaystyle \\corr(X,Y) : = \\frac{\\cov(X,Y)}{\\std(X) \\std(Y)}\\)\nIndependence implies zero correlation, but zero correlation does not imply independence\n\nE.g., \\(X = \\cos(2 \\pi T)\\), \\(Y = \\sin(2 \\pi T)\\), \\(T \\sim \\Unif[0,1]\\)"
   },
   {
     "objectID": "slides/01-intro.html#important-distributions",
