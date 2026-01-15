@@ -286,6 +286,9 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 
 - [Correlation]{.alert} $\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}$
 
+- Independence _implies_ zero correlation, but zero correlation _does not imply_ independence
+  - E.g., $X = \cos(2 \pi T)$, $Y = \sin(2 \pi T)$, $T \sim \Unif[0,1]$
+
 
 ## Important distributions
 
