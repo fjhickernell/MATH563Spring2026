@@ -232,3 +232,60 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
   - You may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable $K$
 - [Intepretation]{.alert}
   - Provides a statistical interpretation of computational mathematics
+
+
+# Probability Review
+
+- [Key concepts](#prob-concepts)
+- [Important Distributions](#prob-distrib)
+- [Conditional probability](#conditional-prob)
+
+## Key probability concepts{#prob-concepts}
+
+- [Outcome]{.alert} — single possible result of a random process, e.g., yes, $0.5$, $(1,-2)$
+
+- [Sample space]{.alert} – set of all possible outcomes, e.g., $\{\text{yes}, \text{no} \}$, $\reals$
+
+- [Event]{.alert} – set of outcomes (subset of the sample space), e.g., $[0,\infty)$
+
+- [Event space]{.alert} – collection of all possible events 
+
+- [Probability]{.alert} – function  $\Prob:\text{event space}\to[0,1]$ satisfying
+  - $0 \le \Prob(\text{event}) \le 1$
+  - $\mathbb{P}(\text{sample space})=1$
+  - If $A \cap B=\varnothing$, then $\Prob(A\cup B)=\Prob(A)+\Prob(B)$
+
+
+## Key probability concepts (cont'd)
+
+- [Random variable/vector/function]{.alert} — mathematical quantity representing an outcome
+
+- [Cumulative distribution function (CDF)]{.alert} $F$ of random variable $X$ 
+  -  $F(x) : =  \Prob(X \le x)$
+
+- [Probability mass function (PMF)]{.alert} $\varrho$ of discrete random variable $X$ 
+  - $\varrho(x):= \Prob(X = x)$
+
+- [Probability density function (PMF)]{.alert} $\varrho$ of continuous random variable $X$ 
+  - $\varrho(x):= F'(x)$
+
+- [Expectation]{.alert} — average value of a random variable, weighted by its probability
+  - $\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)$  for discrete random variablees
+  - $\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x$  for continuous random variablees
+
+- [Mean]{.alert} of $X$ is $\mu : = \Ex(X)$
+
+- [Variance]{.alert} of $X$ is $\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2$
+
+
+## Important distributions
+
+- [Binomial]{.alert} (free-throw shooting) $\Bin(n,p)$
+$$
+\varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \qquad \Ex(X) = np, \quad \var(X) = np(1-p)
+$$
+
+- [Exponential]{.alert} (taxi waiting) $\Exp(\lambda)$
+$$
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \qquad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+$$
