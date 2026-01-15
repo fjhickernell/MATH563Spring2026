@@ -628,16 +628,27 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x\)</span> for continuous random variablees</li>
 </ul></li>
 <li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X)\)</span></p></li>
-<li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2\)</span></p></li>
+<li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2\)</span></p>
+<ul>
+<li><span class="alert">Standard deviation</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\std(X) := \sigma = \sqrt{\var(X)}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="key-probability-concepts-contd-1" class="slide level2">
+<h2>Key probability concepts (cont’d)</h2>
+<ul>
+<li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
+<li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p></li>
+<li><p><span class="alert">Correlation</span> <span class="math inline">\(\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}\)</span></p></li>
 </ul>
 </section>
 <section id="important-distributions" class="slide level2">
 <h2>Important distributions</h2>
 <ul>
-<li><p><span class="alert">Binomial</span> (free-throw shooting) <span class="math inline">\(\Bin(n,p)\)</span> <span class="math display">\[
+<li><p><span class="alert">Binomial</span> (free-throw shooting, discrete) <span class="math inline">\(\Bin(n,p)\)</span> <span class="math display">\[
 \varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \qquad \Ex(X) = np, \quad \var(X) = np(1-p)
 \]</span></p></li>
-<li><p><span class="alert">Exponential</span> (taxi waiting) <span class="math inline">\(\Exp(\lambda)\)</span> <span class="math display">\[
+<li><p><span class="alert">Exponential</span> (taxi waiting, continuous) <span class="math inline">\(\Exp(\lambda)\)</span> <span class="math display">\[
 F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \qquad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 \]</span></p></li>
 </ul>
