@@ -581,6 +581,66 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li>Provides a statistical interpretation of computational mathematics</li>
 </ul></li>
 </ul>
+</section></section>
+<section>
+<section id="probability-review" class="title-slide slide level1 center">
+<h1>Probability Review</h1>
+<ul>
+<li><a href="#/prob-concepts">Key concepts</a></li>
+<li><a href="#/prob-distrib">Important Distributions</a></li>
+<li><a href="#/conditional-prob">Conditional probability</a></li>
+</ul>
+</section>
+<section id="prob-concepts" class="slide level2">
+<h2>Key probability concepts</h2>
+<ul>
+<li><p><span class="alert">Outcome</span> — single possible result of a random process, e.g., yes, <span class="math inline">\(0.5\)</span>, <span class="math inline">\((1,-2)\)</span></p></li>
+<li><p><span class="alert">Sample space</span> – set of all possible outcomes, e.g., <span class="math inline">\(\{\text{yes}, \text{no} \}\)</span>, <span class="math inline">\(\reals\)</span></p></li>
+<li><p><span class="alert">Event</span> – set of outcomes (subset of the sample space), e.g., <span class="math inline">\([0,\infty)\)</span></p></li>
+<li><p><span class="alert">Event space</span> – collection of all possible events</p></li>
+<li><p><span class="alert">Probability</span> – function <span class="math inline">\(\Prob:\text{event space}\to[0,1]\)</span> satisfying</p>
+<ul>
+<li><span class="math inline">\(0 \le \Prob(\text{event}) \le 1\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(\text{sample space})=1\)</span></li>
+<li>If <span class="math inline">\(A \cap B=\varnothing\)</span>, then <span class="math inline">\(\Prob(A\cup B)=\Prob(A)+\Prob(B)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="key-probability-concepts-contd" class="slide level2">
+<h2>Key probability concepts (cont’d)</h2>
+<ul>
+<li><p><span class="alert">Random variable/vector/function</span> — mathematical quantity representing an outcome</p></li>
+<li><p><span class="alert">Cumulative distribution function (CDF)</span> <span class="math inline">\(F\)</span> of random variable <span class="math inline">\(X\)</span></p>
+<ul>
+<li><span class="math inline">\(F(x) : =  \Prob(X \le x)\)</span></li>
+</ul></li>
+<li><p><span class="alert">Probability mass function (PMF)</span> <span class="math inline">\(\varrho\)</span> of discrete random variable <span class="math inline">\(X\)</span></p>
+<ul>
+<li><span class="math inline">\(\varrho(x):= \Prob(X = x)\)</span></li>
+</ul></li>
+<li><p><span class="alert">Probability density function (PMF)</span> <span class="math inline">\(\varrho\)</span> of continuous random variable <span class="math inline">\(X\)</span></p>
+<ul>
+<li><span class="math inline">\(\varrho(x):= F'(x)\)</span></li>
+</ul></li>
+<li><p><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability</p>
+<ul>
+<li><span class="math inline">\(\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)\)</span> for discrete random variablees</li>
+<li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x\)</span> for continuous random variablees</li>
+</ul></li>
+<li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X)\)</span></p></li>
+<li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2\)</span></p></li>
+</ul>
+</section>
+<section id="important-distributions" class="slide level2">
+<h2>Important distributions</h2>
+<ul>
+<li><p><span class="alert">Binomial</span> (free-throw shooting) <span class="math inline">\(\Bin(n,p)\)</span> <span class="math display">\[
+\varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \qquad \Ex(X) = np, \quad \var(X) = np(1-p)
+\]</span></p></li>
+<li><p><span class="alert">Exponential</span> (taxi waiting) <span class="math inline">\(\Exp(\lambda)\)</span> <span class="math display">\[
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \qquad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+\]</span></p></li>
+</ul>
 
 
 </section></section>

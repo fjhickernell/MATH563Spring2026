@@ -56,6 +56,27 @@
     "text": "Numerical integration (cont’d)\n\nPopulation all (continuous) functions\nModel\n\nStochastic processes\nBayesian inference\nOften one would the parameters in \\(K\\) from data\n\nUncertainty\n\nYou may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable \\(K\\)\n\nIntepretation\n\nProvides a statistical interpretation of computational mathematics"
   },
   {
+    "objectID": "slides/01-intro.html#prob-concepts",
+    "href": "slides/01-intro.html#prob-concepts",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Key probability concepts",
+    "text": "Key probability concepts\n\nOutcome — single possible result of a random process, e.g., yes, \\(0.5\\), \\((1,-2)\\)\nSample space – set of all possible outcomes, e.g., \\(\\{\\text{yes}, \\text{no} \\}\\), \\(\\reals\\)\nEvent – set of outcomes (subset of the sample space), e.g., \\([0,\\infty)\\)\nEvent space – collection of all possible events\nProbability – function \\(\\Prob:\\text{event space}\\to[0,1]\\) satisfying\n\n\\(0 \\le \\Prob(\\text{event}) \\le 1\\)\n\\(\\mathbb{P}(\\text{sample space})=1\\)\nIf \\(A \\cap B=\\varnothing\\), then \\(\\Prob(A\\cup B)=\\Prob(A)+\\Prob(B)\\)"
+  },
+  {
+    "objectID": "slides/01-intro.html#key-probability-concepts-contd",
+    "href": "slides/01-intro.html#key-probability-concepts-contd",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Key probability concepts (cont’d)",
+    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PMF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)\n\nExpectation — average value of a random variable, weighted by its probability\n\n\\(\\displaystyle \\Ex[f(X)] : = \\sum_{x} f(x) \\varrho(x)\\) for discrete random variablees\n\\(\\displaystyle \\Ex[f(X)] : =  \\int f(x) \\varrho(x) \\; \\dif x\\) for continuous random variablees\n\nMean of \\(X\\) is \\(\\mu : = \\Ex(X)\\)\nVariance of \\(X\\) is \\(\\sigma^2 : = \\var(X) := \\Ex[(X - \\mu)^2] = E(X^2) - \\mu^2\\)"
+  },
+  {
+    "objectID": "slides/01-intro.html#important-distributions",
+    "href": "slides/01-intro.html#important-distributions",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Important distributions",
+    "text": "Important distributions\n\nBinomial (free-throw shooting) \\(\\Bin(n,p)\\) \\[\n\\varrho(x) : = \\Prob(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\ x =0, \\ldots, n; \\qquad \\Ex(X) = np, \\quad \\var(X) = np(1-p)\n\\]\nExponential (taxi waiting) \\(\\Exp(\\lambda)\\) \\[\nF(x): = 1 - \\exp(-\\lambda x),\\ \\varrho(x) : = \\exp(-\\lambda x), \\ x \\ge 0; \\qquad \\Ex(X) = 1/\\lambda, \\quad \\var(X) = 1/\\lambda^2\n\\]"
+  },
+  {
     "objectID": "pages/schedule.html",
     "href": "pages/schedule.html",
     "title": "Schedule",
