@@ -77,8 +77,8 @@
     "text": "Key probability concepts (cont’d)\n\n\\((X,Y)\\) are independent iff \\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\\) or equivalently \\(\\varrho_{X,Y}(x,y) = \\varrho_X(x) \\varrho_Y(y)\\)\nCovariance \\(\\cov(X,Y) : = \\Ex[(X- \\mu_X)(Y - \\mu_Y)]\\)\nCorrelation \\(\\displaystyle \\corr(X,Y) : = \\frac{\\cov(X,Y)}{\\std(X) \\std(Y)}\\)\nIndependence implies zero correlation, but zero correlation does not imply independence\n\n\nE.g., \\(X = \\cos(2 \\pi T)\\), \\(Y = \\sin(2 \\pi T)\\), \\(T \\sim \\Unif[0,1]\\) \\[\\begin{align*}\nF_X(x) & = \\Prob(X \\le x) = \\Prob[\\cos(2 \\pi T) \\le x] \\\\\n& = 2\\Prob[\\cos^{-1}(x)/(2\\pi) \\le T \\le 1/2] \\quad \\text{since $\\cos^{-1}$ is a decreasing function} \\\\\n& = 2[1/2 - \\cos^{-1}(x)/(2\\pi)]\\quad \\text{since $T$ is uniform}\\\\\n&  = 1 - \\cos^{-1}(x)/\\pi = F_Y(x) \\quad \\text{by symmetry} \\\\\n\\varrho_X(x) & = F' _X(x) = \\frac{1}{\\pi\\sqrt{1 - x^2}} \\\\\n\\text{BUT }\nF_{X,Y}(-0.8,- 0.8) &= 0 \\ne [1 - \\cos^{-1}(x)/\\pi ]^2 = F_X(0.8) F_Y(0.8)\n\\end{align*}\\]"
   },
   {
-    "objectID": "slides/01-intro.html#important-distributions",
-    "href": "slides/01-intro.html#important-distributions",
+    "objectID": "slides/01-intro.html#prob-distrib",
+    "href": "slides/01-intro.html#prob-distrib",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Important distributions",
     "text": "Important distributions\n\nBinomial (free-throw shooting, discrete) \\(\\Bin(n,p)\\) \\[\n\\varrho(x) : = \\Prob(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\ x =0, \\ldots, n; \\quad \\Ex(X) = np, \\quad \\var(X) = np(1-p)\n\\]\nExponential (taxi waiting, continuous) \\(\\Exp(\\lambda)\\) \\[\nF(x): = 1 - \\exp(-\\lambda x),\\ \\varrho(x) : = \\exp(-\\lambda x), \\ x \\ge 0; \\quad \\Ex(X) = 1/\\lambda, \\quad \\var(X) = 1/\\lambda^2\n\\]\nNormal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\mu, \\sigma^2)\\) \\[\n\\varrho(x): = \\frac{\\exp\\bigl(-(x-\\mu)^2/(2\\sigma^2)\\bigr)}{\\sqrt{2 \\pi} \\sigma}, \\ x \\in \\reals;\\quad \\Ex(X) = \\mu, \\quad \\var(X) = \\sigma^2\n\\]\nMultivariate Normal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\vmu, \\mSigma)\\) \\[\n\\varrho(\\vx): = \\frac{\\exp\\bigl(-(\\vx-\\vmu)^\\top \\mSigma^{-1} (\\vx-\\vmu) /2\\bigr)}{\\sqrt{(2 \\pi)^{d} \\det(\\mSigma)}};\\quad \\Ex(\\vX) = \\vmu, \\quad \\cov(\\vX) = \\mSigma\n\\]"
@@ -98,15 +98,15 @@
     "text": "A mixed random variable"
   },
   {
-    "objectID": "slides/01-intro.html#conditional-probability",
-    "href": "slides/01-intro.html#conditional-probability",
+    "objectID": "slides/01-intro.html#conditional-prob",
+    "href": "slides/01-intro.html#conditional-prob",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Conditional probability",
     "text": "Conditional probability"
   },
   {
-    "objectID": "slides/01-intro.html#central-limit-theorem",
-    "href": "slides/01-intro.html#central-limit-theorem",
+    "objectID": "slides/01-intro.html#clt",
+    "href": "slides/01-intro.html#clt",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem"
