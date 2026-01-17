@@ -237,8 +237,9 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 # Probability Review
 
 - [Key concepts](#prob-concepts)
-- [Important Distributions](#prob-distrib)
+- [Important distributions](#prob-distrib)
 - [Conditional probability](#conditional-prob)
+- [Central Limit Theorem](#clt)
 
 ## Key probability concepts{#prob-concepts}
 
@@ -300,7 +301,7 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
   \end{align*}
 </div>
 
-## Important distributions
+## Important distributions{#prob-distrib}
 
 - [Binomial]{.alert} (free-throw shooting, discrete) $\Bin(n,p)$
 $$
@@ -347,6 +348,6 @@ $$
 
 ## A mixed random variable
 
-## Conditional probability
+## Conditional probability{#conditional-prob}
 
-## Central Limit Theorem
+## Central Limit Theorem{#clt}
