@@ -287,8 +287,18 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 - [Correlation]{.alert} $\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}$
 
 - Independence _implies_ zero correlation, but zero correlation _does not imply_ independence
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
   - E.g., $X = \cos(2 \pi T)$, $Y = \sin(2 \pi T)$, $T \sim \Unif[0,1]$
-
+  \begin{align*}
+  F_X(x) & = \Prob(X \le x) = \Prob[\cos(2 \pi T) \le x] \\
+  & = 2\Prob[\cos^{-1}(x)/(2\pi) \le T \le 1/2] \quad \text{since $\cos^{-1}$ is a decreasing function} \\
+  & = 2[1/2 - \cos^{-1}(x)/(2\pi)]\quad \text{since $T$ is uniform}\\
+  &  = 1 - \cos^{-1}(x)/\pi = F_Y(x) \quad \text{by symmetry} \\
+  \varrho_X(x) & = F' _X(x) = \frac{1}{\pi\sqrt{1 - x^2}} \\
+  \text{BUT } 
+  F_{X,Y}(-0.8,- 0.8) &= 0 \ne [1 - \cos^{-1}(x)/\pi ]^2 = F_X(0.8) F_Y(0.8)
+  \end{align*}
+</div>
 
 ## Important distributions
 
@@ -301,3 +311,42 @@ $$
 $$
 F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 $$
+
+- [Normal (Gaussian)]{.alert} (limiting distribution, continuous) $\Norm(\mu, \sigma^2)$
+$$
+\varrho(x): = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma}, \ x \in \reals;\quad \Ex(X) = \mu, \quad \var(X) = \sigma^2
+$$
+
+- [Multivariate Normal (Gaussian)]{.alert} (limiting distribution, continuous) $\Norm(\vmu, \mSigma)$
+$$
+\varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}};\quad \Ex(\vX) = \vmu, \quad \cov(\vX) = \mSigma
+$$
+
+## Exponential families of distributions
+
+If a PMF or PDF can be expressed as
+$$
+\varrho(x\mid \vtheta) = h(x) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr)
+$$
+Then this is called an [exponential family]{.alert}. E.g., 
+
+
+- [Binomial]{.alert} for fixed $n$: $\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)$
+
+- [Exponential]{.alert}: $\quad \varrho(x) = \exp(-\lambda x), \quad x \ge 0$
+
+- [Normal (Gaussian)]{.alert}:
+$\quad \displaystyle \varrho(x) = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} = \frac{\exp\bigl(-\mu^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} \, \exp\biggl(-\frac{x^2}{2 \sigma^2} + \frac{ \mu x }{\sigma^2}\biggr)$
+
+- [Multivariate Normal (Gaussian)]{.alert}: 
+$$
+\varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}}= 
+\frac{\exp(-\vmu^ \top\mSigma^{-1} \vmu/2 )}{\sqrt{(2 \pi)^{d} \det(\mSigma)}}
+ \, \exp\biggl(-\frac{\vx^\top \mSigma^{-1} \vx}{2} + \vmu^\top \mSigma^{-1} \vx \biggr)
+$$
+
+## A mixed random variable
+
+## Conditional probability
+
+## Central Limit Theorem
