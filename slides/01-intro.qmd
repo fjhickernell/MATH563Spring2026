@@ -326,9 +326,9 @@ $$
 
 If a PMF or PDF can be expressed as
 $$
-\varrho(x\mid \vtheta) = h(x) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr)
+\varrho(x\mid \vtheta) = h(x) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr) \quad -\infty < x < \infty,
 $$
-Then this is called an [exponential family]{.alert}. E.g., 
+then this is called an [exponential family]{.alert}. E.g., 
 
 
 - [Binomial]{.alert} for fixed $n$: $\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)$
