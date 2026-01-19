@@ -20,4 +20,4 @@ title: "Assignments"
 | Assignment     | Due Date
 |-------------------------------------|-----------|
 | Assignment 1 — Diagnostic survey (Canvas / Microsoft Forms) | January 16
-| Assignment 2 — Casella & Berger 3.9, 3.28d, 4.26, 5.8 | January 30
+| Assignment 2 — Casella & Berger 3.9, 3.28d, 4.26, 5.8, <br> Find and submit a screenshot, photo or pdf of a statistical claim that you find somewhere in public. Write a paragraph describing what questions you might have about the origin or interpretation of this statistical claim | January 30
