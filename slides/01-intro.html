@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-01-18">
+  <meta name="dcterms.date" content="2026-01-19">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -391,7 +391,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">January 18, 2026</p>
+  <p class="date">January 19, 2026</p>
 </section>
 <section id="statistics" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Statistics</h1>
@@ -696,11 +696,11 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 <section id="exponential-families-of-distributions" class="slide level2">
 <h2>Exponential families of distributions</h2>
 <p>If a PMF or PDF can be expressed as <span class="math display">\[
-\varrho(x\mid \vtheta) = h(x) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr) \quad -\infty &lt; x &lt; \infty,
+\varrho(\vx\mid \vtheta) = h(\vx) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
 \]</span> then this is called an <span class="alert">exponential family</span>. E.g.,</p>
 <ul>
-<li><p><span class="alert">Binomial</span> for fixed <span class="math inline">\(n\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
-<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \exp(-\lambda x), \quad x \ge 0\)</span></p></li>
+<li><p><span class="alert">Binomial</span> for <em>fixed</em> <span class="math inline">\(n\)</span> and <span class="math inline">\(0 &lt; p &lt; 1\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \bbone(x \in \{0, \ldots, n\}) \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
+<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \bbone(x \ge 0) \exp(-\lambda x)\)</span></p></li>
 <li><p><span class="alert">Normal (Gaussian)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} = \frac{\exp\bigl(-\mu^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} \, \exp\biggl(-\frac{x^2}{2 \sigma^2} + \frac{ \mu x }{\sigma^2}\biggr)\)</span></p></li>
 <li><p><span class="alert">Multivariate Normal (Gaussian)</span>: <span class="math display">\[
 \varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}}=
@@ -711,6 +711,17 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 </section>
 <section id="a-mixed-random-variable" class="slide level2">
 <h2>A mixed random variable</h2>
+<p>Discrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are <span class="alert">mixed</span>.</p>
+<p><span class="alert">Zero-inflated exponential distribution</span> — There is a taxi waiting for you with probabilit <span class="math inline">\(p\)</span>, but if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <span class="math display">\[
+\begin{align*}
+F(x) &amp;= \begin{cases}
+0, &amp;-\infty &lt; x &lt; 0 \\
+1- (1-p)\exp(-\lambda x),  &amp; 0 \le x &lt; \infty
+\end{cases}
+\\
+\mu &amp; = \Ex[X] = \int_{-\infty}^{\infty} x \dif F(x) \quad [\text{Lebesgue-Stieltjes intgral}]{.alert}
+\end{align*}
+\]</span></p>
 </section>
 <section id="conditional-prob" class="slide level2">
 <h2>Conditional probability</h2>
