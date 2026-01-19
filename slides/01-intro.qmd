@@ -327,14 +327,14 @@ $$
 
 If a PMF or PDF can be expressed as
 $$
-\varrho(x\mid \vtheta) = h(x) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr) \quad -\infty < x < \infty,
+\varrho(\vx\mid \vtheta) = h(\vx) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
 $$
 then this is called an [exponential family]{.alert}. E.g., 
 
 
-- [Binomial]{.alert} for fixed $n$: $\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)$
+- [Binomial]{.alert} for _fixed_ $n$ and $0 < p < 1$: $\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \bbone(x \in \{0, \ldots, n\}) \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)$
 
-- [Exponential]{.alert}: $\quad \varrho(x) = \exp(-\lambda x), \quad x \ge 0$
+- [Exponential]{.alert}: $\quad \varrho(x) = \bbone(x \ge 0) \exp(-\lambda x)$
 
 - [Normal (Gaussian)]{.alert}:
 $\quad \displaystyle \varrho(x) = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} = \frac{\exp\bigl(-\mu^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} \, \exp\biggl(-\frac{x^2}{2 \sigma^2} + \frac{ \mu x }{\sigma^2}\biggr)$
@@ -347,6 +347,20 @@ $$
 $$
 
 ## A mixed random variable
+
+Discrete random variables have a PMF.  Continuous random variables have a PDF.  Some random variables are [mixed]{.alert}.
+
+[Zero-inflated exponential distribution]{.alert} — There is a taxi waiting for you with probabilit $p$, but if there is none, then you have to wait time $1/\lambda$ on average
+$$
+\begin{align*}
+F(x) &= \begin{cases} 
+0, &-\infty < x < 0 \\
+1- (1-p)\exp(-\lambda x),  & 0 \le x < \infty
+\end{cases}
+\\
+\mu & = \Ex[X] = \int_{-\infty}^{\infty} x \dif F(x) \quad [\text{Lebesgue-Stieltjes intgral}]{.alert}
+\end{align*}
+$$
 
 ## Conditional probability{#conditional-prob}
 
