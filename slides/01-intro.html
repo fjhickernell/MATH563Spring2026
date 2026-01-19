@@ -718,13 +718,14 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 <p><span class="alert">Zero-inflated exponential distribution</span> — <span class="math inline">\(X\)</span> is the waiting time for a taxi</p>
 <ul>
 <li>A taxi waiting for you with probability <span class="math inline">\(p\)</span></li>
-<li>But if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <span class="math display">\[\begin{align*}
+<li>But if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <a href="https://en.wikipedia.org/wiki/Lebesgue–Stieltjes_integration">Lebesgue–Stieltjes integral</a> <span class="math display">\[\begin{align*}
 F(x) &amp;= \begin{cases}
 0, &amp;-\infty &lt; x &lt; 0 \\
 1- (1-p)\exp(-\lambda x),  &amp; 0 \le x &lt; \infty
 \end{cases}
 \\
-\mu &amp; = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \quad \class{alert}{\text{(Lebesgue-Stieltjes intgral)}} \\
+\mu &amp; = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \quad \href{https://en.wikipedia.org/wiki/Lebesgue–Stieltjes_integration}
+   {\text{(Lebesgue–Stieltjes integral)}}\\
 &amp; = 0 \times p + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
 \\
 \sigma^2 &amp; = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
