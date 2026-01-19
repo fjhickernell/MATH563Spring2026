@@ -13,10 +13,12 @@ Classes are held in RE 102
 | Thu Jan 22 | | |
 | Tue Jan 27 | | |
 | Thu Jan 29 | | |
+Fri Jan 30 | **Assignment 2 Due**
 | Tue Feb 3 | | |
 | Thu Feb 5 | | |
 | Tue Feb 10 | | |
 | Thu Feb 12 | | |
+Fri Feb 13 | **Assignment 3 Due**
 | Tue Feb 17 | | |
 | Thu Feb 19 | | |
 | Tue Feb 24 | | |
@@ -25,7 +27,7 @@ Classes are held in RE 102
 | Thu Mar 5 | | |
 | Tue Mar 10 | | |
 | Thu Mar 12 | | |
-| Tue Mar 17 | **No Class, pring Break** | |
+| Tue Mar 17 | **No Class, Spring Break** | |
 | Thu Mar 19 | **No Class, Spring Break** | |
 | Tue Mar 24 | **No Class, Hickernell attending [SIAM UQ 2026](https://www.siam.org/conferences-events/siam-conferences/uq26/)** | |
 | Thu Mar 26 | | |
