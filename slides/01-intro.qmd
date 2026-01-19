@@ -239,6 +239,7 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 - [Key concepts](#prob-concepts)
 - [Important distributions](#prob-distrib)
 - [Conditional probability](#conditional-prob)
+- [Types of convergence](#type-conv)
 - [Central Limit Theorem](#clt)
 
 ## Key probability concepts{#prob-concepts}
@@ -350,18 +351,21 @@ $$
 
 Discrete random variables have a PMF.  Continuous random variables have a PDF.  Some random variables are [mixed]{.alert}.
 
-[Zero-inflated exponential distribution]{.alert} — There is a taxi waiting for you with probabilit $p$, but if there is none, then you have to wait time $1/\lambda$ on average
-$$
+[Zero-inflated exponential distribution]{.alert} — A taxi waiting for you with probability $p$, but if there is none, then you have to wait time $1/\lambda$ on average
 \begin{align*}
 F(x) &= \begin{cases} 
 0, &-\infty < x < 0 \\
 1- (1-p)\exp(-\lambda x),  & 0 \le x < \infty
 \end{cases}
 \\
-\mu & = \Ex[X] = \int_{-\infty}^{\infty} x \dif F(x) \quad [\text{Lebesgue-Stieltjes intgral}]{.alert}
-\end{align*}
-$$
+\mu & = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \quad \class{alert}{\text{(Lebesgue-Stieltjes intgral)}} \\
+& = 0 \times p + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
+\\
+\sigma^2 & = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
+\end{align*} 
 
 ## Conditional probability{#conditional-prob}
+
+## Types of convergence{#type-conv}
 
 ## Central Limit Theorem{#clt}
