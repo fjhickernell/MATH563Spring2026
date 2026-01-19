@@ -95,7 +95,7 @@
     "href": "slides/01-intro.html#a-mixed-random-variable",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "A mixed random variable",
-    "text": "A mixed random variable\nDiscrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are mixed.\nZero-inflated exponential distribution — There is a taxi waiting for you with probabilit \\(p\\), but if there is none, then you have to wait time \\(1/\\lambda\\) on average \\[\n\\begin{align*}\nF(x) &= \\begin{cases}\n0, &-\\infty &lt; x &lt; 0 \\\\\n1- (1-p)\\exp(-\\lambda x),  & 0 \\le x &lt; \\infty\n\\end{cases}\n\\\\\n\\mu & = \\Ex[X] = \\int_{-\\infty}^{\\infty} x \\dif F(x) \\quad [\\text{Lebesgue-Stieltjes intgral}]{.alert}\n\\end{align*}\n\\]"
+    "text": "A mixed random variable\nDiscrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are mixed.\nZero-inflated exponential distribution — A taxi waiting for you with probability \\(p\\), but if there is none, then you have to wait time \\(1/\\lambda\\) on average \\[\\begin{align*}\nF(x) &= \\begin{cases}\n0, &-\\infty &lt; x &lt; 0 \\\\\n1- (1-p)\\exp(-\\lambda x),  & 0 \\le x &lt; \\infty\n\\end{cases}\n\\\\\n\\mu & = \\Ex(X) = \\int_{-\\infty}^{\\infty} x \\, \\dif F(x) \\quad \\class{alert}{\\text{(Lebesgue-Stieltjes intgral)}} \\\\\n& = 0 \\times p + \\int_0^{\\infty} x \\times (1-p)\\exp(-\\lambda x) \\, \\dif x = (1-p)/ \\lambda\n\\\\\n\\sigma^2 & = \\var(X) = \\Ex[(X-\\mu)^2] = \\frac{1-p^2}{\\lambda^2}\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/01-intro.html#conditional-prob",
@@ -103,6 +103,13 @@
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Conditional probability",
     "text": "Conditional probability"
+  },
+  {
+    "objectID": "slides/01-intro.html#type-conv",
+    "href": "slides/01-intro.html#type-conv",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Types of convergence",
+    "text": "Types of convergence"
   },
   {
     "objectID": "slides/01-intro.html#clt",
