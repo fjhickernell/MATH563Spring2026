@@ -702,8 +702,8 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 \varrho(\vx\mid \vtheta) = h(\vx) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
 \]</span> then this is called an <span class="alert">exponential family</span>. E.g.,</p>
 <ul>
-<li><p><span class="alert">Binomial</span> for <em>fixed</em> <span class="math inline">\(n\)</span> and <span class="math inline">\(0 &lt; p &lt; 1\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \bbone(x \in \{0, \ldots, n\}) \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
-<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \bbone(x \ge 0) \exp(-\lambda x)\)</span></p></li>
+<li><p><span class="alert">Binomial</span> for <em>fixed</em> <span class="math inline">\(n\)</span> and <span class="math inline">\(0 &lt; p &lt; 1\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \indic(x \in \{0, \ldots, n\}) \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
+<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \indic(x \ge 0) \exp(-\lambda x)\)</span></p></li>
 <li><p><span class="alert">Normal (Gaussian)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} = \frac{\exp\bigl(-\mu^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} \, \exp\biggl(-\frac{x^2}{2 \sigma^2} + \frac{ \mu x }{\sigma^2}\biggr)\)</span></p></li>
 <li><p><span class="alert">Multivariate Normal (Gaussian)</span>: <span class="math display">\[
 \varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}}=
