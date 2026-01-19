@@ -715,7 +715,10 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 <section id="a-mixed-random-variable" class="slide level2">
 <h2>A mixed random variable</h2>
 <p>Discrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are <span class="alert">mixed</span>.</p>
-<p><span class="alert">Zero-inflated exponential distribution</span> — A taxi waiting for you with probability <span class="math inline">\(p\)</span>, but if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <span class="math display">\[\begin{align*}
+<p><span class="alert">Zero-inflated exponential distribution</span> — <span class="math inline">\(X\)</span> is the waiting time for a taxi</p>
+<ul>
+<li>A taxi waiting for you with probability <span class="math inline">\(p\)</span></li>
+<li>But if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <span class="math display">\[\begin{align*}
 F(x) &amp;= \begin{cases}
 0, &amp;-\infty &lt; x &lt; 0 \\
 1- (1-p)\exp(-\lambda x),  &amp; 0 \le x &lt; \infty
@@ -725,7 +728,8 @@ F(x) &amp;= \begin{cases}
 &amp; = 0 \times p + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
 \\
 \sigma^2 &amp; = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
-\end{align*}\]</span></p>
+\end{align*}\]</span></li>
+</ul>
 </section>
 <section id="conditional-prob" class="slide level2">
 <h2>Conditional probability</h2>
