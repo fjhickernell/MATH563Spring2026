@@ -351,7 +351,10 @@ $$
 
 Discrete random variables have a PMF.  Continuous random variables have a PDF.  Some random variables are [mixed]{.alert}.
 
-[Zero-inflated exponential distribution]{.alert} — A taxi waiting for you with probability $p$, but if there is none, then you have to wait time $1/\lambda$ on average
+[Zero-inflated exponential distribution]{.alert} — $X$ is the waiting time for a taxi
+
+- A taxi waiting for you with probability $p$
+- But if there is none, then you have to wait time $1/\lambda$ on average
 \begin{align*}
 F(x) &= \begin{cases} 
 0, &-\infty < x < 0 \\
