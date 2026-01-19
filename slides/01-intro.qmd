@@ -347,7 +347,7 @@ $$
  \, \exp\biggl(-\frac{\vx^\top \mSigma^{-1} \vx}{2} + \vmu^\top \mSigma^{-1} \vx \biggr)
 $$
 
-## A mixed random variable
+## A mixed (partially discrete, partially continuous) random variable
 
 Discrete random variables have a PMF.  Continuous random variables have a PDF.  Some random variables are [mixed]{.alert}.
 
