@@ -98,11 +98,32 @@
     "text": "A mixed (partially discrete, partially continuous) random variable\nDiscrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are mixed.\nZero-inflated exponential distribution — \\(X\\) is the waiting time for a taxi\n\nA taxi waiting for you with probability \\(p\\)\nBut if there is none, then you have to wait time \\(1/\\lambda\\) on average \\[\\begin{align*}\nF(x) &= \\begin{cases}\n0, &-\\infty &lt; x &lt; 0 \\\\\n1- (1-p)\\exp(-\\lambda x),  & 0 \\le x &lt; \\infty\n\\end{cases}\n\\\\\n\\mu & = \\Ex(X) = \\int_{-\\infty}^{\\infty} x \\, \\dif F(x) \\qquad   \n   \\mathlink{https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration}{(Lebesgue–Stieltjes integral)}\\\\\n& = 0 \\times p + \\int_0^{\\infty} x \\times (1-p)\\exp(-\\lambda x) \\, \\dif x = (1-p)/ \\lambda\n\\\\\n\\sigma^2 & = \\var(X) = \\Ex[(X-\\mu)^2] = \\frac{1-p^2}{\\lambda^2}\n\\end{align*}\\]"
   },
   {
+    "objectID": "slides/01-intro.html#lebesguestieltjes-integral-integral-jumps",
+    "href": "slides/01-intro.html#lebesguestieltjes-integral-integral-jumps",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Lebesgue–Stieltjes Integral = Integral + Jumps",
+    "text": "Lebesgue–Stieltjes Integral = Integral + Jumps\nLet\n\n\\(F\\) be a nondecreasing, right-continuous function on \\(\\mathbb{R}\\)\nwith (possible) discontinuities at \\(-\\infty &lt;  x_1 &lt; \\ldots &lt; x_N &lt; \\infty\\),\n\\(F\\) be differentiable between its jump points with \\(\\varrho(x) = F'(x)\\), and\n\\(f\\) be a suitable function\n\nThe Lebesgue–Stieltjes integral of \\(f\\) with respect to \\(F\\) can be written as \\[\\begin{align*}\n  \\int f(x)\\, dF(x) & = \\int_{-\\infty}^{x_{1}} f(x) \\,\\varrho(x) \\, \\dif x + \\sum_{k=1}^{N-1} \\int_{x_k}^{x_{k+1}} f(x) \\, \\varrho(x) \\, \\dif x + \\int_{x_N}^{\\infty} f(x) \\, \\varrho(x) \\, \\dif x \\\\\n  & \\qquad \\qquad + \\sum_{k=1}^N f(x_k)[F(x_k) - F(x_k^{-})]\n  \\end{align*}\\]\nIntegrate \\(f\\) where \\(F\\) is smooth, and add a weighted sum of \\(f\\) at the jump points of \\(F\\)"
+  },
+  {
     "objectID": "slides/01-intro.html#conditional-prob",
     "href": "slides/01-intro.html#conditional-prob",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Conditional probability",
-    "text": "Conditional probability"
+    "text": "Conditional probability\nThe conditional probability means restricting attention to outcomes where \\(B\\) occurs, then measure how often \\(A\\) occurs within that restricted universeof \\(A\\) given \\(B\\) (with \\(\\Prob(B)&gt;0\\)): \\[\n\\Prob(A \\mid B)\n=\n\\frac{\\Prob(A \\cap B)}{\\Prob(B)},\n\\] which means restricting attention to outcomes where \\(B\\) occurs, then measuring how often \\(A\\) occurs within that restricted universe.\n\nMultiplication rule: \\(\\Prob(A \\cap B)\n=\n\\Prob(A \\mid B),\\Prob(B)\\)\n\\(A\\) and \\(B\\) are independent if \\(\\Prob(A \\mid B) = \\Prob(A)\\) or equivalently \\(\\Prob(A \\cap B)=\\Prob(A)\\Prob(B)\\)\n\nBayes’ Rule\n\\[\n\\Prob(A \\mid B)\n=\n\\frac{\\Prob(B \\mid A) \\, \\Prob(A)}{\\Prob(B)},\n\\qquad \\Prob(B)&gt;0\n\\]\n\nIf you meet an introvert, is she more likely to be a professor or a salesman?"
+  },
+  {
+    "objectID": "slides/01-intro.html#conditional-density",
+    "href": "slides/01-intro.html#conditional-density",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Conditional Density",
+    "text": "Conditional Density\nLet \\(X\\) and \\(Y\\) have joint density \\(\\varrho_{X,Y}(x,y)\\). The conditional density of \\(X\\) given \\(Y=y\\) is \\[\n\\varrho_{X\\mid Y}(x \\mid y)\n=\n\\frac{\\varrho_{X,Y}(x,y)}{\\varrho_Y(y)},\n\\qquad\n\\varrho_Y(y)=\\int \\varrho_{X,Y}(x,y) \\, \\dif x \\text{ is the }\\class{alert}{\\text{marginal density}} \\text{ of } Y\n\\]\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]"
+  },
+  {
+    "objectID": "slides/01-intro.html#bayesian-inference",
+    "href": "slides/01-intro.html#bayesian-inference",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Bayesian Inference",
+    "text": "Bayesian Inference\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]\nLet \\[\\begin{align*}\nX & = \\text{random unknown parameter} \\\\\nY & = \\text{random observed data} \\\\\n\\varrho_X & = \\text{prior density or belief about the parameter} \\\\\n\\varrho_{Y\\mid X} & = \\text{likelihood} \\\\\n\\varrho_{X\\mid Y} & = \\text{posterior density}\n\\end{align*}\\] Then \\[\\begin{align*}\n\\varrho_{X\\mid Y}( \\text{parameter} \\mid \\text{data})\n& =\n\\frac{\\varrho_{Y\\mid X}(\\text{data}\\mid \\text{parameter} ) \\,\\varrho_X(\\text{parameter})}{\\varrho_Y(\\text{data})}\n\\\\\n\\text{posterior density } &\n\\propto\n\\text{likelihood} \\times \\text{prior density}\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/01-intro.html#type-conv",

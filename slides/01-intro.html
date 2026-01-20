@@ -734,8 +734,84 @@ F(x) &amp;= \begin{cases}
 \end{align*}\]</span></li>
 </ul>
 </section>
+<section id="lebesguestieltjes-integral-integral-jumps" class="slide level2">
+<h2>Lebesgue–Stieltjes Integral = Integral + Jumps</h2>
+<p>Let</p>
+<ul>
+<li><span class="math inline">\(F\)</span> be a nondecreasing, right-continuous function on <span class="math inline">\(\mathbb{R}\)</span></li>
+<li>with (possible) discontinuities at <span class="math inline">\(-\infty &lt;  x_1 &lt; \ldots &lt; x_N &lt; \infty\)</span>,</li>
+<li><span class="math inline">\(F\)</span> be differentiable between its jump points with <span class="math inline">\(\varrho(x) = F'(x)\)</span>, and</li>
+<li><span class="math inline">\(f\)</span> be a suitable function</li>
+</ul>
+<p>The Lebesgue–Stieltjes integral of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(F\)</span> can be written as <span class="math display">\[\begin{align*}
+  \int f(x)\, dF(x) &amp; = \int_{-\infty}^{x_{1}} f(x) \,\varrho(x) \, \dif x + \sum_{k=1}^{N-1} \int_{x_k}^{x_{k+1}} f(x) \, \varrho(x) \, \dif x + \int_{x_N}^{\infty} f(x) \, \varrho(x) \, \dif x \\
+  &amp; \qquad \qquad + \sum_{k=1}^N f(x_k)[F(x_k) - F(x_k^{-})]
+  \end{align*}\]</span></p>
+<p><span class="alert">Integrate <span class="math inline">\(f\)</span> where <span class="math inline">\(F\)</span> is smooth, and add a weighted sum of <span class="math inline">\(f\)</span> at the jump points of <span class="math inline">\(F\)</span></span></p>
+</section>
 <section id="conditional-prob" class="slide level2">
 <h2>Conditional probability</h2>
+<p>The <span class="alert">conditional probability</span> means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measure how often <span class="math inline">\(A\)</span> occurs within that restricted universeof <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> (with <span class="math inline">\(\Prob(B)&gt;0\)</span>): <span class="math display">\[
+\Prob(A \mid B)
+=
+\frac{\Prob(A \cap B)}{\Prob(B)},
+\]</span> which means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measuring how often <span class="math inline">\(A\)</span> occurs within that restricted universe.</p>
+<ul>
+<li><p><span class="alert">Multiplication rule</span>: <span class="math inline">\(\Prob(A \cap B)
+=
+\Prob(A \mid B),\Prob(B)\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <span class="alert">independent</span> if <span class="math inline">\(\Prob(A \mid B) = \Prob(A)\)</span> or equivalently <span class="math inline">\(\Prob(A \cap B)=\Prob(A)\Prob(B)\)</span></p></li>
+</ul>
+<h3 id="bayes-rule">Bayes’ Rule</h3>
+<p><span class="math display">\[
+\Prob(A \mid B)
+=
+\frac{\Prob(B \mid A) \, \Prob(A)}{\Prob(B)},
+\qquad \Prob(B)&gt;0
+\]</span></p>
+<blockquote>
+<p>If you meet an introvert, is she more likely to be a professor or a salesman?</p>
+</blockquote>
+</section>
+<section id="conditional-density" class="slide level2">
+<h2>Conditional Density</h2>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have <span class="alert">joint density</span> <span class="math inline">\(\varrho_{X,Y}(x,y)\)</span>. The <span class="alert">conditional density</span> of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> is <span class="math display">\[
+\varrho_{X\mid Y}(x \mid y)
+=
+\frac{\varrho_{X,Y}(x,y)}{\varrho_Y(y)},
+\qquad
+\varrho_Y(y)=\int \varrho_{X,Y}(x,y) \, \dif x \text{ is the }\class{alert}{\text{marginal density}} \text{ of } Y
+\]</span></p>
+<h3 id="bayes-rule-for-densities">Bayes’ rule for densities</h3>
+<p><span class="math display">\[
+\varrho_{X\mid Y}(x\mid y)
+=
+\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
+\]</span></p>
+</section>
+<section id="bayesian-inference" class="slide level2">
+<h2>Bayesian Inference</h2>
+<h3 id="bayes-rule-for-densities-1">Bayes’ rule for densities</h3>
+<p><span class="math display">\[
+\varrho_{X\mid Y}(x\mid y)
+=
+\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
+\]</span></p>
+<p>Let <span class="math display">\[\begin{align*}
+X &amp; = \text{random unknown parameter} \\
+Y &amp; = \text{random observed data} \\
+\varrho_X &amp; = \text{prior density or belief about the parameter} \\
+\varrho_{Y\mid X} &amp; = \text{likelihood} \\
+\varrho_{X\mid Y} &amp; = \text{posterior density}
+\end{align*}\]</span> Then <span class="math display">\[\begin{align*}
+\varrho_{X\mid Y}( \text{parameter} \mid \text{data})
+&amp; =
+\frac{\varrho_{Y\mid X}(\text{data}\mid \text{parameter} ) \,\varrho_X(\text{parameter})}{\varrho_Y(\text{data})}
+\\
+\text{posterior density } &amp;
+\propto
+\text{likelihood} \times \text{prior density}
+\end{align*}\]</span></p>
 </section>
 <section id="type-conv" class="slide level2">
 <h2>Types of convergence</h2>
