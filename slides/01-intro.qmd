@@ -42,7 +42,7 @@ Let's look at
 
 The Gallup Poll tracks the [approval ratings of US presidents](https://news.gallup.com/poll/203198/presidential-approval-ratings-donald-trump.aspx) according to a [careful polling methodology](https://www.gallup.com/224855/gallup-poll-work.aspx)
 
-- Each day they telephone $n=1500$ adults 
+- Each week they telephone $n=1500$ adults 
 - Their sampling error for the approval ratings is about $4\%$
 
 Let $Y \sim \Bern(\mu)$, a [Bernoulli]{.alert} (free throw shooting) distribution with probability of success $\mu$, 
