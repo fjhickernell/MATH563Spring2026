@@ -418,7 +418,7 @@ $$
 \qquad \Prob(B)>0
 $$
 
-> If you meet an introvert, is she more likely to be a professor or a salesman?
+> If you meet an introvert, is she more likely to be a librarian or a salesman?
 
 ## Conditional Density
 Let $X$ and $Y$ have [joint density]{.alert}
