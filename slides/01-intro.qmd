@@ -234,6 +234,9 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 - [Intepretation]{.alert}
   - Provides a statistical interpretation of computational mathematics
 
+# Class Complexion
+
+
 
 # Probability Review
 
