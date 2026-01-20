@@ -368,7 +368,100 @@ F(x) &= \begin{cases}
 \sigma^2 & = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
 \end{align*} 
 
+## Lebesgue–Stieltjes Integral = Integral + Jumps
+
+Let 
+
+- $F$ be a nondecreasing, right-continuous function on $\mathbb{R}$
+- with (possible) discontinuities at $-\infty <  x_1 < \ldots < x_N < \infty$, 
+- $F$ be differentiable between its jump points with $\varrho(x) = F'(x)$, and 
+- $f$ be a suitable function
+
+The Lebesgue–Stieltjes integral of $f$ with respect to $F$ can be written as
+  \begin{align*}
+  \int f(x)\, dF(x) & = \int_{-\infty}^{x_{1}} f(x) \,\varrho(x) \, \dif x + \sum_{k=1}^{N-1} \int_{x_k}^{x_{k+1}} f(x) \, \varrho(x) \, \dif x + \int_{x_N}^{\infty} f(x) \, \varrho(x) \, \dif x \\
+  & \qquad \qquad + \sum_{k=1}^N f(x_k)[F(x_k) - F(x_k^{-})]
+  \end{align*}
+
+[Integrate $f$ where $F$ is smooth, and add a weighted sum of $f$ at the jump points of $F$]{.alert}
+
 ## Conditional probability{#conditional-prob}
+
+The [conditional probability]{.alert} means restricting attention to outcomes where $B$ occurs, then
+measure how often $A$ occurs within that restricted universeof $A$ given $B$ (with $\Prob(B)>0$):
+$$
+\Prob(A \mid B)
+=
+\frac{\Prob(A \cap B)}{\Prob(B)},
+$$
+which means restricting attention to outcomes where $B$ occurs, then
+measuring how often $A$ occurs within that restricted universe.
+
+- [Multiplication rule]{.alert}:
+$\Prob(A \cap B)
+=
+\Prob(A \mid B),\Prob(B)$
+
+- $A$ and $B$ are [independent]{.alert} if
+$\Prob(A \mid B) = \Prob(A)$ or equivalently 
+$\Prob(A \cap B)=\Prob(A)\Prob(B)$
+
+### Bayes' Rule
+$$
+\Prob(A \mid B)
+=
+\frac{\Prob(B \mid A) \, \Prob(A)}{\Prob(B)},
+\qquad \Prob(B)>0
+$$
+
+> If you meet an introvert, is she more likely to be a professor or a salesman?
+
+## Conditional Density
+Let $X$ and $Y$ have [joint density]{.alert}
+$\varrho_{X,Y}(x,y)$.  The [conditional density]{.alert} of $X$ given $Y=y$ is
+$$
+\varrho_{X\mid Y}(x \mid y)
+=
+\frac{\varrho_{X,Y}(x,y)}{\varrho_Y(y)},
+\qquad
+\varrho_Y(y)=\int \varrho_{X,Y}(x,y) \, \dif x \text{ is the }\class{alert}{\text{marginal density}} \text{ of } Y
+$$
+	
+### Bayes’ rule for densities
+$$
+\varrho_{X\mid Y}(x\mid y)
+=
+\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
+$$
+
+## Bayesian Inference
+	
+### Bayes’ rule for densities
+$$
+\varrho_{X\mid Y}(x\mid y)
+=
+\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
+$$
+
+Let
+\begin{align*}
+X & = \text{random unknown parameter} \\
+Y & = \text{random observed data} \\
+\varrho_X & = \text{prior density or belief about the parameter} \\
+\varrho_{Y\mid X} & = \text{likelihood} \\
+\varrho_{X\mid Y} & = \text{posterior density}
+\end{align*}
+Then
+\begin{align*}
+ \varrho_{X\mid Y}( \text{parameter} \mid \text{data})
+& =
+\frac{\varrho_{Y\mid X}(\text{data}\mid \text{parameter} ) \,\varrho_X(\text{parameter})}{\varrho_Y(\text{data})}
+\\
+\text{posterior density } &
+\propto
+\text{likelihood} \times \text{prior density}
+\end{align*}
+
 
 ## Types of convergence{#type-conv}
 
