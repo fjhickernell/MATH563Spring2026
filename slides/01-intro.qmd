@@ -354,15 +354,15 @@ Discrete random variables have a PMF.  Continuous random variables have a PDF.  
 [Zero-inflated exponential distribution]{.alert} — $X$ is the waiting time for a taxi
 
 - A taxi waiting for you with probability $p$
-- But if there is none, then you have to wait time $1/\lambda$ on average [Lebesgue–Stieltjes integral](https://en.wikipedia.org/wiki/Lebesgue–Stieltjes_integration)
+- But if there is none, then you have to wait time $1/\lambda$ on average 
 \begin{align*}
 F(x) &= \begin{cases} 
 0, &-\infty < x < 0 \\
 1- (1-p)\exp(-\lambda x),  & 0 \le x < \infty
 \end{cases}
 \\
-\mu & = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \quad \href{https://en.wikipedia.org/wiki/Lebesgue–Stieltjes_integration}
-     {\text{(Lebesgue–Stieltjes integral)}}\\
+\mu & = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \qquad   
+     \mathlink{https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration}{(Lebesgue–Stieltjes integral)}\\
 & = 0 \times p + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
 \\
 \sigma^2 & = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
