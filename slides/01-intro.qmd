@@ -285,11 +285,16 @@ Java | 1
 - [Cumulative distribution function (CDF)]{.alert} $F$ of random variable $X$ 
   -  $F(x) : =  \Prob(X \le x)$
 
+- [Quartile function]{.alert} $Q$ of a random variable $X$ plays the role of the inverse of the CDF
+  - $Q(p) : = \inf\{x \in \reals : F(x) \ge p\}$
+
 - [Probability mass function (PMF)]{.alert} $\varrho$ of discrete random variable $X$ 
   - $\varrho(x):= \Prob(X = x)$
 
 - [Probability density function (PMF)]{.alert} $\varrho$ of continuous random variable $X$ 
   - $\varrho(x):= F'(x)$
+
+## Key probability concepts (cont'd)
 
 - [Expectation]{.alert} — average value of a random variable, weighted by its probability
   - $\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)$  for discrete random variables
@@ -299,6 +304,8 @@ Java | 1
 
 - [Variance]{.alert} of $X$ is $\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2$
   - [Standard deviation]{.alert} of $X$ is  $\std(X) := \sigma = \sqrt{\var(X)}$
+
+- [Median]{.alert} of $X$ is $\med(X) : = Q(1/2)$
 
 ## Key probability concepts (cont'd)
 
