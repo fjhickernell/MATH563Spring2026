@@ -954,11 +954,11 @@ F(x) &amp;= \begin{cases}
 <p><span class="math display">\[\begin{multline*}
 -\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
 = -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy -2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z + z^2/ \sigma^2(x) \\
-- \vy^\top \mK^{-1} \vy \\
++ \vy^\top \mK^{-1} \vy \\
 = \frac{1}{\sigma^2(x)} \left[ z - \vy^\top \mK^{-1} \vk(x) \right]^2
 \end{multline*}\]</span></p>
 <p>and <span class="math inline">\(f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)\)</span></p>
-<p>Then <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \sigma^2(x) \bigr)\)</span></p>
+<p>Then <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \sigma^2(x) \, \dif x\bigr)\)</span></p>
 </section>
 <section id="bayesian-inference" class="slide level2">
 <h2>Bayesian inference</h2>
