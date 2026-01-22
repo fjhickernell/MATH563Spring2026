@@ -749,6 +749,10 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <ul>
 <li><span class="math inline">\(F(x) : =  \Prob(X \le x)\)</span></li>
 </ul></li>
+<li><p><span class="alert">Quartile function</span> <span class="math inline">\(Q\)</span> of a random variable <span class="math inline">\(X\)</span> plays the role of the inverse of the CDF</p>
+<ul>
+<li><span class="math inline">\(Q(p) : = \inf\{x \in \reals : F(x) \ge p\}\)</span></li>
+</ul></li>
 <li><p><span class="alert">Probability mass function (PMF)</span> <span class="math inline">\(\varrho\)</span> of discrete random variable <span class="math inline">\(X\)</span></p>
 <ul>
 <li><span class="math inline">\(\varrho(x):= \Prob(X = x)\)</span></li>
@@ -757,6 +761,11 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <ul>
 <li><span class="math inline">\(\varrho(x):= F'(x)\)</span></li>
 </ul></li>
+</ul>
+</section>
+<section id="key-probability-concepts-contd-1" class="slide level2">
+<h2>Key probability concepts (cont’d)</h2>
+<ul>
 <li><p><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability</p>
 <ul>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)\)</span> for discrete random variables</li>
@@ -767,9 +776,10 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <ul>
 <li><span class="alert">Standard deviation</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\std(X) := \sigma = \sqrt{\var(X)}\)</span></li>
 </ul></li>
+<li><p><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2)\)</span></p></li>
 </ul>
 </section>
-<section id="key-probability-concepts-contd-1" class="slide level2">
+<section id="key-probability-concepts-contd-2" class="slide level2">
 <h2>Key probability concepts (cont’d)</h2>
 <ul>
 <li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
