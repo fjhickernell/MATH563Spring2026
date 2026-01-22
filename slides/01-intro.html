@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-01-21">
+  <meta name="dcterms.date" content="2026-01-22">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -395,7 +395,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">January 21, 2026</p>
+  <p class="date">January 22, 2026</p>
 </section>
 <section id="statistics" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Statistics</h1>
@@ -670,17 +670,17 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
 <li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p></li>
 <li><p><span class="alert">Correlation</span> <span class="math inline">\(\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}\)</span></p></li>
-<li><p>Independence <em>implies</em> zero correlation, but zero correlation <em>does not imply</em> independence</p>
+<li><p>Independence <span class="math inline">\(\implies\)</span> zero correlation, but zero correlation <span class="math inline">\(\notimplies\)</span> independence</p>
 <div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" data-markdown="1">
 <ul>
 <li>E.g., <span class="math inline">\(X = \cos(2 \pi T)\)</span>, <span class="math inline">\(Y = \sin(2 \pi T)\)</span>, <span class="math inline">\(T \sim \Unif[0,1]\)</span> <span class="math display">\[\begin{align*}
 F_X(x) &amp; = \Prob(X \le x) = \Prob[\cos(2 \pi T) \le x] \\
 &amp; = 2\Prob[\cos^{-1}(x)/(2\pi) \le T \le 1/2] \quad \text{since $\cos^{-1}$ is a decreasing function} \\
-&amp; = 2[1/2 - \cos^{-1}(x)/(2\pi)]\quad \text{since $T$ is uniform}\\
-&amp;  = 1 - \cos^{-1}(x)/\pi = F_Y(x) \quad \text{by symmetry} \\
-\varrho_X(x) &amp; = F' _X(x) = \frac{1}{\pi\sqrt{1 - x^2}} \\
+&amp; = 2[1/2 - \cos^{-1}(x)/(2\pi)] = 1 - \cos^{-1}(x)/\pi \quad \text{since $T$ is uniform} \\
+&amp;  = F_Y(x) \quad \text{by symmetry}, \quad \varrho_X(x) = F' _X(x) = \frac{1}{\pi\sqrt{1 - x^2}}, \;  \Ex(X) = \Ex(Y) = 0 \\
+\cov(X,Y) &amp; = \Ex(XY) = \Ex[\cos(2 \pi T) \sin( 2 \pi T)] = \int_0^1 \cos(2 \pi t) \sin( 2 \pi t) \, \dif t = \class{alert}{0} \\
 \text{BUT }
-F_{X,Y}(-0.8,- 0.8) &amp;= 0 \ne [1 - \cos^{-1}(0.8)/\pi ]^2 = F_X(0.8) F_Y(0.8)
+F_{X,Y}(-0.8,- 0.8) &amp;= 0 \ne [1 - \cos^{-1}(0.8)/\pi ]^2 = F_X(0.8) F_Y(0.8) \quad \text{so $X$ and $Y$ are }\class{alert}{\text{dependent}}
 \end{align*}\]</span></li>
 </ul>
 </div></li>
@@ -693,7 +693,7 @@ F_{X,Y}(-0.8,- 0.8) &amp;= 0 \ne [1 - \cos^{-1}(0.8)/\pi ]^2 = F_X(0.8) F_Y(0.8)
 \varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \quad \Ex(X) = np, \quad \var(X) = np(1-p)
 \]</span></p></li>
 <li><p><span class="alert">Exponential</span> (taxi waiting, continuous) <span class="math inline">\(\Exp(\lambda)\)</span> <span class="math display">\[
-F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lamda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 \]</span></p></li>
 <li><p><span class="alert">Normal (Gaussian)</span> (limiting distribution, continuous) <span class="math inline">\(\Norm(\mu, \sigma^2)\)</span> <span class="math display">\[
 \varrho(x): = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma}, \ x \in \reals;\quad \Ex(X) = \mu, \quad \var(X) = \sigma^2
@@ -706,11 +706,11 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \exp(-\lambda x), \ x \ge 0; \quad
 <section id="exponential-families-of-distributions" class="slide level2">
 <h2>Exponential families of distributions</h2>
 <p>If a PMF or PDF can be expressed as <span class="math display">\[
-\varrho(\vx\mid \vtheta) = h(\vx) c(\vtheta) \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
+\varrho(\vx\mid \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
 \]</span> then this is called an <span class="alert">exponential family</span>. E.g.,</p>
 <ul>
-<li><p><span class="alert">Binomial</span> for <em>fixed</em> <span class="math inline">\(n\)</span> and <span class="math inline">\(0 &lt; p &lt; 1\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \indic(x \in \{0, \ldots, n\}) \binom{n}{x} \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
-<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \indic(x \ge 0) \exp(-\lambda x)\)</span></p></li>
+<li><p><span class="alert">Binomial</span> for <em>fixed</em> <span class="math inline">\(n\)</span> and <span class="math inline">\(0 &lt; p &lt; 1\)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \binom{n}{x} p^x (1-p)^{n-x} = \indic(x \in \{0, \ldots, n\}) \binom{n}{x} \, (1-p)^n \, \exp\biggl(\log\biggl(\frac{p}{1-p} \biggr ) x \biggr)\)</span></p></li>
+<li><p><span class="alert">Exponential</span>: <span class="math inline">\(\quad \varrho(x) = \indic(x \ge 0) \, \exp(-\lambda x)\)</span></p></li>
 <li><p><span class="alert">Normal (Gaussian)</span>: <span class="math inline">\(\quad \displaystyle \varrho(x) = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} = \frac{\exp\bigl(-\mu^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma} \, \exp\biggl(-\frac{x^2}{2 \sigma^2} + \frac{ \mu x }{\sigma^2}\biggr)\)</span></p></li>
 <li><p><span class="alert">Multivariate Normal (Gaussian)</span>: <span class="math display">\[
 \varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}}=
@@ -756,7 +756,7 @@ F(x) &amp;= \begin{cases}
 </section>
 <section id="conditional-prob" class="slide level2">
 <h2>Conditional probability</h2>
-<p>The <span class="alert">conditional probability</span> means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measure how often <span class="math inline">\(A\)</span> occurs within that restricted universeof <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> (with <span class="math inline">\(\Prob(B)&gt;0\)</span>): <span class="math display">\[
+<p>The <span class="alert">conditional probability</span> means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measure how often <span class="math inline">\(A\)</span> occurs within that restricted universe of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> (with <span class="math inline">\(\Prob(B)&gt;0\)</span>): <span class="math display">\[
 \Prob(A \mid B)
 =
 \frac{\Prob(A \cap B)}{\Prob(B)},
