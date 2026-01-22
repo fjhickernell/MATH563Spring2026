@@ -18,7 +18,7 @@
     "href": "slides/01-intro.html#approval-ratings-contd-1",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Approval ratings (cont’d)",
-    "text": "Approval ratings (cont’d)\n\nPopulation is US adults\nModel\n\nBernoulli distribution\nIgnores demographic factors that might explain approvals\n\nUncertainty of the estimate of the proportion, \\(\\mu\\)\n\nProvided by a confidence interval (CI)\nFacilitated by the Central Limit Theorem\nThis is the CI capturing \\(\\mu\\), not probabiity of \\(\\mu\\) in the CI"
+    "text": "Approval ratings (cont’d)\n\nPopulation is US adults\nModel\n\nBernoulli distribution\nIgnores demographic factors that might explain approvals\n\nUncertainty of the estimate of the proportion, \\(\\mu\\)\n\nProvided by a confidence interval (CI)\nFacilitated by the Central Limit Theorem\nThis is the CI capturing \\(\\mu\\), not probability of \\(\\mu\\) in the CI"
   },
   {
     "objectID": "slides/01-intro.html#life-gdp",
@@ -39,7 +39,7 @@
     "href": "slides/01-intro.html#life-expectancy-vs-gdp-contd-1",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Life expectancy vs GDP (cont’d)",
-    "text": "Life expectancy vs GDP (cont’d)\n\nPopulation is all hypothetical countries\nModel\n\nLinear regression\nIncorporates transformation of the explanatory variable\n\nUncertainty\n\n\\(R^2\\) measures the proporation of variance in \\(Y\\) captured by the model\n\nIntepretation\n\nThis describes relationship, not cause and effect\nThe variation in the residuals point to other explanatory factors that have been left out of the model"
+    "text": "Life expectancy vs GDP (cont’d)\n\nPopulation is all hypothetical countries\nModel\n\nLinear regression\nIncorporates transformation of the explanatory variable\n\nUncertainty\n\n\\(R^2\\) measures the proportion of variance in \\(Y\\) captured by the model\n\nInterpretation\n\nThis describes relationship, not cause and effect\nThe variation in the residuals point to other explanatory factors that have been left out of the model"
   },
   {
     "objectID": "slides/01-intro.html#trapezoidal",
@@ -53,7 +53,7 @@
     "href": "slides/01-intro.html#numerical-integration-contd",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Numerical integration (cont’d)",
-    "text": "Numerical integration (cont’d)\n\nPopulation all (continuous) functions\nModel\n\nStochastic processes\nBayesian inference\nOften one would the parameters in \\(K\\) from data\n\nUncertainty\n\nYou may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable \\(K\\)\n\nIntepretation\n\nProvides a statistical interpretation of computational mathematics"
+    "text": "Numerical integration (cont’d)\n\nPopulation all (continuous) functions\nModel\n\nStochastic processes\nBayesian inference\nOften one would the parameters in \\(K\\) from data\n\nUncertainty\n\nYou may construct Bayesian credible intervals, but they depend on your confidence in choosing a reasonable \\(K\\)\n\nInterpretation\n\nProvides a statistical interpretation of computational mathematics"
   },
   {
     "objectID": "slides/01-intro.html#prob-concepts",
@@ -67,7 +67,7 @@
     "href": "slides/01-intro.html#key-probability-concepts-contd",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PMF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)\n\nExpectation — average value of a random variable, weighted by its probability\n\n\\(\\displaystyle \\Ex[f(X)] : = \\sum_{x} f(x) \\varrho(x)\\) for discrete random variablees\n\\(\\displaystyle \\Ex[f(X)] : =  \\int f(x) \\varrho(x) \\; \\dif x\\) for continuous random variablees\n\nMean of \\(X\\) is \\(\\mu : = \\Ex(X)\\)\nVariance of \\(X\\) is \\(\\sigma^2 : = \\var(X) := \\Ex[(X - \\mu)^2] = E(X^2) - \\mu^2\\)\n\nStandard deviation of \\(X\\) is \\(\\std(X) := \\sigma = \\sqrt{\\var(X)}\\)"
+    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PMF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)\n\nExpectation — average value of a random variable, weighted by its probability\n\n\\(\\displaystyle \\Ex[f(X)] : = \\sum_{x} f(x) \\varrho(x)\\) for discrete random variables\n\\(\\displaystyle \\Ex[f(X)] : =  \\int f(x) \\varrho(x) \\; \\dif x\\) for continuous random variables\n\nMean of \\(X\\) is \\(\\mu : = \\Ex(X)\\)\nVariance of \\(X\\) is \\(\\sigma^2 : = \\var(X) := \\Ex[(X - \\mu)^2] = E(X^2) - \\mu^2\\)\n\nStandard deviation of \\(X\\) is \\(\\std(X) := \\sigma = \\sqrt{\\var(X)}\\)"
   },
   {
     "objectID": "slides/01-intro.html#key-probability-concepts-contd-1",
