@@ -236,7 +236,22 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 
 # Class Complexion
 
+| Familiarity | Statistics | Probability | Matrix algebra | Multivariate calculus | Computer programming / coding |
+|-------------|------------|-------------|----------------|-----------------------|--------------------------------|
+| Not at all	| 1| 	0	| 0	| 0	| 0|
+| A bit	| 2	| 1	| 0	| 2	| 2| 
+| Somewhat	| 5	| 4	| 4	| 2	| 5| 
+| Rather	| 6	| 8	| 5	| 6	| 4| 
+| Very	| 0	| 1 | 5	| 4| 	3| 
 
+## Class complexion (cont'd)
+
+|                    | Programming environments |
+|--------------------|--------------------------|
+Python | 16
+R  | 11
+MATLAB | 	4
+C/C++ | 	1
 
 # Probability Review
 
@@ -315,7 +330,7 @@ $$
 
 - [Exponential]{.alert} (taxi waiting, continuous) $\Exp(\lambda)$
 $$
-F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lamda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lambda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 $$
 
 - [Normal (Gaussian)]{.alert} (limiting distribution, continuous) $\Norm(\mu, \sigma^2)$
@@ -438,7 +453,66 @@ $$
 \frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
 $$
 
-## Bayesian Inference
+## Bayesian statistics to approximate and integrate functions
+
+We assume that $f$, the function to approximate or integrate, is an instance of a Gaussian process, $\GP(0,K)$.  This means that
+
+\begin{gather*}
+\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top \sim \Norm(\vzero, \mK), \quad \text{where }\mK : = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n \\
+\tvf := \bigl(f(x_1), \ldots, f(x_n), f(x) \bigr)^\top \sim \Norm(\vzero, \tmK) \\
+\text{where }
+\tmK : = \left(\begin{array}{c|c} 
+\mK & \vk(x) \\
+\hline
+\vk^\top(x) & K(x,x)
+\end{array}
+\right)
+, \quad \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
+\end{gather*}
+and so the conditional density of $f(x)$ given $\vf = \vy$, where $\vy$ is the observed data, is  
+\begin{align*}
+\varrho_{f(x) | \vf}(z,\vy) = \frac{\varrho_{\tvf}(\vy,z)}{\varrho_{\vf}(\vy)} = \frac{\frac{\exp(-\tvy^\top \tmK^{-1} \tvy/2)}{\sqrt{(2 \pi)^{n+1} \det(\tmK)}}}{\frac{\exp(-\vy^\top \mK^{-1} \vy/2)}{\sqrt{(2 \pi)^{n} \det(\mK)}}}
+= \frac{\exp([-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy]/2)}{\sqrt{(2 \pi) \det(\tmK)/\det(\mK)}}
+\end{align*}
+
+## Bayesian statistics to approximate and integrate functions (cont'd)
+
+One can show that 
+
+\begin{gather*}
+\tmK^{-1}
+=
+\left(\begin{array}{c|c}
+\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}
+&
+-\mK^{-1}\vk(x)\sigma^{-2}(x)
+\\
+\hline
+- \sigma^{-2}(x)\vk^\top(x)\mK^{-1}
+&
+\sigma^{-2}(x)
+\end{array}
+\right)\\
+\text{where }
+\sigma^2(x)=K(x,x)-\vk^\top(x)\mK^{-1}\vk(x), \qquad
+\sigma^{-2}(x) := \big(\sigma^2(x)\big)^{-1}
+\end{gather*}
+
+So 
+
+\begin{multline*}
+-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
+= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy -2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z + z^2/ \sigma^2(x) \\
+- \vy^\top \mK^{-1} \vy \\
+= \frac{1}{\sigma^2(x)} \left[ z - \vy^\top \mK^{-1} \vk(x) \right]^2
+\end{multline*}
+
+and $f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)$
+
+Then $\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \sigma^2(x) \bigr)$
+
+
+## Bayesian inference
 	
 ### Bayes’ rule for densities
 $$
@@ -466,7 +540,63 @@ Then
 \text{likelihood} \times \text{prior density}
 \end{align*}
 
-
 ## Types of convergence{#type-conv}
 
+Let $X_1, X_2, \ldots$ be random variables and $X$ another random variable
+
+### Almost Sure Convergence
+$$
+X_n \xrightarrow{\text{a.s.}} X \iff \Prob \left( \lim_{n \to \infty} X_n = X \right) = 1
+$$
+For almost every outcome the sequence $X_n$ converges to $X$
+
+### Convergence in Probability
+$$
+X_n \xrightarrow{\Prob} X \iff \forall \varepsilon > 0, \; 
+\Prob\big( |X_n - X| > \varepsilon \big) \;\longrightarrow\; 0.
+$$
+The probability that $X_n$ differs significantly from $X$ goes to zero
+
+### Convergence in Distribution
+$$
+X_n \xrightarrow{d} X \iff 
+\lim_{n \to \infty} F_{X_n}(x) = F_X(x)
+\quad \text{for all continuity points of } F_X
+$$
+The distributions of $X_n$ approach the distribution of $X$
+
+## Types of convergence (cont'd)
+$$
+X_n \xrightarrow{\text{a.s.}} X
+\;\Longrightarrow\;
+X_n \xrightarrow{\Prob} X
+\;\Longrightarrow\;
+X_n \xrightarrow{d} X,
+$$
+and none of the reverse implications hold in general
+
+- $X, X_1, X_2, \ldots \IIDsim \Norm(0,1)$ satisfies $X_n \xrightarrow{d} X$ but not $X_n \xrightarrow{\Prob} X$
+
+- $\Prob(X_n =1) = 1/n = 1 - \Prob(X_n=0)$ and $X=0$ satisfies
+$$
+\Prob(\lvert X_n - X \rvert > \varepsilon  = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty
+$$
+  But $\Prob (X_n =1 \text{ infinitely often}) = 1$ since
+$$
+\sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
+$$
+
 ## Central Limit Theorem{#clt}
+If $X_1, X_2, \ldots \IIDsim$ some distribution with finite moment generating function, $M(t) := \Ex\bigl(\exp(tX)\bigr)$, and $\mu = \Ex(X)$ and $\sigma^2 = \var(X)$, and
+$$
+\barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
+$$
+then 
+$$
+\frac{\barX_n - \mu}{\sigma /\sqrt{n}} \xrightarrow{d} \Norm(0,1)
+$$
+
+## Chebyscev's Inequality
+$$
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
+$$
