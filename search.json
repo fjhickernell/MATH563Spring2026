@@ -74,7 +74,7 @@
     "href": "slides/01-intro.html#key-probability-concepts-contd",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nQuartile function \\(Q\\) of a random variable \\(X\\) plays the role of the inverse of the CDF\n\n\\(Q(p) : = \\inf\\{x \\in \\reals : F(x) \\ge p\\}\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PMF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)"
+    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nQuartile function \\(Q\\) of a random variable \\(X\\) plays the role of the inverse of the CDF\n\n\\(Q(p) : = \\inf\\{x \\in \\reals : F(x) \\ge p\\}\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PDF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)"
   },
   {
     "objectID": "slides/01-intro.html#key-probability-concepts-contd-1",
