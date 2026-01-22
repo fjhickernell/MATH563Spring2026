@@ -291,7 +291,7 @@ Java | 1
 - [Probability mass function (PMF)]{.alert} $\varrho$ of discrete random variable $X$ 
   - $\varrho(x):= \Prob(X = x)$
 
-- [Probability density function (PMF)]{.alert} $\varrho$ of continuous random variable $X$ 
+- [Probability density function (PDF)]{.alert} $\varrho$ of continuous random variable $X$ 
   - $\varrho(x):= F'(x)$
 
 ## Key probability concepts (cont'd)
