@@ -285,7 +285,7 @@ Java | 1
 - [Cumulative distribution function (CDF)]{.alert} $F$ of random variable $X$ 
   -  $F(x) : =  \Prob(X \le x)$
 
-- [Quartile function]{.alert} $Q$ of a random variable $X$ plays the role of the inverse of the CDF
+- [Quantile function]{.alert} $Q$ of a random variable $X$ plays the role of the inverse of the CDF
   - $Q(p) : = \inf\{x \in \reals : F(x) \ge p\}$
 
 - [Probability mass function (PMF)]{.alert} $\varrho$ of discrete random variable $X$ 
