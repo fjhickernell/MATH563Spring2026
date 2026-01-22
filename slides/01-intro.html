@@ -606,11 +606,101 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </ul></li>
 </ul>
 </section></section>
+<section>
 <section id="class-complexion" class="title-slide slide level1 center">
 <h1>Class Complexion</h1>
-
+<table class="caption-top">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Familiarity</th>
+<th>Statistics</th>
+<th>Probability</th>
+<th>Matrix algebra</th>
+<th>Multivariate calculus</th>
+<th>Computer programming / coding</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Not at all</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>A bit</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Somewhat</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Rather</td>
+<td>6</td>
+<td>8</td>
+<td>5</td>
+<td>6</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Very</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 </section>
-
+<section id="class-complexion-contd" class="slide level2">
+<h2>Class complexion (cont’d)</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Programming environments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Python</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>MATLAB</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>C/C++</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section></section>
 <section>
 <section id="probability-review" class="title-slide slide level1 center">
 <h1>Probability Review</h1>
@@ -694,7 +784,7 @@ F_{X,Y}(-0.8,- 0.8) &amp;= 0 \ne [1 - \cos^{-1}(0.8)/\pi ]^2 = F_X(0.8) F_Y(0.8)
 \varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \quad \Ex(X) = np, \quad \var(X) = np(1-p)
 \]</span></p></li>
 <li><p><span class="alert">Exponential</span> (taxi waiting, continuous) <span class="math inline">\(\Exp(\lambda)\)</span> <span class="math display">\[
-F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lamda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lambda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 \]</span></p></li>
 <li><p><span class="alert">Normal (Gaussian)</span> (limiting distribution, continuous) <span class="math inline">\(\Norm(\mu, \sigma^2)\)</span> <span class="math display">\[
 \varrho(x): = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma}, \ x \in \reals;\quad \Ex(X) = \mu, \quad \var(X) = \sigma^2
@@ -795,8 +885,59 @@ F(x) &amp;= \begin{cases}
 \frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
 \]</span></p>
 </section>
+<section id="bayesian-statistics-to-approximate-and-integrate-functions" class="slide level2">
+<h2>Bayesian statistics to approximate and integrate functions</h2>
+<p>We assume that <span class="math inline">\(f\)</span>, the function to approximate or integrate, is an instance of a Gaussian process, <span class="math inline">\(\GP(0,K)\)</span>. This means that</p>
+<p><span class="math display">\[\begin{gather*}
+\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top \sim \Norm(\vzero, \mK), \quad \text{where }\mK : = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n \\
+\tvf := \bigl(f(x_1), \ldots, f(x_n), f(x) \bigr)^\top \sim \Norm(\vzero, \tmK) \\
+\text{where }
+\tmK : = \left(\begin{array}{c|c}
+\mK &amp; \vk(x) \\
+\hline
+\vk^\top(x) &amp; K(x,x)
+\end{array}
+\right)
+, \quad \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
+\end{gather*}\]</span> and so the conditional density of <span class="math inline">\(f(x)\)</span> given <span class="math inline">\(\vf = \vy\)</span>, where <span class="math inline">\(\vy\)</span> is the observed data, is<br>
+<span class="math display">\[\begin{align*}
+\varrho_{f(x) | \vf}(z,\vy) = \frac{\varrho_{\tvf}(\vy,z)}{\varrho_{\vf}(\vy)} = \frac{\frac{\exp(-\tvy^\top \tmK^{-1} \tvy/2)}{\sqrt{(2 \pi)^{n+1} \det(\tmK)}}}{\frac{\exp(-\vy^\top \mK^{-1} \vy/2)}{\sqrt{(2 \pi)^{n} \det(\mK)}}}
+= \frac{\exp([-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy]/2)}{\sqrt{(2 \pi) \det(\tmK)/\det(\mK)}}
+\end{align*}\]</span></p>
+</section>
+<section id="bayesian-statistics-to-approximate-and-integrate-functions-contd" class="slide level2">
+<h2>Bayesian statistics to approximate and integrate functions (cont’d)</h2>
+<p>One can show that</p>
+<p><span class="math display">\[\begin{gather*}
+\tmK^{-1}
+=
+\left(\begin{array}{c|c}
+\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}
+&amp;
+-\mK^{-1}\vk(x)\sigma^{-2}(x)
+\\
+\hline
+- \sigma^{-2}(x)\vk^\top(x)\mK^{-1}
+&amp;
+\sigma^{-2}(x)
+\end{array}
+\right)\\
+\text{where }
+\sigma^2(x)=K(x,x)-\vk^\top(x)\mK^{-1}\vk(x), \qquad
+\sigma^{-2}(x) := \big(\sigma^2(x)\big)^{-1}
+\end{gather*}\]</span></p>
+<p>So</p>
+<p><span class="math display">\[\begin{multline*}
+-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
+= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy -2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z + z^2/ \sigma^2(x) \\
+- \vy^\top \mK^{-1} \vy \\
+= \frac{1}{\sigma^2(x)} \left[ z - \vy^\top \mK^{-1} \vk(x) \right]^2
+\end{multline*}\]</span></p>
+<p>and <span class="math inline">\(f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)\)</span></p>
+<p>Then <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \sigma^2(x) \bigr)\)</span></p>
+</section>
 <section id="bayesian-inference" class="slide level2">
-<h2>Bayesian Inference</h2>
+<h2>Bayesian inference</h2>
 <h3 id="bayes-rule-for-densities-1">Bayes’ rule for densities</h3>
 <p><span class="math display">\[
 \varrho_{X\mid Y}(x\mid y)
@@ -821,9 +962,54 @@ Y &amp; = \text{random observed data} \\
 </section>
 <section id="type-conv" class="slide level2">
 <h2>Types of convergence</h2>
+<p>Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be random variables and <span class="math inline">\(X\)</span> another random variable</p>
+<h3 id="almost-sure-convergence">Almost Sure Convergence</h3>
+<p><span class="math display">\[
+X_n \xrightarrow{\text{a.s.}} X \iff \Prob \left( \lim_{n \to \infty} X_n = X \right) = 1
+\]</span> For almost every outcome the sequence <span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(X\)</span></p>
+<h3 id="convergence-in-probability">Convergence in Probability</h3>
+<p><span class="math display">\[
+X_n \xrightarrow{\Prob} X \iff \forall \varepsilon &gt; 0, \;
+\Prob\big( |X_n - X| &gt; \varepsilon \big) \;\longrightarrow\; 0.
+\]</span> The probability that <span class="math inline">\(X_n\)</span> differs significantly from <span class="math inline">\(X\)</span> goes to zero</p>
+<h3 id="convergence-in-distribution">Convergence in Distribution</h3>
+<p><span class="math display">\[
+X_n \xrightarrow{d} X \iff
+\lim_{n \to \infty} F_{X_n}(x) = F_X(x)
+\quad \text{for all continuity points of } F_X
+\]</span> The distributions of <span class="math inline">\(X_n\)</span> approach the distribution of <span class="math inline">\(X\)</span></p>
+</section>
+<section id="types-of-convergence-contd" class="slide level2">
+<h2>Types of convergence (cont’d)</h2>
+<p><span class="math display">\[
+X_n \xrightarrow{\text{a.s.}} X
+\;\Longrightarrow\;
+X_n \xrightarrow{\Prob} X
+\;\Longrightarrow\;
+X_n \xrightarrow{d} X,
+\]</span> and none of the reverse implications hold in general</p>
+<ul>
+<li><p><span class="math inline">\(X, X_1, X_2, \ldots \IIDsim \Norm(0,1)\)</span> satisfies <span class="math inline">\(X_n \xrightarrow{d} X\)</span> but not <span class="math inline">\(X_n \xrightarrow{\Prob} X\)</span></p></li>
+<li><p><span class="math inline">\(\Prob(X_n =1) = 1/n = 1 - \Prob(X_n=0)\)</span> and <span class="math inline">\(X=0\)</span> satisfies <span class="math display">\[
+\Prob(\lvert X_n - X \rvert &gt; \varepsilon  = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty
+\]</span> But <span class="math inline">\(\Prob (X_n =1 \text{ infinitely often}) = 1\)</span> since <span class="math display">\[
+\sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
+\]</span></p></li>
+</ul>
 </section>
 <section id="clt" class="slide level2">
 <h2>Central Limit Theorem</h2>
+<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX)\bigr)\)</span>, and <span class="math inline">\(\mu = \Ex(X)\)</span> and <span class="math inline">\(\sigma^2 = \var(X)\)</span>, and <span class="math display">\[
+\barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
+\]</span> then <span class="math display">\[
+\frac{\barX_n - \mu}{\sigma /\sqrt{n}} \xrightarrow{d} \Norm(0,1)
+\]</span></p>
+</section>
+<section id="chebyscevs-inequality" class="slide level2">
+<h2>Chebyscev’s Inequality</h2>
+<p><span class="math display">\[
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
+\]</span></p>
 
 
 </section></section>

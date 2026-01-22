@@ -56,6 +56,13 @@
     "text": "Numerical integration (cont’d)\n\nPopulation all (continuous) functions\nModel\n\nStochastic processes\nBayesian inference\nOften one would the parameters in \\(K\\) from data\n\nUncertainty\n\nYou may construct Bayesian credible intervals, but they depend on your confidence in choosing a reasonable \\(K\\)\n\nInterpretation\n\nProvides a statistical interpretation of computational mathematics"
   },
   {
+    "objectID": "slides/01-intro.html#class-complexion-contd",
+    "href": "slides/01-intro.html#class-complexion-contd",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Class complexion (cont’d)",
+    "text": "Class complexion (cont’d)\n\n\n\n\nProgramming environments\n\n\n\n\nPython\n16\n\n\nR\n11\n\n\nMATLAB\n4\n\n\nC/C++\n1"
+  },
+  {
     "objectID": "slides/01-intro.html#prob-concepts",
     "href": "slides/01-intro.html#prob-concepts",
     "title": "MATH 563 — Mathematical Statistics",
@@ -81,7 +88,7 @@
     "href": "slides/01-intro.html#prob-distrib",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Important distributions",
-    "text": "Important distributions\n\nBinomial (free-throw shooting, discrete) \\(\\Bin(n,p)\\) \\[\n\\varrho(x) : = \\Prob(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\ x =0, \\ldots, n; \\quad \\Ex(X) = np, \\quad \\var(X) = np(1-p)\n\\]\nExponential (taxi waiting, continuous) \\(\\Exp(\\lambda)\\) \\[\nF(x): = 1 - \\exp(-\\lambda x),\\ \\varrho(x) : = \\lamda \\exp(-\\lambda x), \\ x \\ge 0; \\quad \\Ex(X) = 1/\\lambda, \\quad \\var(X) = 1/\\lambda^2\n\\]\nNormal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\mu, \\sigma^2)\\) \\[\n\\varrho(x): = \\frac{\\exp\\bigl(-(x-\\mu)^2/(2\\sigma^2)\\bigr)}{\\sqrt{2 \\pi} \\sigma}, \\ x \\in \\reals;\\quad \\Ex(X) = \\mu, \\quad \\var(X) = \\sigma^2\n\\]\nMultivariate Normal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\vmu, \\mSigma)\\) \\[\n\\varrho(\\vx): = \\frac{\\exp\\bigl(-(\\vx-\\vmu)^\\top \\mSigma^{-1} (\\vx-\\vmu) /2\\bigr)}{\\sqrt{(2 \\pi)^{d} \\det(\\mSigma)}};\\quad \\Ex(\\vX) = \\vmu, \\quad \\cov(\\vX) = \\mSigma\n\\]"
+    "text": "Important distributions\n\nBinomial (free-throw shooting, discrete) \\(\\Bin(n,p)\\) \\[\n\\varrho(x) : = \\Prob(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\ x =0, \\ldots, n; \\quad \\Ex(X) = np, \\quad \\var(X) = np(1-p)\n\\]\nExponential (taxi waiting, continuous) \\(\\Exp(\\lambda)\\) \\[\nF(x): = 1 - \\exp(-\\lambda x),\\ \\varrho(x) : = \\lambda \\exp(-\\lambda x), \\ x \\ge 0; \\quad \\Ex(X) = 1/\\lambda, \\quad \\var(X) = 1/\\lambda^2\n\\]\nNormal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\mu, \\sigma^2)\\) \\[\n\\varrho(x): = \\frac{\\exp\\bigl(-(x-\\mu)^2/(2\\sigma^2)\\bigr)}{\\sqrt{2 \\pi} \\sigma}, \\ x \\in \\reals;\\quad \\Ex(X) = \\mu, \\quad \\var(X) = \\sigma^2\n\\]\nMultivariate Normal (Gaussian) (limiting distribution, continuous) \\(\\Norm(\\vmu, \\mSigma)\\) \\[\n\\varrho(\\vx): = \\frac{\\exp\\bigl(-(\\vx-\\vmu)^\\top \\mSigma^{-1} (\\vx-\\vmu) /2\\bigr)}{\\sqrt{(2 \\pi)^{d} \\det(\\mSigma)}};\\quad \\Ex(\\vX) = \\vmu, \\quad \\cov(\\vX) = \\mSigma\n\\]"
   },
   {
     "objectID": "slides/01-intro.html#exponential-families-of-distributions",
@@ -119,25 +126,53 @@
     "text": "Conditional Density\nLet \\(X\\) and \\(Y\\) have joint density \\(\\varrho_{X,Y}(x,y)\\). The conditional density of \\(X\\) given \\(Y=y\\) is \\[\n\\varrho_{X\\mid Y}(x \\mid y)\n=\n\\frac{\\varrho_{X,Y}(x,y)}{\\varrho_Y(y)},\n\\qquad\n\\varrho_Y(y)=\\int \\varrho_{X,Y}(x,y) \\, \\dif x \\text{ is the }\\class{alert}{\\text{marginal density}} \\text{ of } Y\n\\]\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]"
   },
   {
+    "objectID": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions",
+    "href": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Bayesian statistics to approximate and integrate functions",
+    "text": "Bayesian statistics to approximate and integrate functions\nWe assume that \\(f\\), the function to approximate or integrate, is an instance of a Gaussian process, \\(\\GP(0,K)\\). This means that\n\\[\\begin{gather*}\n\\vf := \\bigl(f(x_1), \\ldots, f(x_n) \\bigr)^\\top \\sim \\Norm(\\vzero, \\mK), \\quad \\text{where }\\mK : = \\bigl(K(x_i,x_j)\\bigr)_{i,j=1}^n \\\\\n\\tvf := \\bigl(f(x_1), \\ldots, f(x_n), f(x) \\bigr)^\\top \\sim \\Norm(\\vzero, \\tmK) \\\\\n\\text{where }\n\\tmK : = \\left(\\begin{array}{c|c}\n\\mK & \\vk(x) \\\\\n\\hline\n\\vk^\\top(x) & K(x,x)\n\\end{array}\n\\right)\n, \\quad \\vk(x) = \\bigl( K(x,x_i) \\bigr)_{i=1}^n\n\\end{gather*}\\] and so the conditional density of \\(f(x)\\) given \\(\\vf = \\vy\\), where \\(\\vy\\) is the observed data, is\n\\[\\begin{align*}\n\\varrho_{f(x) | \\vf}(z,\\vy) = \\frac{\\varrho_{\\tvf}(\\vy,z)}{\\varrho_{\\vf}(\\vy)} = \\frac{\\frac{\\exp(-\\tvy^\\top \\tmK^{-1} \\tvy/2)}{\\sqrt{(2 \\pi)^{n+1} \\det(\\tmK)}}}{\\frac{\\exp(-\\vy^\\top \\mK^{-1} \\vy/2)}{\\sqrt{(2 \\pi)^{n} \\det(\\mK)}}}\n= \\frac{\\exp([-\\tvy^\\top \\tmK^{-1} \\tvy + \\vy^\\top \\mK^{-1} \\vy]/2)}{\\sqrt{(2 \\pi) \\det(\\tmK)/\\det(\\mK)}}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions-contd",
+    "href": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions-contd",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Bayesian statistics to approximate and integrate functions (cont’d)",
+    "text": "Bayesian statistics to approximate and integrate functions (cont’d)\nOne can show that\n\\[\\begin{gather*}\n\\tmK^{-1}\n=\n\\left(\\begin{array}{c|c}\n\\mK^{-1}+\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}\n&\n-\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\n\\\\\n\\hline\n- \\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}\n&\n\\sigma^{-2}(x)\n\\end{array}\n\\right)\\\\\n\\text{where }\n\\sigma^2(x)=K(x,x)-\\vk^\\top(x)\\mK^{-1}\\vk(x), \\qquad\n\\sigma^{-2}(x) := \\big(\\sigma^2(x)\\big)^{-1}\n\\end{gather*}\\]\nSo\n\\[\\begin{multline*}\n-\\tvy^\\top \\tmK^{-1} \\tvy + \\vy^\\top \\mK^{-1} \\vy \\\\\n= -\\vy^\\top[\\mK^{-1}+\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}]\\vy -2 \\vy^\\top\\mK^{-1}\\vk(x)\\sigma^{-2}(x) z + z^2/ \\sigma^2(x) \\\\\n- \\vy^\\top \\mK^{-1} \\vy \\\\\n= \\frac{1}{\\sigma^2(x)} \\left[ z - \\vy^\\top \\mK^{-1} \\vk(x) \\right]^2\n\\end{multline*}\\]\nand \\(f(x) \\mid \\vf = \\vy \\sim \\Norm\\bigl(\\vy^\\top \\mK^{-1} \\vk(x), \\sigma^2(x) \\bigr)\\)\nThen \\(\\int_0 ^1 f(x)\\, \\dif x \\mid \\vf = \\vy \\sim \\Norm\\bigl(\\vy^\\top \\mK^{-1} \\int_0^1 \\vk(x) \\, \\dif x, \\sigma^2(x) \\bigr)\\)"
+  },
+  {
     "objectID": "slides/01-intro.html#bayesian-inference",
     "href": "slides/01-intro.html#bayesian-inference",
     "title": "MATH 563 — Mathematical Statistics",
-    "section": "Bayesian Inference",
-    "text": "Bayesian Inference\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]\nLet \\[\\begin{align*}\nX & = \\text{random unknown parameter} \\\\\nY & = \\text{random observed data} \\\\\n\\varrho_X & = \\text{prior density or belief about the parameter} \\\\\n\\varrho_{Y\\mid X} & = \\text{likelihood} \\\\\n\\varrho_{X\\mid Y} & = \\text{posterior density}\n\\end{align*}\\] Then \\[\\begin{align*}\n\\varrho_{X\\mid Y}( \\text{parameter} \\mid \\text{data})\n& =\n\\frac{\\varrho_{Y\\mid X}(\\text{data}\\mid \\text{parameter} ) \\,\\varrho_X(\\text{parameter})}{\\varrho_Y(\\text{data})}\n\\\\\n\\text{posterior density } &\n\\propto\n\\text{likelihood} \\times \\text{prior density}\n\\end{align*}\\]"
+    "section": "Bayesian inference",
+    "text": "Bayesian inference\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]\nLet \\[\\begin{align*}\nX & = \\text{random unknown parameter} \\\\\nY & = \\text{random observed data} \\\\\n\\varrho_X & = \\text{prior density or belief about the parameter} \\\\\n\\varrho_{Y\\mid X} & = \\text{likelihood} \\\\\n\\varrho_{X\\mid Y} & = \\text{posterior density}\n\\end{align*}\\] Then \\[\\begin{align*}\n\\varrho_{X\\mid Y}( \\text{parameter} \\mid \\text{data})\n& =\n\\frac{\\varrho_{Y\\mid X}(\\text{data}\\mid \\text{parameter} ) \\,\\varrho_X(\\text{parameter})}{\\varrho_Y(\\text{data})}\n\\\\\n\\text{posterior density } &\n\\propto\n\\text{likelihood} \\times \\text{prior density}\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/01-intro.html#type-conv",
     "href": "slides/01-intro.html#type-conv",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Types of convergence",
-    "text": "Types of convergence"
+    "text": "Types of convergence\nLet \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable\nAlmost Sure Convergence\n\\[\nX_n \\xrightarrow{\\text{a.s.}} X \\iff \\Prob \\left( \\lim_{n \\to \\infty} X_n = X \\right) = 1\n\\] For almost every outcome the sequence \\(X_n\\) converges to \\(X\\)\nConvergence in Probability\n\\[\nX_n \\xrightarrow{\\Prob} X \\iff \\forall \\varepsilon &gt; 0, \\;\n\\Prob\\big( |X_n - X| &gt; \\varepsilon \\big) \\;\\longrightarrow\\; 0.\n\\] The probability that \\(X_n\\) differs significantly from \\(X\\) goes to zero\nConvergence in Distribution\n\\[\nX_n \\xrightarrow{d} X \\iff\n\\lim_{n \\to \\infty} F_{X_n}(x) = F_X(x)\n\\quad \\text{for all continuity points of } F_X\n\\] The distributions of \\(X_n\\) approach the distribution of \\(X\\)"
+  },
+  {
+    "objectID": "slides/01-intro.html#types-of-convergence-contd",
+    "href": "slides/01-intro.html#types-of-convergence-contd",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Types of convergence (cont’d)",
+    "text": "Types of convergence (cont’d)\n\\[\nX_n \\xrightarrow{\\text{a.s.}} X\n\\;\\Longrightarrow\\;\nX_n \\xrightarrow{\\Prob} X\n\\;\\Longrightarrow\\;\nX_n \\xrightarrow{d} X,\n\\] and none of the reverse implications hold in general\n\n\\(X, X_1, X_2, \\ldots \\IIDsim \\Norm(0,1)\\) satisfies \\(X_n \\xrightarrow{d} X\\) but not \\(X_n \\xrightarrow{\\Prob} X\\)\n\\(\\Prob(X_n =1) = 1/n = 1 - \\Prob(X_n=0)\\) and \\(X=0\\) satisfies \\[\n\\Prob(\\lvert X_n - X \\rvert &gt; \\varepsilon  = \\Prob(X_n =1) = 1/n \\to 0 \\text{ as } n \\to \\infty\n\\] But \\(\\Prob (X_n =1 \\text{ infinitely often}) = 1\\) since \\[\n\\sum_{n=1}^{\\infty} \\Prob(X_n=1) = \\sum_{n=1}^{\\infty} \\frac 1n = \\infty\n\\]"
   },
   {
     "objectID": "slides/01-intro.html#clt",
     "href": "slides/01-intro.html#clt",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem"
+    "text": "Central Limit Theorem\nIf \\(X_1, X_2, \\ldots \\IIDsim\\) some distribution with finite moment generating function, \\(M(t) := \\Ex\\bigl(\\exp(tX)\\bigr)\\), and \\(\\mu = \\Ex(X)\\) and \\(\\sigma^2 = \\var(X)\\), and \\[\n\\barX_n := \\frac 1n \\left(X_1 + \\cdots + X_n \\right),\n\\] then \\[\n\\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} \\xrightarrow{d} \\Norm(0,1)\n\\]"
+  },
+  {
+    "objectID": "slides/01-intro.html#chebyscevs-inequality",
+    "href": "slides/01-intro.html#chebyscevs-inequality",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Chebyscev’s Inequality",
+    "text": "Chebyscev’s Inequality\n\\[\n\\Prob\\bigl( f(X) \\ge r \\bigr) \\le \\frac{\\Ex[f(X)]}{r}\n\\]"
   },
   {
     "objectID": "pages/schedule.html",
