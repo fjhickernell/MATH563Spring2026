@@ -117,7 +117,7 @@ For $n = 1000$ we get $1/\sqrt{n} \approx 3\%$.
 - [Uncertainty]{.alert} of the estimate of the proportion, $\mu$
   - Provided by a [confidence interval (CI)]{.alert}
   - Facilitated by the [Central Limit Theorem]{.alert}
-  - This is the CI capturing $\mu$, _not_ probabiity of $\mu$ in the CI
+  - This is the CI capturing $\mu$, _not_ probability of $\mu$ in the CI
 
 ## Life expectancy vs gross domestic product (GDP) per capita {#life-gdp}
 
@@ -190,8 +190,8 @@ $$
   - Linear regression 
   - Incorporates transformation of the explanatory variable
 - [Uncertainty]{.alert}
-  - $R^2$ measures the proporation of variance in $Y$ captured by the model
-- [Intepretation]{.alert}
+  - $R^2$ measures the proportion of variance in $Y$ captured by the model
+- [Interpretation]{.alert}
   - This describes relationship, not cause and effect
   - The variation in the residuals point to other explanatory factors that have been left out of the model
 
@@ -230,8 +230,8 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
   - Bayesian inference
   - Often one would the parameters in $K$ from data
 - [Uncertainty]{.alert}
-  - You may construct Bayesian credible intervals, but they depend on yur confidence in choosing a reasonable $K$
-- [Intepretation]{.alert}
+  - You may construct Bayesian credible intervals, but they depend on your confidence in choosing a reasonable $K$
+- [Interpretation]{.alert}
   - Provides a statistical interpretation of computational mathematics
 
 # Class Complexion
@@ -276,8 +276,8 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
   - $\varrho(x):= F'(x)$
 
 - [Expectation]{.alert} — average value of a random variable, weighted by its probability
-  - $\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)$  for discrete random variablees
-  - $\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x$  for continuous random variablees
+  - $\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)$  for discrete random variables
+  - $\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x$  for continuous random variables
 
 - [Mean]{.alert} of $X$ is $\mu : = \Ex(X)$
 
