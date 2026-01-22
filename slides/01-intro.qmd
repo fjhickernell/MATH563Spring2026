@@ -236,13 +236,13 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 
 # Class Complexion
 
-| Familiarity | Statistics | Probability | Matrix algebra | Multivariate calculus | Computer programming / coding |
-|-------------|------------|-------------|----------------|-----------------------|--------------------------------|
-| Not at all	| 1| 	0	| 0	| 0	| 0|
-| A bit	| 2	| 1	| 0	| 2	| 2| 
-| Somewhat	| 5	| 4	| 4	| 2	| 5| 
-| Rather	| 6	| 8	| 5	| 6	| 4| 
-| Very	| 0	| 1 | 5	| 4| 	3| 
+| Familiarity | Statistics | Probability | Matrix algebra | Multivariate calculus | Computer programming / coding | Proofs |
+|-------------|------------|-------------|----------------|-----------------------|-------------------------------|--------|
+| Not at all	| 1| 	0	| 0	| 0	| 0| 1
+| A bit	| 2	| 1	| 0	| 2	| 2| 2
+| Somewhat	| 5	| 4	| 4	| 2	| 5| 7
+| Rather	| 6	| 8	| 5	| 6	| 4| 2
+| Very	| 0	| 1 | 5	| 4| 	3| 2
 
 ## Class complexion (cont'd)
 
