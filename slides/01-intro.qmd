@@ -248,10 +248,11 @@ For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <
 
 |                    | Programming environments |
 |--------------------|--------------------------|
-Python | 16
-R  | 11
+Python | 14
+R  | 6
 MATLAB | 	4
-C/C++ | 	1
+C/C++ | 	5
+Java | 1
 
 # Probability Review
 
