@@ -29,6 +29,15 @@ Theory of sampling distributions; principles of data reduction; interval and p
 Hickernell speaks Cantonese and enjoys Chinese food. He is married with adult children.  He enjoys discussing matters of substance.  His most important identity is a disciple of Jesus.
 </details>
 
+<details>
+<summary><strong>Teaching Assistant:</strong>Nishi Thakur</summary>
+
+* **Office:** RE ???
+* **Office hours:** ??? in RE 129
+* **Email:** <nthakur5@hawk.illinoistech.edu> 
+
+</details>
+
 <div style="margin-top:1em; margin-bottom:0.4em;">
 <strong>Textbook:</strong> [Casella and Berger, _Statistical Inference_, 2nd Ed.](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036)
 </div>
