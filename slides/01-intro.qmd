@@ -482,6 +482,7 @@ and so the conditional density of $f(x)$ given $\vf = \vy$, where $\vy$ is the o
 \varrho_{f(x) | \vf}(z,\vy) = \frac{\varrho_{\tvf}(\vy,z)}{\varrho_{\vf}(\vy)} = \frac{\frac{\exp(-\tvy^\top \tmK^{-1} \tvy/2)}{\sqrt{(2 \pi)^{n+1} \det(\tmK)}}}{\frac{\exp(-\vy^\top \mK^{-1} \vy/2)}{\sqrt{(2 \pi)^{n} \det(\mK)}}}
 = \frac{\exp([-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy]/2)}{\sqrt{(2 \pi) \det(\tmK)/\det(\mK)}}
 \end{align*}
+where $\tvy = (\vy^\top, z)^\top$
 
 ## Bayesian statistics to approximate and integrate functions (cont'd)
 
@@ -510,14 +511,14 @@ So
 
 \begin{multline*}
 -\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
-= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy -2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z + z^2/ \sigma^2(x) \\
+= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
 + \vy^\top \mK^{-1} \vy \\
-= \frac{1}{\sigma^2(x)} \left[ z - \vy^\top \mK^{-1} \vk(x) \right]^2
+= \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
 \end{multline*}
 
 and $f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)$
 
-Then $\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \sigma^2(x) \, \dif x\bigr)$
+By a similar argument  $\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\Bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \int_0^1 K(t,x) \, \dif t \dif x - \int_0^1 \vk^\top(x) \, \dif x \, \mK^{-1} \, \int_0^1 \vk(x) \, \dif x  \Bigr)$
 
 
 ## Bayesian inference
@@ -583,16 +584,17 @@ X_n \xrightarrow{d} X,
 $$
 and none of the reverse implications hold in general
 
-- $X, X_1, X_2, \ldots \IIDsim \Norm(0,1)$ satisfies $X_n \xrightarrow{d} X$ but not $X_n \xrightarrow{\Prob} X$
+- $X, X_1, X_2, \ldots \IIDsim \Norm(0,1)$ satisfies $X_n \xrightarrow{d} X$ but not $X_n \ \not\!\xrightarrow{\Prob} X$
 
-- $\Prob(X_n =1) = 1/n = 1 - \Prob(X_n=0)$ and $X=0$ satisfies
+- $X=0$ and $\Prob(X_n =x ) = \begin{cases} 1/n, & x=1 \\ 1-1/n, & x=0 \end{cases} \;$  satisfies
 $$
-\Prob(\lvert X_n - X \rvert > \varepsilon  = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty
+\Prob(\lvert X_n - X \rvert > \varepsilon ) = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty \text{ so } X_n \xrightarrow{\Prob} X
 $$
   But $\Prob (X_n =1 \text{ infinitely often}) = 1$ since
 $$
 \sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
 $$
+so  $X_n \ \, \not\!\!\xrightarrow{\text{a.s.}} X$
 
 ## Central Limit Theorem{#clt}
 If $X_1, X_2, \ldots \IIDsim$ some distribution with finite moment generating function, $M(t) := \Ex\bigl(\exp(tX)\bigr)$, and $\mu = \Ex(X)$ and $\sigma^2 = \var(X)$, and
