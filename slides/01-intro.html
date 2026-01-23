@@ -951,12 +951,12 @@ F(x) &amp;= \begin{cases}
 \sigma^{-2}(x) := \big(\sigma^2(x)\big)^{-1}
 \end{gather*}\]</span></p>
 <p>So</p>
-<p><span class="math display">\[\begin{multline*}
--\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
-= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
-+ \vy^\top \mK^{-1} \vy \\
-= \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
-\end{multline*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\MoveEqLeft{-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy}\\
+&amp; = -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
+&amp; \qquad \qquad + \vy^\top \mK^{-1} \vy \\
+&amp; = \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
+\end{align*}\]</span></p>
 <p>and <span class="math inline">\(f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)\)</span></p>
 <p>By a similar argument <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\Bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \int_0^1 K(t,x) \, \dif t \dif x - \int_0^1 \vk^\top(x) \, \dif x \, \mK^{-1} \, \int_0^1 \vk(x) \, \dif x  \Bigr)\)</span></p>
 </section>
