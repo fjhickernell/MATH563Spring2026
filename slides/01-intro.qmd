@@ -509,12 +509,12 @@ One can show that
 
 So 
 
-\begin{multline*}
--\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy \\
-= -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
-+ \vy^\top \mK^{-1} \vy \\
-= \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
-\end{multline*}
+\begin{align*}
+\MoveEqLeft{-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy}\\
+& = -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
+& \qquad \qquad + \vy^\top \mK^{-1} \vy \\
+& = \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
+\end{align*}
 
 and $f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)$
 
