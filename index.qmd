@@ -183,6 +183,6 @@ data sets through explanatory text, tables and graphs.
     - My lecture slides, Jupyter Notebooks, or assignments at least 24 hours after I have presented them in class, or
     - The textbook,
 
-  Then I will award you 0.5 or 1 extra credit points, up to a maximum of 10 points.  These are added to your final weighted total. \[Note that the weighted total may not correctly reflect the extra credit until grades are recorded for all categories.\]
-
----
+  Then I will award you 0.5 or 1 extra credit points, up to a maximum of 10 points.  
+  
+  For course materials hosted on GitHub, you may submit a pull request correcting the error. Alternatively, you may report the error by email with sufficient detail. Extra credit points are added to your final weighted total. _Note that the weighted total may not correctly reflect the extra credit until grades are recorded for all categories._
