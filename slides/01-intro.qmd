@@ -317,16 +317,16 @@ Java | 1
 
 - Independence $\implies$ zero correlation, but zero correlation $\notimplies$ independence
 <div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
-  - E.g., $X = \cos(2 \pi T)$, $Y = \sin(2 \pi T)$, $T \sim \Unif[0,1]$
-  \begin{align*}
-  F_X(x) & = \Prob(X \le x) = \Prob[\cos(2 \pi T) \le x] \\
-  & = 2\Prob[\cos^{-1}(x)/(2\pi) \le T \le 1/2] \quad \text{since $\cos^{-1}$ is a decreasing function} \\
-  & = 2[1/2 - \cos^{-1}(x)/(2\pi)] = 1 - \cos^{-1}(x)/\pi \quad \text{since $T$ is uniform} \\
-  &  = F_Y(x) \quad \text{by symmetry}, \quad \varrho_X(x) = F' _X(x) = \frac{1}{\pi\sqrt{1 - x^2}}, \;  \Ex(X) = \Ex(Y) = 0 \\
-  \cov(X,Y) & = \Ex(XY) = \Ex[\cos(2 \pi T) \sin( 2 \pi T)] = \int_0^1 \cos(2 \pi t) \sin( 2 \pi t) \, \dif t = \class{alert}{0} \\
-  \text{BUT } 
-  F_{X,Y}(-0.8,- 0.8) &= 0 \ne [1 - \cos^{-1}(0.8)/\pi ]^2 = F_X(0.8) F_Y(0.8) \quad \text{so $X$ and $Y$ are }\class{alert}{\text{dependent}}
-  \end{align*}
+  - E.g., $\Prob[(X,Y) = (x,y)] = 1/4$ for $(x,y) \in \{(\pm 1, 0), (0, \pm 1)\}$
+  \begin{gather*}
+  \text{PMF }\varrho_X(x) = \varrho_Y(x) = \begin{cases}
+  \frac 14 & x =  \pm 1 \\
+  \frac 12 & x = 0 
+  \end{cases} 
+  \qquad \Ex(X) = \Ex(Y) = 0 \\
+  \cov(X,Y) = \Ex(XY) = 0 \quad \text{so }\class{alert}{\text{uncorrelated}} \\
+  \text{BUT } \varrho_{XY}(x,y) \ne \varrho_X(x)\varrho_Y(y) \quad \text{so }\class{alert}{\text{dependent}}
+  \end{gather*}
 </div>
 
 ## Important distributions{#prob-distrib}
