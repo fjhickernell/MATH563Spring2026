@@ -237,8 +237,10 @@
           Var: "{\\operatorname{Var}}",
           Cov: "{\\operatorname{Cov}}",
 
-          argmax: "{\\mathop{\\operatorname{argmax}}\\limits}",
-          argmin: "{\\mathop{\\operatorname{argmin}}\\limits}",
+          argmin: ["\\operatorname*{argmin}", 0],
+          argmax: ["\\operatorname*{argmax}", 0],
+          Argmin: ["\\argmin\\limits_{#1}", 1],
+          Argmax: ["\\argmax\\limits_{#1}", 1],
 
           sign:  "{\\operatorname{sign}}",
           spann: "{\\operatorname{span}}",
@@ -609,7 +611,7 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <ul>
 <li>Stochastic processes</li>
 <li>Bayesian inference</li>
-<li>Often one would the parameters in <span class="math inline">\(K\)</span> from data</li>
+<li>Often one would estimate the parameters in <span class="math inline">\(K\)</span> from data</li>
 </ul></li>
 <li><span class="alert">Uncertainty</span>
 <ul>
@@ -783,12 +785,13 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)\)</span> for discrete random variables</li>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x\)</span> for continuous random variables</li>
 </ul></li>
-<li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X)\)</span></p></li>
+<li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X) = \Argmin{m\in\reals} \Ex[(X-m)^2]\)</span></p></li>
 <li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2\)</span></p>
 <ul>
 <li><span class="alert">Standard deviation</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\std(X) := \sigma = \sqrt{\var(X)}\)</span></li>
 </ul></li>
-<li><p><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2)\)</span></p></li>
+<li><p><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2) \in
+\Argmin{m\in\reals} \Ex \lvert X-m \rvert\)</span></p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1135,8 +1138,8 @@ M_Z(t) &amp; = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \ex
 Z_n \convd N(0,1)
 \]</span> <span class="math inline">\(\square\)</span></p>
 </section>
-<section id="chebyshevs-inequality" class="slide level2">
-<h2>Chebyshev’s Inequality</h2>
+<section id="chebyshev-markov-inequality" class="slide level2">
+<h2>Chebyshev (Markov) Inequality</h2>
 <p><span class="math display">\[
 \Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
 \]</span></p>
@@ -1151,10 +1154,11 @@ Z_n \convd N(0,1)
 &amp;= \Ex\bigl[f(X)/r\bigr] \\
 &amp;= \Ex[f(X)]/r
 \end{align*}\]</span></p>
-<h3 id="important-special-case">Important special case</h3>
-<p><span class="math display">\[
-\Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X)
-\]</span></p>
+<h3 id="important-special-cases">Important special cases</h3>
+<p><span class="math display">\[\begin{gather*}
+\Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X) \\
+\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex \lvert X - \med(X)\rvert}{r}
+\end{gather*}\]</span></p>
 </section>
 <section id="weak-law-of-large-numbers-via-chebyshev" class="slide level2">
 <h2>Weak Law of Large Numbers (via Chebyshev)</h2>
