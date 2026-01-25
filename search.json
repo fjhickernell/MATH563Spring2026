@@ -7,39 +7,11 @@
     "text": "Approval ratings\nThe Gallup Poll tracks the approval ratings of US presidents according to a careful polling methodology\n\nEach week they telephone \\(n=1500\\) adults\nTheir sampling error for the approval ratings is about \\(4\\%\\)\n\nLet \\(Y \\sim \\Bern(\\mu)\\), a Bernoulli (free throw shooting) distribution with probability of success \\(\\mu\\), \\[\n\\Prob(Y =y) = \\begin{cases} \\mu, & y=1, \\text{ (yes, approve)}\\\\\n1-\\mu, & y = 0, \\text{ (no, do not approve)}\n\\end{cases}\n\\]\n\n\nIf \\(Y_1, \\ldots, Y_n \\IIDsim \\Bern(\\mu)\\), then \\[\\begin{align*}\nT &:= Y_1 + \\cdots + Y_n \\sim \\Bin(n,\\mu), \\; \\Prob(T = t) = \\binom{n}{t} \\mu^t (1-\\mu)^{n-t}\\\\\n\\barY &:= \\frac 1n (Y_1 + \\cdots + Y_n) \\\\\n& \\appxsim  \\Norm\\bigl(\\mu,\\mu(1-\\mu)/n\\bigr) \\quad \\text{by the }\\class{alert}{\\text{Central Limit Theorem}}\n\\end{align*}\\]"
   },
   {
-    "objectID": "slides/01-intro.html#approval-ratings-contd",
-    "href": "slides/01-intro.html#approval-ratings-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Approval ratings (cont’d)",
-    "text": "Approval ratings (cont’d)\nIf \\(Y_1, \\ldots, Y_n \\IIDsim \\Bern(\\mu)\\), then we can construct a confidence interval that captures the true approval rating with high probability: \\[\\begin{align*}\nT &:= Y_1 + \\cdots + Y_n \\sim \\Bin(n,\\mu), \\quad \\Prob(T = y) = \\binom{n}{t} \\mu^t (1-\\mu)^{n-t}\\\\\n\\barY &:= \\frac 1n (Y_1 + \\cdots + Y_n) \\appxsim  \\Norm\\bigl(\\mu,\\mu(1-\\mu)/n\\bigr) \\quad \\text{by the }\\class{alert}{\\text{Central Limit Theorem}}\n\\end{align*}\\]\n\n\n\n\\[\\begin{align*}\n95\\% & \\approx \\Prob\\Bigl[\\mu - 1.96\\sqrt{\\mu(1-\\mu)/n} \\le \\class{alert}{\\barY} \\le \\mu + 1.96\\sqrt{\\mu(1-\\mu)/n}\\Bigr] \\\\\n& = \\Prob\\Bigl[\\barY - 1.96\\sqrt{\\mu(1-\\mu)/n} \\le \\class{alert}{\\mu} \\le \\barY + 1.96\\sqrt{\\mu(1-\\mu)/n}\\Bigr] \\\\\n& \\approx \\Prob\\Bigl[\\barY - 1.96\\sqrt{\\barY(1-\\barY)/n} \\le \\class{alert}{\\mu} \\le \\barY + 1.96\\sqrt{\\barY(1-\\barY)/n}\\Bigr] \\\\\n& \\le \\Prob\\Bigl[\\barY - 1/\\sqrt{n} \\le \\class{alert}{\\mu} \\le \\barY + 1/\\sqrt{n} \\Bigr] \\quad \\text{since } \\sqrt{\\barY(1-\\barY)} \\le 1/2\n\\end{align*}\\] For \\(n = 1000\\) we get \\(1/\\sqrt{n} \\approx 3\\%\\).  ⬇ Approval Rating Jupyter 📓"
-  },
-  {
-    "objectID": "slides/01-intro.html#approval-ratings-contd-1",
-    "href": "slides/01-intro.html#approval-ratings-contd-1",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Approval ratings (cont’d)",
-    "text": "Approval ratings (cont’d)\n\nPopulation is US adults\nModel\n\nBernoulli distribution\nIgnores demographic factors that might explain approvals\n\nUncertainty of the estimate of the proportion, \\(\\mu\\)\n\nProvided by a confidence interval (CI)\nFacilitated by the Central Limit Theorem\nThis is the CI capturing \\(\\mu\\), not probability of \\(\\mu\\) in the CI"
-  },
-  {
     "objectID": "slides/01-intro.html#life-gdp",
     "href": "slides/01-intro.html#life-gdp",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Life expectancy vs gross domestic product (GDP) per capita",
     "text": "Life expectancy vs gross domestic product (GDP) per capita\nCountries differ dramatically in both life expectancy and economic output. A classic dataset (World Bank / Gapminder) records, for each country,\n\nLife \\(=\\) Life expectancy at birth (years)\nGDP \\(=\\) Gross domestic product per capita (USD, purchasing-power adjusted)\n\nEach point represents one country, not one individual. We are interested in the conditional behavior of life expectancy with given national income:\n\n\n\\[\n\\Ex(\\text{Life} | \\text{GDP} = x)\n\\]"
-  },
-  {
-    "objectID": "slides/01-intro.html#life-expectancy-vs-gdp-contd",
-    "href": "slides/01-intro.html#life-expectancy-vs-gdp-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Life expectancy vs GDP (cont’d)",
-    "text": "Life expectancy vs GDP (cont’d)\nThe scatterplot of life expectancy versus GDP per capita reveals two important statistical features.\nNonlinearity\nIncreases in GDP have a much larger effect on life expectancy at low income levels than at high income levels\nHeteroscedasticity\nCountries with low GDP exhibit much greater variability in life expectancy\n\n\nTake logarithm to treat this \\[\n\\Ex(\\text{Life}  \\mid \\text{GDP} = x) \\approx \\alpha + \\beta \\log(x)\n\\]\n\n\\(\\beta\\) measures years of life gained per multiplicative increase in GDP\nThe log scale naturally reflects diminishing returns\n\n ⬇ Health vs. Wealth 📓"
-  },
-  {
-    "objectID": "slides/01-intro.html#life-expectancy-vs-gdp-contd-1",
-    "href": "slides/01-intro.html#life-expectancy-vs-gdp-contd-1",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Life expectancy vs GDP (cont’d)",
-    "text": "Life expectancy vs GDP (cont’d)\n\nPopulation is all hypothetical countries\nModel\n\nLinear regression\nIncorporates transformation of the explanatory variable\n\nUncertainty\n\n\\(R^2\\) measures the proportion of variance in \\(Y\\) captured by the model\n\nInterpretation\n\nThis describes relationship, not cause and effect\nThe variation in the residuals point to other explanatory factors that have been left out of the model"
   },
   {
     "objectID": "slides/01-intro.html#trapezoidal",
@@ -49,46 +21,11 @@
     "text": "Numerical integration\nComputational mathematics seems distinct from statistics, but there is an overlap.\nSuppose that \\(f\\) is a random function defined in \\([0,1]\\), in particular, a Gaussian process, i.e., \\(f \\sim \\GP(0,K)\\). This means that for any distinct \\(x_1, \\ldots, x_n \\in [0,1]\\), the random vector of function values, \\(\\vf := \\bigl(f(x_1), \\ldots, f(x_n) \\bigr)^\\top\\), has a multivariate Gaussian distribution with\n\nMean \\(\\vmu = \\Ex(\\vf) = \\vzero\\)\nCovariance matrix \\(\\mSigma := \\Ex(\\vf \\vf^\\top) = \\bigl(\\Ex[f(x_i)f(x_j)]\\bigr)_{i,j=1}^n  = \\bigl(K(x_i,x_j)\\bigr)_{i,j=1}^n =: \\mK\\)\n\n\nIf this is the Bayesian prior belief about \\(f\\), then the Bayesian posterior mean of the function conditioned on the data \\(\\vf = \\vy\\) is \\[\n\\Ex\\bigl[f(x) \\mid \\vf  = \\vy\\bigr] = \\vy^\\top \\mK^{-1} \\vk(x) , \\quad\n\\text{where } \\vk(x) = \\bigl( K(x,x_i) \\bigr)_{i=1}^n\n\\]\nThe Bayesian posterior mean integral of \\(f\\) conditioned on the data is\n\\[\n\\Ex\\biggl[\\int_0^1 f(x) \\, \\dif x \\mid \\vf  = \\vy\\biggr] = \\vy^\\top \\mK^{-1} \\int_0^1 \\vk(x) \\, \\dif x\n\\]\nFor \\(K(t,x) = 2 - \\lvert t - x\\rvert\\) this is the trapezoidal rule.  ⬇ Bayesian Quadrature 📓"
   },
   {
-    "objectID": "slides/01-intro.html#numerical-integration-contd",
-    "href": "slides/01-intro.html#numerical-integration-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Numerical integration (cont’d)",
-    "text": "Numerical integration (cont’d)\n\nPopulation all (continuous) functions\nModel\n\nStochastic processes\nBayesian inference\nOften one would the parameters in \\(K\\) from data\n\nUncertainty\n\nYou may construct Bayesian credible intervals, but they depend on your confidence in choosing a reasonable \\(K\\)\n\nInterpretation\n\nProvides a statistical interpretation of computational mathematics"
-  },
-  {
-    "objectID": "slides/01-intro.html#class-complexion-contd",
-    "href": "slides/01-intro.html#class-complexion-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Class complexion (cont’d)",
-    "text": "Class complexion (cont’d)\n\n\n\n\nProgramming environments\n\n\n\n\nPython\n14\n\n\nR\n6\n\n\nMATLAB\n4\n\n\nC/C++\n5\n\n\nJava\n1"
-  },
-  {
     "objectID": "slides/01-intro.html#prob-concepts",
     "href": "slides/01-intro.html#prob-concepts",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Key probability concepts",
     "text": "Key probability concepts\n\nOutcome — single possible result of a random process, e.g., yes, \\(0.5\\), \\((1,-2)\\)\nSample space – set of all possible outcomes, e.g., \\(\\{\\text{yes}, \\text{no} \\}\\), \\(\\reals\\)\nEvent – set of outcomes (subset of the sample space), e.g., \\([0,\\infty)\\)\nEvent space – collection of all possible events\nProbability – function \\(\\Prob:\\text{event space}\\to[0,1]\\) satisfying\n\n\\(0 \\le \\Prob(\\text{event}) \\le 1\\)\n\\(\\mathbb{P}(\\text{sample space})=1\\)\nIf \\(A \\cap B=\\varnothing\\), then \\(\\Prob(A\\cup B)=\\Prob(A)+\\Prob(B)\\)"
-  },
-  {
-    "objectID": "slides/01-intro.html#key-probability-concepts-contd",
-    "href": "slides/01-intro.html#key-probability-concepts-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\nRandom variable/vector/function — mathematical quantity representing an outcome\nCumulative distribution function (CDF) \\(F\\) of random variable \\(X\\)\n\n\\(F(x) : =  \\Prob(X \\le x)\\)\n\nQuantile function \\(Q\\) of a random variable \\(X\\) plays the role of the inverse of the CDF\n\n\\(Q(p) : = \\inf\\{x \\in \\reals : F(x) \\ge p\\}\\)\n\nProbability mass function (PMF) \\(\\varrho\\) of discrete random variable \\(X\\)\n\n\\(\\varrho(x):= \\Prob(X = x)\\)\n\nProbability density function (PDF) \\(\\varrho\\) of continuous random variable \\(X\\)\n\n\\(\\varrho(x):= F'(x)\\)"
-  },
-  {
-    "objectID": "slides/01-intro.html#key-probability-concepts-contd-1",
-    "href": "slides/01-intro.html#key-probability-concepts-contd-1",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\nExpectation — average value of a random variable, weighted by its probability\n\n\\(\\displaystyle \\Ex[f(X)] : = \\sum_{x} f(x) \\varrho(x)\\) for discrete random variables\n\\(\\displaystyle \\Ex[f(X)] : =  \\int f(x) \\varrho(x) \\; \\dif x\\) for continuous random variables\n\nMean of \\(X\\) is \\(\\mu : = \\Ex(X)\\)\nVariance of \\(X\\) is \\(\\sigma^2 : = \\var(X) := \\Ex[(X - \\mu)^2] = E(X^2) - \\mu^2\\)\n\nStandard deviation of \\(X\\) is \\(\\std(X) := \\sigma = \\sqrt{\\var(X)}\\)\n\nMedian of \\(X\\) is \\(\\med(X) : = Q(1/2)\\)"
-  },
-  {
-    "objectID": "slides/01-intro.html#key-probability-concepts-contd-2",
-    "href": "slides/01-intro.html#key-probability-concepts-contd-2",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Key probability concepts (cont’d)",
-    "text": "Key probability concepts (cont’d)\n\n\\((X,Y)\\) are independent iff \\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\\) or equivalently \\(\\varrho_{X,Y}(x,y) = \\varrho_X(x) \\varrho_Y(y)\\)\nCovariance \\(\\cov(X,Y) : = \\Ex[(X- \\mu_X)(Y - \\mu_Y)]\\)\nCorrelation \\(\\displaystyle \\corr(X,Y) : = \\frac{\\cov(X,Y)}{\\std(X) \\std(Y)}\\)\nIndependence \\(\\implies\\) zero correlation, but zero correlation \\(\\notimplies\\) independence\n\n\nE.g., \\(\\Prob[(X,Y) = (x,y)] = 1/4\\) for \\((x,y) \\in \\{(\\pm 1, 0), (0, \\pm 1)\\}\\) \\[\\begin{gather*}\n\\text{PMF }\\varrho_X(x) = \\varrho_Y(x) = \\begin{cases}\n\\frac 14 & x =  \\pm 1 \\\\\n\\frac 12 & x = 0\n\\end{cases}\n\\qquad \\Ex(X) = \\Ex(Y) = 0 \\\\\n\\cov(X,Y) = \\Ex(XY) = 0 \\quad \\text{so }\\class{alert}{\\text{uncorrelated}} \\\\\n\\text{BUT } \\varrho_{XY}(x,y) \\ne \\varrho_X(x)\\varrho_Y(y) \\quad \\text{so }\\class{alert}{\\text{dependent}}\n\\end{gather*}\\]"
   },
   {
     "objectID": "slides/01-intro.html#prob-distrib",
@@ -126,25 +63,11 @@
     "text": "Conditional probability\nThe conditional probability means restricting attention to outcomes where \\(B\\) occurs, then measure how often \\(A\\) occurs within that restricted universe of \\(A\\) given \\(B\\) (with \\(\\Prob(B)&gt;0\\)): \\[\n\\Prob(A \\mid B)\n=\n\\frac{\\Prob(A \\cap B)}{\\Prob(B)},\n\\] which means restricting attention to outcomes where \\(B\\) occurs, then measuring how often \\(A\\) occurs within that restricted universe.\n\nMultiplication rule: \\(\\Prob(A \\cap B)\n=\n\\Prob(A \\mid B),\\Prob(B)\\)\n\\(A\\) and \\(B\\) are independent if \\(\\Prob(A \\mid B) = \\Prob(A)\\) or equivalently \\(\\Prob(A \\cap B)=\\Prob(A)\\Prob(B)\\)\n\nBayes’ Rule\n\\[\n\\Prob(A \\mid B)\n=\n\\frac{\\Prob(B \\mid A) \\, \\Prob(A)}{\\Prob(B)},\n\\qquad \\Prob(B)&gt;0\n\\]\n\nIf you meet an introvert, is she more likely to be a librarian or a salesman?"
   },
   {
-    "objectID": "slides/01-intro.html#conditional-density",
-    "href": "slides/01-intro.html#conditional-density",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Conditional Density",
-    "text": "Conditional Density\nLet \\(X\\) and \\(Y\\) have joint density \\(\\varrho_{X,Y}(x,y)\\). The conditional density of \\(X\\) given \\(Y=y\\) is \\[\n\\varrho_{X\\mid Y}(x \\mid y)\n=\n\\frac{\\varrho_{X,Y}(x,y)}{\\varrho_Y(y)},\n\\qquad\n\\varrho_Y(y)=\\int \\varrho_{X,Y}(x,y) \\, \\dif x \\text{ is the }\\class{alert}{\\text{marginal density}} \\text{ of } Y\n\\]\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]"
-  },
-  {
     "objectID": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions",
     "href": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Bayesian statistics to approximate and integrate functions",
     "text": "Bayesian statistics to approximate and integrate functions\nWe assume that \\(f\\), the function to approximate or integrate, is an instance of a Gaussian process, \\(\\GP(0,K)\\). This means that\n\\[\\begin{gather*}\n\\vf := \\bigl(f(x_1), \\ldots, f(x_n) \\bigr)^\\top \\sim \\Norm(\\vzero, \\mK), \\quad \\text{where }\\mK : = \\bigl(K(x_i,x_j)\\bigr)_{i,j=1}^n \\\\\n\\tvf := \\bigl(f(x_1), \\ldots, f(x_n), f(x) \\bigr)^\\top \\sim \\Norm(\\vzero, \\tmK) \\\\\n\\text{where }\n\\tmK : = \\left(\\begin{array}{c|c}\n\\mK & \\vk(x) \\\\\n\\hline\n\\vk^\\top(x) & K(x,x)\n\\end{array}\n\\right)\n, \\quad \\vk(x) = \\bigl( K(x,x_i) \\bigr)_{i=1}^n\n\\end{gather*}\\] and so the conditional density of \\(f(x)\\) given \\(\\vf = \\vy\\), where \\(\\vy\\) is the observed data, is\n\\[\\begin{align*}\n\\varrho_{f(x) | \\vf}(z,\\vy) = \\frac{\\varrho_{\\tvf}(\\tvy)}{\\varrho_{\\vf}(\\vy)} = \\frac{\\frac{\\exp(-\\tvy^\\top \\tmK^{-1} \\tvy/2)}{\\sqrt{(2 \\pi)^{n+1} \\det(\\tmK)}}}{\\frac{\\exp(-\\vy^\\top \\mK^{-1} \\vy/2)}{\\sqrt{(2 \\pi)^{n} \\det(\\mK)}}}\n= \\frac{\\exp([-\\tvy^\\top \\tmK^{-1} \\tvy + \\vy^\\top \\mK^{-1} \\vy]/2)}{\\sqrt{(2 \\pi) \\det(\\tmK)/\\det(\\mK)}}\n\\end{align*}\\] where \\(\\tvy = (\\vy^\\top, z)^\\top\\)"
-  },
-  {
-    "objectID": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions-contd",
-    "href": "slides/01-intro.html#bayesian-statistics-to-approximate-and-integrate-functions-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Bayesian statistics to approximate and integrate functions (cont’d)",
-    "text": "Bayesian statistics to approximate and integrate functions (cont’d)\nOne can show that\n\\[\\begin{gather*}\n\\tmK^{-1}\n=\n\\left(\\begin{array}{c|c}\n\\mK^{-1}+\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}\n&\n-\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\n\\\\\n\\hline\n- \\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}\n&\n\\sigma^{-2}(x)\n\\end{array}\n\\right)\\\\\n\\text{where }\n\\sigma^2(x)=K(x,x)-\\vk^\\top(x)\\mK^{-1}\\vk(x), \\qquad\n\\sigma^{-2}(x) := \\big(\\sigma^2(x)\\big)^{-1}\n\\end{gather*}\\]\nSo\n\\[\\begin{align*}\n\\MoveEqLeft{-\\tvy^\\top \\tmK^{-1} \\tvy + \\vy^\\top \\mK^{-1} \\vy}\\\\\n& = -\\vy^\\top[\\mK^{-1}+\\mK^{-1}\\vk(x)\\sigma^{-2}(x)\\vk^\\top(x)\\mK^{-1}]\\vy + 2 \\vy^\\top\\mK^{-1}\\vk(x)\\sigma^{-2}(x) z - z^2 \\sigma^{-2}(x) \\\\\n& \\qquad \\qquad + \\vy^\\top \\mK^{-1} \\vy \\\\\n& = \\sigma^{-2}(x) [ z - \\vy^\\top \\mK^{-1} \\vk(x)]^2\n\\end{align*}\\]\nand \\(f(x) \\mid \\vf = \\vy \\sim \\Norm\\bigl(\\vy^\\top \\mK^{-1} \\vk(x), \\sigma^2(x) \\bigr)\\)\nBy a similar argument \\(\\int_0 ^1 f(x)\\, \\dif x \\mid \\vf = \\vy \\sim \\Norm\\Bigl(\\vy^\\top \\mK^{-1} \\int_0^1 \\vk(x) \\, \\dif x, \\int_0^1 \\int_0^1 K(t,x) \\, \\dif t \\dif x - \\int_0^1 \\vk^\\top(x) \\, \\dif x \\, \\mK^{-1} \\, \\int_0^1 \\vk(x) \\, \\dif x  \\Bigr)\\)"
   },
   {
     "objectID": "slides/01-intro.html#bayesian-inference",
@@ -154,32 +77,46 @@
     "text": "Bayesian inference\nBayes’ rule for densities\n\\[\n\\varrho_{X\\mid Y}(x\\mid y)\n=\n\\frac{\\varrho_{Y\\mid X}(y\\mid x)\\,\\varrho_X(x)}{\\varrho_Y(y)}\n\\]\nLet \\[\\begin{align*}\nX & = \\text{random unknown parameter} \\\\\nY & = \\text{random observed data} \\\\\n\\varrho_X & = \\text{prior density or belief about the parameter} \\\\\n\\varrho_{Y\\mid X} & = \\text{likelihood} \\\\\n\\varrho_{X\\mid Y} & = \\text{posterior density}\n\\end{align*}\\] Then \\[\\begin{align*}\n\\varrho_{X\\mid Y}( \\text{parameter} \\mid \\text{data})\n& =\n\\frac{\\varrho_{Y\\mid X}(\\text{data}\\mid \\text{parameter} ) \\,\\varrho_X(\\text{parameter})}{\\varrho_Y(\\text{data})}\n\\\\\n\\text{posterior density } &\n\\propto\n\\text{likelihood} \\times \\text{prior density}\n\\end{align*}\\]"
   },
   {
+    "objectID": "slides/01-intro.html#conditional-exp",
+    "href": "slides/01-intro.html#conditional-exp",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Conditional expectation",
+    "text": "Conditional expectation\nConditional expectation of \\(X\\) given event \\(A\\) (with \\(\\Prob(A)&gt;0\\)) is \\[\n\\Ex[X \\mid A]\n=\n\\frac{\\Ex[X \\, \\indic(X \\in A)]}{\\Prob(A)} \\qquad \\text{and so} \\qquad \\Ex[X \\, \\indic(X \\in A)]\n=\n\\Prob(A)\\,\\Ex[X \\mid A]\n\\] The indicator function, \\(\\indic(\\cdot)\\), equals \\(1\\) if the statement inside the parentheses is true, and \\(0\\) otherwise.\n\nConditional expectation of \\(X\\) given \\(Y=y\\) is \\[\n\\Ex[X \\mid Y=y]\n=\n\\int x \\, \\varrho_{X\\mid Y}(x \\mid y)\\,\\dif x\n\\] If \\(g(y)=\\Ex[X \\mid Y=y]\\), then \\(\\Ex[X \\mid Y] = g(Y)\\) is a random variable depending only on \\(Y\\)\n\n\nIf \\(X\\) is independent of \\(Y\\), then \\(\\Ex[X \\mid Y] = \\Ex[X]\\)"
+  },
+  {
     "objectID": "slides/01-intro.html#type-conv",
     "href": "slides/01-intro.html#type-conv",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Types of convergence",
-    "text": "Types of convergence\nLet \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable\nAlmost Sure Convergence\n\\[\nX_n \\xrightarrow{\\text{a.s.}} X \\iff \\Prob \\left( \\lim_{n \\to \\infty} X_n = X \\right) = 1\n\\] For almost every outcome the sequence \\(X_n\\) converges to \\(X\\)\nConvergence in Probability\n\\[\nX_n \\xrightarrow{\\Prob} X \\iff \\forall \\varepsilon &gt; 0, \\;\n\\Prob\\big( |X_n - X| &gt; \\varepsilon \\big) \\;\\longrightarrow\\; 0.\n\\] The probability that \\(X_n\\) differs significantly from \\(X\\) goes to zero\nConvergence in Distribution\n\\[\nX_n \\xrightarrow{d} X \\iff\n\\lim_{n \\to \\infty} F_{X_n}(x) = F_X(x)\n\\quad \\text{for all continuity points of } F_X\n\\] The distributions of \\(X_n\\) approach the distribution of \\(X\\)"
-  },
-  {
-    "objectID": "slides/01-intro.html#types-of-convergence-contd",
-    "href": "slides/01-intro.html#types-of-convergence-contd",
-    "title": "MATH 563 — Mathematical Statistics",
-    "section": "Types of convergence (cont’d)",
-    "text": "Types of convergence (cont’d)\n\\[\nX_n \\xrightarrow{\\text{a.s.}} X\n\\;\\Longrightarrow\\;\nX_n \\xrightarrow{\\Prob} X\n\\;\\Longrightarrow\\;\nX_n \\xrightarrow{d} X,\n\\] and none of the reverse implications hold in general\n\n\\(X, X_1, X_2, \\ldots \\IIDsim \\Norm(0,1)\\) satisfies \\(X_n \\xrightarrow{d} X\\) but not \\(X_n \\ \\not\\!\\xrightarrow{\\Prob} X\\)\n\\(X=0\\) and \\(\\Prob(X_n =x ) = \\begin{cases} 1/n, & x=1 \\\\ 1-1/n, & x=0 \\end{cases} \\;\\) satisfies \\[\n\\Prob(\\lvert X_n - X \\rvert &gt; \\varepsilon ) = \\Prob(X_n =1) = 1/n \\to 0 \\text{ as } n \\to \\infty \\text{ so } X_n \\xrightarrow{\\Prob} X\n\\] But \\(\\Prob (X_n =1 \\text{ infinitely often}) = 1\\) since \\[\n\\sum_{n=1}^{\\infty} \\Prob(X_n=1) = \\sum_{n=1}^{\\infty} \\frac 1n = \\infty\n\\] so \\(X_n \\ \\, \\not\\!\\!\\xrightarrow{\\text{a.s.}} X\\)"
+    "text": "Types of convergence\nLet \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable\nAlmost Sure Convergence\n\\[\nX_n \\convas X \\iff \\Prob \\left( \\lim_{n \\to \\infty} X_n = X \\right) = 1\n\\] For almost every outcome the sequence \\(X_n\\) converges to \\(X\\)\nConvergence in Probability\n\\[\nX_n \\convp X \\iff \\forall \\varepsilon &gt; 0, \\;\n\\Prob\\big( |X_n - X| &gt; \\varepsilon \\big) \\;\\longrightarrow\\; 0.\n\\] The probability that \\(X_n\\) differs significantly from \\(X\\) goes to zero\nConvergence in Distribution\n\\[\nX_n \\convd X \\iff\n\\lim_{n \\to \\infty} F_{X_n}(x) = F_X(x)\n\\quad \\text{for all continuity points of } F_X\n\\] The distributions of \\(X_n\\) approach the distribution of \\(X\\)"
   },
   {
     "objectID": "slides/01-intro.html#clt",
     "href": "slides/01-intro.html#clt",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\nIf \\(X_1, X_2, \\ldots \\IIDsim\\) some distribution with finite moment generating function, \\(M(t) := \\Ex\\bigl(\\exp(tX)\\bigr)\\), and \\(\\mu = \\Ex(X)\\) and \\(\\sigma^2 = \\var(X)\\), and \\[\n\\barX_n := \\frac 1n \\left(X_1 + \\cdots + X_n \\right),\n\\] then \\[\n\\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} \\xrightarrow{d} \\Norm(0,1)\n\\]"
+    "text": "Central Limit Theorem\nIf \\(X_1, X_2, \\ldots \\IIDsim\\) some distribution with finite moment generating function, \\(M(t) := \\Ex\\bigl(\\exp(tX)\\bigr)\\), that exists for \\(t\\) near \\(0\\), and \\(\\mu = \\Ex(X)\\) and \\(\\sigma^2 = \\var(X)\\), and \\[\n\\barX_n := \\frac 1n \\left(X_1 + \\cdots + X_n \\right),\n\\] then \\[\n\\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} \\convd \\Norm(0,1)\n\\] Note that IID means independent and identically distributed"
   },
   {
-    "objectID": "slides/01-intro.html#chebyscevs-inequality",
-    "href": "slides/01-intro.html#chebyscevs-inequality",
+    "objectID": "slides/01-intro.html#proof-of-the-central-limit-theorem",
+    "href": "slides/01-intro.html#proof-of-the-central-limit-theorem",
     "title": "MATH 563 — Mathematical Statistics",
-    "section": "Chebyscev’s Inequality",
-    "text": "Chebyscev’s Inequality\n\\[\n\\Prob\\bigl( f(X) \\ge r \\bigr) \\le \\frac{\\Ex[f(X)]}{r}\n\\]"
+    "section": "Proof of the Central Limit Theorem",
+    "text": "Proof of the Central Limit Theorem\n\nDefine a standardized (mean \\(0\\), variance \\(1\\)) random variable, \\(Y_i := (X_i - \\mu)/\\sigma\\) and note that \\(Y_1, Y_2, \\dots\\) are IID with\n\n\\[\\begin{align*}\nZ_n: &= \\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} = \\frac{Y_1 + \\cdots + Y_n}{\\sqrt{n}} \\\\\nM_{Z_n}(t) &= \\Ex[\\exp(tZ_n)] = \\Ex[\\exp(tY_1/\\sqrt{n}) \\cdots \\exp(tY_n/\\sqrt{n})]\\\\\n& =  \\{\\Ex[\\exp(tY_1/\\sqrt{n})]\\}^n \\qquad \\text{by independence} \\\\\n& = [M_Y(t/\\sqrt{n})]^n\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/01-intro.html#chebyshevs-inequality",
+    "href": "slides/01-intro.html#chebyshevs-inequality",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Chebyshev’s Inequality",
+    "text": "Chebyshev’s Inequality\n\\[\n\\Prob\\bigl( f(X) \\ge r \\bigr) \\le \\frac{\\Ex[f(X)]}{r}\n\\]\nProof\n\\[\\begin{align*}\n\\Prob(f(X)\\ge r)\n&= \\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\bigr] \\\\\n&= \\Ex\\Bigl[\\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\mid X\\bigr]\\Bigr]\n\\qquad \\text{(total expectation)} \\\\\n&\\le \\Ex\\Bigl[\\Ex\\bigl[f(X)/r \\mid X\\bigr]\\Bigr]\n\\qquad \\text{since } \\indic\\bigl(f(X)\\ge r\\bigr)\\le f(X)/r \\text{ a.s.} \\\\\n&= \\Ex\\bigl[f(X)/r\\bigr] \\\\\n&= \\Ex[f(X)]/r\n\\end{align*}\\]\nImportant special case\n\\[\n\\Prob\\bigl( \\lvert X - \\mu \\rvert^2 \\ge r^2 \\bigr) \\le \\frac{\\sigma^2}{r^2} \\quad \\text{where } \\mu = \\Ex(X), \\ \\sigma^2 = \\var(X)\n\\]"
+  },
+  {
+    "objectID": "slides/01-intro.html#weak-law-of-large-numbers-via-chebyshev",
+    "href": "slides/01-intro.html#weak-law-of-large-numbers-via-chebyshev",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Weak Law of Large Numbers (via Chebyshev)",
+    "text": "Weak Law of Large Numbers (via Chebyshev)\nTheorem (WLLN)\nLet \\(X_1,X_2,\\dots\\) be IID with \\(\\Ex[X_1]=\\mu\\) and \\(\\var(X_1)=\\sigma^2&lt;\\infty\\). Define the sample mean \\(\\bar X_n := \\frac1n\\sum_{i=1}^n X_i\\). Then \\(\\barX_n \\convp \\mu\\).\nProof\nBy Chebyshev’s inequality, \\[\n\\Prob\\bigl(|\\barX_n-\\mu|\\ge \\varepsilon\\bigr)\n\\le \\frac{\\Var(\\barX_n)}{\\varepsilon^2}\n\\] Using independence, \\[\n\\var(\\barX_n)\n=\n\\var\\!\\left(\\frac1n\\sum_{i=1}^n X_i\\right)\n=\n\\frac{1}{n^2}\\sum_{i=1}^n \\Var(X_i)\n=\n\\frac{1}{n^2}\\cdot n\\sigma^2\n=\n\\frac{\\sigma^2}{n}\n\\] Therefore, \\[\n\\Prob\\bigl(|\\barX_n-\\mu|\\ge \\varepsilon\\bigr)\n\\le\n\\frac{\\sigma^2}{n\\varepsilon^2}\n\\to 0 \\qquad \\square\n\\]"
   },
   {
     "objectID": "pages/schedule.html",

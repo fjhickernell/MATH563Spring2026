@@ -436,8 +436,9 @@ From Data
 <li>Carefully sampled</li>
 <li>Observations, surveys, experiments, or computer simulations</li>
 </ul>
-<p>&nbsp;</p>
+<div class="vspace">
 <p>See <a href="../pages/stats-qs.html">Big Statistics Questions</a></p>
+</div>
 </section>
 
 <section>
@@ -477,8 +478,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \; \Prob(T = t) = \binom{n}{t} \m
 </div>
 </div></div>
 </section>
-<section id="approval-ratings-contd" class="slide level2">
-<h2>Approval ratings (cont’d)</h2>
+<section class="slide level2">
+
 <p>If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then we can construct a <span class="alert">confidence interval</span> that <span class="alert">captures</span> the true approval rating with high probability: <span class="math display">\[\begin{align*}
 T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
 \barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
@@ -497,8 +498,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <p><span class="fragment" data-fragment-index="1"> <img src="../classlib/classlib/notebooks/figures/approval_rating/ci_failure_approval.png" style="width:100%; display:block; margin:0 auto;"> </span></p>
 </div></div>
 </section>
-<section id="approval-ratings-contd-1" class="slide level2">
-<h2>Approval ratings (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><span class="alert">Population</span> is US adults</li>
 <li><span class="alert">Model</span>
@@ -535,8 +536,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </div>
 </div></div>
 </section>
-<section id="life-expectancy-vs-gdp-contd" class="slide level2">
-<h2>Life expectancy vs GDP (cont’d)</h2>
+<section class="slide level2">
+
 <p>The scatterplot of life expectancy versus GDP per capita reveals two important statistical features.</p>
 <h3 id="nonlinearity">Nonlinearity</h3>
 <p>Increases in GDP have a <span class="alert">much larger effect</span> on life expectancy at low income levels than at high income levels</p>
@@ -560,8 +561,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </div>
 </div></div>
 </section>
-<section id="life-expectancy-vs-gdp-contd-1" class="slide level2">
-<h2>Life expectancy vs GDP (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><span class="alert">Population</span> is all hypothetical countries</li>
 <li><span class="alert">Model</span>
@@ -600,8 +601,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <p>For <span class="math inline">\(K(t,x) = 2 - \lvert t - x\rvert\)</span> this is the <span class="alert">trapezoidal rule</span>. <a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/Bayesian_quadrature.ipynb" download=""> ⬇ Bayesian Quadrature 📓 </a></p>
 </div>
 </section>
-<section id="numerical-integration-contd" class="slide level2">
-<h2>Numerical integration (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><span class="alert">Population</span> all (continuous) functions</li>
 <li><span class="alert">Model</span>
@@ -693,8 +694,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </tbody>
 </table>
 </section>
-<section id="class-complexion-contd" class="slide level2">
-<h2>Class complexion (cont’d)</h2>
+<section class="slide level2">
+
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -752,8 +753,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </ul></li>
 </ul>
 </section>
-<section id="key-probability-concepts-contd" class="slide level2">
-<h2>Key probability concepts (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><p><span class="alert">Random variable/vector/function</span> — mathematical quantity representing an outcome</p></li>
 <li><p><span class="alert">Cumulative distribution function (CDF)</span> <span class="math inline">\(F\)</span> of random variable <span class="math inline">\(X\)</span></p>
@@ -774,8 +775,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </ul></li>
 </ul>
 </section>
-<section id="key-probability-concepts-contd-1" class="slide level2">
-<h2>Key probability concepts (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><p><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability</p>
 <ul>
@@ -790,8 +791,8 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 <li><p><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2)\)</span></p></li>
 </ul>
 </section>
-<section id="key-probability-concepts-contd-2" class="slide level2">
-<h2>Key probability concepts (cont’d)</h2>
+<section class="slide level2">
+
 <ul>
 <li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
 <li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p></li>
@@ -904,8 +905,8 @@ F(x) &amp;= \begin{cases}
 <p>If you meet an introvert, is she more likely to be a librarian or a salesman?</p>
 </blockquote>
 </section>
-<section id="conditional-density" class="slide level2">
-<h2>Conditional Density</h2>
+<section class="slide level2">
+
 <p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have <span class="alert">joint density</span> <span class="math inline">\(\varrho_{X,Y}(x,y)\)</span>. The <span class="alert">conditional density</span> of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> is <span class="math display">\[
 \varrho_{X\mid Y}(x \mid y)
 =
@@ -940,9 +941,9 @@ F(x) &amp;= \begin{cases}
 = \frac{\exp([-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy]/2)}{\sqrt{(2 \pi) \det(\tmK)/\det(\mK)}}
 \end{align*}\]</span> where <span class="math inline">\(\tvy = (\vy^\top, z)^\top\)</span></p>
 </section>
-<section id="bayesian-statistics-to-approximate-and-integrate-functions-contd" class="slide level2">
-<h2>Bayesian statistics to approximate and integrate functions (cont’d)</h2>
-<p>One can show that</p>
+<section class="slide level2">
+
+<p>One can show that the inverse of the covariance matrix is</p>
 <p><span class="math display">\[\begin{gather*}
 \tmK^{-1}
 =
@@ -969,7 +970,9 @@ F(x) &amp;= \begin{cases}
 &amp; = \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
 \end{align*}\]</span></p>
 <p>and <span class="math inline">\(f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)\)</span></p>
+<div class="vspace">
 <p>By a similar argument <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\Bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \int_0^1 K(t,x) \, \dif t \dif x - \int_0^1 \vk^\top(x) \, \dif x \, \mK^{-1} \, \int_0^1 \vk(x) \, \dif x  \Bigr)\)</span></p>
+</div>
 </section>
 <section id="bayesian-inference" class="slide level2">
 <h2>Bayesian inference</h2>
@@ -995,55 +998,187 @@ Y &amp; = \text{random observed data} \\
 \text{likelihood} \times \text{prior density}
 \end{align*}\]</span></p>
 </section>
+<section id="conditional-exp" class="slide level2">
+<h2>Conditional expectation</h2>
+<p>Conditional expectation of <span class="alert"><span class="math inline">\(X\)</span> given event <span class="math inline">\(A\)</span></span> (with <span class="math inline">\(\Prob(A)&gt;0\)</span>) is <span class="math display">\[
+\Ex[X \mid A]
+=
+\frac{\Ex[X \, \indic(X \in A)]}{\Prob(A)} \qquad \text{and so} \qquad \Ex[X \, \indic(X \in A)]
+=
+\Prob(A)\,\Ex[X \mid A]
+\]</span> The <span class="alert">indicator function</span>, <span class="math inline">\(\indic(\cdot)\)</span>, equals <span class="math inline">\(1\)</span> if the statement inside the parentheses is true, and <span class="math inline">\(0\)</span> otherwise.</p>
+<div class="vspace-lg">
+<p>Conditional expectation of <span class="alert"><span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span></span> is <span class="math display">\[
+\Ex[X \mid Y=y]
+=
+\int x \, \varrho_{X\mid Y}(x \mid y)\,\dif x
+\]</span> If <span class="math inline">\(g(y)=\Ex[X \mid Y=y]\)</span>, then <span class="math inline">\(\Ex[X \mid Y] = g(Y)\)</span> is a random variable depending only on <span class="math inline">\(Y\)</span></p>
+</div>
+<div class="vspace-lg">
+<p>If <span class="math inline">\(X\)</span> is <span class="alert">independent</span> of <span class="math inline">\(Y\)</span>, then <span class="math inline">\(\Ex[X \mid Y] = \Ex[X]\)</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="conditioning-on-an-event">Conditioning on an event</h3>
+<p>For any event <span class="math inline">\(A\)</span> with <span class="math inline">\(0&lt;\Prob(A)&lt;1\)</span>, <span class="math display">\[
+\Ex[X]
+=
+\Prob(A)\,\Ex[X \mid A]
++
+\Prob(A^c)\,\Ex[X \mid A^c]
+\]</span></p>
+<p>More generally, if <span class="math inline">\(\{A_1,\ldots,A_n\}\)</span> is a partition of the sample space with <span class="math inline">\(\Prob(A_i)&gt;0\)</span>, then <span class="math display">\[
+\Ex[X]
+=
+\sum_{i=1}^n
+\Prob(A_i)\,\Ex[X \mid A_i].
+\]</span></p>
+<h3 id="law-of-total-expectation">Law of total expectation</h3>
+<p><span class="math display">\[
+\Ex\!\bigl[\Ex[X \mid Y]\bigr]
+=
+\Ex[X]
+\]</span></p>
+<h3 id="law-of-total-variance">Law of total variance</h3>
+<p><span class="math display">\[
+\var(X)
+=
+\Ex\!\bigl[\var(X \mid Y)\bigr]
++
+\var\!\bigl(\Ex[X \mid Y]\bigr)
+\]</span></p>
+</section>
 <section id="type-conv" class="slide level2">
 <h2>Types of convergence</h2>
 <p>Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be random variables and <span class="math inline">\(X\)</span> another random variable</p>
 <h3 id="almost-sure-convergence">Almost Sure Convergence</h3>
 <p><span class="math display">\[
-X_n \xrightarrow{\text{a.s.}} X \iff \Prob \left( \lim_{n \to \infty} X_n = X \right) = 1
+X_n \convas X \iff \Prob \left( \lim_{n \to \infty} X_n = X \right) = 1
 \]</span> For almost every outcome the sequence <span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(X\)</span></p>
 <h3 id="convergence-in-probability">Convergence in Probability</h3>
 <p><span class="math display">\[
-X_n \xrightarrow{\Prob} X \iff \forall \varepsilon &gt; 0, \;
+X_n \convp X \iff \forall \varepsilon &gt; 0, \;
 \Prob\big( |X_n - X| &gt; \varepsilon \big) \;\longrightarrow\; 0.
 \]</span> The probability that <span class="math inline">\(X_n\)</span> differs significantly from <span class="math inline">\(X\)</span> goes to zero</p>
 <h3 id="convergence-in-distribution">Convergence in Distribution</h3>
 <p><span class="math display">\[
-X_n \xrightarrow{d} X \iff
+X_n \convd X \iff
 \lim_{n \to \infty} F_{X_n}(x) = F_X(x)
 \quad \text{for all continuity points of } F_X
 \]</span> The distributions of <span class="math inline">\(X_n\)</span> approach the distribution of <span class="math inline">\(X\)</span></p>
 </section>
-<section id="types-of-convergence-contd" class="slide level2">
-<h2>Types of convergence (cont’d)</h2>
+<section class="slide level2">
+
+<h3 id="convergence-strength">Convergence strength</h3>
 <p><span class="math display">\[
-X_n \xrightarrow{\text{a.s.}} X
+X_n \convas X
 \;\Longrightarrow\;
-X_n \xrightarrow{\Prob} X
+X_n \convp X
 \;\Longrightarrow\;
-X_n \xrightarrow{d} X,
+X_n \convd X,
 \]</span> and none of the reverse implications hold in general</p>
 <ul>
-<li><p><span class="math inline">\(X, X_1, X_2, \ldots \IIDsim \Norm(0,1)\)</span> satisfies <span class="math inline">\(X_n \xrightarrow{d} X\)</span> but not <span class="math inline">\(X_n \ \not\!\xrightarrow{\Prob} X\)</span></p></li>
+<li><p><span class="math inline">\(X, X_1, X_2, \ldots \IIDsim \Norm(0,1)\)</span> satisfies <span class="math inline">\(X_n \convd X\)</span>, but <span class="math inline">\(X_n \nconvp X\)</span></p></li>
 <li><p><span class="math inline">\(X=0\)</span> and <span class="math inline">\(\Prob(X_n =x ) = \begin{cases} 1/n, &amp; x=1 \\ 1-1/n, &amp; x=0 \end{cases} \;\)</span> satisfies <span class="math display">\[
-\Prob(\lvert X_n - X \rvert &gt; \varepsilon ) = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty \text{ so } X_n \xrightarrow{\Prob} X
-\]</span> But <span class="math inline">\(\Prob (X_n =1 \text{ infinitely often}) = 1\)</span> since <span class="math display">\[
+\Prob(\lvert X_n - X \rvert &gt; \varepsilon ) = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty \text{ so } X_n \convp X
+\]</span> But <span class="math inline">\(\Prob (X_n =1 \text{ infinitely often}) = 1\)</span> since the expected number of times <span class="math inline">\(X_n=1\)</span> is <span class="math display">\[
 \sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
-\]</span> so <span class="math inline">\(X_n \ \, \not\!\!\xrightarrow{\text{a.s.}} X\)</span></p></li>
+\]</span> so <span class="math inline">\(X_n \ \, \nconvas X\)</span></p></li>
 </ul>
 </section>
-<section id="clt" class="slide level2">
+<section id="clt" class="slide level2" data-state="goldborder">
 <h2>Central Limit Theorem</h2>
-<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX)\bigr)\)</span>, and <span class="math inline">\(\mu = \Ex(X)\)</span> and <span class="math inline">\(\sigma^2 = \var(X)\)</span>, and <span class="math display">\[
+<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX)\bigr)\)</span>, that exists for <span class="math inline">\(t\)</span> near <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mu = \Ex(X)\)</span> and <span class="math inline">\(\sigma^2 = \var(X)\)</span>, and <span class="math display">\[
 \barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
 \]</span> then <span class="math display">\[
-\frac{\barX_n - \mu}{\sigma /\sqrt{n}} \xrightarrow{d} \Norm(0,1)
-\]</span></p>
+\frac{\barX_n - \mu}{\sigma /\sqrt{n}} \convd \Norm(0,1)
+\]</span> <span class="alert">Note that IID means independent and identically distributed</span></p>
 </section>
-<section id="chebyscevs-inequality" class="slide level2">
-<h2>Chebyscev’s Inequality</h2>
+<section id="proof-of-the-central-limit-theorem" class="slide level2">
+<h2>Proof of the Central Limit Theorem</h2>
+<ol type="1">
+<li>Define a standardized (mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(1\)</span>) random variable, <span class="math inline">\(Y_i := (X_i - \mu)/\sigma\)</span> and note that <span class="math inline">\(Y_1, Y_2, \dots\)</span> are IID with</li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+Z_n: &amp;= \frac{\barX_n - \mu}{\sigma /\sqrt{n}} = \frac{Y_1 + \cdots + Y_n}{\sqrt{n}} \\
+M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})]\\
+&amp; =  \{\Ex[\exp(tY_1/\sqrt{n})]\}^n \qquad \text{by independence} \\
+&amp; = [M_Y(t/\sqrt{n})]^n
+\end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<ol start="2" type="1">
+<li>Take the limit of <span class="math inline">\(M_{Z_n}(t)\)</span> as <span class="math inline">\(n \to \infty\)</span> using <span class="alert">L’Hôpital’s rule</span> <span class="math display">\[\begin{align*}
+\lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) &amp; = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr)
+=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \\
+&amp; = \lim_{n \to \infty}
+\frac{ \dfrac{-t}{2n^{3/2}} \dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})} }
+  { -n^{-2} }
+=   \frac t2  \lim_{n \to \infty} \bigg[ \frac{M'_Y(t/\sqrt{n})}{ n^{-1/2} M_Y(t/\sqrt{n}) } \bigg]
+= \frac{0}{0} \\
+&amp; =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2}
+\end{align*}\]</span></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="3" type="1">
+<li>Note that if <span class="math inline">\(Z \sim \Norm(0,1)\)</span> then <span class="math display">\[\begin{align*}
+M_Z(t) &amp; = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp(tz - z^2/2) \, \dif z \\
+&amp; = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp\bigl(-(z - t)^2/2 \bigr) \, \exp(t^2/2) \, \dif z = \exp(t^2/2) \\
+\log\bigl(M_Z(t)  \bigr) &amp;= \frac{t^2}{2} = \lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr)
+\end{align*}\]</span></li>
+</ol>
+<p>By uniqueness of moment generating functions, <span class="math display">\[
+Z_n \convd N(0,1)
+\]</span> <span class="math inline">\(\square\)</span></p>
+</section>
+<section id="chebyshevs-inequality" class="slide level2">
+<h2>Chebyshev’s Inequality</h2>
 <p><span class="math display">\[
 \Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
+\]</span></p>
+<h3 id="proof">Proof</h3>
+<p><span class="math display">\[\begin{align*}
+\Prob(f(X)\ge r)
+&amp;= \Ex\bigl[\indic\bigl(f(X)\ge r\bigr)\bigr] \\
+&amp;= \Ex\Bigl[\Ex\bigl[\indic\bigl(f(X)\ge r\bigr)\mid X\bigr]\Bigr]
+\qquad \text{(total expectation)} \\
+&amp;\le \Ex\Bigl[\Ex\bigl[f(X)/r \mid X\bigr]\Bigr]
+\qquad \text{since } \indic\bigl(f(X)\ge r\bigr)\le f(X)/r \text{ a.s.} \\
+&amp;= \Ex\bigl[f(X)/r\bigr] \\
+&amp;= \Ex[f(X)]/r
+\end{align*}\]</span></p>
+<h3 id="important-special-case">Important special case</h3>
+<p><span class="math display">\[
+\Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X)
+\]</span></p>
+</section>
+<section id="weak-law-of-large-numbers-via-chebyshev" class="slide level2">
+<h2>Weak Law of Large Numbers (via Chebyshev)</h2>
+<h3 id="theorem-wlln">Theorem (WLLN)</h3>
+<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\bar X_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
+<h3 id="proof-1">Proof</h3>
+<p>By Chebyshev’s inequality, <span class="math display">\[
+\Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le \frac{\Var(\barX_n)}{\varepsilon^2}
+\]</span> Using independence, <span class="math display">\[
+\var(\barX_n)
+=
+\var\!\left(\frac1n\sum_{i=1}^n X_i\right)
+=
+\frac{1}{n^2}\sum_{i=1}^n \Var(X_i)
+=
+\frac{1}{n^2}\cdot n\sigma^2
+=
+\frac{\sigma^2}{n}
+\]</span> Therefore, <span class="math display">\[
+\Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le
+\frac{\sigma^2}{n\varepsilon^2}
+\to 0 \qquad \square
 \]</span></p>
 
 
