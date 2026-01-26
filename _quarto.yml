@@ -56,8 +56,7 @@ website:
           - text: QMCPy
             href: https://qmcpy.github.io/
   page-footer:
-    left: "© 2026 Fred J. Hickernell"
-    right: "Illinois Institute of Technology"
+    left: "© 2026 Fred J. Hickernell · Illinois Institute of Technology"
 
 execute:
   env:

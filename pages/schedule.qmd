@@ -7,11 +7,11 @@ Classes are held in RE 102
 | Date   | Topic                    | Slides                             |
 |--------|---------|-------------------------|------------------------------------|
 | Tue Jan 13 | Introductory Examples,  Course Overview | [Introduction and Probability Review](../slides/01-intro.html)  |
-| Thu Jan 15 | Introductory Examples, Review of Probability   |    
+| Thu Jan 15 | Introductory Examples, Key Probability Concepts |    
 | Fri Jan 16 | **Diagnostic Survey Due**                                |
-| Tue Jan 20 | Review of Probability | |
-| Thu Jan 22 | | |
-| Tue Jan 27 | | |
+| Tue Jan 20 | Key Probability Concepts, Important Distributions, Conditional Probability | |
+| Thu Jan 22 | Conditional Probability, Convergence, Central Limit Theorem | |
+| Tue Jan 27 | Central Limit Theorem, Chebyshev's Inequality, Summary Statistics| [Estimation and Confidence Intervals](../slides/02-estimator.html) | |
 | Thu Jan 29 | | |
 Fri Jan 30 | **Assignment 2 Due**
 | Tue Feb 3 | | |
