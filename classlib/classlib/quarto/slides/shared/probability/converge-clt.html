@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -199,13 +234,27 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Types of convergence{#type-conv}</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="type-conv" class="level2">
-<h2 class="anchored" data-anchor-id="type-conv">Types of convergence</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be random variables and <span class="math inline">\(X\)</span> another random variable</p>
 <section id="almost-sure-convergence" class="level3">
 <h3 class="anchored" data-anchor-id="almost-sure-convergence">Almost Sure Convergence</h3>
@@ -247,7 +296,6 @@ X_n \convd X,
 \]</span> so <span class="math inline">\(X_n \ \, \nconvas X\)</span></p></li>
 </ul>
 <hr>
-</section>
 </section>
 <section id="clt" class="level2" data-state="goldborder">
 <h2 data-state="goldborder" class="anchored" data-anchor-id="clt">Central Limit Theorem</h2>
@@ -318,6 +366,78 @@ Z_n \convd N(0,1)
 \Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex \lvert X - \med(X)\rvert}{r}
 \end{gather*}\]</span></p>
 </section>
+</section>
+<section id="normal-tails-vs-chebyshev-bounds" class="level2">
+<h2 class="anchored" data-anchor-id="normal-tails-vs-chebyshev-bounds">Normal tails vs Chebyshev bounds</h2>
+<p>Let <span class="math inline">\(X\sim \Norm(0,1)\)</span> and cmpare <span class="math inline">\(\Prob(|X|&gt;r)\)</span> with two bounds</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rs <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">100</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>E_absX <span class="op">=</span> math.sqrt(<span class="dv">2</span><span class="op">/</span>math.pi)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tail_abs_normal(r):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.erfc(r <span class="op">/</span> math.sqrt(<span class="dv">2</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"| $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|X|&gt;r)$ (exact) | $</span><span class="ch">\\</span><span class="st">Ex|X|/r$ (Markov) | $</span><span class="ch">\\</span><span class="st">Ex|X|^2 /r^2$ (Chebyshev) |"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|---:|---:|----:|"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> rs:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    exact <span class="op">=</span> tail_abs_normal(r)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    markov <span class="op">=</span> E_absX <span class="op">/</span> r</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    cheb <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> (r<span class="op">*</span>r)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"| </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>exact<span class="sc">:.6g}</span><span class="ss"> | </span><span class="sc">{</span>markov<span class="sc">:.6f}</span><span class="ss"> | </span><span class="sc">{</span>cheb<span class="sc">:.6f}</span><span class="ss"> |"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(r\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\Prob(|X|&gt;r)\)</span> (exact)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex|X|/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex|X|^2 /r^2\)</span> (Chebyshev)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.317311</td>
+<td style="text-align: right;">0.797885</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0455003</td>
+<td style="text-align: right;">0.398942</td>
+<td style="text-align: right;">0.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0026998</td>
+<td style="text-align: right;">0.265962</td>
+<td style="text-align: right;">0.111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.52397e-23</td>
+<td style="text-align: right;">0.079788</td>
+<td style="text-align: right;">0.010000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.007979</td>
+<td style="text-align: right;">0.000100</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The Markov and Chebyshev bounds are much looser, but more general</li>
+<li>CLT bounds for means will resemble the exact</li>
+</ul>
 </section>
 <section id="weak-law-of-large-numbers-via-chebyshev" class="level2">
 <h2 class="anchored" data-anchor-id="weak-law-of-large-numbers-via-chebyshev">Weak Law of Large Numbers (via Chebyshev)</h2>

@@ -112,6 +112,13 @@
     "text": "Chebyshev (Markov) Inequality\n\\[\n\\Prob\\bigl( f(X) \\ge r \\bigr) \\le \\frac{\\Ex[f(X)]}{r}\n\\]\nProof\n\\[\\begin{align*}\n\\Prob(f(X)\\ge r)\n&= \\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\bigr] \\\\\n&= \\Ex\\Bigl[\\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\mid X\\bigr]\\Bigr]\n\\qquad \\text{(total expectation)} \\\\\n&\\le \\Ex\\Bigl[\\Ex\\bigl[f(X)/r \\mid X\\bigr]\\Bigr]\n\\qquad \\text{since } \\indic\\bigl(f(X)\\ge r\\bigr)\\le f(X)/r \\text{ a.s.} \\\\\n&= \\Ex\\bigl[f(X)/r\\bigr] \\\\\n&= \\Ex[f(X)]/r\n\\end{align*}\\]\nImportant special cases\n\\[\\begin{gather*}\n\\Prob\\bigl( \\lvert X - \\mu \\rvert^2 \\ge r^2 \\bigr) \\le \\frac{\\sigma^2}{r^2} \\quad \\text{where } \\mu = \\Ex(X), \\ \\sigma^2 = \\var(X) \\\\\n\\Prob\\bigl( \\lvert X - \\med(X) \\rvert \\ge r \\bigr) \\le \\frac{\\Ex \\lvert X - \\med(X)\\rvert}{r}\n\\end{gather*}\\]"
   },
   {
+    "objectID": "slides/01-intro.html#normal-tails-vs-chebyshev-bounds",
+    "href": "slides/01-intro.html#normal-tails-vs-chebyshev-bounds",
+    "title": "MATH 563 — Mathematical Statistics",
+    "section": "Normal tails vs Chebyshev bounds",
+    "text": "Normal tails vs Chebyshev bounds\nLet \\(X\\sim \\Norm(0,1)\\) and cmpare \\(\\Prob(|X|&gt;r)\\) with two bounds\n\n\n\n\n\n\n\n\n\n\\(r\\)\n\\(\\Prob(|X|&gt;r)\\) (exact)\n\\(\\Ex|X|/r\\) (Markov)\n\\(\\Ex|X|^2 /r^2\\) (Chebyshev)\n\n\n\n\n1\n0.317311\n0.797885\n1.000000\n\n\n2\n0.0455003\n0.398942\n0.250000\n\n\n3\n0.0026998\n0.265962\n0.111111\n\n\n10\n1.52397e-23\n0.079788\n0.010000\n\n\n100\n0\n0.007979\n0.000100\n\n\n\n\nThe Markov and Chebyshev bounds are much looser, but more general\nCLT bounds for means will resemble the exact"
+  },
+  {
     "objectID": "slides/01-intro.html#weak-law-of-large-numbers-via-chebyshev",
     "href": "slides/01-intro.html#weak-law-of-large-numbers-via-chebyshev",
     "title": "MATH 563 — Mathematical Statistics",
@@ -142,42 +149,42 @@
   {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html",
     "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html",
-    "title": "MATH 563 — Spring 2026",
+    "title": "Types of convergence{#type-conv}",
     "section": "",
-    "text": "Let \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable\n\n\n\\[\nX_n \\convas X \\iff \\Prob \\left( \\lim_{n \\to \\infty} X_n = X \\right) = 1\n\\] For almost every outcome the sequence \\(X_n\\) converges to \\(X\\)\n\n\n\n\\[\nX_n \\convp X \\iff \\forall \\varepsilon &gt; 0, \\;\n\\Prob\\big( |X_n - X| &gt; \\varepsilon \\big) \\;\\longrightarrow\\; 0.\n\\] The probability that \\(X_n\\) differs significantly from \\(X\\) goes to zero\n\n\n\n\\[\nX_n \\convd X \\iff\n\\lim_{n \\to \\infty} F_{X_n}(x) = F_X(x)\n\\quad \\text{for all continuity points of } F_X\n\\] The distributions of \\(X_n\\) approach the distribution of \\(X\\)\n\n\n\n\n\\[\nX_n \\convas X\n\\;\\Longrightarrow\\;\nX_n \\convp X\n\\;\\Longrightarrow\\;\nX_n \\convd X,\n\\] and none of the reverse implications hold in general\n\n\\(X, X_1, X_2, \\ldots \\IIDsim \\Norm(0,1)\\) satisfies \\(X_n \\convd X\\), but \\(X_n \\nconvp X\\)\n\\(X=0\\) and \\(\\Prob(X_n =x ) = \\begin{cases} 1/n, & x=1 \\\\ 1-1/n, & x=0 \\end{cases} \\;\\) satisfies \\[\n\\Prob(\\lvert X_n - X \\rvert &gt; \\varepsilon ) = \\Prob(X_n =1) = 1/n \\to 0 \\text{ as } n \\to \\infty \\text{ so } X_n \\convp X\n\\] But \\(\\Prob (X_n =1 \\text{ infinitely often}) = 1\\) since the expected number of times \\(X_n=1\\) is \\[\n\\sum_{n=1}^{\\infty} \\Prob(X_n=1) = \\sum_{n=1}^{\\infty} \\frac 1n = \\infty\n\\] so \\(X_n \\ \\, \\nconvas X\\)"
-  },
-  {
-    "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#type-conv",
-    "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#type-conv",
-    "title": "MATH 563 — Spring 2026",
-    "section": "",
-    "text": "Let \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable\n\n\n\\[\nX_n \\convas X \\iff \\Prob \\left( \\lim_{n \\to \\infty} X_n = X \\right) = 1\n\\] For almost every outcome the sequence \\(X_n\\) converges to \\(X\\)\n\n\n\n\\[\nX_n \\convp X \\iff \\forall \\varepsilon &gt; 0, \\;\n\\Prob\\big( |X_n - X| &gt; \\varepsilon \\big) \\;\\longrightarrow\\; 0.\n\\] The probability that \\(X_n\\) differs significantly from \\(X\\) goes to zero\n\n\n\n\\[\nX_n \\convd X \\iff\n\\lim_{n \\to \\infty} F_{X_n}(x) = F_X(x)\n\\quad \\text{for all continuity points of } F_X\n\\] The distributions of \\(X_n\\) approach the distribution of \\(X\\)\n\n\n\n\n\\[\nX_n \\convas X\n\\;\\Longrightarrow\\;\nX_n \\convp X\n\\;\\Longrightarrow\\;\nX_n \\convd X,\n\\] and none of the reverse implications hold in general\n\n\\(X, X_1, X_2, \\ldots \\IIDsim \\Norm(0,1)\\) satisfies \\(X_n \\convd X\\), but \\(X_n \\nconvp X\\)\n\\(X=0\\) and \\(\\Prob(X_n =x ) = \\begin{cases} 1/n, & x=1 \\\\ 1-1/n, & x=0 \\end{cases} \\;\\) satisfies \\[\n\\Prob(\\lvert X_n - X \\rvert &gt; \\varepsilon ) = \\Prob(X_n =1) = 1/n \\to 0 \\text{ as } n \\to \\infty \\text{ so } X_n \\convp X\n\\] But \\(\\Prob (X_n =1 \\text{ infinitely often}) = 1\\) since the expected number of times \\(X_n=1\\) is \\[\n\\sum_{n=1}^{\\infty} \\Prob(X_n=1) = \\sum_{n=1}^{\\infty} \\frac 1n = \\infty\n\\] so \\(X_n \\ \\, \\nconvas X\\)"
+    "text": "Let \\(X_1, X_2, \\ldots\\) be random variables and \\(X\\) another random variable"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#clt",
     "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#clt",
-    "title": "MATH 563 — Spring 2026",
+    "title": "Types of convergence{#type-conv}",
     "section": "Central Limit Theorem",
     "text": "Central Limit Theorem\nIf \\(X_1, X_2, \\ldots \\IIDsim\\) some distribution with finite moment generating function, \\(M(t) := \\Ex\\bigl(\\exp(tX)\\bigr)\\), that exists for \\(t\\) near \\(0\\), and \\(\\mu = \\Ex(X)\\) and \\(\\sigma^2 = \\var(X)\\), and \\[\n\\barX_n := \\frac 1n \\left(X_1 + \\cdots + X_n \\right),\n\\] then \\[\n\\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} \\convd \\Norm(0,1)\n\\] Note that IID means independent and identically distributed"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#proof-of-the-central-limit-theorem",
     "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#proof-of-the-central-limit-theorem",
-    "title": "MATH 563 — Spring 2026",
+    "title": "Types of convergence{#type-conv}",
     "section": "Proof of the Central Limit Theorem",
     "text": "Proof of the Central Limit Theorem\n\nDefine a standardized (mean \\(0\\), variance \\(1\\)) random variable, \\(Y_i := (X_i - \\mu)/\\sigma\\) and note that \\(Y_1, Y_2, \\dots\\) are IID with\n\n\\[\\begin{align*}\nZ_n: &= \\frac{\\barX_n - \\mu}{\\sigma /\\sqrt{n}} = \\frac{Y_1 + \\cdots + Y_n}{\\sqrt{n}} \\\\\nM_{Z_n}(t) &= \\Ex[\\exp(tZ_n)] = \\Ex[\\exp(tY_1/\\sqrt{n}) \\cdots \\exp(tY_n/\\sqrt{n})]\\\\\n& =  \\{\\Ex[\\exp(tY_1/\\sqrt{n})]\\}^n \\qquad \\text{by independence} \\\\\n& = [M_Y(t/\\sqrt{n})]^n\n\\end{align*}\\]\n\n\nTake the limit of \\(M_{Z_n}(t)\\) as \\(n \\to \\infty\\) using L’Hôpital’s rule \\[\\begin{align*}\n\\lim_{n \\to \\infty} \\log\\bigl(M_{Z_n}(t)  \\bigr) & = \\lim_{n \\to \\infty} n  \\log \\bigl(M_Y(t/\\sqrt{n}) \\bigr)\n=  \\lim_{n \\to \\infty} \\frac{\\log \\bigl(M_Y(t/\\sqrt{n}) \\bigr) }{n^{-1}} = \\frac{0}{0} \\\\\n& = \\lim_{n \\to \\infty}\n\\frac{ \\dfrac{-t}{2n^{3/2}} \\dfrac{M'_Y(t/\\sqrt{n})}{M_Y(t/\\sqrt{n})} }\n  { -n^{-2} }\n=   \\frac t2  \\lim_{n \\to \\infty} \\bigg[ \\frac{M'_Y(t/\\sqrt{n})}{ n^{-1/2} M_Y(t/\\sqrt{n}) } \\bigg]\n= \\frac{0}{0} \\\\\n& =  \\frac t2  \\lim_{n \\to \\infty} \\frac{ \\dfrac{-t}{2 n^{3/2}} \\dfrac{M_Y(t/\\sqrt{n}) M''_Y(t/\\sqrt{n}) - [M'_Y(t/\\sqrt{n})]^2 }{ [M_Y(t/\\sqrt{n})]^2}} { -n^{-3/2}/2 } = \\frac{t^2}{2}\n\\end{align*}\\]\n\n\n\nNote that if \\(Z \\sim \\Norm(0,1)\\) then \\[\\begin{align*}\nM_Z(t) & = \\Ex[\\exp(tZ)] = \\int_{-\\infty}^{\\infty} \\frac 1{\\sqrt{2 \\pi}} \\exp(tz - z^2/2) \\, \\dif z \\\\\n& = \\int_{-\\infty}^{\\infty} \\frac 1{\\sqrt{2 \\pi}} \\exp\\bigl(-(z - t)^2/2 \\bigr) \\, \\exp(t^2/2) \\, \\dif z = \\exp(t^2/2) \\\\\n\\log\\bigl(M_Z(t)  \\bigr) &= \\frac{t^2}{2} = \\lim_{n \\to \\infty} \\log\\bigl(M_{Z_n}(t)  \\bigr)\n\\end{align*}\\]\n\nBy uniqueness of moment generating functions, \\[\nZ_n \\convd N(0,1)\n\\] \\(\\square\\)"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#chebyshev-markov-inequality",
     "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#chebyshev-markov-inequality",
-    "title": "MATH 563 — Spring 2026",
+    "title": "Types of convergence{#type-conv}",
     "section": "Chebyshev (Markov) Inequality",
     "text": "Chebyshev (Markov) Inequality\n\\[\n\\Prob\\bigl( f(X) \\ge r \\bigr) \\le \\frac{\\Ex[f(X)]}{r}\n\\]\n\nProof\n\\[\\begin{align*}\n\\Prob(f(X)\\ge r)\n&= \\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\bigr] \\\\\n&= \\Ex\\Bigl[\\Ex\\bigl[\\indic\\bigl(f(X)\\ge r\\bigr)\\mid X\\bigr]\\Bigr]\n\\qquad \\text{(total expectation)} \\\\\n&\\le \\Ex\\Bigl[\\Ex\\bigl[f(X)/r \\mid X\\bigr]\\Bigr]\n\\qquad \\text{since } \\indic\\bigl(f(X)\\ge r\\bigr)\\le f(X)/r \\text{ a.s.} \\\\\n&= \\Ex\\bigl[f(X)/r\\bigr] \\\\\n&= \\Ex[f(X)]/r\n\\end{align*}\\]\n\n\nImportant special cases\n\\[\\begin{gather*}\n\\Prob\\bigl( \\lvert X - \\mu \\rvert^2 \\ge r^2 \\bigr) \\le \\frac{\\sigma^2}{r^2} \\quad \\text{where } \\mu = \\Ex(X), \\ \\sigma^2 = \\var(X) \\\\\n\\Prob\\bigl( \\lvert X - \\med(X) \\rvert \\ge r \\bigr) \\le \\frac{\\Ex \\lvert X - \\med(X)\\rvert}{r}\n\\end{gather*}\\]"
   },
   {
+    "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#normal-tails-vs-chebyshev-bounds",
+    "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#normal-tails-vs-chebyshev-bounds",
+    "title": "Types of convergence{#type-conv}",
+    "section": "Normal tails vs Chebyshev bounds",
+    "text": "Normal tails vs Chebyshev bounds\nLet \\(X\\sim \\Norm(0,1)\\) and cmpare \\(\\Prob(|X|&gt;r)\\) with two bounds\nimport math\n\nrs = [1, 2, 3, 10, 100]\nE_absX = math.sqrt(2/math.pi)\n\ndef tail_abs_normal(r):\n    return math.erfc(r / math.sqrt(2))\n\nprint(\"| $r$ | $\\\\Prob(|X|&gt;r)$ (exact) | $\\\\Ex|X|/r$ (Markov) | $\\\\Ex|X|^2 /r^2$ (Chebyshev) |\")\nprint(\"|-:|---:|---:|----:|\")\n\nfor r in rs:\n    exact = tail_abs_normal(r)\n    markov = E_absX / r\n    cheb = 1.0 / (r*r)\n    print(f\"| {r} | {exact:.6g} | {markov:.6f} | {cheb:.6f} |\")\n\n\n\n\n\n\n\n\n\n\\(r\\)\n\\(\\Prob(|X|&gt;r)\\) (exact)\n\\(\\Ex|X|/r\\) (Markov)\n\\(\\Ex|X|^2 /r^2\\) (Chebyshev)\n\n\n\n\n1\n0.317311\n0.797885\n1.000000\n\n\n2\n0.0455003\n0.398942\n0.250000\n\n\n3\n0.0026998\n0.265962\n0.111111\n\n\n10\n1.52397e-23\n0.079788\n0.010000\n\n\n100\n0\n0.007979\n0.000100\n\n\n\n\nThe Markov and Chebyshev bounds are much looser, but more general\nCLT bounds for means will resemble the exact"
+  },
+  {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#weak-law-of-large-numbers-via-chebyshev",
     "href": "classlib/classlib/quarto/slides/shared/probability/converge-clt.html#weak-law-of-large-numbers-via-chebyshev",
-    "title": "MATH 563 — Spring 2026",
+    "title": "Types of convergence{#type-conv}",
     "section": "Weak Law of Large Numbers (via Chebyshev)",
     "text": "Weak Law of Large Numbers (via Chebyshev)\n\nTheorem (WLLN)\nLet \\(X_1,X_2,\\dots\\) be IID with \\(\\Ex[X_1]=\\mu\\) and \\(\\var(X_1)=\\sigma^2&lt;\\infty\\). Define the sample mean \\(\\bar X_n := \\frac1n\\sum_{i=1}^n X_i\\). Then \\(\\barX_n \\convp \\mu\\).\n\n\nProof\nBy Chebyshev’s inequality, \\[\n\\Prob\\bigl(|\\barX_n-\\mu|\\ge \\varepsilon\\bigr)\n\\le \\frac{\\Var(\\barX_n)}{\\varepsilon^2}\n\\] Using independence, \\[\n\\var(\\barX_n)\n=\n\\var\\!\\left(\\frac1n\\sum_{i=1}^n X_i\\right)\n=\n\\frac{1}{n^2}\\sum_{i=1}^n \\Var(X_i)\n=\n\\frac{1}{n^2}\\cdot n\\sigma^2\n=\n\\frac{\\sigma^2}{n}\n\\] Therefore, \\[\n\\Prob\\bigl(|\\barX_n-\\mu|\\ge \\varepsilon\\bigr)\n\\le\n\\frac{\\sigma^2}{n\\varepsilon^2}\n\\to 0 \\qquad \\square\n\\]"
   },

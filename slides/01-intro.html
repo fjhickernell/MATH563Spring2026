@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-01-25">
+  <meta name="dcterms.date" content="2026-01-26">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7e6089e7dd2857b9ec431e835a8a36f8.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8dd41794ecbe1ac15c12382e66601f9b.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -412,7 +412,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">January 25, 2026</p>
+  <p class="date">January 26, 2026</p>
 </section>
 <section id="statistics" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Statistics</h1>
@@ -1159,6 +1159,62 @@ Z_n \convd N(0,1)
 \Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X) \\
 \Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex \lvert X - \med(X)\rvert}{r}
 \end{gather*}\]</span></p>
+</section>
+<section id="normal-tails-vs-chebyshev-bounds" class="slide level2">
+<h2>Normal tails vs Chebyshev bounds</h2>
+<p>Let <span class="math inline">\(X\sim \Norm(0,1)\)</span> and cmpare <span class="math inline">\(\Prob(|X|&gt;r)\)</span> with two bounds</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(r\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\Prob(|X|&gt;r)\)</span> (exact)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex|X|/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex|X|^2 /r^2\)</span> (Chebyshev)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.317311</td>
+<td style="text-align: right;">0.797885</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0455003</td>
+<td style="text-align: right;">0.398942</td>
+<td style="text-align: right;">0.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0026998</td>
+<td style="text-align: right;">0.265962</td>
+<td style="text-align: right;">0.111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.52397e-23</td>
+<td style="text-align: right;">0.079788</td>
+<td style="text-align: right;">0.010000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.007979</td>
+<td style="text-align: right;">0.000100</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The Markov and Chebyshev bounds are much looser, but more general</li>
+<li>CLT bounds for means will resemble the exact</li>
+</ul>
 </section>
 <section id="weak-law-of-large-numbers-via-chebyshev" class="slide level2">
 <h2>Weak Law of Large Numbers (via Chebyshev)</h2>
