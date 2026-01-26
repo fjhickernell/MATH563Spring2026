@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8275f5a79e967701bc04aefc5744dd79.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c63fea043d6d9aca143f3377d219b0c9.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -394,6 +394,9 @@
       hookReveal();
     }
   })();
+  </script>
+  <script id="course-website-meta" type="application/json">
+  {"course_website":"$course_website$"}
   </script>
 </head>
 <body class="quarto-light">
@@ -1247,7 +1250,7 @@ Z_n \convd N(0,1)
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-left"> © 2026 Fred J. Hickernell · Illinois Institute of Technology </span> <span class="fh-footer-right"> <a id="fh-course-website" href="#" target="_blank" rel="noopener">Course website</a> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Institute of Technology <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">Course website</a> </span></p>
 </div>
 </div>
 </div></div>
@@ -1460,75 +1463,6 @@ Z_n \convd N(0,1)
         ]
       });
     </script>
-    (function () {
-      function getCourseWebsite() {
-        const el = document.getElementById("course-website-meta");
-        if (!el) return "";
-        try {
-          const obj = JSON.parse(el.textContent || "{}");
-          return (obj.course_website || "").trim();
-        } catch {
-          return "";
-        }
-      }
-
-      function ensureFooterLinkBehavior() {
-        const link = document.getElementById("fh-course-website");
-        if (!link) return;
-
-        const url = getCourseWebsite();
-
-        // Keep href synced (Reveal/Quarto can re-render parts on navigation)
-        if (url) {
-          link.setAttribute("href", url);
-          link.setAttribute("target", "_blank");
-          link.setAttribute("rel", "noopener");
-        } else {
-          link.setAttribute("href", "#");
-        }
-
-        // Install click handler once
-        if (link.dataset.fhBound === "1") return;
-        link.dataset.fhBound = "1";
-
-        link.addEventListener(
-          "click",
-          function (e) {
-            // Stop Reveal from treating this as slide navigation
-            e.preventDefault();
-            e.stopPropagation();
-            if (typeof e.stopImmediatePropagation === "function") {
-              e.stopImmediatePropagation();
-            }
-
-            const finalUrl = getCourseWebsite();
-            if (finalUrl) {
-              window.open(finalUrl, "_blank", "noopener");
-            }
-          },
-          true
-        );
-      }
-
-      function hookReveal() {
-        if (window.Reveal &amp;&amp; typeof window.Reveal.on === "function") {
-          window.Reveal.on("ready", ensureFooterLinkBehavior);
-          window.Reveal.on("slidechanged", ensureFooterLinkBehavior);
-          window.Reveal.on("fragmentshown", ensureFooterLinkBehavior);
-          window.Reveal.on("fragmenthidden", ensureFooterLinkBehavior);
-        }
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-          hookReveal();
-          ensureFooterLinkBehavior();
-        });
-      } else {
-        hookReveal();
-        ensureFooterLinkBehavior();
-      }
-    })();
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
