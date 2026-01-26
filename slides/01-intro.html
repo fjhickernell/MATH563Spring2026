@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8dd41794ecbe1ac15c12382e66601f9b.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8275f5a79e967701bc04aefc5744dd79.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -1246,7 +1246,9 @@ Z_n \convd N(0,1)
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>© Fred J. Hickernell</p>
+<div class="fh-footer">
+<p><span class="fh-footer-left"> © 2026 Fred J. Hickernell · Illinois Institute of Technology </span> <span class="fh-footer-right"> <a id="fh-course-website" href="#" target="_blank" rel="noopener">Course website</a> </span></p>
+</div>
 </div>
 </div></div>
 
@@ -1458,6 +1460,36 @@ Z_n \convd N(0,1)
         ]
       });
     </script>
+    (function () {
+      function getCourseWebsite() {
+        const el = document.getElementById("course-website-meta");
+        if (!el) return "";
+        try {
+          const obj = JSON.parse(el.textContent || "{}");
+          return (obj.course_website || "").trim();
+        } catch {
+          return "";
+        }
+      }
+
+      function setFooterLink() {
+        const link = document.getElementById("fh-course-website");
+        if (!link) return;
+
+        const url = getCourseWebsite();
+        if (!url) return;
+
+        link.href = url;
+      }
+
+      if (window.Reveal &amp;&amp; typeof window.Reveal.on === "function") {
+        window.Reveal.on("ready", setFooterLink);
+        setFooterLink();
+      } else {
+        document.addEventListener("DOMContentLoaded", setFooterLink);
+      }
+    })();
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
