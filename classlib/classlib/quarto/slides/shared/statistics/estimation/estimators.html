@@ -208,15 +208,15 @@ window.Quarto = {
 <h1>Estimators</h1>
 <section id="summary-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
-<p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute summary statistics</p>
+<p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute</p>
 <ul>
-<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\barX := \frac{1}{n} \sum_{i=1}^n X_i\)</span> to approximate the population mean <span class="math inline">\(\mu := \E[X_1]\)</span></p></li>
-<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1)\)</span></p></li>
+<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX := \frac{1}{n} \sum_{i=1}^n X_i\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
+<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1) := \Ex[(X_1-\mu)^2]\)</span></p></li>
 </ul>
-<p>And given IID data, <span class="math inline">\((X_1, Y_1), \ldots, (X_n,Y_n)\)</span>, we often compute summary statistics</p>
+<p>And given IID data, <span class="math inline">\((X_1, Y_1), \ldots, (X_n,Y_n)\)</span>, we often compute</p>
 <ul>
-<li><p><span class="alert">Sample Covariance</span> <span class="math inline">\(S_{XY} := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)(Y_i - \barY)\)</span> to approximate the population covariance <span class="math inline">\(\cov(X_1,Y_1)\)</span></p></li>
-<li><p><span class="alert">Sample Correlation</span> <span class="math inline">\(R_{XY} := \frac{S_{XY}}{S_X S_Y}\)</span> to approximate the population correlation <span class="math inline">\(\corr(X_1,Y_1)\)</span></p></li>
+<li><p><span class="alert">Sample Covariance</span> <span class="math inline">\(\displaystyle  S_{XY} := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)(Y_i - \barY)\)</span> to approximate the population covariance <span class="math inline">\(\cov(X_1,Y_1) : = \Ex[(X_1 - \mu)(Y_1 - \mu)]\)</span></p></li>
+<li><p><span class="alert">Sample Correlation</span> <span class="math inline">\(\displaystyle  R_{XY} := \frac{S_{XY}}{S_X S_Y}\)</span> to approximate the population correlation <span class="math inline">\(\displaystyle \corr(X_1,Y_1) : = \frac{\cov(X_1,Y_1)}{\sigma_X \sigma_Y}\)</span></p></li>
 </ul>
 
 
