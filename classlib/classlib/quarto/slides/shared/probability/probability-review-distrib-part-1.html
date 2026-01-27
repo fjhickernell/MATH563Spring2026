@@ -230,11 +230,11 @@ window.Quarto = {
 <hr>
 <ul>
 <li><p><span class="alert">Random variable/vector/function</span> — mathematical quantity representing an outcome</p></li>
-<li><p><span class="alert">Cumulative distribution function (CDF)</span> <span class="math inline">\(F\)</span> of random variable <span class="math inline">\(X\)</span></p>
+<li><p><span class="alert">Cumulative distribution function (CDF)</span> <span class="math inline">\(F\)</span> of random variable <span class="math inline">\(X\)</span> <span class="alert">(right-continuous)</span></p>
 <ul>
 <li><span class="math inline">\(F(x) : =  \Prob(X \le x)\)</span></li>
 </ul></li>
-<li><p><span class="alert">Quantile function</span> <span class="math inline">\(Q\)</span> of a random variable <span class="math inline">\(X\)</span> plays the role of the inverse of the CDF</p>
+<li><p><span class="alert">Quantile function</span> <span class="math inline">\(Q\)</span> of a random variable <span class="math inline">\(X\)</span> plays the role of the <span class="alert">inverse</span> of the CDF <span class="alert">(left-continuous)</span></p>
 <ul>
 <li><span class="math inline">\(Q(p) : = \inf\{x \in \reals : F(x) \ge p\}\)</span></li>
 </ul></li>
@@ -252,7 +252,8 @@ window.Quarto = {
 <li><p><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability</p>
 <ul>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)\)</span> for discrete random variables</li>
-<li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \; \dif x\)</span> for continuous random variables</li>
+<li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \, \dif x\)</span> for continuous random variables</li>
+<li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x)  \, \dif F(x)\)</span> in general (see <a href="https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration">Lebesgue–Stieltjes integral</a>)</li>
 </ul></li>
 <li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X) = \Argmin{m\in\reals} \Ex[(X-m)^2]\)</span></p></li>
 <li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] = E(X^2) - \mu^2\)</span></p>
