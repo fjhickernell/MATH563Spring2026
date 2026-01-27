@@ -294,6 +294,7 @@
           vlambda:  "{\\boldsymbol{\\lambda}}",
           vsigma:   "{\\boldsymbol{\\sigma}}",
           vtheta:   "{\\boldsymbol{\\theta}}",
+          vTheta:   "{\\boldsymbol{\\Theta}}",
           vomega:   "{\\boldsymbol{\\omega}}",
           vpi:      "{\\boldsymbol{\\pi}}",
           vphi:     "{\\boldsymbol{\\phi}}",
@@ -302,8 +303,10 @@
           vmu: "{\\boldsymbol{\\mu}}",
 
           htheta: "{\\widehat{\\theta}}",
+          hTheta: "{\\widehat{\\Theta}}",
           hbeta:  "{\\widehat{\\beta}}",
           hmu:    "{\\widehat{\\mu}}",
+          hsigma: "{\\widehat{\\sigma}}",
           hSigma: "{\\widehat{\\Sigma}}",
 
           vzero: "{\\boldsymbol{0}}",
@@ -425,8 +428,9 @@ Fred J. Hickernell
   <p class="date">January 27, 2026</p>
 </section>
 <section>
-<section id="estimators" class="title-slide slide level1 center">
-<h1>Estimators</h1>
+<section id="estimatorsestimates" class="title-slide slide level1 center">
+<h1>Estimators/Estimates</h1>
+<p><span class="alert">Estimator:</span> a random variable (or function of the sample) used to approximate an unknown parameter <span class="alert">Estimate:</span> the realized numerical value of an estimator after observing the data</p>
 <ul>
 <li><a href="#/summary-statistics">Summary statistics</a></li>
 <li><a href="#/maximum-likelihood-estimators">Maximum likelihood estimators (MLE)</a></li>
@@ -437,9 +441,18 @@ Fred J. Hickernell
 <h2>Summary statistics</h2>
 <p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute</p>
 <ul>
-<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX := \frac{1}{n} \sum_{i=1}^n X_i\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
-<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1) := \Ex[(X_1-\mu)^2]\)</span></p></li>
+<li><p><span class="alert">Empirical Distribution</span> <span class="math inline">\(F_{\{X_i\}}(x) := \frac 1n \sum_{i=1}^n \indic(X_i \ge x)\)</span></p></li>
+<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX := \frac{1}{n} \sum_{i=1}^n X_i = \Ex_{F_{\{X_i\}}}(X)\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
+<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1) := \Ex[(X_1-\mu)^2]\)</span></p>
+<ul>
+<li>Sometimes <span class="math inline">\(\hsigma^2 := \displaystyle \frac{1}{\class{alert}{n}} \sum_{i=1}^n (X_i - \barX)^2\)</span></li>
+</ul></li>
+<li><p><span class="alert">Order Statistics</span> <span class="math inline">\(X_{(1)}, X_{(2)}, \ldots\)</span>, reorder the data so that <span class="math display">\[ X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}, \qquad \text{i.e., } X_{(i)} = Q_{\{X_i\}}(i/n)
+\]</span> where <span class="math inline">\(Q_{\{X_i\}}\)</span> is the quantile function corresponding to the empirical distribution</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <p>And given IID data, <span class="math inline">\((X_1, Y_1), \ldots, (X_n,Y_n)\)</span>, we often compute</p>
 <ul>
 <li><p><span class="alert">Sample Covariance</span> <span class="math inline">\(\displaystyle  S_{XY} := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)(Y_i - \barY)\)</span> to approximate the population covariance <span class="math inline">\(\cov(X_1,Y_1) : = \Ex[(X_1 - \mu)(Y_1 - \mu)]\)</span></p></li>
@@ -453,12 +466,15 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 &amp; = \prod_{i=1}^n \varrho_{X_1 |\vtheta}(x_i) \qquad \text{if } X_1, \ldots, X_n \sim \IID
 \end{align*}\]</span></p>
 <p>The <span class="alert">maximum likelihood estimator (MLE)</span> of <span class="math inline">\(\vtheta\)</span> is the one that fits the observed data best in terms of <span class="math display">\[
-\vtheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta | x_1, \ldots, x_n)
+\vTheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta | X_1, \ldots, X_n)
 \]</span></p>
 </section>
 <section id="plug-in-estimators" class="slide level2">
 <h2>Plug-in estimators</h2>
-<p>If <span class="math inline">\(\htheta_1\)</span> is an estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\htheta_2 : = g(\htheta_1)\)</span> is a <span class="alert">plug-in estimator</span> of <span class="math inline">\(\vtheta_2\)</span></p>
+<ul>
+<li>If <span class="math inline">\(\hTheta_1\)</span> is an estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\htheta_1)\)</span> is a <span class="alert">plug-in estimator</span> of <span class="math inline">\(\theta_2\)</span></li>
+<li>If <span class="math inline">\(\hTheta_1\)</span> is MLE of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\hTheta_1)\)</span> is an MLE of <span class="math inline">\(\theta_2\)</span></li>
+</ul>
 
 
 </section></section>
