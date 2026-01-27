@@ -373,19 +373,43 @@ Z_n \convd N(0,1)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rs <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">100</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>E_absX <span class="op">=</span> math.sqrt(<span class="dv">2</span><span class="op">/</span>math.pi)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>E_absX <span class="op">=</span> math.sqrt(<span class="dv">2</span> <span class="op">/</span> math.pi)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tail_abs_normal(r):</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.erfc(r <span class="op">/</span> math.sqrt(<span class="dv">2</span>))</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"| $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|X|&gt;r)$ (exact) | $</span><span class="ch">\\</span><span class="st">Ex|X|/r$ (Markov) | $</span><span class="ch">\\</span><span class="st">Ex|X|^2 /r^2$ (Chebyshev) |"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|---:|---:|----:|"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fmt_prob(x):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>x<span class="sc">:.6g}</span><span class="ss">"</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> rs:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    exact <span class="op">=</span> tail_abs_normal(r)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    markov <span class="op">=</span> E_absX <span class="op">/</span> r</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    cheb <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> (r<span class="op">*</span>r)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"| </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>exact<span class="sc">:.6g}</span><span class="ss"> | </span><span class="sc">{</span>markov<span class="sc">:.6f}</span><span class="ss"> | </span><span class="sc">{</span>cheb<span class="sc">:.6f}</span><span class="ss"> |"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fmt_over(x):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> math.inf:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"(∞)"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span>x<span class="sc">:.2g}</span><span class="ss">×)"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"| $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|X|&gt;r)$ (exact) | "</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex|X|/r$ (Markov) | "</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex|X|^2 /r^2$ (Chebyshev) |"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|---:|---:|----:|"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> rs:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    exact <span class="op">=</span> tail_abs_normal(r)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    markov <span class="op">=</span> E_absX <span class="op">/</span> r</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    cheb <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> (r<span class="op">*</span>r)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> exact <span class="op">==</span> <span class="fl">0.0</span>:</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        m_over <span class="op">=</span> math.inf</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        c_over <span class="op">=</span> math.inf</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        m_over <span class="op">=</span> markov <span class="op">/</span> exact</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        c_over <span class="op">=</span> cheb <span class="op">/</span> exact</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"| </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>fmt_prob(exact)<span class="sc">}</span><span class="ss"> | "</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"</span><span class="sc">{</span>fmt_prob(markov)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>fmt_over(m_over)<span class="sc">}</span><span class="ss"> | "</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"</span><span class="sc">{</span>fmt_prob(cheb)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>fmt_over(c_over)<span class="sc">}</span><span class="ss"> |"</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -405,32 +429,32 @@ Z_n \convd N(0,1)
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0.317311</td>
-<td style="text-align: right;">0.797885</td>
-<td style="text-align: right;">1.000000</td>
+<td style="text-align: right;">0.797885 (2.5×)</td>
+<td style="text-align: right;">1 (3.2×)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.0455003</td>
-<td style="text-align: right;">0.398942</td>
-<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.398942 (8.8×)</td>
+<td style="text-align: right;">0.25 (5.5×)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">0.0026998</td>
-<td style="text-align: right;">0.265962</td>
-<td style="text-align: right;">0.111111</td>
+<td style="text-align: right;">0.265962 (99×)</td>
+<td style="text-align: right;">0.111111 (41×)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">1.52397e-23</td>
-<td style="text-align: right;">0.079788</td>
-<td style="text-align: right;">0.010000</td>
+<td style="text-align: right;">0.0797885 (5.2e+21×)</td>
+<td style="text-align: right;">0.01 (6.6e+20×)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.007979</td>
-<td style="text-align: right;">0.000100</td>
+<td style="text-align: right;">0.00797885 (∞)</td>
+<td style="text-align: right;">0.0001 (∞)</td>
 </tr>
 </tbody>
 </table>
@@ -438,6 +462,149 @@ Z_n \convd N(0,1)
 <li>The Markov and Chebyshev bounds are much looser, but more general</li>
 <li>CLT bounds for means will resemble the exact</li>
 </ul>
+</section>
+<section id="student-t-tails-vs-markovchebyshev-bounds" class="level2">
+<h2 class="anchored" data-anchor-id="student-t-tails-vs-markovchebyshev-bounds">Student <span class="math inline">\(t\)</span> tails vs Markov/Chebyshev bounds</h2>
+<p>Let <span class="math inline">\(T_\nu \sim t_\nu\)</span> and compare <span class="math inline">\(\Prob(|T_\nu|&gt;r)\)</span> with two bounds</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mpmath <span class="im">as</span> mp</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mp.mp.dps <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rs  <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> t_pdf(x, nu):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> mp.gamma((nu<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>) <span class="op">/</span> (mp.sqrt(nu<span class="op">*</span>mp.pi) <span class="op">*</span> mp.gamma(nu<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> (x<span class="op">*</span>x)<span class="op">/</span>nu) <span class="op">**</span> (<span class="op">-</span>(nu<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tail_abs_t_exact(r, nu):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> nu <span class="op">/</span> (nu <span class="op">+</span> r<span class="op">*</span>r)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mp.betainc(nu<span class="op">/</span><span class="dv">2</span>, mp.mpf(<span class="st">'0.5'</span>), <span class="dv">0</span>, x, regularized<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> E_abs_t(nu):</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nu <span class="op">&lt;=</span> <span class="dv">1</span>:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> mp.inf</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> t_pdf(x, nu)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> mp.quad(f, [<span class="dv">0</span>, mp.inf])</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> E_t2(nu):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nu <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> mp.inf</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nu <span class="op">/</span> (nu <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fmt_prob(x):</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> mp.inf:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"inf"</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">float</span>(x)<span class="sc">:.3g}</span><span class="ss">"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fmt_over(x):</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> mp.inf:</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"(∞)"</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="bu">float</span>(x)<span class="sc">:.0f}</span><span class="ss">×)"</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"| $</span><span class="ch">\\</span><span class="st">nu$ | $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|T_</span><span class="ch">\\</span><span class="st">nu|&gt;r)$ (exact) | $</span><span class="ch">\\</span><span class="st">Ex|T_</span><span class="ch">\\</span><span class="st">nu|/r$ (Markov) | $</span><span class="ch">\\</span><span class="st">Ex(T_</span><span class="ch">\\</span><span class="st">nu^2)/r^2$ (Chebyshev) |"</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|-:|---:|---:|----:|"</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nu <span class="kw">in</span> dfs:</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    Eabs <span class="op">=</span> E_abs_t(nu)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    Et2  <span class="op">=</span> E_t2(nu)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span> rs:</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        exact <span class="op">=</span> tail_abs_t_exact(r, nu)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        markov <span class="op">=</span> (Eabs <span class="op">/</span> r) <span class="cf">if</span> mp.isfinite(Eabs) <span class="cf">else</span> mp.inf</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        cheb   <span class="op">=</span> (Et2  <span class="op">/</span> (r<span class="op">*</span>r)) <span class="cf">if</span> mp.isfinite(Et2) <span class="cf">else</span> mp.inf</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        m_over <span class="op">=</span> markov <span class="op">/</span> exact <span class="cf">if</span> mp.isfinite(markov) <span class="cf">else</span> mp.inf</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        c_over <span class="op">=</span> cheb   <span class="op">/</span> exact <span class="cf">if</span> mp.isfinite(cheb)   <span class="cf">else</span> mp.inf</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"| </span><span class="sc">{</span>nu<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span>fmt_prob(exact)<span class="sc">}</span><span class="ss"> | "</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span>fmt_prob(markov)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>fmt_over(m_over)<span class="sc">}</span><span class="ss"> | "</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span>fmt_prob(cheb)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>fmt_over(c_over)<span class="sc">}</span><span class="ss"> |"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(\nu\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(r\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\Prob(|T_\nu|&gt;r)\)</span> (exact)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex|T_\nu|/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(T_\nu^2)/r^2\)</span> (Chebyshev)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.423</td>
+<td style="text-align: right;">1.41 (3×)</td>
+<td style="text-align: right;">inf (∞)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.184</td>
+<td style="text-align: right;">0.707 (4×)</td>
+<td style="text-align: right;">inf (∞)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.00985</td>
+<td style="text-align: right;">0.141 (14×)</td>
+<td style="text-align: right;">inf (∞)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.391</td>
+<td style="text-align: right;">1.1 (3×)</td>
+<td style="text-align: right;">3 (8×)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.139</td>
+<td style="text-align: right;">0.551 (4×)</td>
+<td style="text-align: right;">0.75 (5×)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.00213</td>
+<td style="text-align: right;">0.11 (52×)</td>
+<td style="text-align: right;">0.03 (14×)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.363</td>
+<td style="text-align: right;">0.949 (3×)</td>
+<td style="text-align: right;">1.67 (5×)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.102</td>
+<td style="text-align: right;">0.475 (5×)</td>
+<td style="text-align: right;">0.417 (4×)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.000171</td>
+<td style="text-align: right;">0.0949 (555×)</td>
+<td style="text-align: right;">0.0167 (97×)</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="weak-law-of-large-numbers-via-chebyshev" class="level2">
 <h2 class="anchored" data-anchor-id="weak-law-of-large-numbers-via-chebyshev">Weak Law of Large Numbers (via Chebyshev)</h2>
