@@ -1,0 +1,13 @@
+---
+title: "MATH 476 — Statistics"
+subtitle: |
+  <span class="deck-title">Estimators and Confidence Intervals</span><br>
+  <span class="deck-meta">Wackerly et al. Ch. 8–9
+author: "Fred J. Hickernell"
+date: last-modified
+date-format: "MMMM D, YYYY"
+reveal-options:
+  disableLayout: false
+---
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.qmd >}}
