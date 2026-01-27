@@ -300,7 +300,7 @@
           vphi:     "{\\boldsymbol{\\phi}}",
           vPhi:     "{\\boldsymbol{\\Phi}}",
           vmu:      "{\\boldsymbol{\\mu}}",
-          vmu: "{\\boldsymbol{\\mu}}",
+          vnu:     "{\\boldsymbol{\\nu}}",
 
           htheta: "{\\widehat{\\theta}}",
           hTheta: "{\\widehat{\\Theta}}",
@@ -327,7 +327,11 @@
           dif: "{\\mathrm{d}}",
           IID: "{\\mathrm{IID}}",
           MLE: "{\\mathrm{MLE}}",
-        }
+
+          exstar: "{\\mathop{\\mathchoice{\\color{gold}{\\large\\star}}{\\color{gold}{\\large\\star}}{\\color{gold}{\\star}}{\\color{gold}{\\star}}}}",
+          exeq: "\\overset{\\exstar}{=}",
+          
+        } 
       }
     };
   </script>
@@ -918,9 +922,7 @@ F(x) &amp;= \begin{cases}
 \frac{\Prob(B \mid A) \, \Prob(A)}{\Prob(B)},
 \qquad \Prob(B)&gt;0
 \]</span></p>
-<blockquote>
-<p>If you meet an introvert, is she more likely to be a librarian or a salesman?</p>
-</blockquote>
+<p><span class="math inline">\(\exstar\)</span> If you meet an introvert, is she more likely to be a librarian or a salesman?</p>
 </section>
 <section class="slide level2">
 
@@ -1106,7 +1108,7 @@ X_n \convd X,
 </section>
 <section id="clt" class="slide level2" data-state="goldborder">
 <h2>Central Limit Theorem</h2>
-<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX)\bigr)\)</span>, that exists for <span class="math inline">\(t\)</span> near <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mu = \Ex(X)\)</span> and <span class="math inline">\(\sigma^2 = \var(X)\)</span>, and <span class="math display">\[
+<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX_1)\bigr)\)</span>, that exists for <span class="math inline">\(t\)</span> near <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mu = \Ex(X_1)\)</span> and <span class="math inline">\(\sigma^2 = \var(X_1)\)</span>, and <span class="math display">\[
 \barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
 \]</span> then <span class="math display">\[
 \frac{\barX_n - \mu}{\sigma /\sqrt{n}} \convd \Norm(0,1)
@@ -1115,13 +1117,15 @@ X_n \convd X,
 <section id="proof-of-the-central-limit-theorem" class="slide level2">
 <h2>Proof of the Central Limit Theorem</h2>
 <ol type="1">
-<li>Define a standardized (mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(1\)</span>) random variable, <span class="math inline">\(Y_i := (X_i - \mu)/\sigma\)</span> and note that <span class="math inline">\(Y_1, Y_2, \dots\)</span> are IID with</li>
+<li>Define a standardized (mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(1\)</span>) random variable, <span class="math inline">\(Y_i := (X_i - \mu)/\sigma\)</span> and note that <span class="math inline">\(Y_1, Y_2, \dots\)</span> are IID with mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span>:</li>
 </ol>
 <p><span class="math display">\[\begin{align*}
 Z_n: &amp;= \frac{\barX_n - \mu}{\sigma /\sqrt{n}} = \frac{Y_1 + \cdots + Y_n}{\sqrt{n}} \\
-M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})]\\
+M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}+ \cdots+ tY_n/\sqrt{n})]\\
+&amp; = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})] \\
 &amp; =  \{\Ex[\exp(tY_1/\sqrt{n})]\}^n \qquad \text{by independence} \\
 &amp; = [M_Y(t/\sqrt{n})]^n
+\lim_{n \to \infty}M_{Z_n}(t) = [M(0)]^\infty = 1^\infty \quad \class{alert}{\text{(undetermined)}}
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
@@ -1129,13 +1133,14 @@ M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sq
 <ol start="2" type="1">
 <li>Take the limit of <span class="math inline">\(M_{Z_n}(t)\)</span> as <span class="math inline">\(n \to \infty\)</span> using <span class="alert">L’Hôpital’s rule</span> <span class="math display">\[\begin{align*}
 \lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) &amp; = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr)
-=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \\
+=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \quad \class{alert}{\text{(undetermined)}}\\
 &amp; = \lim_{n \to \infty}
 \frac{ \dfrac{-t}{2n^{3/2}} \dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})} }
   { -n^{-2} }
-=   \frac t2  \lim_{n \to \infty} \bigg[ \frac{M'_Y(t/\sqrt{n})}{ n^{-1/2} M_Y(t/\sqrt{n}) } \bigg]
-= \frac{0}{0} \\
-&amp; =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2}
+=   \frac t2  \lim_{n \to \infty}  \frac{\dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})}}{ n^{-1/2} }
+= \frac{0}{0} \quad \class{alert}{\text{(undetermined)}} \\
+&amp; =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2} \\
+\lim_{n \to \infty} M_{Z_n}(t)  &amp; = \exp(t^2/2)
 \end{align*}\]</span></li>
 </ol>
 </section>
@@ -1145,7 +1150,7 @@ M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sq
 <li>Note that if <span class="math inline">\(Z \sim \Norm(0,1)\)</span> then <span class="math display">\[\begin{align*}
 M_Z(t) &amp; = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp(tz - z^2/2) \, \dif z \\
 &amp; = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp\bigl(-(z - t)^2/2 \bigr) \, \exp(t^2/2) \, \dif z = \exp(t^2/2) \\
-\log\bigl(M_Z(t)  \bigr) &amp;= \frac{t^2}{2} = \lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr)
+&amp;= \lim_{n \to \infty} M_{Z_n}(t)
 \end{align*}\]</span></li>
 </ol>
 <p>By uniqueness of moment generating functions, <span class="math display">\[
@@ -1155,7 +1160,7 @@ Z_n \convd N(0,1)
 <section id="chebyshev-markov-inequality" class="slide level2">
 <h2>Chebyshev (Markov) Inequality</h2>
 <p><span class="math display">\[
-\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r} \qquad f \text{ is }\class{alert}{\text{non-negative}}
 \]</span></p>
 <h3 id="proof">Proof</h3>
 <p><span class="math display">\[\begin{align*}
@@ -1171,7 +1176,7 @@ Z_n \convd N(0,1)
 <h3 id="important-special-cases">Important special cases</h3>
 <p><span class="math display">\[\begin{gather*}
 \Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X) \\
-\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex \lvert X - \med(X)\rvert}{r}
+\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex (\lvert X - \med(X)\rvert)}{r}
 \end{gather*}\]</span></p>
 </section>
 <section id="normal-tails-vs-chebyshev-bounds" class="slide level2">
@@ -1188,8 +1193,8 @@ Z_n \convd N(0,1)
 <tr class="header">
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|X|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|X|/r\)</span> (Markov)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|X|^2 /r^2\)</span> (Chebyshev)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(|X|)/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(X^2)/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
 <tbody>
@@ -1247,7 +1252,7 @@ Z_n \convd N(0,1)
 <th style="text-align: right;"><span class="math inline">\(\nu\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|T_\nu|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|T_\nu|/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(|T_\nu|)/r\)</span> (Markov)</th>
 <th style="text-align: right;"><span class="math inline">\(\Ex(T_\nu^2)/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
@@ -1321,17 +1326,17 @@ Z_n \convd N(0,1)
 <section id="weak-law-of-large-numbers-via-chebyshev" class="slide level2">
 <h2>Weak Law of Large Numbers (via Chebyshev)</h2>
 <h3 id="theorem-wlln">Theorem (WLLN)</h3>
-<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\bar X_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
+<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
 <h3 id="proof-1">Proof</h3>
 <p>By Chebyshev’s inequality, <span class="math display">\[
 \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
-\le \frac{\Var(\barX_n)}{\varepsilon^2}
+\le \frac{\var(\barX_n)}{\varepsilon^2}
 \]</span> Using independence, <span class="math display">\[
 \var(\barX_n)
 =
 \var\!\left(\frac1n\sum_{i=1}^n X_i\right)
 =
-\frac{1}{n^2}\sum_{i=1}^n \Var(X_i)
+\frac{1}{n^2}\sum_{i=1}^n \var(X_i)
 =
 \frac{1}{n^2}\cdot n\sigma^2
 =
@@ -1349,7 +1354,7 @@ Z_n \convd N(0,1)
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Institute of Technology <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">Course website</a> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Institute of Technology <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">Course website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise for the reader </span> </span></p>
 </div>
 </div>
 </div></div>

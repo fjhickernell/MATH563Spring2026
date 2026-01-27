@@ -299,7 +299,7 @@ X_n \convd X,
 </section>
 <section id="clt" class="level2" data-state="goldborder">
 <h2 data-state="goldborder" class="anchored" data-anchor-id="clt">Central Limit Theorem</h2>
-<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX)\bigr)\)</span>, that exists for <span class="math inline">\(t\)</span> near <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mu = \Ex(X)\)</span> and <span class="math inline">\(\sigma^2 = \var(X)\)</span>, and <span class="math display">\[
+<p>If <span class="math inline">\(X_1, X_2, \ldots \IIDsim\)</span> some distribution with finite moment generating function, <span class="math inline">\(M(t) := \Ex\bigl(\exp(tX_1)\bigr)\)</span>, that exists for <span class="math inline">\(t\)</span> near <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mu = \Ex(X_1)\)</span> and <span class="math inline">\(\sigma^2 = \var(X_1)\)</span>, and <span class="math display">\[
 \barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
 \]</span> then <span class="math display">\[
 \frac{\barX_n - \mu}{\sigma /\sqrt{n}} \convd \Norm(0,1)
@@ -308,25 +308,28 @@ X_n \convd X,
 <section id="proof-of-the-central-limit-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="proof-of-the-central-limit-theorem">Proof of the Central Limit Theorem</h2>
 <ol type="1">
-<li>Define a standardized (mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(1\)</span>) random variable, <span class="math inline">\(Y_i := (X_i - \mu)/\sigma\)</span> and note that <span class="math inline">\(Y_1, Y_2, \dots\)</span> are IID with</li>
+<li>Define a standardized (mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(1\)</span>) random variable, <span class="math inline">\(Y_i := (X_i - \mu)/\sigma\)</span> and note that <span class="math inline">\(Y_1, Y_2, \dots\)</span> are IID with mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span>:</li>
 </ol>
 <p><span class="math display">\[\begin{align*}
 Z_n: &amp;= \frac{\barX_n - \mu}{\sigma /\sqrt{n}} = \frac{Y_1 + \cdots + Y_n}{\sqrt{n}} \\
-M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})]\\
+M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}+ \cdots+ tY_n/\sqrt{n})]\\
+&amp; = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})] \\
 &amp; =  \{\Ex[\exp(tY_1/\sqrt{n})]\}^n \qquad \text{by independence} \\
 &amp; = [M_Y(t/\sqrt{n})]^n
+\lim_{n \to \infty}M_{Z_n}(t) = [M(0)]^\infty = 1^\infty \quad \class{alert}{\text{(undetermined)}}
 \end{align*}\]</span></p>
 <hr>
 <ol start="2" type="1">
 <li>Take the limit of <span class="math inline">\(M_{Z_n}(t)\)</span> as <span class="math inline">\(n \to \infty\)</span> using <span class="alert">L’Hôpital’s rule</span> <span class="math display">\[\begin{align*}
 \lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) &amp; = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr)
-=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \\
+=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \quad \class{alert}{\text{(undetermined)}}\\
 &amp; = \lim_{n \to \infty}
 \frac{ \dfrac{-t}{2n^{3/2}} \dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})} }
   { -n^{-2} }
-=   \frac t2  \lim_{n \to \infty} \bigg[ \frac{M'_Y(t/\sqrt{n})}{ n^{-1/2} M_Y(t/\sqrt{n}) } \bigg]
-= \frac{0}{0} \\
-&amp; =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2}
+=   \frac t2  \lim_{n \to \infty}  \frac{\dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})}}{ n^{-1/2} }
+= \frac{0}{0} \quad \class{alert}{\text{(undetermined)}} \\
+&amp; =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2} \\
+\lim_{n \to \infty} M_{Z_n}(t)  &amp; = \exp(t^2/2)
 \end{align*}\]</span></li>
 </ol>
 <hr>
@@ -334,7 +337,7 @@ M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sq
 <li>Note that if <span class="math inline">\(Z \sim \Norm(0,1)\)</span> then <span class="math display">\[\begin{align*}
 M_Z(t) &amp; = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp(tz - z^2/2) \, \dif z \\
 &amp; = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp\bigl(-(z - t)^2/2 \bigr) \, \exp(t^2/2) \, \dif z = \exp(t^2/2) \\
-\log\bigl(M_Z(t)  \bigr) &amp;= \frac{t^2}{2} = \lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr)
+&amp;= \lim_{n \to \infty} M_{Z_n}(t)
 \end{align*}\]</span></li>
 </ol>
 <p>By uniqueness of moment generating functions, <span class="math display">\[
@@ -344,7 +347,7 @@ Z_n \convd N(0,1)
 <section id="chebyshev-markov-inequality" class="level2">
 <h2 class="anchored" data-anchor-id="chebyshev-markov-inequality">Chebyshev (Markov) Inequality</h2>
 <p><span class="math display">\[
-\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r}
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r} \qquad f \text{ is }\class{alert}{\text{non-negative}}
 \]</span></p>
 <section id="proof" class="level3">
 <h3 class="anchored" data-anchor-id="proof">Proof</h3>
@@ -363,7 +366,7 @@ Z_n \convd N(0,1)
 <h3 class="anchored" data-anchor-id="important-special-cases">Important special cases</h3>
 <p><span class="math display">\[\begin{gather*}
 \Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X) \\
-\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex \lvert X - \med(X)\rvert}{r}
+\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex (\lvert X - \med(X)\rvert)}{r}
 \end{gather*}\]</span></p>
 </section>
 </section>
@@ -388,8 +391,8 @@ Z_n \convd N(0,1)
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"| $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|X|&gt;r)$ (exact) | "</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex|X|/r$ (Markov) | "</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex|X|^2 /r^2$ (Chebyshev) |"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex(|X|)/r$ (Markov) | "</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"$</span><span class="ch">\\</span><span class="st">Ex(X^2)/r^2$ (Chebyshev) |"</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|---:|---:|----:|"</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
@@ -421,8 +424,8 @@ Z_n \convd N(0,1)
 <tr class="header">
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|X|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|X|/r\)</span> (Markov)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|X|^2 /r^2\)</span> (Chebyshev)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(|X|)/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(X^2)/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
 <tbody>
@@ -503,7 +506,7 @@ Z_n \convd N(0,1)
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"(∞)"</span></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"(</span><span class="sc">{</span><span class="bu">float</span>(x)<span class="sc">:.0f}</span><span class="ss">×)"</span></span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"| $</span><span class="ch">\\</span><span class="st">nu$ | $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|T_</span><span class="ch">\\</span><span class="st">nu|&gt;r)$ (exact) | $</span><span class="ch">\\</span><span class="st">Ex|T_</span><span class="ch">\\</span><span class="st">nu|/r$ (Markov) | $</span><span class="ch">\\</span><span class="st">Ex(T_</span><span class="ch">\\</span><span class="st">nu^2)/r^2$ (Chebyshev) |"</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"| $</span><span class="ch">\\</span><span class="st">nu$ | $r$ | $</span><span class="ch">\\</span><span class="st">Prob(|T_</span><span class="ch">\\</span><span class="st">nu|&gt;r)$ (exact) | $</span><span class="ch">\\</span><span class="st">Ex(|T_</span><span class="ch">\\</span><span class="st">nu|)/r$ (Markov) | $</span><span class="ch">\\</span><span class="st">Ex(T_</span><span class="ch">\\</span><span class="st">nu^2)/r^2$ (Chebyshev) |"</span>)</span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"|-:|-:|---:|---:|----:|"</span>)</span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nu <span class="kw">in</span> dfs:</span>
@@ -536,7 +539,7 @@ Z_n \convd N(0,1)
 <th style="text-align: right;"><span class="math inline">\(\nu\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|T_\nu|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex|T_\nu|/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\Ex(|T_\nu|)/r\)</span> (Markov)</th>
 <th style="text-align: right;"><span class="math inline">\(\Ex(T_\nu^2)/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
@@ -611,19 +614,19 @@ Z_n \convd N(0,1)
 <h2 class="anchored" data-anchor-id="weak-law-of-large-numbers-via-chebyshev">Weak Law of Large Numbers (via Chebyshev)</h2>
 <section id="theorem-wlln" class="level3">
 <h3 class="anchored" data-anchor-id="theorem-wlln">Theorem (WLLN)</h3>
-<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\bar X_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
+<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
 </section>
 <section id="proof-1" class="level3">
 <h3 class="anchored" data-anchor-id="proof-1">Proof</h3>
 <p>By Chebyshev’s inequality, <span class="math display">\[
 \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
-\le \frac{\Var(\barX_n)}{\varepsilon^2}
+\le \frac{\var(\barX_n)}{\varepsilon^2}
 \]</span> Using independence, <span class="math display">\[
 \var(\barX_n)
 =
 \var\!\left(\frac1n\sum_{i=1}^n X_i\right)
 =
-\frac{1}{n^2}\sum_{i=1}^n \Var(X_i)
+\frac{1}{n^2}\sum_{i=1}^n \var(X_i)
 =
 \frac{1}{n^2}\cdot n\sigma^2
 =
