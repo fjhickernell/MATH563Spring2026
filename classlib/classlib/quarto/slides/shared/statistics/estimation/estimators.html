@@ -206,8 +206,13 @@ window.Quarto = {
 
 <section id="estimators" class="level1">
 <h1>Estimators</h1>
+<ul>
+<li><a href="#summary-statistics">Summary statistics</a></li>
+<li><a href="#maximum-likelihood-estimators">Maximum likelihood estimators (MLE)</a></li>
+<li><a href="#plug-in-estimators">Plug-in estimators</a></li>
+</ul>
 <section id="summary-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h2>
 <p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute</p>
 <ul>
 <li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX := \frac{1}{n} \sum_{i=1}^n X_i\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
@@ -218,6 +223,20 @@ window.Quarto = {
 <li><p><span class="alert">Sample Covariance</span> <span class="math inline">\(\displaystyle  S_{XY} := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)(Y_i - \barY)\)</span> to approximate the population covariance <span class="math inline">\(\cov(X_1,Y_1) : = \Ex[(X_1 - \mu)(Y_1 - \mu)]\)</span></p></li>
 <li><p><span class="alert">Sample Correlation</span> <span class="math inline">\(\displaystyle  R_{XY} := \frac{S_{XY}}{S_X S_Y}\)</span> to approximate the population correlation <span class="math inline">\(\displaystyle \corr(X_1,Y_1) : = \frac{\cov(X_1,Y_1)}{\sigma_X \sigma_Y}\)</span></p></li>
 </ul>
+</section>
+<section id="maximum-likelihood-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood-estimators">Maximum likelihood estimators</h2>
+<p>The joint density of data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)^\top\)</span> given a parameter, <span class="math inline">\(\vtheta\)</span>, is <span class="math inline">\(\varrho_{X_1, \ldots, X_n| \vtheta}\)</span>. The <span class="alert">likelihood</span>, <span class="math inline">\(L\)</span> turns that around to make the parameter the variable, so <span class="math display">\[\begin{align*}
+L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1, \ldots, x_n) \\
+&amp; = \prod_{i=1}^n \varrho_{X_1 |\vtheta}(x_i) \qquad \text{if } X_1, \ldots, X_n \sim \IID
+\end{align*}\]</span></p>
+<p>The <span class="alert">maximum likelihood estimator (MLE)</span> of <span class="math inline">\(\vtheta\)</span> is the one that fits the observed data best in terms of <span class="math display">\[
+\vtheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta | x_1, \ldots, x_n)
+\]</span></p>
+</section>
+<section id="plug-in-estimators" class="level2">
+<h2 class="anchored" data-anchor-id="plug-in-estimators">Plug-in estimators</h2>
+<p>If <span class="math inline">\(\htheta_1\)</span> is an estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\htheta_2 : = g(\htheta_1)\)</span> is a <span class="alert">plug-in estimator</span> of <span class="math inline">\(\vtheta_2\)</span></p>
 
 
 </section>

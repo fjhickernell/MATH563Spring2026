@@ -3,8 +3,22 @@
     "objectID": "slides/02-estimator.html#summary-statistics",
     "href": "slides/02-estimator.html#summary-statistics",
     "title": "MATH 476 — Statistics",
-    "section": "Summary Statistics",
-    "text": "Summary Statistics\nGiven IID data, \\(X_1, \\ldots, X_n\\), we often compute\n\nSample Mean \\(\\displaystyle \\barX := \\frac{1}{n} \\sum_{i=1}^n X_i\\) to approximate the population mean \\(\\mu := \\Ex[X_1]\\)\nSample Variance \\(S^2 := \\displaystyle \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)^2\\) to approximate the population variance \\(\\sigma^2 := \\var(X_1) := \\Ex[(X_1-\\mu)^2]\\)\n\nAnd given IID data, \\((X_1, Y_1), \\ldots, (X_n,Y_n)\\), we often compute\n\nSample Covariance \\(\\displaystyle  S_{XY} := \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)(Y_i - \\barY)\\) to approximate the population covariance \\(\\cov(X_1,Y_1) : = \\Ex[(X_1 - \\mu)(Y_1 - \\mu)]\\)\nSample Correlation \\(\\displaystyle  R_{XY} := \\frac{S_{XY}}{S_X S_Y}\\) to approximate the population correlation \\(\\displaystyle \\corr(X_1,Y_1) : = \\frac{\\cov(X_1,Y_1)}{\\sigma_X \\sigma_Y}\\)"
+    "section": "Summary statistics",
+    "text": "Summary statistics\nGiven IID data, \\(X_1, \\ldots, X_n\\), we often compute\n\nSample Mean \\(\\displaystyle \\barX := \\frac{1}{n} \\sum_{i=1}^n X_i\\) to approximate the population mean \\(\\mu := \\Ex[X_1]\\)\nSample Variance \\(S^2 := \\displaystyle \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)^2\\) to approximate the population variance \\(\\sigma^2 := \\var(X_1) := \\Ex[(X_1-\\mu)^2]\\)\n\nAnd given IID data, \\((X_1, Y_1), \\ldots, (X_n,Y_n)\\), we often compute\n\nSample Covariance \\(\\displaystyle  S_{XY} := \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)(Y_i - \\barY)\\) to approximate the population covariance \\(\\cov(X_1,Y_1) : = \\Ex[(X_1 - \\mu)(Y_1 - \\mu)]\\)\nSample Correlation \\(\\displaystyle  R_{XY} := \\frac{S_{XY}}{S_X S_Y}\\) to approximate the population correlation \\(\\displaystyle \\corr(X_1,Y_1) : = \\frac{\\cov(X_1,Y_1)}{\\sigma_X \\sigma_Y}\\)"
+  },
+  {
+    "objectID": "slides/02-estimator.html#maximum-likelihood-estimators",
+    "href": "slides/02-estimator.html#maximum-likelihood-estimators",
+    "title": "MATH 476 — Statistics",
+    "section": "Maximum likelihood estimators",
+    "text": "Maximum likelihood estimators\nThe joint density of data, \\(\\vX = (X_1, \\ldots, X_n)^\\top\\) given a parameter, \\(\\vtheta\\), is \\(\\varrho_{X_1, \\ldots, X_n| \\vtheta}\\). The likelihood, \\(L\\) turns that around to make the parameter the variable, so \\[\\begin{align*}\nL(\\vtheta | x_1, \\ldots, x_n) & := \\varrho_{X_1, \\ldots, X_n | \\vtheta}(x_1, \\ldots, x_n) \\\\\n& = \\prod_{i=1}^n \\varrho_{X_1 |\\vtheta}(x_i) \\qquad \\text{if } X_1, \\ldots, X_n \\sim \\IID\n\\end{align*}\\]\nThe maximum likelihood estimator (MLE) of \\(\\vtheta\\) is the one that fits the observed data best in terms of \\[\n\\vtheta_{\\MLE}  = \\Argmax{\\vtheta} L(\\vtheta | x_1, \\ldots, x_n)\n\\]"
+  },
+  {
+    "objectID": "slides/02-estimator.html#plug-in-estimators",
+    "href": "slides/02-estimator.html#plug-in-estimators",
+    "title": "MATH 476 — Statistics",
+    "section": "Plug-in estimators",
+    "text": "Plug-in estimators\nIf \\(\\htheta_1\\) is an estimator of \\(\\theta\\) and \\(\\theta_2 = g(\\theta_1)\\), then \\(\\htheta_2 : = g(\\htheta_1)\\) is a plug-in estimator of \\(\\vtheta_2\\)"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/statistics/intro/intro-stats-examples.html",
@@ -333,7 +347,7 @@
     "href": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html",
     "title": "Estimators",
     "section": "",
-    "text": "Given IID data, \\(X_1, \\ldots, X_n\\), we often compute\n\nSample Mean \\(\\displaystyle \\barX := \\frac{1}{n} \\sum_{i=1}^n X_i\\) to approximate the population mean \\(\\mu := \\Ex[X_1]\\)\nSample Variance \\(S^2 := \\displaystyle \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)^2\\) to approximate the population variance \\(\\sigma^2 := \\var(X_1) := \\Ex[(X_1-\\mu)^2]\\)\n\nAnd given IID data, \\((X_1, Y_1), \\ldots, (X_n,Y_n)\\), we often compute\n\nSample Covariance \\(\\displaystyle  S_{XY} := \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)(Y_i - \\barY)\\) to approximate the population covariance \\(\\cov(X_1,Y_1) : = \\Ex[(X_1 - \\mu)(Y_1 - \\mu)]\\)\nSample Correlation \\(\\displaystyle  R_{XY} := \\frac{S_{XY}}{S_X S_Y}\\) to approximate the population correlation \\(\\displaystyle \\corr(X_1,Y_1) : = \\frac{\\cov(X_1,Y_1)}{\\sigma_X \\sigma_Y}\\)"
+    "text": "Summary statistics\nMaximum likelihood estimators (MLE)\nPlug-in estimators\n\n\n\nGiven IID data, \\(X_1, \\ldots, X_n\\), we often compute\n\nSample Mean \\(\\displaystyle \\barX := \\frac{1}{n} \\sum_{i=1}^n X_i\\) to approximate the population mean \\(\\mu := \\Ex[X_1]\\)\nSample Variance \\(S^2 := \\displaystyle \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)^2\\) to approximate the population variance \\(\\sigma^2 := \\var(X_1) := \\Ex[(X_1-\\mu)^2]\\)\n\nAnd given IID data, \\((X_1, Y_1), \\ldots, (X_n,Y_n)\\), we often compute\n\nSample Covariance \\(\\displaystyle  S_{XY} := \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)(Y_i - \\barY)\\) to approximate the population covariance \\(\\cov(X_1,Y_1) : = \\Ex[(X_1 - \\mu)(Y_1 - \\mu)]\\)\nSample Correlation \\(\\displaystyle  R_{XY} := \\frac{S_{XY}}{S_X S_Y}\\) to approximate the population correlation \\(\\displaystyle \\corr(X_1,Y_1) : = \\frac{\\cov(X_1,Y_1)}{\\sigma_X \\sigma_Y}\\)\n\n\n\n\nThe joint density of data, \\(\\vX = (X_1, \\ldots, X_n)^\\top\\) given a parameter, \\(\\vtheta\\), is \\(\\varrho_{X_1, \\ldots, X_n| \\vtheta}\\). The likelihood, \\(L\\) turns that around to make the parameter the variable, so \\[\\begin{align*}\nL(\\vtheta | x_1, \\ldots, x_n) & := \\varrho_{X_1, \\ldots, X_n | \\vtheta}(x_1, \\ldots, x_n) \\\\\n& = \\prod_{i=1}^n \\varrho_{X_1 |\\vtheta}(x_i) \\qquad \\text{if } X_1, \\ldots, X_n \\sim \\IID\n\\end{align*}\\]\nThe maximum likelihood estimator (MLE) of \\(\\vtheta\\) is the one that fits the observed data best in terms of \\[\n\\vtheta_{\\MLE}  = \\Argmax{\\vtheta} L(\\vtheta | x_1, \\ldots, x_n)\n\\]\n\n\n\nIf \\(\\htheta_1\\) is an estimator of \\(\\theta\\) and \\(\\theta_2 = g(\\theta_1)\\), then \\(\\htheta_2 : = g(\\htheta_1)\\) is a plug-in estimator of \\(\\vtheta_2\\)"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html#summary-statistics",
@@ -341,6 +355,20 @@
     "title": "Estimators",
     "section": "",
     "text": "Given IID data, \\(X_1, \\ldots, X_n\\), we often compute\n\nSample Mean \\(\\displaystyle \\barX := \\frac{1}{n} \\sum_{i=1}^n X_i\\) to approximate the population mean \\(\\mu := \\Ex[X_1]\\)\nSample Variance \\(S^2 := \\displaystyle \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)^2\\) to approximate the population variance \\(\\sigma^2 := \\var(X_1) := \\Ex[(X_1-\\mu)^2]\\)\n\nAnd given IID data, \\((X_1, Y_1), \\ldots, (X_n,Y_n)\\), we often compute\n\nSample Covariance \\(\\displaystyle  S_{XY} := \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\barX)(Y_i - \\barY)\\) to approximate the population covariance \\(\\cov(X_1,Y_1) : = \\Ex[(X_1 - \\mu)(Y_1 - \\mu)]\\)\nSample Correlation \\(\\displaystyle  R_{XY} := \\frac{S_{XY}}{S_X S_Y}\\) to approximate the population correlation \\(\\displaystyle \\corr(X_1,Y_1) : = \\frac{\\cov(X_1,Y_1)}{\\sigma_X \\sigma_Y}\\)"
+  },
+  {
+    "objectID": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html#maximum-likelihood-estimators",
+    "href": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html#maximum-likelihood-estimators",
+    "title": "Estimators",
+    "section": "",
+    "text": "The joint density of data, \\(\\vX = (X_1, \\ldots, X_n)^\\top\\) given a parameter, \\(\\vtheta\\), is \\(\\varrho_{X_1, \\ldots, X_n| \\vtheta}\\). The likelihood, \\(L\\) turns that around to make the parameter the variable, so \\[\\begin{align*}\nL(\\vtheta | x_1, \\ldots, x_n) & := \\varrho_{X_1, \\ldots, X_n | \\vtheta}(x_1, \\ldots, x_n) \\\\\n& = \\prod_{i=1}^n \\varrho_{X_1 |\\vtheta}(x_i) \\qquad \\text{if } X_1, \\ldots, X_n \\sim \\IID\n\\end{align*}\\]\nThe maximum likelihood estimator (MLE) of \\(\\vtheta\\) is the one that fits the observed data best in terms of \\[\n\\vtheta_{\\MLE}  = \\Argmax{\\vtheta} L(\\vtheta | x_1, \\ldots, x_n)\n\\]"
+  },
+  {
+    "objectID": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html#plug-in-estimators",
+    "href": "classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.html#plug-in-estimators",
+    "title": "Estimators",
+    "section": "",
+    "text": "If \\(\\htheta_1\\) is an estimator of \\(\\theta\\) and \\(\\theta_2 = g(\\theta_1)\\), then \\(\\htheta_2 : = g(\\htheta_1)\\) is a plug-in estimator of \\(\\vtheta_2\\)"
   },
   {
     "objectID": "slides/01-intro.html#approval-ratings",
