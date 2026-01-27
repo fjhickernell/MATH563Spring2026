@@ -1,8 +1,8 @@
 ---
-title: "MATH 476 — Statistics"
+title: "MATH 563 — Mathematical Statistics"
 subtitle: |
   <span class="deck-title">Estimators and Confidence Intervals</span><br>
-  <span class="deck-meta">Wackerly et al. Ch. 8–9
+  <span class="deck-meta">Casell &amp; Berger Ch. 5–7 (parts) </span>
 author: "Fred J. Hickernell"
 date: last-modified
 date-format: "MMMM D, YYYY"
