@@ -46,6 +46,8 @@ website:
             text: Accessing repo
           - text: Interesting articles & links
             href: classlib/classlib/quarto/pages/interesting-articles-links.qmd
+          - text: FREE IMS StudentMembershp
+            href: https://imstat.org/free-student-membership/
     right:
       - text: Related
         menu:
@@ -55,6 +57,7 @@ website:
             href: https://QMCSoftware.github.io/MATH565Fall2025/
           - text: QMCPy
             href: https://qmcpy.github.io/
+
   page-footer:
     left: "© 2026 Fred J. Hickernell · Illinois Institute of Technology"
 
