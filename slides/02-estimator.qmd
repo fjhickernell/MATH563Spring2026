@@ -2,13 +2,17 @@
 title: "MATH 563 — Mathematical Statistics"
 subtitle: |
   <span class="deck-title">Estimators and Confidence Intervals</span><br>
-  <span class="deck-meta">Casell &amp; Berger Ch. 5–7 (parts) </span>
+  <span class="deck-meta">Casella &amp; Berger Ch. 5–7 (parts) </span>
 author: "Fred J. Hickernell"
 date: last-modified
 date-format: "MMMM D, YYYY"
 reveal-options:
   disableLayout: false
 ---
+
+
+{{< include ../classlib/classlib/quarto/slides/shared/general/how_to_learn.qmd >}}
+
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.qmd >}}
 
