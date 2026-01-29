@@ -249,24 +249,30 @@ window.Quarto = {
 </ul>
 <hr>
 <ul>
-<li><p><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability</p>
+<li><span class="alert">Expectation</span> — average value of a random variable, weighted by its probability
 <ul>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)\)</span> for discrete random variables</li>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \, \dif x\)</span> for continuous random variables</li>
 <li><span class="math inline">\(\displaystyle \Ex[f(X)] : =  \int f(x)  \, \dif F(x)\)</span> in general (see <a href="https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration">Lebesgue–Stieltjes integral</a>)</li>
 </ul></li>
-<li><p><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X) \exeq \Argmin{m\in\reals} \Ex[(X-m)^2]\)</span></p></li>
-<li><p><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] \exeq E(X^2) - \mu^2\)</span></p>
+<li><span class="alert">Mean</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\mu : = \Ex(X) \exeq \Argmin{m\in\reals} \Ex[(X-m)^2]\)</span>
+<ul>
+<li>$(a X + Y) a (X) + (Y)</li>
+</ul></li>
+<li><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] \exeq E(X^2) - \mu^2\)</span>
 <ul>
 <li><span class="alert">Standard deviation</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\std(X) := \sigma = \sqrt{\var(X)}\)</span></li>
 </ul></li>
-<li><p><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2) \in
-\Argmin{m\in\reals} \Ex (\lvert X-m \rvert)\)</span></p></li>
+<li><span class="alert">Median</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\med(X) : = Q(1/2) \in
+\Argmin{m\in\reals} \Ex (\lvert X-m \rvert)\)</span></li>
 </ul>
 <hr>
 <ul>
 <li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
-<li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p></li>
+<li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p>
+<ul>
+<li><span class="math inline">\(\var(aX + Y) \exeq a^2 \var(X) + \var(Y)\)</span> if <span class="math inline">\(\cov(X,Y) = 0\)</span></li>
+</ul></li>
 <li><p><span class="alert">Correlation</span> <span class="math inline">\(\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}\)</span></p></li>
 <li><p>Independence <span class="math inline">\(\implies\)</span> zero correlation, but zero correlation <span class="math inline">\(\notimplies\)</span> independence</p>
 <div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" data-markdown="1">
