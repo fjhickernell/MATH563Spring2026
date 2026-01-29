@@ -1187,19 +1187,20 @@ Z_n \convd N(0,1)
 <section id="normal-tails-vs-chebyshev-bounds" class="slide level2">
 <h2>Normal tails vs Chebyshev bounds</h2>
 <p>Let <span class="math inline">\(X\sim \Norm(0,1)\)</span> and compare <span class="math inline">\(\Prob(|X|&gt;r)\)</span> with two bounds</p>
+<p>Here <span class="math inline">\(\Ex\lvert X \rvert \exeq \sqrt{2/\pi} \approx 0.798\)</span> and <span class="math inline">\(\Ex(X^2)=1\)</span></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 26%">
-<col style="width: 26%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|X|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex(|X|)/r\)</span> (Markov)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex(X^2)/r^2\)</span> (Chebyshev)</th>
+<th style="text-align: right;"><span class="math inline">\(\le \sqrt{2/\pi}\,/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\le 1/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
 <tbody>
@@ -1216,10 +1217,10 @@ Z_n \convd N(0,1)
 <td style="text-align: right;">0.25 (5.5×)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0026998</td>
-<td style="text-align: right;">0.265962 (99×)</td>
-<td style="text-align: right;">0.111111 (41×)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.97318e-09</td>
+<td style="text-align: right;">0.132981 (6.7e+07×)</td>
+<td style="text-align: right;">0.0277778 (1.4e+07×)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
@@ -1257,8 +1258,8 @@ Z_n \convd N(0,1)
 <th style="text-align: right;"><span class="math inline">\(\nu\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(r\)</span></th>
 <th style="text-align: right;"><span class="math inline">\(\Prob(|T_\nu|&gt;r)\)</span> (exact)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex(|T_\nu|)/r\)</span> (Markov)</th>
-<th style="text-align: right;"><span class="math inline">\(\Ex(T_\nu^2)/r^2\)</span> (Chebyshev)</th>
+<th style="text-align: right;"><span class="math inline">\(\le \Ex(|T_\nu|)/r\)</span> (Markov)</th>
+<th style="text-align: right;"><span class="math inline">\(\le \Ex(T_\nu^2)/r^2\)</span> (Chebyshev)</th>
 </tr>
 </thead>
 <tbody>
@@ -1278,9 +1279,9 @@ Z_n \convd N(0,1)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.00985</td>
-<td style="text-align: right;">0.141 (14×)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0267</td>
+<td style="text-align: right;">0.236 (9×)</td>
 <td style="text-align: right;">inf (∞)</td>
 </tr>
 <tr class="even">
@@ -1299,10 +1300,10 @@ Z_n \convd N(0,1)
 </tr>
 <tr class="even">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.00213</td>
-<td style="text-align: right;">0.11 (52×)</td>
-<td style="text-align: right;">0.03 (14×)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.00927</td>
+<td style="text-align: right;">0.184 (20×)</td>
+<td style="text-align: right;">0.0833 (9×)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
@@ -1320,10 +1321,10 @@ Z_n \convd N(0,1)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.000171</td>
-<td style="text-align: right;">0.0949 (555×)</td>
-<td style="text-align: right;">0.0167 (97×)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.00185</td>
+<td style="text-align: right;">0.158 (86×)</td>
+<td style="text-align: right;">0.0463 (25×)</td>
 </tr>
 </tbody>
 </table>
