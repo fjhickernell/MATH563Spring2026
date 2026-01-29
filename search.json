@@ -74,7 +74,7 @@
     "href": "classlib/classlib/quarto/slides/shared/statistics/estimation/confidence.html",
     "title": "Confidence Intervals",
     "section": "",
-    "text": "Confidence Intervals\nIf\n\n\\(\\theta\\) is a parameter of interest of a distribution, and\n\\(X_1, \\ldots, X_n\\) are data that we assume are collected that follow that distribution,\n\nThen we will try to construct \\(\\Theta_L\\) and/or \\(\\Theta_U\\) depending on that data (and not on \\(\\theta\\)) to give us intervals that capture \\(\\theta\\) with high probability \\(1 - \\alpha\\)\n\n\\(\\Prob(\\Theta_L \\le \\theta  \\Theta_U) = 1 - \\alpha\\), or\n\\(\\Prob(\\Theta_L \\le \\theta) = 1 - \\alpha\\), or\n\\(\\Prob(\\theta  \\Theta_U) = 1 - \\alpha\\)\n\nHere \\(\\alpha\\) is our willingness to be wrong"
+    "text": "Confidence Intervals\nIf\n\n\\(\\theta\\) is a parameter of interest of a distribution, and\n\\(X_1, \\ldots, X_n\\) are data that we assume are collected that follow that distribution,\n\nThen we will try to construct \\(\\Theta_L\\) and/or \\(\\Theta_U\\) depending on that data (and not on \\(\\theta\\)) to give us intervals that capture \\(\\theta\\) with high probability \\(1 - \\alpha\\)\n\n\\(\\Prob(\\Theta_L \\le \\theta  \\Theta_U) = 1 - \\alpha\\), or\n\\(\\Prob(\\Theta_L \\le \\theta) = 1 - \\alpha\\), or\n\\(\\Prob(\\theta  \\Theta_U) = 1 - \\alpha\\)\n\nHere \\(\\alpha\\) is our willingness to be wrong, typically \\(\\alpha = 5\\%\\)"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/probability/probability-review-distrib-part-1.html",
