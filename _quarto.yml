@@ -58,6 +58,11 @@ website:
   page-footer:
     left: "© 2026 Fred J. Hickernell · Illinois Institute of Technology"
 
+course:
+  textbook:
+    short: "Casella &amp; Berger"
+    full: "G. Casella &amp; R. L. Berger, *Statistical Inference*, 2nd ed. (2002)"
+
 execute:
   env:
     RETICULATE_PYTHON: ${HOME}/miniconda3/envs/qmcpy/bin/python
