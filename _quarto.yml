@@ -46,8 +46,10 @@ website:
             text: Accessing repo
           - text: Interesting articles & links
             href: classlib/classlib/quarto/pages/interesting-articles-links.qmd
-          - text: FREE IMS StudentMembershp
+          - text: 🆓 IMS StudentMembershp
             href: https://imstat.org/free-student-membership/
+          - text: 🆓 SIAM Student Membership
+            href: https://www.siam.org/membership/individual-membership/student-membership/
     right:
       - text: Related
         menu:
