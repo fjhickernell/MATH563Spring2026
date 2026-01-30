@@ -258,8 +258,8 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <section id="plug-in-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="plug-in-estimators">Plug-in estimators</h2>
 <ul>
-<li>If <span class="math inline">\(\hTheta_1\)</span> is an estimator of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\htheta_1)\)</span> is a <span class="alert">plug-in estimator</span> of <span class="math inline">\(\theta_2\)</span></li>
-<li>If <span class="math inline">\(\hTheta_1\)</span> is MLE of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\hTheta_1)\)</span> is an MLE of <span class="math inline">\(\theta_2\)</span></li>
+<li>If <span class="math inline">\(\hTheta_1\)</span> is an estimator of <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\htheta_1)\)</span> is a <span class="alert">plug-in estimator</span> of <span class="math inline">\(\theta_2\)</span></li>
+<li>If <span class="math inline">\(\hTheta_1\)</span> is MLE of <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2 = g(\theta_1)\)</span>, then <span class="math inline">\(\hTheta_2 : = g(\hTheta_1)\)</span> is an MLE of <span class="math inline">\(\theta_2\)</span></li>
 </ul>
 </section>
 </section>
@@ -268,7 +268,6 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <ul>
 <li><a href="#biasvar">Bias and variance</a></li>
 <li><a href="#distribest">Distributions of estimators</a></li>
-<li></li>
 </ul>
 <section id="biasvar" class="level2">
 <h2 class="anchored" data-anchor-id="biasvar">Bias, variance, and mean squared error of estimators</h2>
@@ -277,10 +276,12 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <li><span class="alert">Bias</span> <span class="math inline">\(\bias(\Theta) = \Ex(\Theta) - \theta\)</span>
 <ul>
 <li>Asymptotic bias is <span class="math inline">\(\displaystyle \lim_{n \to \infty} \bias(\Theta_n)\)</span>, where <span class="math inline">\(n\)</span> is the size of the sample on which the estimator is based</li>
+<li>An estimator is <span class="alert">unbiased</span> if <span class="math inline">\(\bias(\Theta) = 0\)</span></li>
+<li><span class="math inline">\(\barX\)</span> is an unbiased estimator of <span class="math inline">\(\mu = \Ex(X_1)\)</span> for <span class="math inline">\(X_1, \ldots, X_n\)</span> identically distributed</li>
 </ul></li>
-<li><span class="alert">Variance</span> is defined normally
+<li><span class="alert">Variance</span> we aleady know
 <ul>
-<li><span class="math inline">\(\var(\barX) \exeq \var(X)/n\)</span></li>
+<li><span class="math inline">\(\var(\barX) \exeq \var(X_1)/n\)</span> for IID data</li>
 </ul></li>
 <li><span class="alert">Mean squared error (MSE)</span> <span class="math inline">\(\mse(\Theta) := \Ex[(\Theta - \theta)^2] \exeq [\bias(\Theta)]^2 + \var(\Theta)\)</span></li>
 </ul>
