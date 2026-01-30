@@ -14,7 +14,8 @@ title: "Assignments"
   1. A self-contained, working copy of any code used  
      **AND**
   2. A PDF version of item 1, including the output, plus any analytic work.  
-     (You may embed the analytic work as markdown in the code if you wish.)
+     - Legible handwriting and typed work are both acceptable.
+     - You may embed the analytic work as markdown in the code if you wish.
  
 ## List of assignments
 
