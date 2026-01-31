@@ -137,7 +137,21 @@
     "href": "pages/tests.html",
     "title": "Tests",
     "section": "",
-    "text": "Information about midterms/final (and any practice materials) will be posted here."
+    "text": "Information about midterms, finals, and archived tests is posted here."
+  },
+  {
+    "objectID": "pages/tests.html#this-semesters-tests-and-exams",
+    "href": "pages/tests.html#this-semesters-tests-and-exams",
+    "title": "Tests",
+    "section": "This semester’s tests and exams",
+    "text": "This semester’s tests and exams\nDates, coverage, and PDFs for this semester will appear here as they become available."
+  },
+  {
+    "objectID": "pages/tests.html#archived-tests-and-exams",
+    "href": "pages/tests.html#archived-tests-and-exams",
+    "title": "Tests",
+    "section": "Archived tests and exams",
+    "text": "Archived tests and exams\nThese older tests may resemble current assessments, but topics and emphasis change from year to year. There may be typos in these tests; I appreciate hearing about them, but no extra credit is awarded for old-test typos.\n\n\n\n\n\n\nTip🔎 How to search the archive (PDFs) for keywords\n\n\n\n\n\nGoal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF files.\n\nMac (Homebrew) / Linux\nbrew install pdfgrep\ncd /path/to/your/local/repo/assets/tests\npdfgrep -rniH -C2 'your term here' archive/563\nExamples:\npdfgrep -rniH -C2 'brownian' archive/563\npdfgrep -rniH -C2 'sobol' archive/563\npdfgrep -rniH -C2 'central limit|CLT' archive/563\n\n\n\n\n\nArchive\n\nfrom pathlib import Path\n\nroot = Path(\"assets/tests/archive/563\")\n\nif not root.exists():\n    print(\"*No archived tests found yet.*\")\nelse:\n    pdfs = sorted(root.glob(\"*.pdf\"), key=lambda p: p.name.lower())\n    if not pdfs:\n        print(\"*No archived tests found yet.*\")\n    else:\n        for p in pdfs:\n            href = \"/\" + str(p).replace(\"\\\\\", \"/\")\n            label = p.stem.replace(\"_\", \" \")\n            print(f\"- [{label}]({href})\")\n\n*No archived tests found yet.*"
   },
   {
     "objectID": "pages/notebooks.html",
