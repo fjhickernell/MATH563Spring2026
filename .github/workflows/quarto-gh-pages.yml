@@ -18,13 +18,14 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          clean: true
 
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          
+
       - name: Set RETICULATE_PYTHON
         run: |
           echo "RETICULATE_PYTHON=$pythonLocation/bin/python" >> "$GITHUB_ENV"
@@ -51,6 +52,11 @@ jobs:
       - name: Render
         run: |
           quarto render
+
+      - name: Clean Quarto publish worktree
+        run: |
+          rm -rf .quarto/quarto-publish-worktree-*
+          rm -rf _site/.git
 
       - name: Publish to gh-pages
         uses: quarto-dev/quarto-actions/publish@v2
