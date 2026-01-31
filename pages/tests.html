@@ -220,6 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#archived-tests-and-exams" id="toc-archived-tests-and-exams" class="nav-link" data-scroll-target="#archived-tests-and-exams">Archived tests and exams</a>
   <ul class="collapse">
   <li><a href="#archive" id="toc-archive" class="nav-link" data-scroll-target="#archive">Archive</a></li>
+  <li><a href="#archive-from-math-476-related-material" id="toc-archive-from-math-476-related-material" class="nav-link" data-scroll-target="#archive-from-math-476-related-material">Archive from MATH 476 (related material)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -294,24 +295,32 @@ Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
 </div>
 <section id="archive" class="level3">
 <h3 class="anchored" data-anchor-id="archive">Archive</h3>
-<div id="ddbe59a9" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> Path(<span class="st">"assets/tests/archive/563"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> root.exists():</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"*No archived tests found yet.*"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    pdfs <span class="op">=</span> <span class="bu">sorted</span>(root.glob(<span class="st">"*.pdf"</span>), key<span class="op">=</span><span class="kw">lambda</span> p: p.name.lower())</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> pdfs:</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"*No archived tests found yet.*"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> pdfs:</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            href <span class="op">=</span> <span class="st">"/"</span> <span class="op">+</span> <span class="bu">str</span>(p).replace(<span class="st">"</span><span class="ch">\\</span><span class="st">"</span>, <span class="st">"/"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            label <span class="op">=</span> p.stem.replace(<span class="st">"_"</span>, <span class="st">" "</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"- [</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">](</span><span class="sc">{</span>href<span class="sc">}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>*No archived tests found yet.*</code></pre>
+<div id="17f180a5" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display cell-output-markdown">
+<ul>
+<li><a href="../assets/tests/archive/563/MATH476_563FinalS11Answers.pdf">MATH476 563FinalS11Answers</a></li>
+<li><a href="../assets/tests/archive/563/MATH563Test1S11Answers.pdf">MATH563Test1S11Answers</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="archive-from-math-476-related-material" class="level3">
+<h3 class="anchored" data-anchor-id="archive-from-math-476-related-material">Archive from MATH 476 (related material)</h3>
+<div id="0b5d442e" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<ul>
+<li><a href="../assets/tests/archive/476/MATH476FinalExamS10Answers.pdf">MATH476FinalExamS10Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476FinalS11Answers.pdf">MATH476FinalS11Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476StatFinalS06Answers.pdf">MATH476StatFinalS06Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476StatTestS06Answers.pdf">MATH476StatTestS06Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476StatTestTwoS06Answers.pdf">MATH476StatTestTwoS06Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test1S10Answers.pdf">MATH476Test1S10Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test1S11Answers.pdf">MATH476Test1S11Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test2S10Answers.pdf">MATH476Test2S10Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test2S11Answers.pdf">MATH476Test2S11Answers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test2S11MakeUpAnswers.pdf">MATH476Test2S11MakeUpAnswers</a></li>
+<li><a href="../assets/tests/archive/476/MATH476Test2v2S10Answers.pdf">MATH476Test2v2S10Answers</a></li>
+</ul>
 </div>
 </div>
 
@@ -393,7 +402,7 @@ Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/fjhickernell\.github\.io\/MATH563Spring2026\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </p></li>
 <li><p>Grades and feedback are shared with the whole group. By default, all members receive the <strong>same grade</strong>.<br>
 </p></li>
-<li><p>Assignments are due by <strong>11:59 PM</strong> on the due date.<br>
+<li><p>Assignments are due by <strong>11:59 PM Chicago Time</strong> on the due date (Canvas gives due dates in your time zone).<br>
 </p></li>
 <li><p>Each submission must include <strong>all relevant files</strong>:</p>
 <ol type="1">
@@ -339,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/fjhickernell\.github\.io\/MATH563Spring2026\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

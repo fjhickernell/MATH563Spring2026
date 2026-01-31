@@ -287,7 +287,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </ul>
 <p><span class="math inline">\(\exstar\)</span> Show that <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX)^2\)</span> is an unbiased estimator of <span class="math inline">\(\sigma^2\)</span></p>
 <p><span class="math inline">\(\exstar\)</span> Is the MLE of <span class="math inline">\(\sigma=\var(X)\)</span> for <span class="math inline">\(X\sim\Exp(\lambda)\)</span> unbiased?</p>
-<p><span class="math inline">\(\exstar\)</span> What is the MLE <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> for <span class="math inline">\(X \sim \Uniform(0,\theta)\)</span>? Is it unbiased? Can you modify it to be unbiased?</p>
+<p><span class="math inline">\(\exstar\)</span> What is the MLE <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> for <span class="math inline">\(X \sim \Unif(0,\theta)\)</span>? Is it unbiased? Can you modify it to be unbiased?</p>
 </section>
 <section id="distributions-of-estimators" class="level2">
 <h2 class="anchored" data-anchor-id="distributions-of-estimators">Distributions of estimators</h2>
@@ -379,7 +379,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/fjhickernell\.github\.io\/MATH563Spring2026\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
