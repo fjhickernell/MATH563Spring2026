@@ -1,5 +1,7 @@
 ---
 title: Tests
+execute:
+  echo: false
 ---
 
 Information about midterms, finals, and archived tests is posted here.
@@ -47,19 +49,26 @@ pdfgrep -rniH -C2 'central limit|CLT' archive/563
 ### Archive
 
 ```{python}
+#| echo: false
 from pathlib import Path
+from urllib.parse import quote
+from IPython.display import Markdown, display
 
-root = Path("assets/tests/archive/563")
+root = Path("../assets/tests/archive/563")
 
 if not root.exists():
-    print("*No archived tests found yet.*")
+    display(Markdown("*No archived tests found yet.*"))
 else:
     pdfs = sorted(root.glob("*.pdf"), key=lambda p: p.name.lower())
     if not pdfs:
-        print("*No archived tests found yet.*")
+        display(Markdown("*No archived tests found yet.*"))
     else:
+        lines = []
         for p in pdfs:
-            href = "/" + str(p).replace("\\", "/")
+            href = "../assets/tests/archive/563/" + quote(p.name)
             label = p.stem.replace("_", " ")
-            print(f"- [{label}]({href})")
+            lines.append(f"- [{label}]({href})")
+        display(Markdown("\n".join(lines)))
 ```
+
+
