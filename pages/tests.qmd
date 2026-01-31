@@ -71,4 +71,28 @@ else:
         display(Markdown("\n".join(lines)))
 ```
 
+### Archive from MATH 476 (related material)
+
+```{python}
+#| echo: false
+from pathlib import Path
+from urllib.parse import quote
+from IPython.display import Markdown, display
+
+root = Path("../assets/tests/archive/476")
+
+if not root.exists():
+    display(Markdown("*No archived tests found yet.*"))
+else:
+    pdfs = sorted(root.glob("*.pdf"), key=lambda p: p.name.lower())
+    if not pdfs:
+        display(Markdown("*No archived tests found yet.*"))
+    else:
+        lines = []
+        for p in pdfs:
+            href = "../assets/tests/archive/476/" + quote(p.name)
+            label = p.stem.replace("_", " ")
+            lines.append(f"- [{label}]({href})")
+        display(Markdown("\n".join(lines)))
+```
 
