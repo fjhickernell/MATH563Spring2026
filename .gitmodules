@@ -6,3 +6,6 @@
 	path = qmcsoftware
 	url = https://github.com/QMCSoftware/QMCSoftware.git
 	branch = develop
+[submodule "assets/tests/archive"]
+	path = assets/tests/archive
+	url = git@github.com:fjhickernell/HickernellTestArchive.git
