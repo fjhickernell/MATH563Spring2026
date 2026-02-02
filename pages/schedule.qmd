@@ -4,15 +4,21 @@ title: "Schedule"
 
 Classes are held in RE 102
 
+### January
+
 | Date   | Topic                    | Slides                             |
-|--------|---------|-------------------------|------------------------------------|
+|--------|---------------------------|-------------------------|
 | Tue Jan 13 | Introductory Examples,  Course Overview | [Introduction and Probability Review](../slides/01-intro.html)  |
 | Thu Jan 15 | Introductory Examples, Key Probability Concepts |    
 | Fri Jan 16 | **Diagnostic Survey Due**                                |
 | Tue Jan 20 | Key Probability Concepts, Important Distributions, Conditional Probability | |
 | Thu Jan 22 | Conditional Probability, Convergence, Central Limit Theorem | |
 | Tue Jan 27 | Central Limit Theorem, Chebyshev's Inequality, Summary Statistics| [Estimation and Confidence Intervals](../slides/02-estimator.html) | |
-| Thu Jan 29 | | |
+| Thu Jan 29 |  Summary Statistics, Maximum Likelihood Estimation, Bias, Mean Squared Error | |
+### February
+
+| Date   | Topic                    | Slides                             |
+|--------|---------------------------|-------------------------|
 Fri Jan 30 | **Assignment 2 Due**
 | Tue Feb 3 | | |
 | Thu Feb 5 | | |
@@ -23,6 +29,10 @@ Fri Feb 13 | **Assignment 3 Due**
 | Thu Feb 19 | | |
 | Tue Feb 24 | | |
 | Thu Feb 26 | **Test 1** | |
+### March
+
+| Date   | Topic                    | Slides                             |
+|--------|---------------------------|-------------------------|
 | Tue Mar 3 | | |
 | Thu Mar 5 | | |
 | Tue Mar 10 | | |
@@ -32,6 +42,10 @@ Fri Feb 13 | **Assignment 3 Due**
 | Tue Mar 24 | **No Class, Hickernell attending [SIAM UQ 2026](https://www.siam.org/conferences-events/siam-conferences/uq26/)** | |
 | Thu Mar 26 | | |
 | Tue Mar 31 | | |
+### April
+
+| Date   | Topic                    | Slides                             |
+|--------|---------------------------|-------------------------|
 | Thu Apr 2 | | |
 | Tue Apr 7 | **Test 2** | |
 | Thu Apr 9 | | |
@@ -41,4 +55,8 @@ Fri Feb 13 | **Assignment 3 Due**
 | Thu Apr 23 | | |
 | Tue Apr 28 | | |
 | Thu Apr 30 | | |
-| Tue May ? | **Final Exam** | |
+### May
+
+| Date   | Topic                    | Slides                             |
+|--------|---------------------------|-------------------------|
+| ?? May ? | **Final Exam** | |
