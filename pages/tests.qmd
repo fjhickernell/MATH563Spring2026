@@ -20,31 +20,7 @@ Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
 
 ---
 
-## Archived tests and exams
-
-These older tests may resemble current assessments, but topics and emphasis change from year to year.
-There may be typos in these tests; I appreciate hearing about them, but no extra credit is awarded for old-test typos.
-
-::: {.callout-tip collapse="true"}
-## 🔎 How to search the archive (PDFs) for keywords
-
-Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF files.
-
-### Mac (Homebrew) / Linux
-
-```bash
-brew install pdfgrep
-cd /path/to/your/local/repo/assets/tests
-pdfgrep -rniH -C2 'your term here' archive/563
-```
-
-Examples:
-```bash
-pdfgrep -rniH -C2 'brownian' archive/563
-pdfgrep -rniH -C2 'sobol' archive/563
-pdfgrep -rniH -C2 'central limit|CLT' archive/563
-```
-:::
+{{< include ../classlib/classlib/quarto/snippets/search-test-archives.qmd >}}
 
 ### Archive
 
