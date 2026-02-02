@@ -216,8 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#this-semesters-tests-and-exams" id="toc-this-semesters-tests-and-exams" class="nav-link active" data-scroll-target="#this-semesters-tests-and-exams">This semester’s tests and exams</a></li>
-  <li><a href="#archived-tests-and-exams" id="toc-archived-tests-and-exams" class="nav-link" data-scroll-target="#archived-tests-and-exams">Archived tests and exams</a>
+  <li><a href="#this-semesters-tests-and-exams" id="toc-this-semesters-tests-and-exams" class="nav-link active" data-scroll-target="#this-semesters-tests-and-exams">This semester’s tests and exams</a>
   <ul class="collapse">
   <li><a href="#archive" id="toc-archive" class="nav-link" data-scroll-target="#archive">Archive</a></li>
   <li><a href="#archive-from-math-476-related-material" id="toc-archive-from-math-476-related-material" class="nav-link" data-scroll-target="#archive-from-math-476-related-material">Archive from MATH 476 (related material)</a></li>
@@ -263,39 +262,59 @@ Date | Assessment | Coverage / Notes | PDF
 Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
 -->
 <hr>
-</section>
-<section id="archived-tests-and-exams" class="level2">
-<h2 class="anchored" data-anchor-id="archived-tests-and-exams">Archived tests and exams</h2>
-<p>These older tests may resemble current assessments, but topics and emphasis change from year to year. There may be typos in these tests; I appreciate hearing about them, but no extra credit is awarded for old-test typos.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔎 How to search the archive (PDFs) for keywords
+<span class="screen-reader-only">Tip</span>🔎 How to search the archives (PDFs) for keywords
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF files.</p>
+<p>Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) <em>inside</em> PDF test and exam files.</p>
+<p>The folder <code>assets/tests/archive</code> in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., <code>archive/563</code> for MATH 563 tests.</p>
 <section id="mac-homebrew-linux" class="level3">
 <h3 class="anchored" data-anchor-id="mac-homebrew-linux">Mac (Homebrew) / Linux</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pdfgrep</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /path/to/your/local/repo/assets/tests</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>One-time setup (install pdfgrep):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pdfgrep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Each time you want to search the archive:</strong></p>
+<ul>
+<li>Navigate to the root of your local course repository root, then run:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> assets/tests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Use one of the following commands to search the archives:</li>
+</ul>
+<p>Search <em>all archives in this repo</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Search <em>one specific archive folder</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Search <em>multiple archives at once</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/476 archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'brownian'</span> archive/563</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'sobol'</span> archive/563</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'central limit|CLT'</span> archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'brownian'</span> archive</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'sobol'</span> archive</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'central limit|CLT'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="windows-recommended-wsl" class="level3">
+<h3 class="anchored" data-anchor-id="windows-recommended-wsl">Windows (recommended: WSL)</h3>
+<p>On Windows, the recommended approach is to use <strong>Windows Subsystem for Linux (WSL)</strong>, which lets you run the same commands as Mac/Linux users.</p>
+<p>After installing WSL (e.g., Ubuntu):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourName/path/to/course-repo/assets/tests</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pdfgrep</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you prefer not to use WSL, note that Windows does not include a native equivalent of <code>pdfgrep</code>; setup and commands vary by third-party tools.</p>
 </section>
 </div>
 </div>
 </div>
 <section id="archive" class="level3">
 <h3 class="anchored" data-anchor-id="archive">Archive</h3>
-<div id="17f180a5" class="cell" data-execution_count="1">
+<div id="590c1349" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown">
 <ul>
 <li><a href="../assets/tests/archive/563/MATH476_563FinalS11Answers.pdf">MATH476 563FinalS11Answers</a></li>
@@ -306,7 +325,7 @@ Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
 </section>
 <section id="archive-from-math-476-related-material" class="level3">
 <h3 class="anchored" data-anchor-id="archive-from-math-476-related-material">Archive from MATH 476 (related material)</h3>
-<div id="0b5d442e" class="cell" data-execution_count="2">
+<div id="e44ef2fd" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <ul>
 <li><a href="../assets/tests/archive/476/MATH476FinalExamS10Answers.pdf">MATH476FinalExamS10Answers</a></li>
