@@ -538,7 +538,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 \quad x&gt;0\)</span> &nbsp; (Note: <span class="math inline">\(\Gamma(n) = (n-1)!\)</span> for integer <span class="math inline">\(n\)</span>)</p>
 <ul>
 <li><span class="math inline">\(\lambda n \barX_n \exsim \Gam(n, 1)\)</span></li>
-<li><span class="math inline">\(2 \lambda n \barX_n \sim \chi^2_{2n}\)</span>, where <span class="math inline">\(\displaystyle \varrho_{\chi^2_k}(x) = \frac{x^{k/2 - 1} \exp(-x/2)}{2^{k/2} \Gamma(k/2)} \quad x &gt; 0\)</span></li>
+<li><span class="math inline">\(2 \lambda n \barX_n \exsim \chi^2_{2n}\)</span>, where <span class="math inline">\(\displaystyle \varrho_{\chi^2_k}(x) = \frac{x^{k/2 - 1} \exp(-x/2)}{2^{k/2} \Gamma(k/2)} \quad x &gt; 0\)</span></li>
 </ul></li>
 <li><p><span class="math inline">\(\barX_n \exsim \Norm(\mu,\sigma^2/n)\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span></p></li>
 <li><p><span class="math inline">\(\barX_n \appxsim \Norm(\mu,\sigma^2/n)\)</span> for arbitrary distributions and large <span class="math inline">\(n\)</span> by the <span class="alert">Central Limit Theorem</span></p></li>
@@ -613,13 +613,13 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </section>
 <section id="large-sample-confidence-intervals-for-means" class="slide level2">
 <h2>Large sample size confidence intervals for means</h2>
-<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
-\frac{\barX - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX_n\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
+\frac{\barX_n - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
 \]</span> Letting <span class="math inline">\(z_{\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(\Norm(0,1)\)</span>, i.e., <span class="math inline">\(z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)\)</span>, then <span class="math display">\[\begin{align*}
 1 - \alpha &amp; \approx
-\Prob \biggl( -z_{\alpha/2} \le \frac{\barX - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
-&amp; \approx \Prob \biggl( \barX - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
-&amp; \approx \Prob \biggl( \underbrace{\barX - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
+\Prob \biggl( -z_{\alpha/2} \le \frac{\barX_n - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
+&amp; \approx \Prob \biggl( \barX_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
+&amp; \approx \Prob \biggl( \underbrace{\barX_n - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX_n + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
 \end{align*}\]</span> where <span class="math inline">\(S^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p>
 </section>
 <section class="slide level2">
