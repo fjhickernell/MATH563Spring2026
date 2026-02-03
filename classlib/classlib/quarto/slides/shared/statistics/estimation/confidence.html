@@ -207,25 +207,69 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Confidence Intervals</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="confidence-intervals" class="level1">
-<h1>Confidence Intervals</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>If</p>
 <ul>
 <li><p><span class="math inline">\(\theta\)</span> is a parameter of interest of a distribution, and</p></li>
-<li><p><span class="math inline">\(X_1, \ldots, X_n\)</span> are data that we assume are collected that follow that distribution,</p></li>
+<li><p><span class="math inline">\(X_1, \ldots, X_n\)</span> are data that we assume are collected from that distribution,</p></li>
 </ul>
-<p>Then we will try to construct <span class="math inline">\(\Theta_L\)</span> and/or <span class="math inline">\(\Theta_U\)</span> depending on that data (and not on <span class="math inline">\(\theta\)</span>) to give us intervals that <span class="alert">capture</span> <span class="math inline">\(\theta\)</span> with high probability <span class="math inline">\(1 - \alpha\)</span></p>
+<p>then we try to construct random quantities <span class="math inline">\(\Theta_L\)</span> and/or <span class="math inline">\(\Theta_U\)</span>, depending only on the data (and not on <span class="math inline">\(\theta\)</span>), that give intervals which <span class="alert">capture</span> <span class="math inline">\(\theta\)</span> with high probability <span class="math inline">\(1-\alpha\)</span>. Depending on the situation, this means constructing</p>
 <ul>
-<li><p><span class="math inline">\(\Prob(\Theta_L \le \theta  \Theta_U) = 1 - \alpha\)</span>, or</p></li>
-<li><p><span class="math inline">\(\Prob(\Theta_L \le \theta) = 1 - \alpha\)</span>, or</p></li>
-<li><p><span class="math inline">\(\Prob(\theta \le \Theta_U) = 1 - \alpha\)</span></p></li>
+<li><p>a two-sided interval with <span class="math inline">\(\Prob(\Theta_L \le \theta \le \Theta_U) \ge 1-\alpha\)</span>, or</p></li>
+<li><p>a one-sided lower interval with <span class="math inline">\(\Prob(\Theta_L \le \theta) \ge 1-\alpha\)</span>, or</p></li>
+<li><p>a one-sided upper interval with <span class="math inline">\(\Prob(\theta \le \Theta_U) \ge 1-\alpha\)</span></p></li>
 </ul>
-<p>Here <span class="math inline">\(\alpha\)</span> is our willingness to be wrong, typically <span class="math inline">\(\alpha = 5\%\)</span></p>
+<p>The bounds <span class="math inline">\(\Theta_L\)</span> and <span class="math inline">\(\Theta_U\)</span> are random because they depend on random data. Here <span class="math inline">\(\alpha\)</span> is our willingness to be wrong, typically <span class="math inline">\(\alpha = 5\%\)</span>.</p>
+<ul>
+<li>In many continuous cases, the probability is exactly <span class="math inline">\(1-\alpha\)</span></li>
+<li>For discrete distributions, the probability is often slightly larger than <span class="math inline">\(1-\alpha\)</span></li>
+</ul>
+<hr>
+<ul>
+<li><a href="#large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
+<li><a href="#small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</a></li>
+</ul>
+<section id="large-sample-confidence-intervals-for-means" class="level2">
+<h2 class="anchored" data-anchor-id="large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</h2>
+<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
+\frac{\barX - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+\]</span> Letting <span class="math inline">\(z_{\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(\Norm(0,1)\)</span>, i.e., <span class="math inline">\(z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)\)</span>, then <span class="math display">\[\begin{align*}
+1 - \alpha &amp; \approx
+\Prob \biggl( -z_{\alpha/2} \le \frac{\barX - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
+&amp; \approx \Prob \biggl( \barX - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
+&amp; \approx \Prob \biggl( \underbrace{\barX - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
+\end{align*}\]</span> where the sample variance <span class="math inline">\(S^2\)</span> replaces the unknown population variance <span class="math inline">\(\sigma^2\)</span></p>
+</section>
+<section id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known" class="level2">
+<h2 class="anchored" data-anchor-id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</h2>
+<p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
+<p>Example: You observe <span class="math inline">\(\barX_n = 12\)</span> minutes for taxis to arrive based on <span class="math inline">\(n=200\)</span>. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(\lambda)\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+2 \lambda n \barX_n \sim \chi^2_{2n} \implies 1 - \alpha &amp;= \Prob \biggl( \chi^2_{2n, \alpha/2} \le 2 \lambda n \barX_n \le \chi^2_{2n, 1-\alpha/2} \biggr) \\
+&amp; = \Prob \biggl( \frac{\chi^2_{2n, \alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n, 1-\alpha/2}}{2 n \barX_n} \biggr) \\
+&amp; = \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr)
+\end{align*}\]</span></p>
+<p>95% CI for <span class="math inline">\(\mu\)</span> with <span class="math inline">\(n=200\)</span> and <span class="math inline">\(\barX=12\)</span> is <span class="math inline">\([10.50,\,13.85]\)</span> minutes</p>
 
 
 </section>

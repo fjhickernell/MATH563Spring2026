@@ -531,15 +531,20 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </section>
 <section id="distributions-of-estimators" class="slide level2">
 <h2>Distributions of estimators</h2>
-<p>For the sample mean, <span class="math inline">\(\barX_n\)</span></p>
+<p>For the sample mean, <span class="math inline">\(\barX_n\)</span>, for IID data</p>
 <ul>
 <li><p><span class="math inline">\(n \barX_n \sim \Bin(n,p)\)</span> if <span class="math inline">\(X \sim \Bern(p)\)</span></p></li>
-<li><p><span class="math inline">\(\barX_n \sim \Gam(n, n \lambda)\)</span> if <span class="math inline">\(X \sim \Exp(p)\)</span> where <span class="math inline">\(\varrho_{\Gam(\alpha, \lambda)}(x) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}\, x^{\alpha-1} \exp(-\lambda x)
-\quad x&gt;0\)</span> <br>(Note: <span class="math inline">\(\Gamma(n) = (n-1)!\)</span> for integer <span class="math inline">\(n\)</span>)</p></li>
+<li><p><span class="math inline">\(\barX_n \exsim \Gam(n, n \lambda)\)</span> if <span class="math inline">\(X \sim \Exp(p)\)</span> where <span class="math inline">\(\displaystyle \varrho_{\Gam(\alpha, \lambda)}(x) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}\, x^{\alpha-1} \exp(-\lambda x)
+\quad x&gt;0\)</span> &nbsp; (Note: <span class="math inline">\(\Gamma(n) = (n-1)!\)</span> for integer <span class="math inline">\(n\)</span>)</p>
+<ul>
+<li><span class="math inline">\(\lambda n \barX_n \sim \Gam(n, 1)\)</span></li>
+<li><span class="math inline">\(2 \lambda n \barX_n \sim \chi^2_{2n}\)</span>, where <span class="math inline">\(\displaystyle \varrho_{\chi^2_k}(x) = \frac{x^{k/2 - 1} \exp(-x/2)}{2^{k/2} \Gamma(k/2)} \quad x &gt; 0\)</span></li>
+</ul></li>
 <li><p><span class="math inline">\(\barX_n \exsim \Norm(\mu,\sigma^2/n)\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span></p></li>
 <li><p><span class="math inline">\(\barX_n \appxsim \Norm(\mu,\sigma^2/n)\)</span> for arbitrary distributions and large <span class="math inline">\(n\)</span> by the <span class="alert">Central Limit Theorem</span></p></li>
-<li><p>For order statistics, <span class="math inline">\(X_{(k)}\)</span>, <span class="math inline">\(F_{X_{(k)}}(x) = \sum_{j=k}^n \binom{n}{j} [F_X(x)]^j [1 - F_X(x)]^{n-j}\)</span> for IID data from CDF <span class="math inline">\(F_X\)</span></p></li>
 </ul>
+<p>For order statistics, <span class="math inline">\(X_{(k)}\)</span>, <span class="math inline">\(\displaystyle F_{X_{(k)}}(x) = \sum_{j=k}^n \binom{n}{j} [F_X(x)]^j [1 - F_X(x)]^{n-j}\)</span> for IID data from CDF <span class="math inline">\(F_X\)</span></p>
+<p><span class="math inline">\(\exstar\)</span> Is the MLE <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> for <span class="math inline">\(X \sim \Unif(0,\theta)\)</span> unbiased? Can you modify it to be unbiased?</p>
 </section>
 <section id="estimators-for-exponential-families-of-distributions" class="slide level2">
 <h2>Estimators for exponential families of distributions</h2>
@@ -579,23 +584,57 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <p>one also has</p>
 <p><span class="math display">\[ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased}\]</span></p>
 </section></section>
+<section>
 <section id="confidence-intervals" class="title-slide slide level1 center">
 <h1>Confidence Intervals</h1>
 <p>If</p>
 <ul>
 <li><p><span class="math inline">\(\theta\)</span> is a parameter of interest of a distribution, and</p></li>
-<li><p><span class="math inline">\(X_1, \ldots, X_n\)</span> are data that we assume are collected that follow that distribution,</p></li>
+<li><p><span class="math inline">\(X_1, \ldots, X_n\)</span> are data that we assume are collected from that distribution,</p></li>
 </ul>
-<p>Then we will try to construct <span class="math inline">\(\Theta_L\)</span> and/or <span class="math inline">\(\Theta_U\)</span> depending on that data (and not on <span class="math inline">\(\theta\)</span>) to give us intervals that <span class="alert">capture</span> <span class="math inline">\(\theta\)</span> with high probability <span class="math inline">\(1 - \alpha\)</span></p>
+<p>then we try to construct random quantities <span class="math inline">\(\Theta_L\)</span> and/or <span class="math inline">\(\Theta_U\)</span>, depending only on the data (and not on <span class="math inline">\(\theta\)</span>), that give intervals which <span class="alert">capture</span> <span class="math inline">\(\theta\)</span> with high probability <span class="math inline">\(1-\alpha\)</span>. Depending on the situation, this means constructing</p>
 <ul>
-<li><p><span class="math inline">\(\Prob(\Theta_L \le \theta  \Theta_U) = 1 - \alpha\)</span>, or</p></li>
-<li><p><span class="math inline">\(\Prob(\Theta_L \le \theta) = 1 - \alpha\)</span>, or</p></li>
-<li><p><span class="math inline">\(\Prob(\theta \le \Theta_U) = 1 - \alpha\)</span></p></li>
+<li><p>a two-sided interval with <span class="math inline">\(\Prob(\Theta_L \le \theta \le \Theta_U) \ge 1-\alpha\)</span>, or</p></li>
+<li><p>a one-sided lower interval with <span class="math inline">\(\Prob(\Theta_L \le \theta) \ge 1-\alpha\)</span>, or</p></li>
+<li><p>a one-sided upper interval with <span class="math inline">\(\Prob(\theta \le \Theta_U) \ge 1-\alpha\)</span></p></li>
 </ul>
-<p>Here <span class="math inline">\(\alpha\)</span> is our willingness to be wrong, typically <span class="math inline">\(\alpha = 5\%\)</span></p>
-
-
+<p>The bounds <span class="math inline">\(\Theta_L\)</span> and <span class="math inline">\(\Theta_U\)</span> are random because they depend on random data. Here <span class="math inline">\(\alpha\)</span> is our willingness to be wrong, typically <span class="math inline">\(\alpha = 5\%\)</span>.</p>
+<ul>
+<li>In many continuous cases, the probability is exactly <span class="math inline">\(1-\alpha\)</span></li>
+<li>For discrete distributions, the probability is often slightly larger than <span class="math inline">\(1-\alpha\)</span></li>
+</ul>
 </section>
+<section class="slide level2">
+
+<ul>
+<li><a href="#/large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
+<li><a href="#/small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</a></li>
+</ul>
+</section>
+<section id="large-sample-confidence-intervals-for-means" class="slide level2">
+<h2>Large sample size confidence intervals for means</h2>
+<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
+\frac{\barX - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+\]</span> Letting <span class="math inline">\(z_{\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(\Norm(0,1)\)</span>, i.e., <span class="math inline">\(z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)\)</span>, then <span class="math display">\[\begin{align*}
+1 - \alpha &amp; \approx
+\Prob \biggl( -z_{\alpha/2} \le \frac{\barX - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
+&amp; \approx \Prob \biggl( \barX - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
+&amp; \approx \Prob \biggl( \underbrace{\barX - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
+\end{align*}\]</span> where the sample variance <span class="math inline">\(S^2\)</span> replaces the unknown population variance <span class="math inline">\(\sigma^2\)</span></p>
+</section>
+<section id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known" class="slide level2">
+<h2>Small sample size confidence intervals for means when the distribution is known</h2>
+<p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
+<p>Example: You observe <span class="math inline">\(\barX_n = 12\)</span> minutes for taxis to arrive based on <span class="math inline">\(n=200\)</span>. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(\lambda)\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+2 \lambda n \barX_n \sim \chi^2_{2n} \implies 1 - \alpha &amp;= \Prob \biggl( \chi^2_{2n, \alpha/2} \le 2 \lambda n \barX_n \le \chi^2_{2n, 1-\alpha/2} \biggr) \\
+&amp; = \Prob \biggl( \frac{\chi^2_{2n, \alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n, 1-\alpha/2}}{2 n \barX_n} \biggr) \\
+&amp; = \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr)
+\end{align*}\]</span></p>
+<p>95% CI for <span class="math inline">\(\mu\)</span> with <span class="math inline">\(n=200\)</span> and <span class="math inline">\(\barX=12\)</span> is <span class="math inline">\([10.50,\,13.85]\)</span> minutes</p>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
