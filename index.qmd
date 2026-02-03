@@ -39,7 +39,10 @@ Hickernell speaks Cantonese and enjoys Chinese food. He is married with adult ch
 </details>
 
 <div style="margin-top:1em; margin-bottom:0.4em;">
-<strong>Textbook:</strong> [{{< meta course.textbook.full >}}](https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036)
+<strong>Textbook:</strong> [{{< meta texts.cb.full >}}]({{< meta texts.cb.url >}})
+
+- Recommended: [{{< meta references.eh.full >}}]({{< meta references.eh.url >}})
+
 </div>
 
 <details>
