@@ -620,18 +620,96 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 \Prob \biggl( -z_{\alpha/2} \le \frac{\barX - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
 &amp; \approx \Prob \biggl( \barX - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
 &amp; \approx \Prob \biggl( \underbrace{\barX - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
-\end{align*}\]</span> where the sample variance <span class="math inline">\(S^2\)</span> replaces the unknown population variance <span class="math inline">\(\sigma^2\)</span></p>
+\end{align*}\]</span> where <span class="math inline">\(S^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p>
+</section>
+<section class="slide level2">
+
+<p>See the <a href="../slides/01-intro.html#approval-ratings">Approval Ratings</a> example for an illustration of this construction for a Bernoulli mean</p>
+<p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><em>CLT</em> CI for <span class="math inline">\(\mu\)</span> (<span class="math inline">\(S=\barX_{n}\)</span>)</th>
+<th style="text-align: right;">CI width</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: center;"><span class="math inline">\([6.12,\,17.88]\)</span></td>
+<td style="text-align: right;">11.760</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">400</td>
+<td style="text-align: center;"><span class="math inline">\([10.82,\,13.18]\)</span></td>
+<td style="text-align: right;">2.352</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known" class="slide level2">
 <h2>Small sample size confidence intervals for means when the distribution is known</h2>
 <p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
-<p>Example: You observe <span class="math inline">\(\barX_n = 12\)</span> minutes for taxis to arrive based on <span class="math inline">\(n=200\)</span>. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(\lambda)\)</span>:</p>
+<p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span>. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
+<p>But now we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
 2 \lambda n \barX_n \sim \chi^2_{2n} \implies 1 - \alpha &amp;= \Prob \biggl( \chi^2_{2n, \alpha/2} \le 2 \lambda n \barX_n \le \chi^2_{2n, 1-\alpha/2} \biggr) \\
 &amp; = \Prob \biggl( \frac{\chi^2_{2n, \alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n, 1-\alpha/2}}{2 n \barX_n} \biggr) \\
 &amp; = \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr)
 \end{align*}\]</span></p>
-<p>95% CI for <span class="math inline">\(\mu\)</span> with <span class="math inline">\(n=200\)</span> and <span class="math inline">\(\barX=12\)</span> is <span class="math inline">\([10.50,\,13.85]\)</span> minutes</p>
+</section>
+<section class="slide level2">
+
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><em>Exact</em> <span class="math inline">\(\chi^2\)</span> CI</th>
+<th style="text-align: right;"><em>Exact</em> CI width</th>
+<th style="text-align: center;"><em>CLT</em> CI</th>
+<th style="text-align: right;"><em>CLT</em> CI width</th>
+<th style="text-align: right;">(CLT width/<br>Exact width)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: center;"><span class="math inline">\([7.76,\,20.99]\)</span></td>
+<td style="text-align: right;">13.234</td>
+<td style="text-align: center;"><span class="math inline">\([6.12,\,17.88]\)</span></td>
+<td style="text-align: right;">11.760</td>
+<td style="text-align: right;">0.889</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">400</td>
+<td style="text-align: center;"><span class="math inline">\([10.91,\,13.27]\)</span></td>
+<td style="text-align: right;">2.363</td>
+<td style="text-align: center;"><span class="math inline">\([10.82,\,13.18]\)</span></td>
+<td style="text-align: right;">2.352</td>
+<td style="text-align: right;">0.995</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>For small <span class="math inline">\(n\)</span>
+<ul>
+<li>Exact confidence interval can be substantially different from the CLT-based interval</li>
+<li>CLT is symmetric about <span class="math inline">\(\barX_n\)</span>, while the exact interval is not</li>
+</ul></li>
+<li>As <span class="math inline">\(n\)</span> increases, CLT-based interval approaches the exact interval</li>
+</ul>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span> You draw <span class="math inline">\(n\)</span> IID samples of your product to test for failure. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability of a satisfactory product, if none of the samples fail?</span></p>
+</div>
 
 
 </section></section>
