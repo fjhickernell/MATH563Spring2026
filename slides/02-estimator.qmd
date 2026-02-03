@@ -54,7 +54,7 @@ This buys us
 ---
 
 ### 3. Bias behavior is transparent
-Although they may be [asymptotically]{.alert} unbiased many MLEs are biased for finie sample size but the bias is computable (see previous slide).  Thus, the bias can be analyzed
+Although they may be [asymptotically]{.alert} unbiased many MLEs are biased for finite sample size but the bias is computable (see previous slide).  Thus, the bias can be analyzed
 exactly and typically decreases as $n$ grows.
 
 Although 
