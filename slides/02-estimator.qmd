@@ -2,7 +2,7 @@
 title: "MATH 563 — Mathematical Statistics"
 subtitle: |
   <span class="deck-title">Estimators and Confidence Intervals</span><br>
-  <span class="deck-meta">{{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
+  <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
   Assignment 3 due 2/13
   </span>
 author: "Fred J. Hickernell"
