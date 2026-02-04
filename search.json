@@ -175,6 +175,48 @@
     "text": "This semester’s tests and exams\nDates, coverage, and PDFs for this semester will appear here as they become available.\n\n\n\n\n\n\n\n\nTip🔎 How to search the archives (PDFs) for keywords\n\n\n\n\n\nGoal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF test and exam files.\nThe folder assets/tests/archive in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., archive/563 for MATH 563 tests.\n\nMac (Homebrew) / Linux\nOne-time setup (install pdfgrep):\nbrew install pdfgrep\nEach time you want to search the archive:\n\nNavigate to the root of your local course repository root, then run:\n\ncd assets/tests\n\nUse one of the following commands to search the archives:\n\nSearch all archives in this repo:\npdfgrep -rniH -C2 'your term here' archive\nSearch one specific archive folder:\npdfgrep -rniH -C2 'your term here' archive/563\nSearch multiple archives at once:\npdfgrep -rniH -C2 'your term here' archive/476 archive/563\nExamples:\npdfgrep -rniH -C2 'brownian' archive\npdfgrep -rniH -C2 'sobol' archive\npdfgrep -rniH -C2 'central limit|CLT' archive\n\n\nWindows (recommended: WSL)\nOn Windows, the recommended approach is to use Windows Subsystem for Linux (WSL), which lets you run the same commands as Mac/Linux users.\nAfter installing WSL (e.g., Ubuntu):\ncd /mnt/c/Users/YourName/path/to/course-repo/assets/tests\nsudo apt update\nsudo apt install pdfgrep\npdfgrep -rniH -C2 'your term here' archive\nIf you prefer not to use WSL, note that Windows does not include a native equivalent of pdfgrep; setup and commands vary by third-party tools.\n\n\n\n\n\nArchive\n\n\n\nMATH476 563FinalS11Answers\nMATH563Test1S11Answers\n\n\n\n\n\nArchive from MATH 476 (related material)\n\n\n\nMATH476FinalExamS10Answers\nMATH476FinalS11Answers\nMATH476StatFinalS06Answers\nMATH476StatTestS06Answers\nMATH476StatTestTwoS06Answers\nMATH476Test1S10Answers\nMATH476Test1S11Answers\nMATH476Test2S10Answers\nMATH476Test2S11Answers\nMATH476Test2S11MakeUpAnswers\nMATH476Test2v2S10Answers"
   },
   {
+    "objectID": "pages/project.html",
+    "href": "pages/project.html",
+    "title": "Project",
+    "section": "",
+    "text": "You are required to complete a course project. The goal is to practice communicating statistical ideas clearly and critically—like you are reporting to colleagues whether a line of work is worth pursuing."
+  },
+  {
+    "objectID": "pages/project.html#types",
+    "href": "pages/project.html#types",
+    "title": "Project",
+    "section": "Types",
+    "text": "Types\nChoose one of the following project types:\n\nResearch article review\nPick a scholarly research article related to topics in statistical inference (e.g., estimation, testing, likelihood/Bayes, asymptotics, bootstrap, identifiability, robustness, missing data, multiple testing, etc.) _that does not duplicate a topic discussed in class. Your article must be different from your classmates’ choices.\nSimulation or data analysis study\nDesign and carry out a focused study that uses computation to investigate a statistical question. Examples:\n\nAnalyze a data set of interest, but go beyond any existing analysis,\nCompare procedures (power, bias, coverage, MSE) under realistic departures from assumptions,\nIllustrate a theorem/asymptotic approximation with finite-sample behavior,\nReplicate and critique an empirical claim from a paper,\nBuild a small method “pipeline” (e.g., model selection + inference) and evaluate it."
+  },
+  {
+    "objectID": "pages/project.html#submission",
+    "href": "pages/project.html#submission",
+    "title": "Project",
+    "section": "Submission",
+    "text": "Submission\n\nSubmit your project topic using the course topic-submission form &lt;To Be Announced&gt;\n\nAfter the topic deadline, check the posted topic list &lt;To Be Announced&gt; to confirm approval.\nPrepare a 15-minute oral presentation (+5 minutes for questions) and a 1–2 page handout for the audience.\nAlso submit a brief written component (typical expectation: 4–8 pages, depending on project type), including references."
+  },
+  {
+    "objectID": "pages/project.html#presentations-and-observations",
+    "href": "pages/project.html#presentations-and-observations",
+    "title": "Project",
+    "section": "Presentations and observations",
+    "text": "Presentations and observations\n\nProject presentations will be scheduled near the end of the semester &lt;To Be Announced&gt;.\nEach student must observe and assess TWO other presentations (using the Project Assessment Form).\nYour project grade is likely to suffer if:\n\nyou are not on time for your presentation or observations,\nyou are not prepared,\nyou do not observe at least two presentations, and/or\nyour observer feedback is not significant."
+  },
+  {
+    "objectID": "pages/project.html#important-to-keep-in-mind",
+    "href": "pages/project.html#important-to-keep-in-mind",
+    "title": "Project",
+    "section": "Important to keep in mind",
+    "text": "Important to keep in mind\nYour presentation should be from the perspective that you are reporting to your colleagues why this article/method/result is or is not worth pursuing further.\n\nYour audience is smart, but not specialized in your exact topic. Provide background, definitions, and motivation.\nBe critical: clearly state strengths and weaknesses, and what assumptions matter.\nYou have access to tools (including AI) that were not commonly available a few years ago—so I will expect more polish and deeper checking.\nI may not be an expert in what you present, but I expect you to be, and I will ask probing questions.\nYour grade will depend on both:\n\nhow clearly you present, and\nhow well you answer questions."
+  },
+  {
+    "objectID": "pages/project.html#guidelines",
+    "href": "pages/project.html#guidelines",
+    "title": "Project",
+    "section": "Guidelines",
+    "text": "Guidelines\n\nArticle review.\n\nChoose a topic not already covered in lecture in essentially the same way.\nPrefer papers with enough technical content to support real discussion (not just an application report).\nYour job is to explain the idea, demonstrate it on a simple example, and assess it.\n\nSimulation/data study.\n\nKeep the scope appropriate: one sharp question is better than many shallow ones.\nPredefine your evaluation metrics (e.g., coverage, power, MSE, false discovery rate).\nUse clear plots/tables and report uncertainty when relevant.\n\n\nGeneral presentation advice:\n\nKeep the big picture in view; don’t get bogged down in algebra.\nChoose one simple example that illustrates the main point.\nLook at your audience while speaking; do not read your notes.\nMotivate your talk: background, prior work, and why anyone should care.\nDiscuss pros/cons and failure modes.\nDon’t use too many slides; about one per minute is usually enough.\nDon’t overload slides; prioritize figures/tables over dense text.\nInclude key formulas/figures directly in your slides rather than making the audience hunt in the paper.\nUse your own words. Do not plagiarize.\nPractice beforehand. Time yourself.\n\nYou will be assessed by your observers and by me using this form:\nProject Assessment Form"
+  },
+  {
     "objectID": "pages/notebooks.html",
     "href": "pages/notebooks.html",
     "title": "Jupyter Notebooks",
@@ -334,6 +376,13 @@
     "title": "Assignments",
     "section": "List of assignments",
     "text": "List of assignments\n\n\n\n\n\n\n\nAssignment\nDue Date\n\n\n\n\nAssignment 1 — Diagnostic survey (Canvas / Microsoft Forms)\nJanuary 16\n\n\nAssignment 2 — Casella & Berger 3.9, 3.28d, 4.26, 5.8,  Find and submit a screenshot, photo or pdf of a statistical claim that you find somewhere in public. Write a paragraph describing what questions you might have about the origin or interpretation of this statistical claim.\nJanuary 30\n\n\nAssignment 3 — Casella & Berger 7.3, 7.8, 7.20, 9.2, 9.12\nFebruary 13"
+  },
+  {
+    "objectID": "pages/project-assessment.html",
+    "href": "pages/project-assessment.html",
+    "title": "Project Assessment",
+    "section": "",
+    "text": "Please provide thoughtful, constructive feedback to help your peers improve their communication skills\n\nPresenter’s name:\nProject title:\nObserver’s name:\n\n\n1. What are the main points of the presentation?\nWhat question was addressed? What was the main claim, result, or conclusion?\n \n \n\n\n\n2. What are the strengths and weaknesses of the article or project?\nStrengths might include clarity, insight, careful analysis, or convincing evidence. Weaknesses might include unclear assumptions, limited scope, missing comparisons, or questionable conclusions.\n \n \n \n\n\n\n3. What did the presenter do well?\nOrganization, pacing, explanation of ideas, visuals, examples, or handling of questions.\n \n \n \n\n\n\n4. How might the presenter have done better?\nWhat specific changes would most improve clarity, correctness, or impact?"
   },
   {
     "objectID": "pages/schedule.html",
