@@ -1,0 +1,77 @@
+---
+title: "Project"
+---
+
+You are required to complete a course project. The goal is to practice communicating statistical ideas clearly and critically—like you are reporting to colleagues whether a line of work is worth pursuing.
+
+## Types
+
+Choose **one** of the following project types:
+
+- **Research article review**  
+  Pick a scholarly research article related to topics in *statistical inference* (e.g., estimation, testing, likelihood/Bayes, asymptotics, bootstrap, identifiability, robustness, missing data, multiple testing, etc.) _that does not duplicate a topic discussed in class. Your article must be different from your classmates’ choices.
+
+- **Simulation or data analysis study**  
+  Design and carry out a focused study that uses computation to investigate a statistical question. Examples:
+  - Analyze a data set of interest, but go beyond any existing analysis,
+  - Compare procedures (power, bias, coverage, MSE) under realistic departures from assumptions,
+  - Illustrate a theorem/asymptotic approximation with finite-sample behavior,
+  - Replicate and critique an empirical claim from a paper,
+  - Build a small method “pipeline” (e.g., model selection + inference) and evaluate it.
+
+## Submission
+
+- Submit your **project topic** using the course topic-submission form &lt;To Be Announced&gt;  
+- After the topic deadline, check the posted **topic list** &lt;To Be Announced&gt;  to confirm approval.
+- Prepare a **15-minute oral presentation** (+5 minutes for questions) and a **1–2 page handout** for the audience.
+- Also submit a brief **written component** (typical expectation: 4–8 pages, depending on project type), including references.
+
+## Presentations and observations
+
+- Project presentations will be scheduled near the end of the semester &lt;To Be Announced&gt;.
+- **Each student must observe and assess TWO other presentations** (using the [Project Assessment Form](project-assessment.qmd)).
+- Your project grade is likely to **suffer** if:
+  - you are not on time for your presentation or observations,
+  - you are not prepared,
+  - you do not observe at least **two** presentations, and/or
+  - your observer feedback is not significant.
+
+## Important to keep in mind
+
+Your presentation should be from the perspective that you are reporting to your colleagues why this article/method/result is or is not worth pursuing further.
+
+- Your audience is smart, but *not specialized in your exact topic*. Provide background, definitions, and motivation.
+- Be critical: clearly state strengths *and* weaknesses, and what assumptions matter.
+- You have access to tools (including AI) that were not commonly available a few years ago—so I will expect more polish and deeper checking.
+- I may not be an expert in what you present, but I expect **you** to be, and I will ask probing questions.
+- Your grade will depend on both:
+  - how clearly you present, and
+  - how well you answer questions.
+
+## Guidelines
+
+- **Article review.**
+  - Choose a topic not already covered in lecture in essentially the same way.
+  - Prefer papers with enough technical content to support real discussion (not just an application report).
+  - Your job is to explain the *idea*, demonstrate it on a simple example, and assess it.
+
+- **Simulation/data study.**
+  - Keep the scope appropriate: one sharp question is better than many shallow ones.
+  - Predefine your evaluation metrics (e.g., coverage, power, MSE, false discovery rate).
+  - Use clear plots/tables and report uncertainty when relevant.
+
+General presentation advice:
+
+- Keep the big picture in view; don’t get bogged down in algebra.
+- Choose one simple example that illustrates the main point.
+- Look at your audience while speaking; do not read your notes.
+- Motivate your talk: background, prior work, and why anyone should care.
+- Discuss pros/cons and failure modes.
+- Don’t use too many slides; about **one per minute** is usually enough.
+- Don’t overload slides; prioritize figures/tables over dense text.
+- Include key formulas/figures directly in your slides rather than making the audience hunt in the paper.
+- Use your **own words**. Do not plagiarize.
+- Practice beforehand. Time yourself.
+
+You will be assessed by your observers and by me using this form:  
+[Project Assessment Form](project-assessment.qmd)

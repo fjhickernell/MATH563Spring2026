@@ -1,0 +1,66 @@
+---
+title: "Project Assessment"
+toc: false
+format:
+  html:
+    toc-location: body
+    page-layout: full
+---
+
+Please provide thoughtful, constructive feedback to help your peers improve their communication skills
+
+---
+
+**Presenter’s name:**
+
+**Project title:**
+
+**Observer’s name:**
+
+---
+
+### 1. What are the main points of the presentation?
+
+*What question was addressed? What was the main claim, result, or conclusion?*
+
+&nbsp;  
+
+&nbsp;  
+
+
+---
+
+### 2. What are the strengths and weaknesses of the article or project?
+
+*Strengths might include clarity, insight, careful analysis, or convincing evidence. Weaknesses might include unclear assumptions, limited scope, missing comparisons, or questionable conclusions.*
+
+&nbsp;  
+ 
+&nbsp;
+
+&nbsp;  
+
+---
+
+### 3. What did the presenter do well?
+
+*Organization, pacing, explanation of ideas, visuals, examples, or handling of questions.*
+
+&nbsp;  
+ 
+&nbsp;
+
+&nbsp;  
+
+---
+
+### 4. How might the presenter have done better?
+
+*What specific changes would most improve clarity, correctness, or impact?*
+
+&nbsp;  
+ 
+&nbsp;
+
+&nbsp;  
+

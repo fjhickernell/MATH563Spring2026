@@ -179,7 +179,7 @@ data sets through explanatory text, tables and graphs.
 
 - **Homework:** 15%  
 - **Midterm Tests:** 25%  
-- **Project:** 20%  
+- [**Project:**](pages/project.html) 20%  
 - **Final Exam:** 40%  
 - **Extra Credit:** up to 10%<br>
   Beginning January 20, if you are the first to find an error in
