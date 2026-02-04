@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8da2a09714a35b2be18946c292abee24.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fcf96aab5a4d5dd9a38527d256d7ec31.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -442,7 +442,7 @@ Fred J. Hickernell
 <li>Do the assignments</li>
 <li>Work out problems in the text that are not assigned, or convince yourself that you could do them</li>
 <li>Practice on old tests</li>
-<li>Do the <span class="math inline">\(\exstar\)</span> exercies</li>
+<li>Do the <span class="math inline">\(\exstar\)</span> exercises</li>
 <li>Make up questions and quiz your friends</li>
 </ul>
 </section>
@@ -930,6 +930,50 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
         ]
       });
     </script>
+    <script>
+    (function () {
+      function setScale() {
+        if (window.Reveal && typeof window.Reveal.getScale === "function") {
+          const s = window.Reveal.getScale();
+          document.documentElement.style.setProperty("--reveal-scale", String(s));
+          window.__fh_reveal_scale = s; // debug: lets us confirm script ran
+          return true;
+        }
+        return false;
+      }
+
+      function hookEvents() {
+        if (window.Reveal && typeof window.Reveal.on === "function") {
+          window.Reveal.on("ready", setScale);
+          window.Reveal.on("resize", setScale);
+          window.Reveal.on("slidechanged", setScale);
+        }
+        window.addEventListener("resize", setScale);
+      }
+
+      function startPolling() {
+        let tries = 0;
+        const timer = setInterval(function () {
+          tries += 1;
+          const ok = setScale();
+          if (ok) {
+            hookEvents();
+            clearInterval(timer);
+          }
+          if (tries > 200) { // ~10s at 50ms
+            clearInterval(timer);
+          }
+        }, 50);
+      }
+
+      startPolling();
+      document.addEventListener("fullscreenchange", setScale);
+      document.addEventListener("webkitfullscreenchange", setScale);
+      document.addEventListener("visibilitychange", setScale);
+      setScale();
+    })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
