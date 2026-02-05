@@ -742,13 +742,31 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <section id="students-t-confidence-interval" class="slide level2">
 <h2>Student’s <span class="math inline">\(t\)</span> Confidence Interval</h2>
 <p><strong>Goal:</strong> inference about a population mean <span class="math inline">\(\mu\)</span></p>
-<p><strong>Setting</strong> - Data: <span class="math inline">\(X_1,\dots,X_n\)</span> - Sample mean: <span class="math inline">\(\barX\)</span> - Sample standard deviation: <span class="math inline">\(s\)</span></p>
-<p><strong>Assumptions</strong> - <span class="math inline">\(X_1,\dots,X_n\)</span> are IID - Population distribution is <strong>Normal</strong> - Population variance <span class="math inline">\(\sigma^2\)</span> is <strong>unknown</strong></p>
+<p><strong>Setting</strong></p>
+<ul>
+<li>Data: <span class="math inline">\(X_1,\dots,X_n\)</span></li>
+<li>Sample mean: <span class="math inline">\(\barX\)</span></li>
+<li>Sample standard deviation: <span class="math inline">\(s\)</span></li>
+</ul>
+<p><strong>Assumptions</strong></p>
+<ul>
+<li><span class="math inline">\(X_1,\dots,X_n\)</span> are IID</li>
+<li>Population distribution is <strong>Normal</strong></li>
+<li>Population variance <span class="math inline">\(\sigma^2\)</span> is <strong>unknown</strong></li>
+</ul>
 <p><strong>Confidence Interval</strong> <span class="math display">\[
 \barX \;\pm\; t_{1-\alpha/2,\;n-1}\;\frac{s}{\sqrt{n}}
 \]</span></p>
-<p><strong>Properties</strong> - Exact confidence interval - Valid for any sample size <span class="math inline">\(n\)</span> - Sensitive to non-normality for small <span class="math inline">\(n\)</span></p>
-<p><strong>Remark</strong> - For large <span class="math inline">\(n\)</span>, this interval is close to the CLT-based interval</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li>Exact confidence interval</li>
+<li>Valid for any sample size <span class="math inline">\(n\)</span></li>
+<li>Sensitive to non-normality for small <span class="math inline">\(n\)</span></li>
+</ul>
+<p><strong>Remark</strong></p>
+<ul>
+<li>For large <span class="math inline">\(n\)</span>, this interval is close to the CLT-based interval</li>
+</ul>
 </section>
 <section id="confidence-intervals-for-means-of-differences" class="slide level2">
 <h2>Confidence Intervals for <em>Means</em> of Differences</h2>

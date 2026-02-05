@@ -60,7 +60,7 @@
     "href": "slides/02-estimator.html#students-t-confidence-interval",
     "title": "MATH 563 — Mathematical Statistics",
     "section": "Student’s \\(t\\) Confidence Interval",
-    "text": "Student’s \\(t\\) Confidence Interval\nGoal: inference about a population mean \\(\\mu\\)\nSetting - Data: \\(X_1,\\dots,X_n\\) - Sample mean: \\(\\barX\\) - Sample standard deviation: \\(s\\)\nAssumptions - \\(X_1,\\dots,X_n\\) are IID - Population distribution is Normal - Population variance \\(\\sigma^2\\) is unknown\nConfidence Interval \\[\n\\barX \\;\\pm\\; t_{1-\\alpha/2,\\;n-1}\\;\\frac{s}{\\sqrt{n}}\n\\]\nProperties - Exact confidence interval - Valid for any sample size \\(n\\) - Sensitive to non-normality for small \\(n\\)\nRemark - For large \\(n\\), this interval is close to the CLT-based interval"
+    "text": "Student’s \\(t\\) Confidence Interval\nGoal: inference about a population mean \\(\\mu\\)\nSetting\n\nData: \\(X_1,\\dots,X_n\\)\nSample mean: \\(\\barX\\)\nSample standard deviation: \\(s\\)\n\nAssumptions\n\n\\(X_1,\\dots,X_n\\) are IID\nPopulation distribution is Normal\nPopulation variance \\(\\sigma^2\\) is unknown\n\nConfidence Interval \\[\n\\barX \\;\\pm\\; t_{1-\\alpha/2,\\;n-1}\\;\\frac{s}{\\sqrt{n}}\n\\]\nProperties\n\nExact confidence interval\nValid for any sample size \\(n\\)\nSensitive to non-normality for small \\(n\\)\n\nRemark\n\nFor large \\(n\\), this interval is close to the CLT-based interval"
   },
   {
     "objectID": "slides/02-estimator.html#confidence-intervals-for-means-of-differences",
@@ -151,7 +151,7 @@
     "href": "classlib/classlib/quarto/slides/shared/statistics/estimation/confidence.html#students-t-confidence-interval",
     "title": "Confidence Intervals",
     "section": "Student’s \\(t\\) Confidence Interval",
-    "text": "Student’s \\(t\\) Confidence Interval\nGoal: inference about a population mean \\(\\mu\\)\nSetting - Data: \\(X_1,\\dots,X_n\\) - Sample mean: \\(\\barX\\) - Sample standard deviation: \\(s\\)\nAssumptions - \\(X_1,\\dots,X_n\\) are IID - Population distribution is Normal - Population variance \\(\\sigma^2\\) is unknown\nConfidence Interval \\[\n\\barX \\;\\pm\\; t_{1-\\alpha/2,\\;n-1}\\;\\frac{s}{\\sqrt{n}}\n\\]\nProperties - Exact confidence interval - Valid for any sample size \\(n\\) - Sensitive to non-normality for small \\(n\\)\nRemark - For large \\(n\\), this interval is close to the CLT-based interval"
+    "text": "Student’s \\(t\\) Confidence Interval\nGoal: inference about a population mean \\(\\mu\\)\nSetting\n\nData: \\(X_1,\\dots,X_n\\)\nSample mean: \\(\\barX\\)\nSample standard deviation: \\(s\\)\n\nAssumptions\n\n\\(X_1,\\dots,X_n\\) are IID\nPopulation distribution is Normal\nPopulation variance \\(\\sigma^2\\) is unknown\n\nConfidence Interval \\[\n\\barX \\;\\pm\\; t_{1-\\alpha/2,\\;n-1}\\;\\frac{s}{\\sqrt{n}}\n\\]\nProperties\n\nExact confidence interval\nValid for any sample size \\(n\\)\nSensitive to non-normality for small \\(n\\)\n\nRemark\n\nFor large \\(n\\), this interval is close to the CLT-based interval"
   },
   {
     "objectID": "classlib/classlib/quarto/slides/shared/statistics/estimation/confidence.html#confidence-intervals-for-means-of-differences",
