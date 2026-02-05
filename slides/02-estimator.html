@@ -314,7 +314,8 @@
           vzero: "{\\boldsymbol{0}}",
           vone:  "{\\boldsymbol{1}}",
           vinf:  "{\\boldsymbol{\\infty}}",
-
+          
+          barD: "{\\overline{D}}",
           barX: "{\\overline{X}}",
           barY: "{\\overline{Y}}",
           barZ: "{\\overline{Z}}",
@@ -738,17 +739,232 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span> You draw <span class="math inline">\(n\)</span> IID samples of your product to test for failure. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability of a satisfactory product, if none of the samples fail?</span></p>
 </div>
 </section>
+<section id="students-t-confidence-interval" class="slide level2">
+<h2>Student’s <span class="math inline">\(t\)</span> Confidence Interval</h2>
+<p><strong>Goal:</strong> inference about a population mean <span class="math inline">\(\mu\)</span></p>
+<p><strong>Setting</strong> - Data: <span class="math inline">\(X_1,\dots,X_n\)</span> - Sample mean: <span class="math inline">\(\barX\)</span> - Sample standard deviation: <span class="math inline">\(s\)</span></p>
+<p><strong>Assumptions</strong> - <span class="math inline">\(X_1,\dots,X_n\)</span> are IID - Population distribution is <strong>Normal</strong> - Population variance <span class="math inline">\(\sigma^2\)</span> is <strong>unknown</strong></p>
+<p><strong>Confidence Interval</strong> <span class="math display">\[
+\barX \;\pm\; t_{1-\alpha/2,\;n-1}\;\frac{s}{\sqrt{n}}
+\]</span></p>
+<p><strong>Properties</strong> - Exact confidence interval - Valid for any sample size <span class="math inline">\(n\)</span> - Sensitive to non-normality for small <span class="math inline">\(n\)</span></p>
+<p><strong>Remark</strong> - For large <span class="math inline">\(n\)</span>, this interval is close to the CLT-based interval</p>
+</section>
 <section id="confidence-intervals-for-means-of-differences" class="slide level2">
 <h2>Confidence Intervals for <em>Means</em> of Differences</h2>
+<p><strong>Typical setting:</strong> paired or matched data (before/after, twins, same subject measured twice)</p>
+<p><span class="math display">\[
+D_i = X_i - Y_i, \quad i = 1,\dots,n
+\]</span></p>
+<p>Inference is about the <strong>mean difference</strong> <span class="math inline">\(\mu_D\)</span></p>
+<p><em>Not</em> difference of means <span class="math inline">\(\mu_X - \mu_Y\)</span>, even though <span class="math inline">\(\barD = \barX - \barY\)</span></p>
+<p><strong>Paired <em>t</em> interval</strong></p>
+<ul>
+<li>Assumes <span class="math inline">\(D_1,\dots,D_n\)</span> are IID <strong>Normal</strong></li>
+<li>Exact for any <span class="math inline">\(n\)</span></li>
+<li>Most common paired-data CI</li>
+</ul>
+<p><strong>CLT-based interval</strong></p>
+<ul>
+<li>Assumes <span class="math inline">\(D_i\)</span> are IID with finite variance</li>
+<li>Requires <strong>large <span class="math inline">\(n\)</span></strong></li>
+<li>Robust to non-normality</li>
+</ul>
 </section>
 <section id="confidence-intervals-for-differences-of-means" class="slide level2">
 <h2>Confidence Intervals for <em>Differences</em> of Means</h2>
+<p><strong>Typical setting:</strong> two independent samples (control/treatment, two groups)</p>
+<p><span class="math display">\[
+X_1,\dots,X_{n_1} \sim \text{population 1}, \quad
+Y_1,\dots,Y_{n_2} \sim \text{population 2}
+\]</span></p>
+<p>Parameter of interest: <span class="math inline">\(\mu_1 - \mu_2\)</span></p>
+<p><strong>Two-sample <em>t</em> interval</strong> (Wackerly, Variations exist, e.g., pooled <em>t</em>, Welch)</p>
+<ul>
+<li>Independent samples</li>
+<li>Normal populations</li>
+<li>Uses unpooled standard error</li>
+<li>Approximate distribution</li>
+</ul>
+<p><strong>CLT-based interval</strong></p>
+<ul>
+<li>Assumes finite variances only</li>
+<li>Requires large <span class="math inline">\(n_1, n_2\)</span></li>
+<li>Often used when normality is doubtful</li>
+</ul>
+<p><strong>Important:</strong> independence between samples is essential.</p>
 </section>
 <section id="confidence-intervals-for-proportions" class="slide level2">
 <h2>Confidence Intervals for <em>Proportions</em></h2>
+<p><strong>Typical setting:</strong> Bernoulli trials</p>
+<p>Let<br>
+[ X (n,p), p = X/n ]</p>
+<p>Parameter of interest: population proportion <span class="math inline">\(p\)</span>.</p>
+<p><strong>Common methods</strong></p>
+<ul>
+<li><strong>Normal approximation interval</strong>
+<ul>
+<li>Requires <span class="math inline">\(np\)</span> and <span class="math inline">\(n(1-p)\)</span> large</li>
+<li>Simple but can undercover</li>
+</ul></li>
+<li><strong>Wilson / Agresti–Coull interval</strong>
+<ul>
+<li>Improved accuracy over normal approximation</li>
+<li>Near-nominal coverage for moderate <span class="math inline">\(n\)</span></li>
+</ul></li>
+<li><strong>Exact (Clopper–Pearson) interval</strong>
+<ul>
+<li>No sample size restriction</li>
+<li>Guaranteed coverage</li>
+<li>Conservative (wider than necessary)</li>
+</ul></li>
+</ul>
+<p><strong>Key tradeoff:</strong> simplicity vs coverage accuracy.</p>
 </section>
 <section id="confidence-intervals-for-variances" class="slide level2">
 <h2>Confidence Intervals for <em>Variances</em></h2>
+<p><strong>Typical setting:</strong> inference about variability</p>
+<p>Parameter of interest: population variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>Common methods</strong></p>
+<ul>
+<li><strong>Chi-squared interval</strong>
+<ul>
+<li>Assumes data are IID Normal</li>
+<li>Exact for any <span class="math inline">\(n\)</span></li>
+<li>Very sensitive to non-normality</li>
+</ul></li>
+<li><strong>Asymptotic (CLT-based) intervals</strong>
+<ul>
+<li>Assume finite fourth moments</li>
+<li>Require large <span class="math inline">\(n\)</span></li>
+<li>Rarely used in introductory courses</li>
+</ul></li>
+</ul>
+<p><strong>Important:</strong> variance inference is far less robust than mean inference.</p>
+</section>
+<section id="assumptions-behind-common-confidence-intervals" class="slide level2">
+<h2>Assumptions Behind Common Confidence Intervals</h2>
+<p>Data are IID from a distribution with finite variance</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 32%">
+<col style="width: 8%">
+<col style="width: 23%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Distributional Assumptions</th>
+<th>Sample Size</th>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu\)</span></td>
+<td><strong>Any</strong> distribution</td>
+<td><strong>Large</strong> <span class="math inline">\(n\)</span></td>
+<td>Central Limit Theorem (CLT)</td>
+<td><strong>Approximate</strong>, accuracy improves as <span class="math inline">\(n \to \infty\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu\)</span></td>
+<td><strong>Normal</strong> data, <br><span class="math inline">\(\sigma\)</span> unknown</td>
+<td>Any <span class="math inline">\(n\)</span></td>
+<td>Student’s <em>t</em></td>
+<td><strong>Exact</strong></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu = p\)</span></td>
+<td><strong>Bernoulli</strong> trials</td>
+<td>Any <span class="math inline">\(n\)</span></td>
+<td>Binomial<br>(Clopper–Pearson)</td>
+<td><strong>Exact</strong><br>Conservative</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu = p\)</span></td>
+<td><strong>Bernoulli</strong> trials</td>
+<td>Large <span class="math inline">\(np\)</span>, <span class="math inline">\(n(1-p)\)</span></td>
+<td>Central Limit Theorem (CLT)</td>
+<td><strong>Approximate</strong></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu\)</span></td>
+<td><strong>Exponential</strong> data</td>
+<td>Any <span class="math inline">\(n\)</span></td>
+<td>Gamma/<br>Chi-squared</td>
+<td><strong>Exact</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 32%">
+<col style="width: 8%">
+<col style="width: 23%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Distributional Assumptions</th>
+<th>Sample Size</th>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu_D\)</span> <br>(paired differences)</td>
+<td>Differences are <strong>Normal</strong></td>
+<td>Any <span class="math inline">\(n\)</span></td>
+<td>Paired <em>t</em></td>
+<td><strong>Exact</strong>, sometimes confused with two-sample <em>t</em></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu_1-\mu_2\)</span></td>
+<td>Each sample <strong>Normal</strong>; independent samples</td>
+<td>Any <span class="math inline">\(n_1,n_2\)</span></td>
+<td>Two-sample <em>t</em> (Wackerly)</td>
+<td><strong>Approximate</strong>, uses unpooled standard error</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu_1-\mu_2\)</span></td>
+<td>Independent samples from <strong>any</strong> distributions with finite variances</td>
+<td><strong>Large</strong> <span class="math inline">\(n_1,n_2\)</span></td>
+<td>CLT (two-sample)</td>
+<td><strong>Approximate</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sigma^2\)</span></td>
+<td><strong>Normal</strong> data</td>
+<td>Any <span class="math inline">\(n\)</span></td>
+<td>Chi-squared</td>
+<td><strong>Exact</strong>, sensitive to non-normality</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\med(X)\)</span></td>
+<td>Continuous distribution</td>
+<td><span class="math inline">\(n\)</span> not too small</td>
+<td>Order-statistics</td>
+<td><strong>Approximate</strong>, Distribution-free</td>
+</tr>
+</tbody>
+</table>
 
 
 </section></section>
