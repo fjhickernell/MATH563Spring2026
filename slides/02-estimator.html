@@ -559,7 +559,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </section>
 <section id="distribest" class="slide level2">
 <h2>Distributions of estimators (see <a href="../slides/01-intro.html#prob-distrib">Important Distributions</a>)</h2>
-<p>For the sample mean, <span class="math inline">\(\barX_n\)</span>, for IID data</p>
+<p>For the sample mean <span class="math inline">\(\barX_n\)</span>, based on IID data</p>
 <ul>
 <li><p><span class="math inline">\(n \barX_n \sim \Bin(n,p)\)</span> if <span class="math inline">\(X \sim \Bern(p)\)</span></p></li>
 <li><p><span class="math inline">\(\barX_n \exsim \Gam(n, n \lambda)\)</span> if <span class="math inline">\(X \sim \Exp(\lambda)\)</span> where <span class="math inline">\(\displaystyle \varrho_{\Gam(\alpha, \lambda)}(x) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}\, x^{\alpha-1} \exp(-\lambda x)
@@ -568,10 +568,37 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <li><span class="math inline">\(\lambda n \barX_n \exsim \Gam(n, 1)\)</span></li>
 <li><span class="math inline">\(2 \lambda n \barX_n \exsim \chi^2_{2n}\)</span>, where <span class="math inline">\(\displaystyle \varrho_{\chi^2_k}(x) = \frac{x^{k/2 - 1} \exp(-x/2)}{2^{k/2} \Gamma(k/2)} \quad x &gt; 0\)</span></li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>For the sample mean <span class="math inline">\(\barX_n\)</span>, based on IID data (cont’d)</p>
+<ul>
 <li><p><span class="math inline">\(\barX_n \exsim \Norm(\mu,\sigma^2/n)\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span></p></li>
 <li><p><span class="math inline">\(\barX_n \appxsim \Norm(\mu,\sigma^2/n)\)</span> for arbitrary distributions and large <span class="math inline">\(n\)</span> by the <span class="alert">Central Limit Theorem</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{\barX_n - \mu}{S/\sqrt{n}} \sim t_{n-1}\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span> where</p>
+<ul>
+<li><p><span class="math inline">\(\displaystyle S^2 := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span></p></li>
+<li><p><span class="math inline">\(t_k\)</span> is the <span class="alert">Student’s t distribution</span> with <span class="math inline">\(k\)</span> degrees of freedom</p>
+<ul>
+<li><span class="math inline">\(\varrho_{t_k}(x) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)} {\sqrt{\nu\pi}\,\Gamma\!\left(\frac{\nu}{2}\right)} \left(1+\frac{x^2}{\nu}\right)^{-(\nu+1)/2}, \quad -\infty &lt; x &lt; \infty\)</span></li>
+<li>Symmetric about <span class="math inline">\(0\)</span></li>
+<li>Heavier tails than the standard normal</li>
+<li>Converges to <span class="math inline">\(N(0,1)\)</span> as <span class="math inline">\(\nu \to \infty\)</span></li>
+</ul></li>
+</ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
+<p>For the unbiased sample variance, <span class="math inline">\(S^2\)</span>, for <span class="alert"><span class="math inline">\(\Norm(\mu,\sigma^2)\)</span></span> based on IID data</p>
+<ul>
+<li><span class="math inline">\(\displaystyle \frac{(n-1) S^2}{\sigma^2} \sim \chi^2_{n-1}\)</span></li>
+</ul>
+<p>&nbsp;</p>
 <p>For order statistics, <span class="math inline">\(X_{(k)}\)</span>, <span class="math inline">\(\displaystyle F_{X_{(k)}}(x) = \sum_{j=k}^n \binom{n}{j} [F_X(x)]^j [1 - F_X(x)]^{n-j}\)</span> for IID data from CDF <span class="math inline">\(F_X\)</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p><span class="math inline">\(\exstar\)</span> Is the MLE <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> for <span class="math inline">\(X \sim \Unif(0,\theta)\)</span> unbiased? Can you modify it to be unbiased?</p>
 </section>
 <section id="estimators-for-exponential-families-of-distributions" class="slide level2">
@@ -637,6 +664,8 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <ul>
 <li><a href="#/large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
 <li><a href="#/small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</a></li>
+<li><a href="#/confidence-intervals-for-means-of-differences">Confidence intervals for means of differences</a></li>
+<li><a href="#/confidence-intervals-for-variances">Confidence intervals for variances</a></li>
 </ul>
 </section>
 <section id="large-sample-confidence-intervals-for-means" class="slide level2">
@@ -735,59 +764,40 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </ul></li>
 <li>As <span class="math inline">\(n\)</span> increases, CLT-based interval approaches the exact interval</li>
 </ul>
+<p>&nbsp;</p>
+<p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/coverage_exact_vs_clt.ipynb" download=""> ⬇ Exact vs CLT Confidence Interval Coverage 📓 </a></p>
+<p>&nbsp;</p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span> You draw <span class="math inline">\(n\)</span> IID samples of your product to test for failure. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability of a satisfactory product, if none of the samples fail?</span></p>
 </div>
 </section>
-<section id="students-t-confidence-interval" class="slide level2">
-<h2>Student’s <span class="math inline">\(t\)</span> Confidence Interval</h2>
-<p><strong>Goal:</strong> inference about a population mean <span class="math inline">\(\mu\)</span></p>
-<p><strong>Setting</strong></p>
+<section id="students-t-confidence-interval-for-normal-data-with-unknown-variance" class="slide level2">
+<h2>Student’s <span class="math inline">\(t\)</span> Confidence Interval for <em>Normal</em> Data with Unknown Variance</h2>
+<p>For <span class="math inline">\(X_1,\dots,X_n \IIDsim \Norm(\mu, \sigma^2)\)</span></p>
 <ul>
-<li>Data: <span class="math inline">\(X_1,\dots,X_n\)</span></li>
 <li>Sample mean: <span class="math inline">\(\barX\)</span></li>
-<li>Sample standard deviation: <span class="math inline">\(s\)</span></li>
+<li>Sample standard deviation: <span class="math inline">\(S\)</span></li>
 </ul>
-<p><strong>Assumptions</strong></p>
-<ul>
-<li><span class="math inline">\(X_1,\dots,X_n\)</span> are IID</li>
-<li>Population distribution is <strong>Normal</strong></li>
-<li>Population variance <span class="math inline">\(\sigma^2\)</span> is <strong>unknown</strong></li>
-</ul>
-<p><strong>Confidence Interval</strong> <span class="math display">\[
-\barX \;\pm\; t_{1-\alpha/2,\;n-1}\;\frac{s}{\sqrt{n}}
-\]</span></p>
-<p><strong>Properties</strong></p>
-<ul>
-<li>Exact confidence interval</li>
-<li>Valid for any sample size <span class="math inline">\(n\)</span></li>
-<li>Sensitive to non-normality for small <span class="math inline">\(n\)</span></li>
-</ul>
-<p><strong>Remark</strong></p>
+<p>We have an <span class="alert">exact</span> confidence interval for all <span class="math inline">\(n\)</span>: <span class="math display">\[
+\Prob\left[ \barX - t_{1-\alpha/2,n-1}\frac{S}{\sqrt{n}} \le \mu \le \barX + t_{1-\alpha/2,n-1}\frac{S}{\sqrt{n}} \right] = 1 - \alpha
+\]</span> where <span class="math inline">\(t_{1-\alpha/2,n-1}\)</span> is the upper <span class="math inline">\(\alpha/2\)</span> quantile of the <span class="alert">Student’s t distribution</span> with <span class="math inline">\(n-1\)</span> degrees of freedom</p>
 <ul>
 <li>For large <span class="math inline">\(n\)</span>, this interval is close to the CLT-based interval</li>
 </ul>
 </section>
 <section id="confidence-intervals-for-means-of-differences" class="slide level2">
 <h2>Confidence Intervals for <em>Means</em> of Differences</h2>
-<p><strong>Typical setting:</strong> paired or matched data (before/after, twins, same subject measured twice)</p>
-<p><span class="math display">\[
+<p>For paired or matched data (before/after, twins, same subject measured twice) <span class="math display">\[
 D_i = X_i - Y_i, \quad i = 1,\dots,n
 \]</span></p>
 <p>Inference is about the <strong>mean difference</strong> <span class="math inline">\(\mu_D\)</span></p>
 <p><em>Not</em> difference of means <span class="math inline">\(\mu_X - \mu_Y\)</span>, even though <span class="math inline">\(\barD = \barX - \barY\)</span></p>
-<p><strong>Paired <em>t</em> interval</strong></p>
-<ul>
-<li>Assumes <span class="math inline">\(D_1,\dots,D_n\)</span> are IID <strong>Normal</strong></li>
-<li>Exact for any <span class="math inline">\(n\)</span></li>
-<li>Most common paired-data CI</li>
-</ul>
-<p><strong>CLT-based interval</strong></p>
-<ul>
-<li>Assumes <span class="math inline">\(D_i\)</span> are IID with finite variance</li>
-<li>Requires <strong>large <span class="math inline">\(n\)</span></strong></li>
-<li>Robust to non-normality</li>
-</ul>
+<p>If <span class="math inline">\(D_1,\dots,D_n \IIDsim \Norm(\mu_D, \sigma_D^2)\)</span> <span class="math display">\[
+\Prob\left[ \barD - t_{1-\alpha/2,n-1}\frac{S_D}{\sqrt{n}} \le \mu_D \le \barD + t_{1-\alpha/2,n-1}\frac{S_D}{\sqrt{n}} \right] = 1 - \alpha
+\]</span></p>
+<p>If <span class="math inline">\(D_1,\dots,D_n\)</span> are IID with finite variance, and <span class="math inline">\(n\)</span> is large <span class="math display">\[
+\Prob\left[ \barD - z_{1-\alpha/2}\frac{S_D}{\sqrt{n}} \le \mu_D \le \barD + z_{1-\alpha/2}\frac{S_D}{\sqrt{n}} \right] \approx 1 - \alpha
+\]</span></p>
 </section>
 <section id="confidence-intervals-for-differences-of-means" class="slide level2">
 <h2>Confidence Intervals for <em>Differences</em> of Means</h2>
