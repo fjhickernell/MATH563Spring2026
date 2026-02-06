@@ -12,6 +12,8 @@ reveal-options:
   disableLayout: false
 ---
 
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/intro/how-to-read-slides.qmd >}}
+
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/intro/intro-stats-examples.qmd >}}
 
 
