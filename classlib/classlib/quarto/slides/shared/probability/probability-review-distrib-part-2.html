@@ -214,33 +214,39 @@ window.Quarto = {
 
 <section id="a-mixed-partially-discrete-partially-continuous-random-variable" class="level2">
 <h2 class="anchored" data-anchor-id="a-mixed-partially-discrete-partially-continuous-random-variable">A mixed (partially discrete, partially continuous) random variable</h2>
-<p>Discrete random variables have a PMF. Continuous random variables have a PDF. Some random variables are <span class="alert">mixed</span>.</p>
+<ul>
+<li>Discrete random variables have a PMF</li>
+<li>Continuous random variables have a PDF</li>
+<li>Some random variables are <span class="alert">mixed</span></li>
+</ul>
 <p><span class="alert">Zero-inflated exponential distribution</span> — <span class="math inline">\(X\)</span> is the waiting time for a taxi</p>
 <ul>
 <li>A taxi waiting for you with probability <span class="math inline">\(p\)</span></li>
-<li>But if there is none, then you have to wait time <span class="math inline">\(1/\lambda\)</span> on average <span class="math display">\[\begin{align*}
+<li>But if there is none, then the waiting time is exponential with mean <span class="math inline">\(1/\lambda\)</span> <span class="math display">\[\begin{align*}
 F(x) &amp;= \begin{cases}
 0, &amp;-\infty &lt; x &lt; 0 \\
 1- (1-p)\exp(-\lambda x),  &amp; 0 \le x &lt; \infty
 \end{cases}
-\\
-\mu &amp; = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \qquad   
-   \mathlink{https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration}{(Lebesgue–Stieltjes integral)}\\
-&amp; = 0 \times p + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
-\\
-\sigma^2 &amp; = \var(X) = \Ex[(X-\mu)^2] = \frac{1-p^2}{\lambda^2}
-\end{align*}\]</span></li>
+\end{align*}\]</span> Note: <span class="math inline">\(F\)</span> has a jump of size <span class="math inline">\(p\)</span> at <span class="math inline">\(x=0\)</span>, corresponding to <span class="math inline">\(\Prob(X=0)=p\)</span></li>
 </ul>
+<hr>
+<p><span class="math display">\[\begin{align*}
+\mu &amp; = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \qquad   
+     \mathlink{https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration}{(Lebesgue–Stieltjes integral)}\\
+&amp; = \underbrace{0 \times p}_{\text{from the jump at } 0} + \int_0^{\infty} x \times (1-p)\exp(-\lambda x) \, \dif x = (1-p)/ \lambda
+\\
+\sigma^2 &amp; = \var(X) = \Ex(X^2) - \mu^2 \exeq \frac{1-p^2}{\lambda^2}
+\end{align*}\]</span></p>
 </section>
 <section id="lebesguestieltjes-integral-integral-jumps" class="level2">
 <h2 class="anchored" data-anchor-id="lebesguestieltjes-integral-integral-jumps">Lebesgue–Stieltjes Integral = Integral + Jumps</h2>
-<p>Let</p>
+<p>Let the CDF <span class="math inline">\(F\)</span></p>
 <ul>
-<li><span class="math inline">\(F\)</span> be a nondecreasing, right-continuous function on <span class="math inline">\(\mathbb{R}\)</span></li>
-<li>with (possible) discontinuities at <span class="math inline">\(-\infty &lt;  x_1 &lt; \ldots &lt; x_N &lt; \infty\)</span>,</li>
-<li><span class="math inline">\(F\)</span> be differentiable between its jump points with <span class="math inline">\(\varrho(x) = F'(x)\)</span>, and</li>
-<li><span class="math inline">\(f\)</span> be a suitable function</li>
+<li>Be a nondecreasing, right-continuous function on <span class="math inline">\(\mathbb{R}\)</span></li>
+<li>Have (possible) discontinuities at <span class="math inline">\(-\infty &lt;  x_1 &lt; \ldots &lt; x_N &lt; \infty\)</span>,</li>
+<li>Be differentiable between its jump points, with <span class="math inline">\(\varrho(x)=F'(x)\)</span> there,</li>
 </ul>
+<p>and let <span class="math inline">\(f\)</span> be a suitable function</p>
 <p>The Lebesgue–Stieltjes integral of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(F\)</span> can be written as <span class="math display">\[\begin{align*}
   \int f(x)\, dF(x) &amp; = \int_{-\infty}^{x_{1}} f(x) \,\varrho(x) \, \dif x + \sum_{k=1}^{N-1} \int_{x_k}^{x_{k+1}} f(x) \, \varrho(x) \, \dif x + \int_{x_N}^{\infty} f(x) \, \varrho(x) \, \dif x \\
   &amp; \qquad \qquad + \sum_{k=1}^N f(x_k)[F(x_k) - F(x_k^{-})]

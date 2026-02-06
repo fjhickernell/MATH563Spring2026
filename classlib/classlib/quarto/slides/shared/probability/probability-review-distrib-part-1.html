@@ -226,33 +226,29 @@ window.Quarto = {
 <ul>
 <li><p><span class="alert">Outcome</span> — single possible result of a random process, e.g., yes, <span class="math inline">\(0.5\)</span>, <span class="math inline">\((1,-2)\)</span></p></li>
 <li><p><span class="alert">Sample space</span> – set of all possible outcomes, e.g., <span class="math inline">\(\{\text{yes}, \text{no} \}\)</span>, <span class="math inline">\(\reals\)</span></p></li>
-<li><p><span class="alert">Event</span> – set of outcomes (subset of the sample space), e.g., <span class="math inline">\([0,\infty)\)</span></p></li>
-<li><p><span class="alert">Event space</span> – collection of all possible events</p></li>
+<li><p><span class="alert">Event space</span> – collection of all possible events we can assign probabilities to, e.g., intervals like <span class="math inline">\([0,\infty)\)</span> or regions such as <span class="math inline">\(\{(x,y) : x^2 + y^2 \le 1\}\)</span></p></li>
 <li><p><span class="alert">Probability</span> – function <span class="math inline">\(\Prob:\text{event space}\to[0,1]\)</span> satisfying</p>
 <ul>
 <li><span class="math inline">\(0 \le \Prob(\text{event}) \le 1\)</span></li>
-<li><span class="math inline">\(\mathbb{P}(\text{sample space})=1\)</span></li>
+<li><span class="math inline">\(\Prob(\text{sample space})=1\)</span></li>
 <li>If <span class="math inline">\(A \cap B=\varnothing\)</span>, then <span class="math inline">\(\Prob(A\cup B)=\Prob(A)+\Prob(B)\)</span></li>
 </ul></li>
 </ul>
 <hr>
 <ul>
-<li><p><span class="alert">Random variable/vector/function</span> — mathematical quantity representing an outcome</p></li>
+<li><p><span class="alert">Random variable/vector/function</span> — rule that assigns a number (or vector) to each outcome, e.g., <span class="math inline">\(Y = 1\)</span> if approve, <span class="math inline">\(0\)</span> if not; <span class="math inline">\(X = \text{time to wait for taxi}\)</span>; <span class="math inline">\(\vX = (\text{height}, \text{weight})\)</span></p></li>
 <li><p><span class="alert">Cumulative distribution function (CDF)</span> <span class="math inline">\(F\)</span> of random variable <span class="math inline">\(X\)</span> <span class="alert">(right-continuous)</span></p>
 <ul>
 <li><span class="math inline">\(F(x) : =  \Prob(X \le x)\)</span></li>
+<li><span class="alert">Survival function</span> <span class="math inline">\(S(x) := \Prob(X &gt; x) = 1 - F(x)\)</span></li>
 </ul></li>
 <li><p><span class="alert">Quantile function</span> <span class="math inline">\(Q\)</span> of a random variable <span class="math inline">\(X\)</span> plays the role of the <span class="alert">inverse</span> of the CDF <span class="alert">(left-continuous)</span></p>
 <ul>
 <li><span class="math inline">\(Q(p) : = \inf\{x \in \reals : F(x) \ge p\}\)</span></li>
 </ul></li>
-<li><p><span class="alert">Probability mass function (PMF)</span> <span class="math inline">\(\varrho\)</span> of discrete random variable <span class="math inline">\(X\)</span></p>
+<li><p><span class="alert">Probability density function (PDF)</span> <span class="math inline">\(\varrho\)</span> of an absolutely continuous random variable <span class="math inline">\(X\)</span></p>
 <ul>
-<li><span class="math inline">\(\varrho(x):= \Prob(X = x)\)</span></li>
-</ul></li>
-<li><p><span class="alert">Probability density function (PDF)</span> <span class="math inline">\(\varrho\)</span> of continuous random variable <span class="math inline">\(X\)</span></p>
-<ul>
-<li><span class="math inline">\(\varrho(x):= F'(x)\)</span></li>
+<li><span class="math inline">\(\varrho(x) := F'(x)\)</span></li>
 </ul></li>
 </ul>
 <hr>
@@ -267,7 +263,7 @@ window.Quarto = {
 <ul>
 <li>$(a X + Y) a (X) + (Y)</li>
 </ul></li>
-<li><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] \exeq E(X^2) - \mu^2\)</span>
+<li><span class="alert">Variance</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] \exeq \Ex(X^2) - \mu^2\)</span>
 <ul>
 <li><span class="alert">Standard deviation</span> of <span class="math inline">\(X\)</span> is <span class="math inline">\(\std(X) := \sigma = \sqrt{\var(X)}\)</span></li>
 </ul></li>
@@ -276,7 +272,10 @@ window.Quarto = {
 </ul>
 <hr>
 <ul>
-<li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span></p></li>
+<li><p><span class="math inline">\((X,Y)\)</span> are <span class="alert">independent</span> iff <span class="math inline">\(F_{X,Y}(x,y) = F_X(x) F_Y(y)\)</span> for all <span class="math inline">\(x,y\)</span></p>
+<ul>
+<li>or equivalently <span class="math inline">\(\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)\)</span> for all <span class="math inline">\(x,y\)</span></li>
+</ul></li>
 <li><p><span class="alert">Covariance</span> <span class="math inline">\(\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]\)</span></p>
 <ul>
 <li><span class="math inline">\(\var(aX + Y) \exeq a^2 \var(X) + \var(Y)\)</span> if <span class="math inline">\(\cov(X,Y) = 0\)</span></li>
@@ -308,7 +307,7 @@ window.Quarto = {
 F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lambda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
 \]</span></p></li>
 <li><p><span class="alert">Uniform</span> (random number generation, continuous) <span class="math inline">\(\Unif(a,b)\)</span> <span class="math display">\[\begin{gather*}
-F(x) : = \begin{cases} 0, &amp; -\infty &lt; x &lt; 0, \\
+F(x) : = \begin{cases} 0, &amp; -\infty &lt; x &lt; a, \\
 \displaystyle \frac{x - a}{b - a}, &amp; a \le x &lt; b, \\
 1, &amp; b \le x &lt; \infty,
 \end{cases} \quad
@@ -321,10 +320,11 @@ F(x) : = \begin{cases} 0, &amp; -\infty &lt; x &lt; 0, \\
 <li><p><span class="alert">Normal (Gaussian)</span> (limiting distribution, continuous) <span class="math inline">\(\Norm(\mu, \sigma^2)\)</span> <span class="math display">\[
 \varrho(x): = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma}, \ x \in \reals;\quad \Ex(X) = \mu, \quad \var(X) = \sigma^2
 \]</span></p></li>
-<li><p><span class="alert">Multivariate Normal (Gaussian)</span> (limiting distribution, continuous) <span class="math inline">\(\Norm(\vmu, \mSigma)\)</span> <span class="math display">\[
-\varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}};\; \Ex(\vX) = \vmu, \; \cov(\vX) = \mSigma
-\class{alert}{\text{ symmetric, positive definite}}
-\]</span></p></li>
+<li><p><span class="alert">Multivariate Normal (Gaussian)</span> (limiting distribution, continuous) <span class="math inline">\(\Norm(\vmu, \mSigma)\)</span> <span class="math display">\[\begin{gather*}
+\varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}};\; \Ex(\vX) = \vmu, \\
+\cov(\vX) = \mSigma
+\class{alert}{\text{ symmetric, positive definite covariance matrix}}
+\end{gather*}\]</span></p></li>
 </ul>
 
 
