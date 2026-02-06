@@ -900,7 +900,7 @@ F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lambda \exp(-\lambda x), \ x \ge 
 F(x) : = \begin{cases} 0, &amp; -\infty &lt; x &lt; a, \\
 \displaystyle \frac{x - a}{b - a}, &amp; a \le x &lt; b, \\
 1, &amp; b \le x &lt; \infty,
-\end{cases} \quad
+\end{cases} \qquad \qquad
 \varrho(x): = \frac{1}{b-a}, \ x \in [a,b]; \\
 \Ex(X) = \frac{a+b}{2}, \quad  \var(X) = \frac{(b-a)^2}{12}  
 \end{gather*}\]</span></p></li>
@@ -964,12 +964,12 @@ F(x) &amp;= \begin{cases}
 \end{align*}\]</span></p>
 </section>
 <section id="lebesguestieltjes-integral-integral-jumps" class="slide level2">
-<h2>Lebesgue–Stieltjes Integral = Integral + Jumps</h2>
+<h2>Lebesgue–Stieltjes integral = integral + jumps</h2>
 <p>Let the CDF <span class="math inline">\(F\)</span></p>
 <ul>
 <li>Be a nondecreasing, right-continuous function on <span class="math inline">\(\mathbb{R}\)</span></li>
-<li>Have (possible) discontinuities at <span class="math inline">\(-\infty &lt;  x_1 &lt; \ldots &lt; x_N &lt; \infty\)</span>,</li>
-<li>Be differentiable between its jump points, with <span class="math inline">\(\varrho(x)=F'(x)\)</span> there,</li>
+<li>Have (possible) discontinuities at <span class="math inline">\(-\infty &lt;  x_1 &lt; \ldots &lt; x_N &lt; \infty\)</span></li>
+<li>Be differentiable between its jump points, with <span class="math inline">\(\varrho(x)=F'(x)\)</span> there</li>
 </ul>
 <p>and let <span class="math inline">\(f\)</span> be a suitable function</p>
 <p>The Lebesgue–Stieltjes integral of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(F\)</span> can be written as <span class="math display">\[\begin{align*}
@@ -1404,12 +1404,11 @@ Z_n \convd N(0,1)
 <section id="weak-law-of-large-numbers-via-chebyshev" class="slide level2">
 <h2>Weak Law of Large Numbers (via Chebyshev)</h2>
 <h3 id="theorem-wlln">Theorem (WLLN)</h3>
-<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
+<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean as <span class="math inline">\(\displaystyle\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
 <h3 id="proof-1">Proof</h3>
-<p>By Chebyshev’s inequality, <span class="math display">\[
-\Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
-\le \frac{\var(\barX_n)}{\varepsilon^2}
-\]</span> Using independence, <span class="math display">\[
+<p>By Chebyshev’s inequality, <span class="math inline">\(\displaystyle \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le \frac{\var(\barX_n)}{\varepsilon^2}\)</span></p>
+<p>Using independence, <span class="math display">\[
 \var(\barX_n)
 =
 \var\!\left(\frac1n\sum_{i=1}^n X_i\right)
@@ -1423,7 +1422,7 @@ Z_n \convd N(0,1)
 \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
 \le
 \frac{\sigma^2}{n\varepsilon^2}
-\to 0 \qquad \square
+\to 0 \quad \text{as } n \to 0 \qquad \square
 \]</span></p>
 
 

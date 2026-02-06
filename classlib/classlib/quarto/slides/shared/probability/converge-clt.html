@@ -623,14 +623,13 @@ Z_n \convd N(0,1)
 <h2 class="anchored" data-anchor-id="weak-law-of-large-numbers-via-chebyshev">Weak Law of Large Numbers (via Chebyshev)</h2>
 <section id="theorem-wlln" class="level3">
 <h3 class="anchored" data-anchor-id="theorem-wlln">Theorem (WLLN)</h3>
-<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean <span class="math inline">\(\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
+<p>Let <span class="math inline">\(X_1,X_2,\dots\)</span> be IID with <span class="math inline">\(\Ex[X_1]=\mu\)</span> and <span class="math inline">\(\var(X_1)=\sigma^2&lt;\infty\)</span>. Define the sample mean as <span class="math inline">\(\displaystyle\barX_n := \frac1n\sum_{i=1}^n X_i\)</span>. Then <span class="math inline">\(\barX_n \convp \mu\)</span>.</p>
 </section>
 <section id="proof-1" class="level3">
 <h3 class="anchored" data-anchor-id="proof-1">Proof</h3>
-<p>By Chebyshev’s inequality, <span class="math display">\[
-\Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
-\le \frac{\var(\barX_n)}{\varepsilon^2}
-\]</span> Using independence, <span class="math display">\[
+<p>By Chebyshev’s inequality, <span class="math inline">\(\displaystyle \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le \frac{\var(\barX_n)}{\varepsilon^2}\)</span></p>
+<p>Using independence, <span class="math display">\[
 \var(\barX_n)
 =
 \var\!\left(\frac1n\sum_{i=1}^n X_i\right)
@@ -644,7 +643,7 @@ Z_n \convd N(0,1)
 \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
 \le
 \frac{\sigma^2}{n\varepsilon^2}
-\to 0 \qquad \square
+\to 0 \quad \text{as } n \to 0 \qquad \square
 \]</span></p>
 
 
