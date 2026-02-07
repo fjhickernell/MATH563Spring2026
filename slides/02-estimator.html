@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-06">
+  <meta name="dcterms.date" content="2026-02-07">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -460,7 +460,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 6, 2026</p>
+  <p class="date">February 7, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -604,15 +604,15 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <section id="estimators-for-exponential-families-of-distributions" class="slide level2">
 <h2>Estimators for exponential families of distributions</h2>
 <p>Recall that exponential families of distributions have PMF or PDF that can be expressed as <span class="math display">\[
-\varrho(\vx\mid \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
+\varrho(\vx ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
 \]</span> The binomial, exponential, and normal are all exponential families</p>
 <h3 id="likelihood-equations-depend-on-sample-averages">1. Likelihood equations depend on sample averages</h3>
 <p>The log-likelihood for IID <span class="math inline">\(X_1,\dots,X_n\)</span> is <span class="math display">\[
 \ell(\vtheta) : = \log(L(\vtheta))
-= \sum_{i=1}^n \log \bigl(h(\vX_i)) +   n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
-\]</span> Solving for the MLE just depends on the data via the averages: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)\)</span></p>
+= \sum_{i=1}^n \log \bigl(h(\vX_i) \bigr) +     n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
+\]</span> Solving for the MLE depends on the data only through the averages: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)\)</span></p>
 <ul>
-<li><span class="math inline">\(\Bern(\mu)\)</span> and <span class="math inline">\(\Exp(1/\mu)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span>, &nbsp; &nbsp; &nbsp; <span class="math inline">\(\Norm(\mu,\sigma^2)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span> and <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2\)</span></li>
+<li><span class="math inline">\(\Bern(\mu)\)</span> and <span class="math inline">\(\Exp(\lambda)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span>, &nbsp; &nbsp; &nbsp; <span class="math inline">\(\Norm(\mu,\sigma^2)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span> and <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2\)</span></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -621,7 +621,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <p>Because sums or averages of exponential family data have known distributions, the distribution of the estimator is often explicit</p>
 <ul>
 <li><span class="math inline">\(\Bern(p)\)</span>: <span class="math inline">\(n\barX \sim \text{Binomial}(n,p)\)</span></li>
-<li><span class="math inline">\(\Exp(\lambda)\)</span>: <span class="math inline">\(\barX \sim \Gam(n,\;n\lambda)\)</span></li>
+<li><span class="math inline">\(\Exp(\lambda)\)</span>: <span class="math inline">\(\barX \sim \Gam(n,\;n\lambda)\)</span> (shape–rate)</li>
 <li><span class="math inline">\(\Norm(\mu,\sigma^2)\)</span>: <span class="math inline">\(\barX \sim \Norm(\mu,\sigma^2/n)\)</span></li>
 </ul>
 <p>This buys us</p>
@@ -633,7 +633,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <section class="slide level2">
 
 <h3 id="bias-behavior-is-transparent">3. Bias behavior is transparent</h3>
-<p>Although they may be <span class="alert">asymptotically</span> unbiased many MLEs are biased for finite sample size but the bias is computable (see previous slide). Thus, the bias can be analyzed exactly and typically decreases as <span class="math inline">\(n\)</span> grows.</p>
+<p>Although many MLEs are asymptotically unbiased, they are biased for finite sample size, but the bias is computable</p>
 <p>Although</p>
 <p><span class="math display">\[\theta_2 = g(\theta_1) \implies \Theta_{2,\MLE} = g(\Theta_{1,\MLE})\]</span></p>
 <p>one also has</p>
