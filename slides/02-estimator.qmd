@@ -23,7 +23,7 @@ reveal-options:
 
 Recall that exponential families of distributions have PMF or PDF that can be expressed as
 $$
-\varrho(\vx\mid \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
+\varrho(\vx ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
 $$
 The binomial, exponential, and normal are all exponential families
 
@@ -32,11 +32,11 @@ The binomial, exponential, and normal are all exponential families
 The log-likelihood for IID $X_1,\dots,X_n$ is
 $$
 \ell(\vtheta) : = \log(L(\vtheta))
-= \sum_{i=1}^n \log \bigl(h(\vX_i)) + 	n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
+= \sum_{i=1}^n \log \bigl(h(\vX_i) \bigr) + 	n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
 $$
-Solving for the MLE just depends on the data via the averages: $\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)$
+Solving for the MLE depends on the data only through the averages: $\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)$
 
-- $\Bern(\mu)$ and $\Exp(1/\mu)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$, &nbsp; &nbsp; &nbsp;  $\Norm(\mu,\sigma^2)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$ and $\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2$
+- $\Bern(\mu)$ and $\Exp(\lambda)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$, &nbsp; &nbsp; &nbsp;  $\Norm(\mu,\sigma^2)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$ and $\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2$
 
 ---
 
@@ -45,7 +45,7 @@ Because sums or averages of exponential family data have known
 distributions, the distribution of the estimator is often explicit
 
 - $\Bern(p)$: $n\barX \sim \text{Binomial}(n,p)$
-- $\Exp(\lambda)$: $\barX \sim \Gam(n,\;n\lambda)$
+- $\Exp(\lambda)$: $\barX \sim \Gam(n,\;n\lambda)$ (shape–rate)
 - $\Norm(\mu,\sigma^2)$: $\barX \sim \Norm(\mu,\sigma^2/n)$
 
 
@@ -57,8 +57,7 @@ This buys us
 ---
 
 ### 3. Bias behavior is transparent
-Although they may be [asymptotically]{.alert} unbiased many MLEs are biased for finite sample size but the bias is computable (see previous slide).  Thus, the bias can be analyzed
-exactly and typically decreases as $n$ grows.
+Although many MLEs are asymptotically unbiased, they are biased for finite sample size, but the bias is computable
 
 Although 
 
