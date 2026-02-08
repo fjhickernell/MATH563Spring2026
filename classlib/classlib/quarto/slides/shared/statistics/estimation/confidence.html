@@ -246,11 +246,41 @@ window.Quarto = {
 </ul>
 <hr>
 <ul>
+<li><a href="#critical-value-notation-important">Critical value notation</a></li>
 <li><a href="#large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
 <li><a href="#small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</a></li>
 <li><a href="#confidence-intervals-for-means-of-differences">Confidence intervals for means of differences</a></li>
 <li><a href="#confidence-intervals-for-variances">Confidence intervals for variances</a></li>
 </ul>
+<section id="critical-value-notation-important" class="level2">
+<h2 class="anchored" data-anchor-id="critical-value-notation-important">Critical value notation</h2>
+<p>For a distribution with CDF <span class="math inline">\(F\)</span> and quantile function <span class="math inline">\(Q\)</span>, define the <strong>upper critical value</strong> <span class="math display">\[
+c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text{ and } F(c_{\alpha} - \epsilon) &lt; 1-\alpha \; \forall \epsilon &gt; 0
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Examples</p>
+<ul>
+<li><span class="math inline">\(z_{\alpha} = Q_{\Norm(0,1)}(1-\alpha)\)</span><br>
+</li>
+<li><span class="math inline">\(t_{\nu,\alpha} = Q_{t_\nu}(1-\alpha)\)</span><br>
+</li>
+<li><span class="math inline">\(\chi^2_{\nu,\alpha} = Q_{\chi^2_\nu}(1-\alpha)\)</span></li>
+</ul>
+<p>These are <span class="alert">upper critical values</span>, not <span class="math inline">\(\alpha\)</span>-quantiles.</p>
+</div><div class="column" style="width:40%;">
+<div id="8d1354f1" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="confidence_files/figure-html/cell-2-output-1.png" width="662" height="469" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="large-sample-confidence-intervals-for-means" class="level2">
 <h2 class="anchored" data-anchor-id="large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</h2>
 <p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX_n\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
