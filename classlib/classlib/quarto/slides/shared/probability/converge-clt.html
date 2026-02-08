@@ -299,7 +299,7 @@ X_n \convd X,
 <li><p><span class="math inline">\(X, X_1, X_2, \ldots \IIDsim \Norm(0,1)\)</span> satisfies <span class="math inline">\(X_n \convd X\)</span>, but <span class="math inline">\(X_n \nconvp X\)</span></p></li>
 <li><p><span class="math inline">\(X=0\)</span> and <span class="math inline">\(\Prob(X_n =x ) = \begin{cases} 1/n, &amp; x=1 \\ 1-1/n, &amp; x=0 \end{cases} \;\)</span> satisfies <span class="math display">\[
 \Prob(\lvert X_n - X \rvert &gt; \varepsilon ) = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty \text{ so } X_n \convp X
-\]</span> But <span class="math inline">\(\Prob (X_n =1 \text{ infinitely often}) = 1\)</span> since the expected number of times <span class="math inline">\(X_n=1\)</span> is <span class="math display">\[
+\]</span> Assuming the <span class="math inline">\(X_n\)</span> are independent, <span class="math inline">\(\Prob (X_n =1 \text{ infinitely often}) = 1\)</span> since <span class="math display">\[
 \sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
 \]</span> so <span class="math inline">\(X_n \ \, \nconvas X\)</span></p></li>
 </ul>
@@ -320,16 +320,19 @@ X_n \convd X,
 </ol>
 <p><span class="math display">\[\begin{align*}
 Z_n: &amp;= \frac{\barX_n - \mu}{\sigma /\sqrt{n}} = \frac{Y_1 + \cdots + Y_n}{\sqrt{n}} \\
-M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n}+ \cdots+ tY_n/\sqrt{n})]\\
+M_{Z_n}(t) &amp;= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n} + \cdots + tY_n/\sqrt{n})]\\
 &amp; = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})] \\
 &amp; =  \{\Ex[\exp(tY_1/\sqrt{n})]\}^n \qquad \text{by independence} \\
-&amp; = [M_Y(t/\sqrt{n})]^n
-\lim_{n \to \infty}M_{Z_n}(t) = [M(0)]^\infty = 1^\infty \quad \class{alert}{\text{(undetermined)}}
+&amp; = [M_Y(t/\sqrt{n})]^n \\
+\lim_{n \to \infty}M_{Z_n}(t) &amp;= [M_Y(0)]^\infty = 1^\infty \quad \class{alert}{\text{(undetermined)}}
 \end{align*}\]</span></p>
 <hr>
 <ol start="2" type="1">
 <li>Take the limit of <span class="math inline">\(M_{Z_n}(t)\)</span> as <span class="math inline">\(n \to \infty\)</span> using <span class="alert">L’Hôpital’s rule</span> <span class="math display">\[\begin{align*}
-\lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) &amp; = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr)
+\text{Note that } M_Y(0) &amp; = 1 \\
+M'_Y(0) &amp; = \Ex(Y_1) = 0 \\
+M''_Y(0) &amp; = \Ex(Y_1^2) = 1 \\
+\text{Then }\lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) &amp; = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr)
 =  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \quad \class{alert}{\text{(undetermined)}}\\
 &amp; = \lim_{n \to \infty}
 \frac{ \dfrac{-t}{2n^{3/2}} \dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})} }
@@ -349,7 +352,7 @@ M_Z(t) &amp; = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \ex
 \end{align*}\]</span></li>
 </ol>
 <p>By uniqueness of moment generating functions, <span class="math display">\[
-Z_n \convd N(0,1)
+Z_n \convd \Norm(0,1)
 \]</span> <span class="math inline">\(\square\)</span></p>
 </section>
 <section id="chebyshev-markov-inequality" class="level2">
@@ -643,11 +646,25 @@ Z_n \convd N(0,1)
 \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
 \le
 \frac{\sigma^2}{n\varepsilon^2}
-\to 0 \quad \text{as } n \to 0 \qquad \square
+\to 0 \quad \text{as } n \to \infty \qquad \square
 \]</span></p>
-
-
 </section>
+</section>
+<section id="slutskys-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="slutskys-theorem">Slutsky’s Theorem</h2>
+<p>If <span class="math display">\[\begin{align*}
+X_n &amp;\convd X  \quad \text{and} \\
+Y_n &amp;\convp c \quad \text{for some constant } c
+\end{align*}\]</span> Then <span class="math display">\[\begin{align*}
+X_n + Y_n &amp;\convd X + c \\
+X_n Y_n &amp;\convd cX \\
+\frac{X_n}{Y_n} &amp;\convd \frac{X}{c} \quad \text{if } c \neq 0
+\end{align*}\]</span></p>
+<blockquote class="blockquote">
+<p>Random quantities converging to constants behave like constants asymptotically</p>
+</blockquote>
+
+
 </section>
 
 </main> <!-- /main -->
