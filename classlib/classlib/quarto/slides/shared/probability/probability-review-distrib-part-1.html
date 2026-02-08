@@ -224,14 +224,16 @@ window.Quarto = {
 <section id="prob-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="prob-concepts">Key probability concepts</h2>
 <ul>
-<li><p><span class="alert">Outcome</span> — single possible result of a random process, e.g., yes, <span class="math inline">\(0.5\)</span>, <span class="math inline">\((1,-2)\)</span></p></li>
-<li><p><span class="alert">Sample space</span> – set of all possible outcomes, e.g., <span class="math inline">\(\{\text{yes}, \text{no} \}\)</span>, <span class="math inline">\(\reals\)</span></p></li>
-<li><p><span class="alert">Event space</span> – collection of all possible events we can assign probabilities to, e.g., intervals like <span class="math inline">\([0,\infty)\)</span> or regions such as <span class="math inline">\(\{(x,y) : x^2 + y^2 \le 1\}\)</span></p></li>
-<li><p><span class="alert">Probability</span> – function <span class="math inline">\(\Prob:\text{event space}\to[0,1]\)</span> satisfying</p>
+<li><p><span class="alert">Outcome</span> — a single possible result of a random process, e.g., <code>yes</code>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\((1,-2)\)</span>.</p></li>
+<li><p><span class="alert">Sample space</span> — the set of all possible outcomes, e.g., <span class="math inline">\(\{\text{yes},\text{no}\}\)</span>, <span class="math inline">\(\reals\)</span>.</p></li>
+<li><p><span class="alert">Event</span> — a <em>subset of the sample space</em> to which we may assign a probability, e.g., intervals like <span class="math inline">\([0,\infty)\)</span> or regions such as <span class="math inline">\(\{(x,y) : x^2 + y^2 \le 1\}\)</span>.</p></li>
+<li><p><span class="alert">Event space</span> — a collection of events (subsets of the sample space) that we are allowed to assign probabilities to.</p></li>
+<li><p><span class="alert">Probability</span> — a function<br>
+[ :] satisfying:</p>
 <ul>
-<li><span class="math inline">\(0 \le \Prob(\text{event}) \le 1\)</span></li>
-<li><span class="math inline">\(\Prob(\text{sample space})=1\)</span></li>
-<li>If <span class="math inline">\(A \cap B=\varnothing\)</span>, then <span class="math inline">\(\Prob(A\cup B)=\Prob(A)+\Prob(B)\)</span></li>
+<li><span class="math inline">\(0 \le \Prob(A) \le 1\)</span> for every event <span class="math inline">\(A\)</span></li>
+<li><span class="math inline">\(\Prob(\text{sample space}) = 1\)</span></li>
+<li>If <span class="math inline">\(A \cap B = \varnothing\)</span>, then <span class="math inline">\(\Prob(A \cup B) = \Prob(A) + \Prob(B)\)</span></li>
 </ul></li>
 </ul>
 <hr>
