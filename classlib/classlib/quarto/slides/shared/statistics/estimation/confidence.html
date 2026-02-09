@@ -253,8 +253,8 @@ window.Quarto = {
 <li><a href="#confidence-intervals-for-variances">Confidence intervals for variances</a></li>
 </ul>
 <section id="critical-value-notation-important" class="level2">
-<h2 class="anchored" data-anchor-id="critical-value-notation-important">Critical value notation</h2>
-<p>For a distribution with CDF <span class="math inline">\(F\)</span> and quantile function <span class="math inline">\(Q\)</span>, define the <strong>upper critical value</strong> <span class="math display">\[
+<h2 class="anchored" data-anchor-id="critical-value-notation-important">Upper critical values</h2>
+<p>For a distribution with CDF <span class="math inline">\(F\)</span> and quantile function <span class="math inline">\(Q\)</span>, define the upper critical value <span class="math display">\[
 c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text{ and } F(c_{\alpha} - \epsilon) &lt; 1-\alpha \; \forall \epsilon &gt; 0
 \]</span></p>
 <div class="columns">
@@ -267,9 +267,9 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </li>
 <li><span class="math inline">\(\chi^2_{\nu,\alpha} = Q_{\chi^2_\nu}(1-\alpha)\)</span></li>
 </ul>
-<p>These are <span class="alert">upper critical values</span>, not <span class="math inline">\(\alpha\)</span>-quantiles.</p>
+<p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="7ef2e219" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="7a216f80" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -289,8 +289,8 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 1 - \alpha &amp; \approx
 \Prob \biggl( -z_{\alpha/2} \le \frac{\barX_n - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
 &amp; \approx \Prob \biggl( \barX_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
-&amp; \approx \Prob \biggl( \underbrace{\barX_n - z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX_n + z_{\alpha/2} \frac{S}{\sqrt{n}}}_{\Theta_U} \biggr)
-\end{align*}\]</span> where <span class="math inline">\(S^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p>
+&amp; \approx \Prob \biggl( \underbrace{\barX_n - z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX_n + z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_U} \biggr)
+\end{align*}\]</span> where <span class="math inline">\(S_n^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p>
 <hr>
 <p>See the <a href="../slides/01-intro.html#approval-ratings">Approval Ratings</a> example for an illustration of this construction for a Bernoulli mean</p>
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
@@ -332,7 +332,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="df39d307" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="c52c0b99" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -396,7 +396,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="9d293c2f" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="40ce356e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -409,15 +409,11 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 <p>&nbsp;</p>
 <p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/coverage_exact_vs_clt.ipynb" download=""> ⬇ Exact vs CLT Confidence Interval Coverage 📓 </a></p>
-<p>&nbsp;</p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span> You draw <span class="math inline">\(n\)</span> IID samples of your product to test for failure. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability of a satisfactory product, if none of the samples fail?</span></p>
-</div>
 <hr>
 </section>
 <section id="ci-binomial-zero-failures" class="level2">
 <h2 class="anchored" data-anchor-id="ci-binomial-zero-failures">Example: CI for a binomial proportion when no failures are observed</h2>
-<p>You draw <span class="math inline">\(n\)</span> IID samples of your product to test for failure. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability that a product is satisfactory, if none of the samples fail?</p>
+<p>You draw <span class="math inline">\(n\)</span> IID samples of your product to test for <em>failure</em>, and none of the samples fail. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability that a product is satisfactory?</p>
 <p>Let <span class="math inline">\(X_i = 1\)</span> if the <span class="math inline">\(i\)</span>th product is satisfactory and <span class="math inline">\(0\)</span> otherwise. Note that <span class="math display">\[\begin{gather*}
 X_i =
 \begin{cases}
