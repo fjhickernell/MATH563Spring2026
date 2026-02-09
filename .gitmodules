@@ -4,7 +4,7 @@
 	branch = main
 [submodule "qmcsoftware"]
 	path = qmcsoftware
-	url = https://github.com/QMCSoftware/QMCSoftware.git
+	url = git@github.com:QMCSoftware/QMCSoftware.git
 	branch = develop
 [submodule "assets/tests/archive"]
 	path = assets/tests/archive
