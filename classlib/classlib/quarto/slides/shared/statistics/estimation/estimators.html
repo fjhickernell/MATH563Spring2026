@@ -225,10 +225,10 @@ window.Quarto = {
 <p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute</p>
 <ul>
 <li><p><span class="alert">Empirical Distribution</span> <span class="math inline">\(F_{\{X_i\}}(x) := \frac 1n \sum_{i=1}^n \indic(X_i \le x)\)</span></p></li>
-<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX_n := \frac{1}{n} \sum_{i=1}^n X_i = \int x \, \dif F_{\{X_i\}}(x) = \Ex_{F_{\{X_i\}}}(X)\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
-<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1) := \Ex[(X_1-\mu)^2]\)</span></p>
+<li><p><span class="alert">Sample Mean</span> <span class="math inline">\(\displaystyle \barX = \barX_n := \frac{1}{n} \sum_{i=1}^n X_i = \int x \, \dif F_{\{X_i\}}(x) = \Ex_{F_{\{X_i\}}}(X)\)</span> to approximate the population mean <span class="math inline">\(\mu := \Ex[X_1]\)</span></p></li>
+<li><p><span class="alert">Sample Variance</span> <span class="math inline">\(S^2 =S^2_n := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span> to approximate the population variance <span class="math inline">\(\sigma^2 := \var(X_1) := \Ex[(X_1-\mu)^2]\)</span></p>
 <ul>
-<li>Sometimes <span class="math inline">\(\hsigma^2 := \displaystyle \frac{1}{\class{alert}{n}} \sum_{i=1}^n (X_i - \barX_n)^2\)</span></li>
+<li>Sometimes <span class="math inline">\(\hsigma^2 = \hsigma^2_n := \displaystyle \frac{1}{\class{alert}{n}} \sum_{i=1}^n (X_i - \barX_n)^2\)</span></li>
 </ul></li>
 </ul>
 <hr>
@@ -316,9 +316,9 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <ul>
 <li><p><span class="math inline">\(\barX_n \exsim \Norm(\mu,\sigma^2/n)\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span></p></li>
 <li><p><span class="math inline">\(\barX_n \appxsim \Norm(\mu,\sigma^2/n)\)</span> for arbitrary distributions and large <span class="math inline">\(n\)</span> by the <span class="alert">Central Limit Theorem</span></p></li>
-<li><p><span class="math inline">\(\displaystyle \frac{\barX_n - \mu}{S/\sqrt{n}} \sim t_{n-1}\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span> where</p>
+<li><p><span class="math inline">\(\displaystyle \frac{\barX_n - \mu}{S_n/\sqrt{n}} \sim t_{n-1}\)</span> if <span class="math inline">\(X \sim \Norm(\mu,\sigma^2)\)</span> where</p>
 <ul>
-<li><p><span class="math inline">\(\displaystyle S^2 := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle S_n^2 := \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span></p></li>
 <li><p><span class="math inline">\(t_\nu\)</span> is the <span class="alert">Student’s t distribution</span> with <span class="math inline">\(\nu\)</span> degrees of freedom</p>
 <ul>
 <li><span class="math inline">\(\displaystyle \varrho_{t_\nu}(x) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\,\Gamma\!\left(\frac{\nu}{2}\right)}\left(1+\frac{x^2}{\nu}\right)^{-(\nu+1)/2}, \quad \infty &lt; x &lt; \infty\)</span></li>
@@ -329,9 +329,9 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </ul></li>
 </ul>
 <hr>
-<p>For the unbiased sample variance, <span class="math inline">\(S^2\)</span>, for <span class="alert"><span class="math inline">\(\Norm(\mu,\sigma^2)\)</span></span> based on IID data</p>
+<p>For the unbiased sample variance, <span class="math inline">\(S_n^2\)</span>, for <span class="alert"><span class="math inline">\(\Norm(\mu,\sigma^2)\)</span></span> based on IID data</p>
 <ul>
-<li><span class="math inline">\(\displaystyle \frac{(n-1) S^2}{\sigma^2} \sim \chi^2_{n-1}\)</span></li>
+<li><span class="math inline">\(\displaystyle \frac{(n-1) S_n^2}{\sigma^2} \sim \chi^2_{n-1}\)</span></li>
 </ul>
 <p>&nbsp;</p>
 <p>For order statistics, <span class="math inline">\(X_{(k)}\)</span>, <span class="math inline">\(\displaystyle F_{X_{(k)}}(x) = \sum_{j=k}^n \binom{n}{j} [F_X(x)]^j [1 - F_X(x)]^{n-j}\)</span> for IID data from CDF <span class="math inline">\(F_X\)</span></p>
