@@ -686,6 +686,8 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <li><a href="#/confidence-intervals-for-means-of-differences">Confidence intervals for means of differences</a></li>
 <li><a href="#/confidence-intervals-for-proportions">Confidence intervals for proportions</a></li>
 <li><a href="#/confidence-intervals-for-variances">Confidence intervals for variances</a></li>
+<li><a href="#/bootstrap-confidence-intervals">Bootstrap confidence intervals</a></li>
+<li><a href="#/ci-assumptions">Summary of common confidence intervals and their assumptions</a></li>
 </ul>
 </section>
 <section id="critical-value-notation-important" class="slide level2">
@@ -705,7 +707,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="6171b699" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="325585d5" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -769,7 +771,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="b35eb8f6" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="ee684b04" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -834,7 +836,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="ec75ae6f" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="5fc00fe2" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -859,7 +861,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="a312b6a6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="c76b3a24" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1020,7 +1022,7 @@ z_{\alpha/2}
 <ol type="1">
 <li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> are IID test scores from a population of medical students. Construct a 95% confidence interval for the mean test score of the whole population and interpret the interval in context.</p></li>
 <li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> are two independent IID samples of test scores from two different populations of medical students. The first group was given a practice test beforehand, and the second group was not. Construct a 95% confidence interval for the difference in mean test scores between the two populations and interpret the interval in context.</p></li>
-<li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> are two IID samples of test scores from the same population of medical students. The <span class="math inline">\(X_i\)</span>’s are the students’ scores on a practice test, and the <span class="math inline">\(Y_i\)</span>’s are the students’ scores on the real test. Construct a 95% confidence interval for the mean difference in test scores between the practice and real tests.</p></li>
+<li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> are two IID samples of test scores from the same population of medical students. The <span class="math inline">\(X_i\)</span>’s are the students’ scores on the real test, and the <span class="math inline">\(Y_i\)</span>’s are the students’ scores on the practice test taken earlier. Construct a 95% confidence interval for the mean difference in test scores between the practice and real tests.</p></li>
 </ol>
 </section>
 <section id="confidence-intervals-for-proportions" class="slide level2">
@@ -1189,10 +1191,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-0.94, 2.11, 0.90, 1.17, 4.17, 2.07, 3.42, 1.87
+1.63, 1.59, 1.44, 1.48, 2.11, 0.53, 0.08, 1.45
 </td>
 <td>
-2.08
+1.29
 </td>
 </tr>
 <tr>
@@ -1200,10 +1202,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-0.90, 2.11, 1.17, 0.94, 1.87, 0.90, 4.17, 1.17
+2.11, 2.11, 0.53, 1.44, 1.45, 1.63, 2.11, 1.45
 </td>
 <td>
-1.66
+1.61
 </td>
 </tr>
 <tr>
@@ -1211,10 +1213,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-0.90, 2.11, 1.87, 0.94, 2.07, 2.07, 3.42, 4.17
+1.44, 0.53, 0.08, 0.53, 1.48, 0.08, 1.45, 1.44
 </td>
 <td>
-2.20
+0.88
 </td>
 </tr>
 <tr>
@@ -1222,10 +1224,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-2.07, 2.11, 0.90, 0.90, 4.17, 4.17, 4.17, 2.11
+0.53, 1.63, 1.63, 1.45, 1.45, 1.63, 1.63, 1.63
 </td>
 <td>
-2.58
+1.45
 </td>
 </tr>
 <tr>
@@ -1233,10 +1235,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-1.87, 0.94, 4.17, 1.87, 3.42, 1.87, 0.90, 0.94
+1.44, 1.48, 0.53, 2.11, 0.53, 0.53, 0.08, 1.48
 </td>
 <td>
-2.00
+1.02
 </td>
 </tr>
 <tr>
@@ -1254,7 +1256,7 @@ Bootstrap 4
 </table>
 <p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
 </section>
-<section id="assumptions-behind-common-confidence-intervals" class="slide level2">
+<section id="ci-assumptions" class="slide level2">
 <h2>Assumptions behind common confidence intervals</h2>
 <p>Data are IID from a distribution with finite variance</p>
 <table class="caption-top">
