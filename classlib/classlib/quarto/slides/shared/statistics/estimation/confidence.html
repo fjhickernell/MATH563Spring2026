@@ -270,7 +270,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="34ceb8cf" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="b1a5274b" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -333,7 +333,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="c801dd65" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="47cd433c" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -397,7 +397,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="000bf101" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="aba08dfb" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -685,13 +685,104 @@ X_1^{(b)},\dots,X_n^{(b)} \IIDsim \text{Uniform}\{X_1,\dots,X_n\}, \quad b=1,\do
 \Theta_{(1-\alpha/2)}
 \right]
 \]</span></p>
-</section>
-<section id="no-normality-no-variance-formula-works-when-classical-assumptions-fail" class="level2">
-<h2 class="anchored" data-anchor-id="no-normality-no-variance-formula-works-when-classical-assumptions-fail">&gt; No normality · No variance formula · Works when classical assumptions fail</h2>
+<blockquote class="blockquote">
+<p>No normality · No variance formula · Works when classical assumptions fail</p>
+</blockquote>
+<hr>
 <p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
 </section>
+<section id="example-of-vanilla-bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-vanilla-bootstrap">Example of vanilla bootstrap</h2>
+<p>We draw a <em>single IID random sample of size</em> <span class="math inline">\(n=8\)</span> from a population: <span class="math display">\[
+X_1,\dots,X_{8}, \qquad
+\barX = \frac{1}{8}\sum_{i=1}^{8} X_i
+\]</span> A <em>vanilla bootstrap sample</em> is obtained by sampling <strong>with replacement</strong> from the observed data <span class="math inline">\(\{X_1,\dots,X_{8}\}\)</span>. We repeat this independently to obtain <em>bootstrap</em> samples.</p>
+<table style="width:100%; table-layout:fixed;">
+<thead>
+<tr>
+<th style="width:20%;">
+Sample
+</th>
+<th style="width:55%;">
+Observations
+</th>
+<th style="width:25%;">
+Sample mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>Original</strong>
+</td>
+<td>
+1.69, 0.21, 3.81, 0.89, 5.80, 2.07, 0.55, 2.74
+</td>
+<td>
+2.22
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 1
+</td>
+<td>
+0.21, 0.21, 2.74, 3.81, 5.80, 3.81, 1.69, 5.80
+</td>
+<td>
+3.01
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 2
+</td>
+<td>
+2.74, 2.74, 0.21, 0.21, 1.69, 0.21, 3.81, 0.89
+</td>
+<td>
+1.56
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 3
+</td>
+<td>
+2.07, 5.80, 5.80, 3.81, 1.69, 1.69, 0.89, 1.69
+</td>
+<td>
+2.93
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 4
+</td>
+<td>
+2.74, 1.69, 3.81, 1.69, 2.07, 0.21, 3.81, 1.69
+</td>
+<td>
+2.22
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="assumptions-behind-common-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="assumptions-behind-common-confidence-intervals">Assumptions Behind Common Confidence Intervals</h2>
+<h2 class="anchored" data-anchor-id="assumptions-behind-common-confidence-intervals">Assumptions behind common confidence intervals</h2>
 <p>Data are IID from a distribution with finite variance</p>
 <table class="caption-top table">
 <colgroup>

@@ -705,7 +705,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="8b513433" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="09e99b8a" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -768,7 +768,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="b3990cfc" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="664a8173" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -833,7 +833,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="f5541654" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="3c1c68d6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1119,13 +1119,106 @@ X_1^{(b)},\dots,X_n^{(b)} \IIDsim \text{Uniform}\{X_1,\dots,X_n\}, \quad b=1,\do
 \Theta_{(1-\alpha/2)}
 \right]
 \]</span></p>
+<blockquote>
+<p>No normality · No variance formula · Works when classical assumptions fail</p>
+</blockquote>
 </section>
-<section id="no-normality-no-variance-formula-works-when-classical-assumptions-fail" class="slide level2">
-<h2>&gt; No normality · No variance formula · Works when classical assumptions fail</h2>
+<section class="slide level2">
+
 <p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
 </section>
+<section id="example-of-vanilla-bootstrap" class="slide level2">
+<h2>Example of vanilla bootstrap</h2>
+<p>We draw a <em>single IID random sample of size</em> <span class="math inline">\(n=8\)</span> from a population: <span class="math display">\[
+X_1,\dots,X_{8}, \qquad
+\barX = \frac{1}{8}\sum_{i=1}^{8} X_i
+\]</span> A <em>vanilla bootstrap sample</em> is obtained by sampling <strong>with replacement</strong> from the observed data <span class="math inline">\(\{X_1,\dots,X_{8}\}\)</span>. We repeat this independently to obtain <em>bootstrap</em> samples.</p>
+<table style="width:100%; table-layout:fixed;">
+<thead>
+<tr>
+<th style="width:20%;">
+Sample
+</th>
+<th style="width:55%;">
+Observations
+</th>
+<th style="width:25%;">
+Sample mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>Original</strong>
+</td>
+<td>
+0.83, 2.60, 1.74, 4.47, 1.00, 1.63, 3.04, 2.11
+</td>
+<td>
+2.18
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 1
+</td>
+<td>
+3.04, 1.63, 2.60, 1.63, 1.63, 0.83, 3.04, 4.47
+</td>
+<td>
+2.36
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 2
+</td>
+<td>
+2.11, 1.00, 4.47, 2.60, 0.83, 1.63, 1.63, 2.11
+</td>
+<td>
+2.05
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 3
+</td>
+<td>
+1.63, 2.11, 4.47, 1.74, 4.47, 2.60, 1.63, 3.04
+</td>
+<td>
+2.71
+</td>
+</tr>
+<tr>
+<td>
+Bootstrap 4
+</td>
+<td>
+3.04, 2.60, 4.47, 4.47, 0.83, 2.60, 2.11, 2.60
+</td>
+<td>
+2.84
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="assumptions-behind-common-confidence-intervals" class="slide level2">
-<h2>Assumptions Behind Common Confidence Intervals</h2>
+<h2>Assumptions behind common confidence intervals</h2>
 <p>Data are IID from a distribution with finite variance</p>
 <table class="caption-top">
 <colgroup>
