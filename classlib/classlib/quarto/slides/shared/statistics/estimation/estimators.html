@@ -279,17 +279,21 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <h2 class="anchored" data-anchor-id="biasvar">Bias, variance, and mean squared error of estimators</h2>
 <p>Suppose that <span class="math inline">\(\Theta\)</span> is an estimator of a parameter, <span class="math inline">\(\theta\)</span>, of a population</p>
 <ul>
-<li><span class="alert">Bias</span> <span class="math inline">\(\bias(\Theta) = \Ex(\Theta) - \theta\)</span>
+<li><p><span class="alert">Bias</span> <span class="math inline">\(\bias(\Theta) = \Ex(\Theta) - \theta\)</span></p>
 <ul>
 <li>Asymptotic bias is <span class="math inline">\(\displaystyle \lim_{n \to \infty} \bias(\Theta_n)\)</span>, where <span class="math inline">\(n\)</span> is the size of the sample on which the estimator is based</li>
 <li>An estimator is <span class="alert">unbiased</span> if <span class="math inline">\(\bias(\Theta) = 0\)</span></li>
 <li><span class="math inline">\(\barX_n\)</span> is an unbiased estimator of <span class="math inline">\(\mu = \Ex(X_1)\)</span> for identically distributed data</li>
 </ul></li>
-<li><span class="alert">Variance</span> we already know this definition
+<li><p><span class="alert">Variance</span> we already know this definition</p>
 <ul>
 <li><span class="math inline">\(\var(\barX_n) \exeq \var(X_1)/n\)</span> for uncorrelated, identically distributed data</li>
 </ul></li>
-<li><span class="alert">Mean squared error (MSE)</span> <span class="math inline">\(\mse(\Theta) := \Ex[(\Theta - \theta)^2] \exeq [\bias(\Theta)]^2 + \var(\Theta)\)</span></li>
+<li><p><span class="alert">Mean squared error</span> <span class="math inline">\(\mse(\Theta) := \Ex[(\Theta - \theta)^2] \exeq [\bias(\Theta)]^2 + \var(\Theta)\)</span></p></li>
+<li><p><span class="alert">Standard Error</span> <span class="math inline">\(\se(\Theta) := \sqrt{\var(\Theta)}\)</span> is the standard deviation of the sampling distribution of <span class="math inline">\(\Theta\)</span></p>
+<ul>
+<li><span class="math inline">\(\se(\barX_n) = \sqrt{\var(\barX_n)}\)</span></li>
+</ul></li>
 </ul>
 <hr>
 <p><span class="math inline">\(\exstar\)</span> Show that <span class="math inline">\(S^2 := \displaystyle \frac{1}{n-1} \sum_{i=1}^n (X_i - \barX_n)^2\)</span> is an unbiased estimator of <span class="math inline">\(\sigma^2\)</span></p>

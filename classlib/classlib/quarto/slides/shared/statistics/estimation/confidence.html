@@ -250,6 +250,7 @@ window.Quarto = {
 <li><a href="#large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
 <li><a href="#small-sample-confidence-intervals-for-means-when-the-distribution-is-known">Small sample size confidence intervals for means when the distribution is known</a></li>
 <li><a href="#confidence-intervals-for-means-of-differences">Confidence intervals for means of differences</a></li>
+<li><a href="#confidence-intervals-for-proportions">Confidence intervals for proportions</a></li>
 <li><a href="#confidence-intervals-for-variances">Confidence intervals for variances</a></li>
 </ul>
 <section id="critical-value-notation-important" class="level2">
@@ -269,7 +270,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="7a216f80" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="b15a9aca" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -332,7 +333,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="c52c0b99" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="535b5276" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -396,7 +397,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="40ce356e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="20b986d5" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -429,7 +430,7 @@ T := \sum_{i=1}^n X_i \quad \text{(\# satisfactory)} \sim \Bin(n,p).
 <li><p>Want a one-sided confidence interval for <span class="math inline">\(p\)</span> of the form <span class="math inline">\([P_L,1]\)</span>; confidence in our product quality</p></li>
 <li><p><span class="math inline">\(P_L\)</span> is <em>a random variable</em>, defined as a function of <span class="math inline">\(T\)</span></p>
 <ul>
-<li>If true success probability <span class="math inline">\(&lt; P_L\)</span>, then observing <span class="math inline">\(\ge T\)</span> successes is very unlikely</li>
+<li>If true success probability <span class="math inline">\(&lt; P_L\)</span>, then observing <span class="math inline">\(\ge T\)</span> successes is quite unlikely</li>
 </ul></li>
 <li><p>We define a function <span class="math inline">\(p_{L,\alpha} : \{0,1,\ldots,n\} \to [0,1]\)</span> implicitly by requiring that <span class="math display">\[
 \Prob_{\Bin(n,p_{L,\alpha}(t))}\bigl(T \ge t\bigr) = \alpha \qquad \forall t \in \{0,1,\ldots,n\}
@@ -483,82 +484,210 @@ D_i = X_i - Y_i, \quad i = 1,\dots,n
 <p><span class="math display">\[
 X_1,\dots,X_{n_X} \sim \text{population 1}, \quad
 Y_1,\dots,Y_{n_Y} \sim \text{population 2}
-\]</span> with sample means <span class="math inline">\(\barX,\barY\)</span> and sample variances <span class="math inline">\(s_X^2,s_Y^2\)</span></p>
-<p>If the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <span class="alert">Normal</span>, we have an <span class="alert">approximate</span> confidence interval for <span class="math inline">\(\mu_X - \mu_Y\)</span></p>
-<p><span class="math display">\[
-\Prob\left[
-(\barX-\barY)
--
-t_{1-\alpha/2,\nu}
-\sqrt{\frac{S_X^2}{n_X}+\frac{S_Y^2}{n_Y}} \le \mu_X - \mu_Y \le
-(\barX-\barY)
-+
-t_{1-\alpha/2,\nu}
-\sqrt{\frac{S_X^2}{n_X}+\frac{S_Y^2}{n_Y}}  
-\right] = 1 - \alpha
 \]</span></p>
-<p>where <span class="math inline">\(\nu\)</span> is an approximate degrees of freedom (value not critical here)</p>
-<p>Other variations exist, e.g., pooled <em>t</em>, Welch</p>
+<p>with sample means <span class="math inline">\(\barX_{n_X}, \barY_{n_Y}\)</span> and sample variances <span class="math inline">\(S_{X,n_X}^2, S_{Y,n_Y}^2\)</span></p>
 <hr>
-<p>If <span class="math inline">\(n_X, n_Y\)</span> are large, we have a <strong>CLT-based interval</strong></p>
-<p><span class="math display">\[
-\Prob\left[
-(\barX-\barY)
-- z_{1-\alpha/2}
-\sqrt{\frac{S_X^2}{n_X}+\frac{S_Y^2}{n_Y}} \le \mu_X - \mu_Y \le
-(\barX-\barY)
-+ z_{1-\alpha/2}
-\sqrt{\frac{S_X^2}{n_X}+\frac{S_Y^2}{n_Y}}  
-\right] \approx 1 - \alpha
+<section id="pooled-t-confidence-interval-wackerly" class="level3">
+<h3 class="anchored" data-anchor-id="pooled-t-confidence-interval-wackerly">Pooled-<span class="math inline">\(t\)</span> confidence interval (Wackerly)</h3>
+<p>Assume that the two populations:</p>
+<ul>
+<li>Are sampled <span class="alert">independently</span></li>
+<li>Are <span class="alert">Normal</span></li>
+<li>Have a <span class="alert">common variance</span> <span class="math inline">\(\sigma^2\)</span></li>
+</ul>
+<p>Define the <em>pooled variance</em> estimator of <span class="math inline">\(\sigma^2\)</span> as <span class="math display">\[
+S_p^2
+=
+\frac{(n_X-1)S_{X,n_X}^2 + (n_Y-1)S_{Y,n_Y}^2}{n_X + n_Y - 2}.
 \]</span></p>
+<p>Then a <span class="math inline">\(t\)</span>-based confidence interval for <span class="math inline">\(\mu_X - \mu_Y\)</span> is</p>
+<p><span class="math display">\[\begin{multline*}
+\Prob\left[
+(\barX_{n_X}-\barY_{n_Y})
+-
+t_{n_X+n_Y-2,\alpha/2}
+\, S_p
+\sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}
+\le \mu_X - \mu_Y \right .  \\ \left .
+\le
+(\barX_{n_X}-\barY_{n_Y})
++
+t_{n_X+n_Y-2,\alpha/2}
+\, S_p
+\sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}
+\right]
+=
+1 - \alpha.
+\end{multline*}\]</span></p>
+<hr>
+<p>Other variations exist (Welch two-sample <span class="math inline">\(t\)</span>, unequal variances).</p>
+</section>
+<section id="clt-based-interval-large-samples" class="level3">
+<h3 class="anchored" data-anchor-id="clt-based-interval-large-samples">CLT-based interval (large samples)</h3>
+<p>If <span class="math inline">\(n_X\)</span> and <span class="math inline">\(n_Y\)</span> are large and the samples are independent, then a <em>CLT-based confidence interval</em> applies even if the two populations:</p>
+<ul>
+<li>need <em>not</em> be Normal</li>
+<li>need <em>not</em> have a common variance</li>
+</ul>
+<p><span class="math display">\[\begin{multline*}
+\Prob\left[
+(\barX_{n_X}-\barY_{n_Y})
+-
+z_{\alpha/2}
+\sqrt{\frac{S_{X,n_X}^2}{n_X}+\frac{S_{Y,n_Y}^2}{n_Y}}
+\le \mu_X - \mu_Y \right . \\ \left .
+\le
+(\barX_{n_X}-\barY_{n_Y})
++
+z_{\alpha/2}
+\sqrt{\frac{S_{X,n_X}^2}{n_X}+\frac{S_{Y,n_Y}^2}{n_Y}}
+\right]
+\approx
+1 - \alpha.
+\end{multline*}\]</span></p>
+</section>
 </section>
 <section id="confidence-intervals-for-proportions" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-intervals-for-proportions">Confidence Intervals for <em>Proportions</em></h2>
-<p><strong>Typical setting:</strong> Bernoulli trials</p>
-<p>Let<br>
-[ X (n,p), p = X/n ]</p>
-<p>Parameter of interest: population proportion <span class="math inline">\(p\)</span>.</p>
-<p><strong>Common methods</strong></p>
+<h2 class="anchored" data-anchor-id="confidence-intervals-for-proportions">Confidence Interval for <em>Proportions</em> (CLT)</h2>
+<section id="one-proportion" class="level3">
+<h3 class="anchored" data-anchor-id="one-proportion">One proportion</h3>
 <ul>
-<li><strong>Normal approximation interval</strong>
-<ul>
-<li>Requires <span class="math inline">\(np\)</span> and <span class="math inline">\(n(1-p)\)</span> large</li>
-<li>Simple but can undercover</li>
-</ul></li>
-<li><strong>Wilson / Agresti–Coull interval</strong>
-<ul>
-<li>Improved accuracy over normal approximation</li>
-<li>Near-nominal coverage for moderate <span class="math inline">\(n\)</span></li>
-</ul></li>
-<li><strong>Exact (Clopper–Pearson) interval</strong>
-<ul>
-<li>No sample size restriction</li>
-<li>Guaranteed coverage</li>
-<li>Conservative (wider than necessary)</li>
-</ul></li>
+<li><span class="math inline">\(X_1,\dots,X_n \IIDsim \Bern(p)\)</span> (<span class="math inline">\(p =\)</span> probability of success shooting free throws, product quality control, etc.)</li>
+<li><span class="math inline">\(\hP_n = \frac{1}{n}\sum_{i=1}^n X_i =\)</span> sample proportion of successes</li>
+<li><span class="math inline">\(\Ex[\hP_n] = p\)</span> and <span class="math inline">\(\var(\hP_n) = p(1-p)/n\)</span></li>
 </ul>
-<p><strong>Key tradeoff:</strong> simplicity vs coverage accuracy.</p>
+<p>If <span class="math inline">\(n\)</span> is large, an <span class="alert">approximate CLT-based</span> interval for <span class="math inline">\(p\)</span> is</p>
+<p><span class="math display">\[\begin{equation*}
+\Prob\left[
+\hP_n
+-
+z_{\alpha/2}\sqrt{\frac{\hP_n(1-\hP_n)}{n}}
+\le p
+\le
+\hP_n
++
+z_{\alpha/2}\sqrt{\frac{\hP_n(1-\hP_n)}{n}}
+\right]
+\approx
+1-\alpha
+\end{equation*}\]</span></p>
+<hr>
 </section>
-<section id="confidence-intervals-for-variances" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-intervals-for-variances">Confidence Intervals for <em>Variances</em></h2>
-<p><strong>Typical setting:</strong> inference about variability</p>
-<p>Parameter of interest: population variance <span class="math inline">\(\sigma^2\)</span>.</p>
-<p><strong>Common methods</strong></p>
+<section id="difference-of-two-proportions" class="level3">
+<h3 class="anchored" data-anchor-id="difference-of-two-proportions">Difference of two proportions</h3>
+<p><span class="alert">Independent</span> samples <span class="math display">\[\begin{gather*}
+X_1,\dots,X_{n_X} \IIDsim \Bern(p_X), \qquad
+Y_1,\dots,Y_{n_Y} \IIDsim \Bern(p_Y)
+\\
+\hP_X = \frac{1}{n_X}\sum X_i,
+\qquad
+\hP_Y = \frac{1}{n_Y}\sum Y_j
+\end{gather*}\]</span></p>
+<p>If <span class="math inline">\(n_X\)</span> and <span class="math inline">\(n_Y\)</span> are large, an <span class="alert">approximate CLT-based</span> confidence interval for <span class="math inline">\(p_X - p_Y\)</span> is</p>
+<p><span class="math display">\[\begin{multline*}
+\Prob\left[
+(\hP_X-\hP_Y)
+-
+z_{\alpha/2}
+\sqrt{\frac{\hP_X(1-\hP_X)}{n_X}
++
+\frac{\hP_Y(1-\hP_Y)}{n_Y}}
+\right . \\ \left .
+\le p_X - p_Y \le
+(\hP_X-\hP_Y)
++
+z_{\alpha/2}
+\sqrt{\frac{\hP_X(1-\hP_X)}{n_X}
++
+\frac{\hP_Y(1-\hP_Y)}{n_Y}}
+\right]
+\approx
+1-\alpha
+\end{multline*}\]</span></p>
+</section>
+</section>
+<section id="confidence-interval-for-a-variance" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-for-a-variance">Confidence Interval for a <em>Variance</em></h2>
+<p>Let <span class="math inline">\(X_1,\dots,X_n \IIDsim \Norm(\mu,\sigma^2)\)</span> with sample variance <span class="math inline">\(S_n^2\)</span></p>
+<p>Then <span class="math display">\[
+\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2_{n-1}
+\]</span></p>
+<p>and a <span class="math inline">\((1-\alpha)\)</span> confidence interval for <span class="math inline">\(\sigma^2\)</span> is</p>
+<p><span class="math display">\[\begin{equation*}
+\Prob\left[
+\frac{(n-1)S_n^2}{\chi^2_{n-1,\,1-\alpha/2}}
+\le \sigma^2 \le
+\frac{(n-1)S_n^2}{\chi^2_{n-1,\,\alpha/2}}
+\right]
+=
+1-\alpha
+\end{equation*}\]</span></p>
+</section>
+<section id="confidence-interval-for-ratio-of-variances" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-for-ratio-of-variances">Confidence Interval for <em>Ratio</em> of Variances</h2>
+<p>Let <span class="math display">\[
+X_1,\dots,X_{n_X} \IIDsim \Norm(\mu_X,\sigma_X^2), \quad
+Y_1,\dots,Y_{n_Y} \IIDsim \Norm(\mu_Y,\sigma_Y^2)
+\]</span></p>
+<p>be independent samples with sample variances <span class="math inline">\(S_{X,n_X}^2, S_{Y,n_Y}^2\)</span>, respectively</p>
+<p>Then <span class="math display">\[
+\frac{S_{X,n_X}^2 / \sigma_X^2}{S_{Y,n_Y}^2 / \sigma_Y^2}
+\sim
+F_{\,n_X-1,n_Y-1}
+\]</span></p>
+<p>and a <span class="math inline">\((1-\alpha)\)</span> confidence interval for <span class="math inline">\(\displaystyle \frac{\sigma_X^2}{\sigma_Y^2}\)</span> is</p>
+<p><span class="math display">\[\begin{equation*}
+\Prob\left[
+\frac{S_{X,n_X}^2}{S_{Y,n_Y}^2}
+\frac{1}{F_{n_X-1,n_Y-1;\,1-\alpha/2}}
+\le
+\frac{\sigma_X^2}{\sigma_Y^2}
+\le
+\frac{S_{X,n_X}^2}{S_{Y,n_Y}^2}
+\frac{1}{F_{n_X-1,n_Y-1;\,\alpha/2}}
+\right]
+=
+1-\alpha
+\end{equation*}\]</span></p>
+</section>
+<section id="bootstrap-confidence-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrap-confidence-intervals">Bootstrap Confidence Intervals</h2>
+<p>Classical confidence intervals rely on assumptions such as:</p>
 <ul>
-<li><strong>Chi-squared interval</strong>
-<ul>
-<li>Assumes data are IID Normal</li>
-<li>Exact for any <span class="math inline">\(n\)</span></li>
-<li>Very sensitive to non-normality</li>
-</ul></li>
-<li><strong>Asymptotic (CLT-based) intervals</strong>
-<ul>
-<li>Assume finite fourth moments</li>
-<li>Require large <span class="math inline">\(n\)</span></li>
-<li>Rarely used in introductory courses</li>
-</ul></li>
+<li>Known or estimable variance</li>
+<li>Normality of the sampling distribution</li>
+<li>Large sample sizes (via CLT)</li>
 </ul>
-<p><strong>Important:</strong> variance inference is far less robust than mean inference.</p>
+<p>But in practice we often have:</p>
+<ul>
+<li>Small samples</li>
+<li>Skewed or heavy-tailed data</li>
+<li>Complicated estimators (medians, quantiles, ratios)</li>
+</ul>
+<p><em>Bootstrap confidence intervals</em> replace distributional assumptions with <span class="alert">resampling from the observed data</span> to approximate the sampling distribution of an estimator</p>
+</section>
+<section id="the-bootstrap-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-bootstrap-idea">The Bootstrap Idea</h2>
+<p>Given data <span class="math inline">\(X_1,\dots,X_n\)</span> and an estimator <span class="math inline">\(\Theta\)</span>:</p>
+<ol type="1">
+<li><p>Resample <em>with replacement</em> from the data to form <span class="math inline">\(B\)</span> bootstrap samples<br>
+Each bootstrap sample has size <span class="math inline">\(n\)</span> and consists of draws from the original data <span class="math display">\[
+X_1^{(b)},\dots,X_n^{(b)} \IIDsim \text{Uniform}\{X_1,\dots,X_n\}, \quad b=1,\dots,B
+\]</span></p></li>
+<li><p>Compute the bootstrap estimators <span class="math inline">\(\Theta^{(b)}\)</span> <span class="math display">\[
+\Theta^{(b)} = \Theta(X_1^{(b)},\dots,X_n^{(b)}), \quad b=1,\dots,B
+\]</span></p></li>
+<li><p>Use the empirical distribution of <span class="math inline">\(\Theta^{(1)},\dots,\Theta^{(B)}\)</span> to construct confidence intervals</p></li>
+</ol>
+<p>A simple <em>bootstrap percentile CI</em> uses the <em>order statistics</em> of the bootstrap estimators: <span class="math display">\[
+\left[
+\Theta_{(\alpha/2)},
+\Theta_{(1-\alpha/2)}
+\right]
+\]</span></p>
+<blockquote class="blockquote">
+<p>No normality · No variance formula · Works when classical assumptions fail</p>
+</blockquote>
 </section>
 <section id="assumptions-behind-common-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="assumptions-behind-common-confidence-intervals">Assumptions Behind Common Confidence Intervals</h2>
@@ -585,7 +714,7 @@ t_{1-\alpha/2,\nu}
 <td><span class="math inline">\(\mu\)</span></td>
 <td><strong>Any</strong> distribution</td>
 <td><strong>Large</strong> <span class="math inline">\(n\)</span></td>
-<td>Central Limit Theorem (CLT)</td>
+<td><strong>CLT</strong></td>
 <td><strong>Approximate</strong>, accuracy improves as <span class="math inline">\(n \to \infty\)</span></td>
 </tr>
 <tr class="even">
@@ -606,7 +735,7 @@ t_{1-\alpha/2,\nu}
 <td><span class="math inline">\(\mu = p\)</span></td>
 <td><strong>Bernoulli</strong> trials</td>
 <td>Large <span class="math inline">\(np\)</span>, <span class="math inline">\(n(1-p)\)</span></td>
-<td>Central Limit Theorem (CLT)</td>
+<td><strong>CLT</strong></td>
 <td><strong>Approximate</strong></td>
 </tr>
 <tr class="odd">
@@ -645,26 +774,47 @@ t_{1-\alpha/2,\nu}
 <td><strong>Exact</strong>, sometimes confused with two-sample <em>t</em></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\mu_1-\mu_2\)</span></td>
-<td>Each sample <strong>Normal</strong>; independent samples</td>
-<td>Any <span class="math inline">\(n_1,n_2\)</span></td>
-<td>Two-sample <em>t</em> (Wackerly)</td>
-<td><strong>Approximate</strong>, uses unpooled standard error</td>
+<td><span class="math inline">\(\mu_X-\mu_Y\)</span></td>
+<td>Each sample <strong>Normal</strong>; independent samples; <strong>common variance</strong></td>
+<td>Any <span class="math inline">\(n_X,n_Y\)</span></td>
+<td>Two-sample <em>t</em> (pooled)</td>
+<td><strong>Exact</strong></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(\mu_1-\mu_2\)</span></td>
+<td><span class="math inline">\(\mu_X-\mu_Y\)</span></td>
 <td>Independent samples from <strong>any</strong> distributions with finite variances</td>
-<td><strong>Large</strong> <span class="math inline">\(n_1,n_2\)</span></td>
-<td>CLT (two-sample)</td>
+<td><strong>Large</strong> <span class="math inline">\(n_X,n_Y\)</span></td>
+<td><strong>CLT</strong> (two-sample)</td>
 <td><strong>Approximate</strong></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><span class="math inline">\(p_X-p_Y\)</span></td>
+<td>Independent samples of <strong>Bernoulli</strong> trials</td>
+<td>Large <span class="math inline">\(n_Xp_X\)</span>, <span class="math inline">\(n_X(1-p_X)\)</span>, <span class="math inline">\(n_Yp_Y\)</span>, <span class="math inline">\(n_Y(1-p_Y)\)</span></td>
+<td><strong>CLT</strong> (two-sample)</td>
+<td><strong>Approximate</strong></td>
 </tr>
+</tbody>
+</table>
+<hr>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 32%">
+<col style="width: 8%">
+<col style="width: 23%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Distributional Assumptions</th>
+<th>Sample Size</th>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td><span class="math inline">\(\sigma^2\)</span></td>
 <td><strong>Normal</strong> data</td>
@@ -673,11 +823,25 @@ t_{1-\alpha/2,\nu}
 <td><strong>Exact</strong>, sensitive to non-normality</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\med(X)\)</span></td>
+<td><span class="math inline">\(\sigma_X^2/\sigma_Y^2\)</span></td>
+<td><strong>Normal</strong> data; independent samples</td>
+<td>Any <span class="math inline">\(n_X,n_Y\)</span></td>
+<td>F-distribution</td>
+<td><strong>Exact</strong>, sensitive to non-normality</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\med(F)\)</span></td>
 <td>Continuous distribution</td>
 <td><span class="math inline">\(n\)</span> not too small</td>
 <td>Order-statistics</td>
 <td><strong>Approximate</strong>, Distribution-free</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta(F)\)</span></td>
+<td><strong>None</strong> (empirical distribution)</td>
+<td>Moderate <span class="math inline">\(n\)</span></td>
+<td>Bootstrap resampling</td>
+<td><strong>Approximate</strong>, works when classical theory breaks</td>
 </tr>
 </tbody>
 </table>
@@ -685,12 +849,18 @@ t_{1-\alpha/2,\nu}
 <section id="summary" class="level3">
 <h3 class="anchored" data-anchor-id="summary">Summary</h3>
 <ul>
-<li>Confidence intervals provide a range of plausible values for parameters based on data</li>
-<li>The validity of confidence intervals depends on assumptions about the <span class="alert">data distribution</span> and <span class="alert">sample size(s)</span>
+<li>Confidence intervals provide a <span class="alert">range of plausible values</span> for parameters based on data
+<ul>
+<li>They go beyond point estimation by quantifying uncertainty</li>
+</ul></li>
+<li>Expressed in terms of random variables, confidence intervals are <span class="alert">probabilistic</span> statements about the data-generating process</li>
+<li>Realized by plugging in the observed data, confidence intervals are <em>not</em> probabilistic statements</li>
+<li>Validity of confidence intervals depends on assumptions about the <span class="alert">data distribution</span> and <span class="alert">sample size(s)</span>
 <ul>
 <li>With fewer data we need stronger distributional assumptions</li>
 <li>With more data we can rely on asymptotic results like the CLT</li>
 </ul></li>
+<li>Two-sided CLT confidence intervals take the form <span class="math display">\[\text{estimator} \pm z_{\alpha/2} \times \text{standard error}\]</span></li>
 </ul>
 
 
