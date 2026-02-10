@@ -705,7 +705,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="09e99b8a" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="6171b699" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -756,7 +756,8 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known" class="slide level2">
 <h2>Small sample size confidence intervals for means when the distribution is known</h2>
 <p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
-<p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
+<h3 id="confidence-interval-for-the-mean-of-an-exponential-distribution">Confidence interval for the mean of an exponential distribution</h3>
+<p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <p>But now we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -768,7 +769,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="664a8173" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="b35eb8f6" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -833,7 +834,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="3c1c68d6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="ec75ae6f" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -846,8 +847,32 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>&nbsp;</p>
 <p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
 </section>
-<section id="ci-binomial-zero-failures" class="slide level2">
-<h2>Example: CI for a binomial proportion when no failures are observed</h2>
+<section class="slide level2">
+
+<h3 id="ci-for-the-mean-of-normal-data-with-unknown-variance">CI for the mean of Normal data with unknown variance</h3>
+<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID <span class="math inline">\(\Norm(\mu, \sigma^2)\)</span>, then <span class="math inline">\(\displaystyle\frac{\barX_n - \mu}{S_n/\sqrt{n}} \sim t_{n-1}\)</span> for all <span class="math inline">\(n \ge 2\)</span>, where <span class="math inline">\(S_n^2\)</span> is the unbiased sample variance estimator. Letting <span class="math inline">\(t_{n-1,\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(t_{n-1}\)</span>, then<br>
+<span class="math display">\[
+\Prob \biggl( \barX_n - t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}} \le \mu \le \barX_n + t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}} \biggr) = 1 - \alpha
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
+<p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
+</div><div class="column" style="width:70%;">
+<div id="a312b6a6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-estimator_files/figure-revealjs/cell-8-output-1.png" width="950" height="467"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="ci-binomial-zero-failures">CI for a binomial proportion when no failures are observed</h3>
 <p>You draw <span class="math inline">\(n\)</span> IID samples of your product to test for <em>failure</em>, and none of the samples fail. What is your confidence interval for <span class="math inline">\(p\)</span>, the probability that a product is satisfactory?</p>
 <p>Let <span class="math inline">\(X_i = 1\)</span> if the <span class="math inline">\(i\)</span>th product is satisfactory and <span class="math inline">\(0\)</span> otherwise. Note that <span class="math display">\[\begin{gather*}
 X_i =
@@ -982,6 +1007,21 @@ z_{\alpha/2}
 \approx
 1 - \alpha.
 \end{multline*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="exstar-exercises"><span class="math inline">\(\exstar\)</span> Exercises</h3>
+<ul>
+<li>Let <span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> be two samples with sample means <span class="math inline">\(\barX, \barY\)</span> and sample standard deviations <span class="math inline">\(S_X, S_Y\)</span>, respectively</li>
+<li>Let <span class="math inline">\(D_i = X_i - Y_i\)</span> and <span class="math inline">\(S_D\)</span> be the sample standard deviation of the <span class="math inline">\(D_i\)</span></li>
+<li>You observe <span class="math inline">\(\barX = 85, \barY = 75, S_X = 10, S_Y = 12, S_D = 4\)</span></li>
+</ul>
+<p>Construct the appropriate 95% confidence intervals for the following scenarios:</p>
+<ol type="1">
+<li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> are IID test scores from a population of medical students. Construct a 95% confidence interval for the mean test score of the whole population and interpret the interval in context.</p></li>
+<li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> are two independent IID samples of test scores from two different populations of medical students. The first group was given a practice test beforehand, and the second group was not. Construct a 95% confidence interval for the difference in mean test scores between the two populations and interpret the interval in context.</p></li>
+<li><p><span class="math inline">\(X_1,\dots,X_{100}\)</span> and <span class="math inline">\(Y_1,\dots,Y_{100}\)</span> are two IID samples of test scores from the same population of medical students. The <span class="math inline">\(X_i\)</span>’s are the students’ scores on a practice test, and the <span class="math inline">\(Y_i\)</span>’s are the students’ scores on the real test. Construct a 95% confidence interval for the mean difference in test scores between the practice and real tests.</p></li>
+</ol>
 </section>
 <section id="confidence-intervals-for-proportions" class="slide level2">
 <h2>Confidence Interval for <em>Proportions</em> (CLT)</h2>
@@ -1123,10 +1163,6 @@ X_1^{(b)},\dots,X_n^{(b)} \IIDsim \text{Uniform}\{X_1,\dots,X_n\}, \quad b=1,\do
 <p>No normality · No variance formula · Works when classical assumptions fail</p>
 </blockquote>
 </section>
-<section class="slide level2">
-
-<p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
-</section>
 <section id="example-of-vanilla-bootstrap" class="slide level2">
 <h2>Example of vanilla bootstrap</h2>
 <p>We draw a <em>single IID random sample of size</em> <span class="math inline">\(n=8\)</span> from a population: <span class="math display">\[
@@ -1153,10 +1189,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-0.83, 2.60, 1.74, 4.47, 1.00, 1.63, 3.04, 2.11
+0.94, 2.11, 0.90, 1.17, 4.17, 2.07, 3.42, 1.87
 </td>
 <td>
-2.18
+2.08
 </td>
 </tr>
 <tr>
@@ -1164,10 +1200,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-3.04, 1.63, 2.60, 1.63, 1.63, 0.83, 3.04, 4.47
+0.90, 2.11, 1.17, 0.94, 1.87, 0.90, 4.17, 1.17
 </td>
 <td>
-2.36
+1.66
 </td>
 </tr>
 <tr>
@@ -1175,10 +1211,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-2.11, 1.00, 4.47, 2.60, 0.83, 1.63, 1.63, 2.11
+0.90, 2.11, 1.87, 0.94, 2.07, 2.07, 3.42, 4.17
 </td>
 <td>
-2.05
+2.20
 </td>
 </tr>
 <tr>
@@ -1186,10 +1222,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-1.63, 2.11, 4.47, 1.74, 4.47, 2.60, 1.63, 3.04
+2.07, 2.11, 0.90, 0.90, 4.17, 4.17, 4.17, 2.11
 </td>
 <td>
-2.71
+2.58
 </td>
 </tr>
 <tr>
@@ -1197,10 +1233,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-3.04, 2.60, 4.47, 4.47, 0.83, 2.60, 2.11, 2.60
+1.87, 0.94, 4.17, 1.87, 3.42, 1.87, 0.90, 0.94
 </td>
 <td>
-2.84
+2.00
 </td>
 </tr>
 <tr>
@@ -1216,6 +1252,7 @@ Bootstrap 4
 </tr>
 </tbody>
 </table>
+<p><a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download=""> ⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓 </a></p>
 </section>
 <section id="assumptions-behind-common-confidence-intervals" class="slide level2">
 <h2>Assumptions behind common confidence intervals</h2>
