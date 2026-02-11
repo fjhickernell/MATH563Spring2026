@@ -272,7 +272,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="d3cc0054" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="b6bcf83e" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -325,19 +325,18 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
 <section id="confidence-interval-for-the-mean-of-an-exponential-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="confidence-interval-for-the-mean-of-an-exponential-distribution">Confidence interval for the mean of an exponential distribution</h3>
-<p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
-<p>But now we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
+<p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>. Since we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><span class="math display">\[\begin{align*}
-2 \lambda n \barX_n &amp;\sim \chi^2_{2n}  \\
-\implies 1 - \alpha
-&amp;= \Prob \biggl( \chi^2_{2n, \alpha/2} \le 2 \lambda n \barX_n \le \chi^2_{2n, 1-\alpha/2} \biggr) \\
-&amp;= \Prob \biggl( \frac{\chi^2_{2n, \alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n, 1-\alpha/2}}{2 n \barX_n} \biggr) \\
-&amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
+2\lambda n \barX_n &amp;\sim \chi^2_{2n} \\
+\implies 1-\alpha
+&amp;= \Prob \bigl( \chi^2_{2n,\,1-\alpha/2} \le 2\lambda n \barX_n \le \chi^2_{2n,\,\alpha/2} \bigr) \\[6pt]
+&amp;= \Prob \biggl( \frac{\chi^2_{2n,\,1-\alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n,\,\alpha/2}}{2 n \barX_n} \biggr) \\[10pt]
+&amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="6db45fe3" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="fbf2be9d" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -401,11 +400,11 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="973b2cd7" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="d2088810" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="confidence_files/figure-html/cell-7-output-1.png" width="692" height="467" class="figure-img"></p>
+<p><img src="confidence_files/figure-html/cell-7-output-1.png" width="683" height="467" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -427,11 +426,11 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="982a0830" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="8058deee" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="confidence_files/figure-html/cell-8-output-1.png" width="768" height="467" class="figure-img"></p>
+<p><img src="confidence_files/figure-html/cell-8-output-1.png" width="801" height="468" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -759,10 +758,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-2.21, 8.61, 0.29, 5.84, 0.82, 1.24, 1.08, 6.45
+0.47, 1.35, 2.51, 11.32, 0.24, 0.09, 2.85, 0.43
 </td>
 <td>
-3.32
+2.41
 </td>
 </tr>
 <tr>
@@ -770,10 +769,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-5.84, 2.21, 2.21, 6.45, 6.45, 1.08, 8.61, 8.61
+11.32, 2.51, 11.32, 2.85, 0.47, 0.43, 0.09, 0.47
 </td>
 <td>
-5.18
+3.68
 </td>
 </tr>
 <tr>
@@ -781,10 +780,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-0.29, 5.84, 1.08, 1.24, 1.08, 0.29, 1.08, 1.08
+0.09, 0.09, 0.24, 2.51, 2.85, 2.85, 1.35, 0.24
 </td>
 <td>
-1.50
+1.28
 </td>
 </tr>
 <tr>
@@ -792,10 +791,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-0.82, 0.29, 6.45, 2.21, 6.45, 0.82, 2.21, 0.82
+1.35, 0.47, 1.35, 11.32, 1.35, 2.85, 2.51, 0.24
 </td>
 <td>
-2.51
+2.68
 </td>
 </tr>
 <tr>
@@ -803,10 +802,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-0.29, 5.84, 2.21, 1.08, 8.61, 0.29, 1.08, 1.08
+11.32, 2.51, 0.47, 1.35, 0.43, 0.24, 0.24, 2.85
 </td>
 <td>
-2.56
+2.42
 </td>
 </tr>
 <tr>

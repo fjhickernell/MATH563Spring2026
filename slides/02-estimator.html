@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-10">
+  <meta name="dcterms.date" content="2026-02-11">
   <title>MATH 563 — Spring 2026 – MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -464,7 +464,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 10, 2026</p>
+  <p class="date">February 11, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -709,7 +709,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="6b870762" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="5a6f8972" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -761,19 +761,18 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h2>Small sample size confidence intervals for means when the distribution is known</h2>
 <p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
 <h3 id="confidence-interval-for-the-mean-of-an-exponential-distribution">Confidence interval for the mean of an exponential distribution</h3>
-<p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
-<p>But now we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
+<p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>. Since we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><span class="math display">\[\begin{align*}
-2 \lambda n \barX_n &amp;\sim \chi^2_{2n}  \\
-\implies 1 - \alpha
-&amp;= \Prob \biggl( \chi^2_{2n, \alpha/2} \le 2 \lambda n \barX_n \le \chi^2_{2n, 1-\alpha/2} \biggr) \\
-&amp;= \Prob \biggl( \frac{\chi^2_{2n, \alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n, 1-\alpha/2}}{2 n \barX_n} \biggr) \\
-&amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n, 1-\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n, \alpha/2}} \biggr).
+2\lambda n \barX_n &amp;\sim \chi^2_{2n} \\
+\implies 1-\alpha
+&amp;= \Prob \bigl( \chi^2_{2n,\,1-\alpha/2} \le 2\lambda n \barX_n \le \chi^2_{2n,\,\alpha/2} \bigr) \\[6pt]
+&amp;= \Prob \biggl( \frac{\chi^2_{2n,\,1-\alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n,\,\alpha/2}}{2 n \barX_n} \biggr) \\[10pt]
+&amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="82b94b93" class="cell" data-fig-height="3.4" data-fig-width="4.8" data-execution_count="4">
+<div id="aa29605b" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -838,11 +837,11 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul></li>
 </ul>
 </div><div class="column" style="width:55%;">
-<div id="6477e2cb" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="28baa1d0" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="02-estimator_files/figure-revealjs/cell-7-output-1.png" width="949" height="467"></p>
+<p><img data-src="02-estimator_files/figure-revealjs/cell-7-output-1.png" width="950" height="467"></p>
 </figure>
 </div>
 </div>
@@ -863,11 +862,11 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="ecb4f62c" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="f1b38cf7" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="02-estimator_files/figure-revealjs/cell-8-output-1.png" width="950" height="467"></p>
+<p><img data-src="02-estimator_files/figure-revealjs/cell-8-output-1.png" width="950" height="468"></p>
 </figure>
 </div>
 </div>
@@ -1193,10 +1192,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-2.76, 5.60, 1.57, 10.24, 3.02, 2.45, 2.02, 0.56
+3.34, 2.07, 0.86, 0.27, 1.40, 0.79, 2.25, 0.28
 </td>
 <td>
-3.53
+1.41
 </td>
 </tr>
 <tr>
@@ -1204,10 +1203,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-2.45, 2.76, 2.76, 2.76, 2.76, 3.02, 3.02, 5.60
+0.28, 3.34, 0.27, 2.25, 2.07, 0.86, 0.79, 0.27
 </td>
 <td>
-3.14
+1.27
 </td>
 </tr>
 <tr>
@@ -1215,10 +1214,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-5.60, 2.76, 3.02, 10.24, 3.02, 2.45, 2.45, 5.60
+2.25, 3.34, 0.27, 0.27, 3.34, 0.27, 1.40, 3.34
 </td>
 <td>
-4.39
+1.81
 </td>
 </tr>
 <tr>
@@ -1226,10 +1225,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-2.76, 2.45, 3.02, 10.24, 2.45, 0.56, 10.24, 5.60
+0.86, 2.07, 3.34, 0.79, 3.34, 0.79, 1.40, 0.27
 </td>
 <td>
-4.67
+1.61
 </td>
 </tr>
 <tr>
@@ -1237,10 +1236,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-2.45, 2.45, 10.24, 5.60, 1.57, 10.24, 2.02, 0.56
+1.40, 3.34, 2.25, 3.34, 0.27, 2.07, 2.07, 1.40
 </td>
 <td>
-4.39
+2.02
 </td>
 </tr>
 <tr>
