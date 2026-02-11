@@ -3,9 +3,9 @@
 project:
   type: website
   render:
-    - index.qmd
-    - pages/**/*.qmd
-    - slides/**/*.qmd
+    - "*.qmd"
+    - "pages/**/*.qmd"
+    - "!slides/**"
   resources:
     - classlib/classlib/quarto/slides/hickernell-latex-macros.js
     - classlib/classlib/quarto/assets/images/normal-scatter.png
@@ -16,6 +16,10 @@ project:
     - classlib/classlib/quarto/css/stats-questions.css
     - classlib/classlib/notebooks/figures/**
     - assets/tests/**
+
+format:
+  html:
+    link-external-newwindow: true
 
 metadata:
   instructor_photo: classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg
@@ -50,7 +54,7 @@ website:
             text: Accessing repo
           - text: Interesting articles & links
             href: classlib/classlib/quarto/pages/interesting-articles-links.qmd
-          - text: 🆓 IMS StudentMembershp
+          - text: 🆓 IMS Student Membership
             href: https://imstat.org/free-student-membership/
           - text: 🆓 SIAM Student Membership
             href: https://www.siam.org/membership/individual-membership/student-membership/
