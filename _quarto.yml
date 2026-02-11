@@ -17,6 +17,14 @@ project:
     - classlib/classlib/notebooks/figures/**
     - assets/tests/**
 
+profiles:
+  publish:
+    project:
+      render:
+        - "*.qmd"
+        - "pages/**/*.qmd"
+        - "slides/**/*.qmd"
+        
 format:
   html:
     link-external-newwindow: true
