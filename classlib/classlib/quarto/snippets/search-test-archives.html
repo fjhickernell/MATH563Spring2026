@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>conditional-prob – MATH 563 — Spring 2026</title>
+<title>search-test-archives – MATH 563 — Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../../../">
-<script src="../../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../../site_libs/bootstrap/bootstrap-b8c44a34908aa2af57b13dabccc305ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-b8c44a34908aa2af57b13dabccc305ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +104,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -108,11 +114,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../../../classlib/classlib/quarto/assets/images/normal-scatter.png" alt="" class="navbar-logo light-content">
-    <img src="../../../../../../classlib/classlib/quarto/assets/images/normal-scatter.png" alt="" class="navbar-logo dark-content">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../classlib/classlib/quarto/assets/images/normal-scatter.png" alt="" class="navbar-logo light-content">
+    <img src="../../../../classlib/classlib/quarto/assets/images/normal-scatter.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../../../../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">MATH 563 — Spring 2026</span>
     </a>
   </div>
@@ -123,27 +129,27 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">Welcome</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../classlib/classlib/quarto/pages/stats-qs.html"> 
+    <a class="nav-link" href="../../../../classlib/classlib/quarto/pages/stats-qs.html"> 
 <span class="menu-text">Stats Qs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../pages/schedule.html"> 
+    <a class="nav-link" href="../../../../pages/schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../pages/notebooks.html"> 
+    <a class="nav-link" href="../../../../pages/notebooks.html"> 
 <span class="menu-text">Notebooks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../pages/homework.html"> 
+    <a class="nav-link" href="../../../../pages/homework.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../../pages/tests.html"> 
+    <a class="nav-link" href="../../../../pages/tests.html"> 
 <span class="menu-text">Tests</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -152,20 +158,20 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
-    <a class="dropdown-item" href="../../../../../../classlib/classlib/quarto/pages/policies.html">
+    <a class="dropdown-item" href="../../../../classlib/classlib/quarto/pages/policies.html">
  <span class="dropdown-text">Policies</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../../classlib/classlib/quarto/pages/git-clone-update-with-submodules.html">
+    <a class="dropdown-item" href="../../../../classlib/classlib/quarto/pages/git-clone-update-with-submodules.html">
  <span class="dropdown-text">Accessing repo</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../../classlib/classlib/quarto/pages/interesting-articles-links.html">
+    <a class="dropdown-item" href="../../../../classlib/classlib/quarto/pages/interesting-articles-links.html">
  <span class="dropdown-text">Interesting articles &amp; links</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://imstat.org/free-student-membership/">
- <span class="dropdown-text">🆓 IMS StudentMembershp</span></a>
+ <span class="dropdown-text">🆓 IMS Student Membership</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.siam.org/membership/individual-membership/student-membership/">
@@ -212,181 +218,58 @@ window.Quarto = {
 
 
 
-<section id="conditional-prob" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-prob">Conditional probability</h2>
-<p>The <span class="alert">conditional probability</span> means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measure how often <span class="math inline">\(A\)</span> occurs within that restricted universe of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> (with <span class="math inline">\(\Prob(B)&gt;0\)</span>): <span class="math display">\[
-\Prob(A \mid B)
-=
-\frac{\Prob(A \cap B)}{\Prob(B)},
-\]</span> which means restricting attention to outcomes where <span class="math inline">\(B\)</span> occurs, then measuring how often <span class="math inline">\(A\)</span> occurs within that restricted universe.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔎 How to search the archives (PDFs) for keywords
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) <em>inside</em> PDF test and exam files.</p>
+<p>The folder <code>assets/tests/archive</code> in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., <code>archive/563</code> for MATH 563 tests.</p>
+<section id="mac-homebrew-linux" class="level3">
+<h3 class="anchored" data-anchor-id="mac-homebrew-linux">Mac (Homebrew) / Linux</h3>
+<p><strong>One-time setup (install pdfgrep):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pdfgrep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Each time you want to search the archive:</strong></p>
 <ul>
-<li><p><span class="alert">Multiplication rule</span>: <span class="math inline">\(\Prob(A \cap B)
-=
-\Prob(A \mid B) \Prob(B)\)</span></p></li>
-<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <span class="alert">independent</span> if <span class="math inline">\(\Prob(A \mid B) = \Prob(A)\)</span> or equivalently <span class="math inline">\(\Prob(A \cap B)=\Prob(A)\Prob(B)\)</span></p></li>
+<li>Navigate to the root of your local course repository root, then run:</li>
 </ul>
-<section id="bayes-rule" class="level3">
-<h3 class="anchored" data-anchor-id="bayes-rule">Bayes’ Rule</h3>
-<p><span class="math display">\[
-\Prob(A \mid B)
-=
-\frac{\Prob(B \mid A) \, \Prob(A)}{\Prob(B)},
-\qquad \Prob(B)&gt;0
-\]</span></p>
-<hr>
-<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have <span class="alert">joint density</span> <span class="math inline">\(\varrho_{X,Y}(x,y)\)</span>. The <span class="alert">conditional density</span> of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> is <span class="math display">\[
-\varrho_{X\mid Y}(x \mid y)
-=
-\frac{\varrho_{X,Y}(x,y)}{\varrho_Y(y)},
-\qquad
-\varrho_Y(y)=\int \varrho_{X,Y}(x,y) \, \dif x \text{ is the }\class{alert}{\text{marginal density}} \text{ of } Y
-\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> assets/tests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Use one of the following commands to search the archives:</li>
+</ul>
+<p>Search <em>all archives in this repo</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Search <em>one specific archive folder</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Search <em>multiple archives at once</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/476 archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Examples:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'brownian'</span> archive</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'sobol'</span> archive</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'central limit|CLT'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="bayes-rule-for-densities" class="level3">
-<h3 class="anchored" data-anchor-id="bayes-rule-for-densities">Bayes’ rule for densities</h3>
-<p><span class="math display">\[
-\varrho_{X\mid Y}(x\mid y)
-=
-\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
-\]</span></p>
-<p><span class="math inline">\(\exstar\)</span> If you meet an introvert, is she more likely to be a librarian or a salesman?</p>
-<p><span class="math inline">\(\exstar\)</span> What probability distributions defined on <span class="math inline">\([0,\infty)\)</span> satisfy the <span class="alert">memoryless</span> property, i.e.&nbsp;<span class="math inline">\(\Prob[X &gt; t + x | X &gt; t] = \Prob[X &gt; x]\)</span>?</p>
+<section id="windows-recommended-wsl" class="level3">
+<h3 class="anchored" data-anchor-id="windows-recommended-wsl">Windows (recommended: WSL)</h3>
+<p>On Windows, the recommended approach is to use <strong>Windows Subsystem for Linux (WSL)</strong>, which lets you run the same commands as Mac/Linux users.</p>
+<p>After installing WSL (e.g., Ubuntu):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourName/path/to/course-repo/assets/tests</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pdfgrep</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you prefer not to use WSL, note that Windows does not include a native equivalent of <code>pdfgrep</code>; setup and commands vary by third-party tools.</p>
 </section>
-</section>
-<section id="bayesian-statistics-to-approximate-and-integrate-functions" class="level2">
-<h2 class="anchored" data-anchor-id="bayesian-statistics-to-approximate-and-integrate-functions">Bayesian statistics to approximate and integrate functions</h2>
-<p>We assume that <span class="math inline">\(f\)</span>, the function to approximate or integrate, is an instance of a Gaussian process, <span class="math inline">\(\GP(0,K)\)</span>. This means that</p>
-<p><span class="math display">\[\begin{gather*}
-\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top \sim \Norm(\vzero, \mK), \quad \text{where }\mK : = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n \\
-\tvf := \bigl(f(x_1), \ldots, f(x_n), f(x) \bigr)^\top \sim \Norm(\vzero, \tmK) \\
-\text{where }
-\tmK : = \left(\begin{array}{c|c}
-\mK &amp; \vk(x) \\
-\hline
-\vk^\top(x) &amp; K(x,x)
-\end{array}
-\right)
-, \quad \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
-\end{gather*}\]</span> and so the conditional density of <span class="math inline">\(f(x)\)</span> given <span class="math inline">\(\vf = \vy\)</span>, where <span class="math inline">\(\vy\)</span> is the observed data, is<br>
-<span class="math display">\[\begin{align*}
-\varrho_{f(x) | \vf}(z | \vy) = \frac{\varrho_{\tvf}(\tvy)}{\varrho_{\vf}(\vy)} = \frac{\frac{\exp(-\tvy^\top \tmK^{-1} \tvy/2)}{\sqrt{(2 \pi)^{n+1} \det(\tmK)}}}{\frac{\exp(-\vy^\top \mK^{-1} \vy/2)}{\sqrt{(2 \pi)^{n} \det(\mK)}}}
-= \frac{\exp([-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy]/2)}{\sqrt{(2 \pi) \det(\tmK)/\det(\mK)}}
-\end{align*}\]</span> where <span class="math inline">\(\tvy = (\vy^\top, z)^\top\)</span></p>
-<hr>
-<p>One can show that the inverse of the covariance matrix is</p>
-<p><span class="math display">\[\begin{gather*}
-\tmK^{-1}
-=
-\left(\begin{array}{c|c}
-\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}
-&amp;
--\mK^{-1}\vk(x)\sigma^{-2}(x)
-\\
-\hline
-- \sigma^{-2}(x)\vk^\top(x)\mK^{-1}
-&amp;
-\sigma^{-2}(x)
-\end{array}
-\right)\\
-\text{where }
-\sigma^2(x)=K(x,x)-\vk^\top(x)\mK^{-1}\vk(x), \qquad
-\sigma^{-2}(x) := \big(\sigma^2(x)\big)^{-1}
-\end{gather*}\]</span></p>
-<p>So</p>
-<p><span class="math display">\[\begin{align*}
-\MoveEqLeft{-\tvy^\top \tmK^{-1} \tvy + \vy^\top \mK^{-1} \vy}\\
-&amp; = -\vy^\top[\mK^{-1}+\mK^{-1}\vk(x)\sigma^{-2}(x)\vk^\top(x)\mK^{-1}]\vy + 2 \vy^\top\mK^{-1}\vk(x)\sigma^{-2}(x) z - z^2 \sigma^{-2}(x) \\
-&amp; \qquad \qquad + \vy^\top \mK^{-1} \vy \\
-&amp; = \sigma^{-2}(x) [ z - \vy^\top \mK^{-1} \vk(x)]^2
-\end{align*}\]</span></p>
-<p>and <span class="math inline">\(f(x) \mid \vf = \vy \sim \Norm\bigl(\vy^\top \mK^{-1} \vk(x), \sigma^2(x) \bigr)\)</span></p>
-<div class="vspace">
-<p>By a similar argument <span class="math inline">\(\int_0 ^1 f(x)\, \dif x \mid \vf = \vy \sim \Norm\Bigl(\vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x, \int_0^1 \int_0^1 K(t,x) \, \dif t \dif x - \int_0^1 \vk^\top(x) \, \dif x \, \mK^{-1} \, \int_0^1 \vk(x) \, \dif x  \Bigr)\)</span></p>
 </div>
-</section>
-<section id="bayesian-inference" class="level2">
-<h2 class="anchored" data-anchor-id="bayesian-inference">Bayesian inference</h2>
-<section id="bayes-rule-for-densities-1" class="level3">
-<h3 class="anchored" data-anchor-id="bayes-rule-for-densities-1">Bayes’ rule for densities</h3>
-<p><span class="math display">\[
-\varrho_{X\mid Y}(x\mid y)
-=
-\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
-\]</span></p>
-<p>Let <span class="math display">\[\begin{align*}
-X &amp; = \text{random unknown parameter} \\
-Y &amp; = \text{random observed data} \\
-\varrho_X &amp; = \text{prior density or belief about the parameter} \\
-\varrho_{Y\mid X} &amp; = \text{likelihood} \\
-\varrho_{X\mid Y} &amp; = \text{posterior density}
-\end{align*}\]</span> Then <span class="math display">\[\begin{align*}
-\varrho_{X\mid Y}( \text{parameter} \mid \text{data})
-&amp; =
-\frac{\varrho_{Y\mid X}(\text{data}\mid \text{parameter} ) \,\varrho_X(\text{parameter})}{\varrho_Y(\text{data})}
-\\
-\text{posterior density } &amp;
-\propto
-\text{likelihood} \times \text{prior density}
-\end{align*}\]</span></p>
-</section>
-</section>
-<section id="conditional-exp" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-exp">Conditional expectation</h2>
-<p>Conditional expectation of <span class="alert"><span class="math inline">\(X\)</span> given event <span class="math inline">\(A\)</span></span> (with <span class="math inline">\(\Prob(A)&gt;0\)</span>) is <span class="math display">\[
-\Ex[X \mid A]
-=
-\frac{\Ex[X \, \indic(X \in A)]}{\Prob(A)} \qquad \text{and so} \qquad \Ex[X \, \indic(X \in A)]
-=
-\Prob(A)\,\Ex[X \mid A]
-\]</span> The <span class="alert">indicator function</span>, <span class="math inline">\(\indic(\cdot)\)</span>, equals <span class="math inline">\(1\)</span> if the statement inside the parentheses is true, and <span class="math inline">\(0\)</span> otherwise.</p>
-<div class="vspace-lg">
-<p>Conditional expectation of <span class="alert"><span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span></span> is <span class="math display">\[
-\Ex[X \mid Y=y]
-=
-\int x \, \varrho_{X\mid Y}(x \mid y)\,\dif x
-\]</span> If <span class="math inline">\(g(y)=\Ex[X \mid Y=y]\)</span>, then <span class="math inline">\(\Ex[X \mid Y] = g(Y)\)</span> is a random variable depending only on <span class="math inline">\(Y\)</span></p>
 </div>
-<div class="vspace-lg">
-<p>If <span class="math inline">\(X\)</span> is <span class="alert">independent</span> of <span class="math inline">\(Y\)</span>, then <span class="math inline">\(\Ex[X \mid Y] = \Ex[X]\)</span></p>
 </div>
-<hr>
-<section id="conditioning-on-an-event" class="level3">
-<h3 class="anchored" data-anchor-id="conditioning-on-an-event">Conditioning on an event</h3>
-<p>For any event <span class="math inline">\(A\)</span> with <span class="math inline">\(0&lt;\Prob(A)&lt;1\)</span>, <span class="math display">\[
-\Ex[X]
-=
-\Prob(A)\,\Ex[X \mid A]
-+
-\Prob(A^c)\,\Ex[X \mid A^c]
-\]</span></p>
-<p>More generally, if <span class="math inline">\(\{A_1,\ldots,A_n\}\)</span> is a partition of the sample space with <span class="math inline">\(\Prob(A_i)&gt;0\)</span>, then <span class="math display">\[
-\Ex[X]
-=
-\sum_{i=1}^n
-\Prob(A_i)\,\Ex[X \mid A_i].
-\]</span></p>
-</section>
-<section id="law-of-total-expectation" class="level3">
-<h3 class="anchored" data-anchor-id="law-of-total-expectation">Law of total expectation</h3>
-<p><span class="math display">\[
-\Ex\!\bigl[\Ex[X \mid Y]\bigr]
-=
-\Ex[X]
-\]</span></p>
-</section>
-<section id="law-of-total-variance" class="level3">
-<h3 class="anchored" data-anchor-id="law-of-total-variance">Law of total variance</h3>
-<p><span class="math display">\[
-\var(X)
-=
-\Ex\!\bigl[\var(X \mid Y)\bigr]
-+
-\var\!\bigl(\Ex[X \mid Y]\bigr)
-\]</span></p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -476,6 +359,11 @@ Y &amp; = \text{random observed data} \\
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

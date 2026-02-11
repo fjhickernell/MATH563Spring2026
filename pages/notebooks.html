@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="https://imstat.org/free-student-membership/">
- <span class="dropdown-text">🆓 IMS StudentMembershp</span></a>
+ <span class="dropdown-text">🆓 IMS Student Membership</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.siam.org/membership/individual-membership/student-membership/">
@@ -303,6 +303,11 @@ Click the link to download, and then open in JupyterLab on your computer.</p>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

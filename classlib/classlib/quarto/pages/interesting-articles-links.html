@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="https://imstat.org/free-student-membership/">
- <span class="dropdown-text">🆓 IMS StudentMembershp</span></a>
+ <span class="dropdown-text">🆓 IMS Student Membership</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.siam.org/membership/individual-membership/student-membership/">
@@ -177,7 +177,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#statistical-inference-and-data-science" id="toc-statistical-inference-and-data-science" class="nav-link active" data-scroll-target="#statistical-inference-and-data-science">Statistical Inference and Data Science</a></li>
+  <li><a href="#software-and-libraries" id="toc-software-and-libraries" class="nav-link" data-scroll-target="#software-and-libraries">Software and Libraries</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -207,6 +214,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This page collects <strong>optional articles, essays, videos, and interactive resources</strong> that connect probability, statistics, and data science to real applications, historical context, or broader ideas.</p>
+<section id="statistical-inference-and-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-inference-and-data-science">Statistical Inference and Data Science</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/The_Lady_Tasting_Tea">The Lady Tasting Tea</a>
+<ul>
+<li>A famous experiment conducted by Ronald Fisher to test whether a woman could distinguish between tea poured before or after milk</li>
+<li>This experiment is often cited as an example of a randomized controlled trial and the basis for Fisher’s exact test</li>
+</ul></li>
+<li><a href="https://projecteuclid.org/journals/statistical-science/volume-16/issue-3/Statistical-Modeling--The-Two-Cultures-with-comments-and-a/10.1214/ss/1009213726.full">Statistical Modeling: The Two Cultures</a>
+<ul>
+<li>An influential paper by Leo Breiman that discusses the differences between traditional statistical modeling and algorithmic modeling in data science</li>
+<li>Breiman argues that the algorithmic modeling culture, which focuses on predictive accuracy, is often more effective than the traditional statistical modeling culture, which focuses on inference and understanding</li>
+</ul></li>
+<li><a href="https://www.wsj.com/articles/as-forecasts-go-you-can-bet-on-monte-carlo-1470994203">As Forecasts Go, You Can Bet on Monte Carlo</a>
+<ul>
+<li>An article from the Wall Street Journal that discusses the use of Monte Carlo simulations in financial forecasting and risk management</li>
+<li>The article highlights how Monte Carlo methods can help quantify uncertainty and improve decision-making in finance</li>
+</ul></li>
+</ul>
+</section>
+<section id="software-and-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="software-and-libraries">Software and Libraries</h3>
 <ul>
 <li><a href="https://qmcpy.org/">qmcpy.org: A Python Library for Quasi-Monte Carlo Methods</a>
 <ul>
@@ -220,6 +249,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -309,6 +339,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
