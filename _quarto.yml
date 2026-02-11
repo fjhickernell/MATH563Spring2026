@@ -7,23 +7,9 @@ project:
     - "pages/**/*.qmd"
     - "!slides/**"
   resources:
-    - classlib/classlib/quarto/slides/hickernell-latex-macros.js
-    - classlib/classlib/quarto/assets/images/normal-scatter.png
-    - classlib/classlib/quarto/slides/hickernell-slides.scss
-    - classlib/classlib/quarto/website/hickernell-website.css
+    - assets/**
+    - classlib/classlib/quarto/**
     - classlib/classlib/notebooks/**
-    - classlib/classlib/quarto/js/stats-questions.js
-    - classlib/classlib/quarto/css/stats-questions.css
-    - classlib/classlib/notebooks/figures/**
-    - assets/tests/**
-
-profiles:
-  publish:
-    project:
-      render:
-        - "*.qmd"
-        - "pages/**/*.qmd"
-        - "slides/**/*.qmd"
         
 format:
   html:

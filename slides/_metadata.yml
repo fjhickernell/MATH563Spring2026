@@ -1,5 +1,7 @@
-metadata-file: ../classlib/classlib/quarto/slides/hickernell-slides.yml
-
+metadata-files:
+  - ../classlib/classlib/quarto/slides/hickernell-slides.yml
+  - ../classlib/classlib/quarto/metadata/hickernell-texts.yml
+  
 course_website: https://fjhickernell.github.io/MATH563Spring2026/
 
 format:

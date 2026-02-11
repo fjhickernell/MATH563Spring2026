@@ -1,0 +1,11 @@
+project:
+  type: default
+  output-dir: ../_site/slides
+  resources:
+    - ../classlib/classlib/quarto/assets/**
+
+format:
+  revealjs:
+    metadata-files:
+      - ../classlib/classlib/quarto/slides/hickernell-slides.yml
+      - ../classlib/classlib/quarto/metadata/hickernell-texts.yml

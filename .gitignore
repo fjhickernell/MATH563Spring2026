@@ -10,3 +10,7 @@ docs/
 
 /.quarto/
 
+
+# local symlinks for slide preview
+slides/classlib
+slides/assets
