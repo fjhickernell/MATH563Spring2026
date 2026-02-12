@@ -20,9 +20,9 @@ Classes are held in RE 102
 | Date   | Topic                    | Slides                             |
 |--------|---------------------------|-------------------------|
 Fri Jan 30 | **Assignment 2 Due**
-| Tue Feb 3 | | |
-| Thu Feb 5 | | |
-| Tue Feb 10 | | |
+| Tue Feb 3 | Distributions of estimators | |
+| Thu Feb 5 | Confidence intervals | |
+| Tue Feb 10 | Confidence intervals for means | |
 | Thu Feb 12 | | |
 Fri Feb 13 | **Assignment 3 Due**
 | Tue Feb 17 | | |
