@@ -25,6 +25,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
 
       - name: Set RETICULATE_PYTHON
         run: |
@@ -49,37 +50,22 @@ jobs:
         run: |
           R -q -e 'install.packages(c("knitr","rmarkdown","reticulate"), repos="https://cloud.r-project.org")'
 
-      - name: Render
+      - name: Render website (excluding slides)
         run: |
           quarto render
 
-      - name: Ensure slides are published under _site/slides
+      - name: Render slides subproject
         run: |
-          echo "=== Check website output tree ==="
-          ls -la _site || true
-          ls -la _site/slides || true
+          cd slides
+          quarto render
 
-          echo "=== Check slides subproject output tree ==="
-          ls -la slides/_site || true
-
-          echo "=== Find slide HTML (either location) ==="
-          find _site -maxdepth 3 -type f -name '01-intro.html' -o -name '02-estimator.html' || true
-          find slides/_site -maxdepth 3 -type f -name '01-intro.html' -o -name '02-estimator.html' || true
-
-          if [ -f "_site/slides/01-intro.html" ]; then
-            echo "Slides already in _site/slides — no staging needed."
-          elif [ -f "slides/_site/01-intro.html" ]; then
-            echo "Staging slides/_site -> _site/slides"
-            rm -rf _site/slides
-            mkdir -p _site/slides
-            rsync -a --delete slides/_site/ _site/slides/
-          else
-            echo "ERROR: slide HTML not found in either _site/slides or slides/_site"
-            exit 1
-          fi
-
-          test -f _site/slides/01-intro.html
-          test -f _site/slides/02-estimator.html
+      - name: Stage slides into website output
+        run: |
+          rm -rf _site/slides
+          mkdir -p _site/slides
+          rsync -a --delete slides/_site/ _site/slides/
+          echo "Staged slides:"
+          find _site/slides -maxdepth 2 -type f -name '*.html' | sed 's|^|  - |' | head -n 50
 
       - name: Clean Quarto publish worktree
         run: |
@@ -94,4 +80,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          
