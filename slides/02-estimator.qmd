@@ -81,11 +81,15 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 
 Let $X_1,\dots,X_n$ have joint PMF/PDF $\varrho(\vx \mid \vtheta)$.
 
+&nbsp;
+
 A statistic $T(\vX)$ is [sufficient]{.alert} for $\vtheta$ if
 
 the conditional distribution of $\vX$ given $T(\vX)$
 
 does **NOT** depend on $\vtheta$.
+
+&nbsp;
 
 Interpretation:
 
@@ -106,7 +110,7 @@ where
 -   $g$ depends on data only through $T$
 -   $h$ does not depend on $\vtheta$
 
-This is the fundamental practical tool for proving sufficiency.
+This is the fundamental practical tool for proving sufficiency
 
 
 
