@@ -53,6 +53,34 @@ jobs:
         run: |
           quarto render
 
+      - name: Ensure slides are published under _site/slides
+        run: |
+          echo "=== Check website output tree ==="
+          ls -la _site || true
+          ls -la _site/slides || true
+
+          echo "=== Check slides subproject output tree ==="
+          ls -la slides/_site || true
+
+          echo "=== Find slide HTML (either location) ==="
+          find _site -maxdepth 3 -type f -name '01-intro.html' -o -name '02-estimator.html' || true
+          find slides/_site -maxdepth 3 -type f -name '01-intro.html' -o -name '02-estimator.html' || true
+
+          if [ -f "_site/slides/01-intro.html" ]; then
+            echo "Slides already in _site/slides — no staging needed."
+          elif [ -f "slides/_site/01-intro.html" ]; then
+            echo "Staging slides/_site -> _site/slides"
+            rm -rf _site/slides
+            mkdir -p _site/slides
+            rsync -a --delete slides/_site/ _site/slides/
+          else
+            echo "ERROR: slide HTML not found in either _site/slides or slides/_site"
+            exit 1
+          fi
+
+          test -f _site/slides/01-intro.html
+          test -f _site/slides/02-estimator.html
+
       - name: Clean Quarto publish worktree
         run: |
           rm -rf .quarto/quarto-publish-worktree-*
@@ -65,3 +93,5 @@ jobs:
           render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          
