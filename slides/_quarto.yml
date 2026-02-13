@@ -2,14 +2,7 @@ project:
   type: default
   output-dir: _site
   resources:
-    - classlib
-    - classlib/classlib/quarto/assets/**
+    - ../classlib/**/*
 
 course_repo: "https://github.com/fjhickernell/MATH563Spring2026"
 course_repo_label: "MATH563Spring2026 on GitHub"
-
-format:
-  revealjs:
-    metadata-files:
-      - ../classlib/classlib/quarto/slides/hickernell-slides.yml
-      - ../classlib/classlib/quarto/metadata/hickernell-texts.yml
