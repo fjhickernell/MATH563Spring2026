@@ -10,6 +10,7 @@ docs/
 
 /.quarto/
 
+.quarto-watch-logs/
 
 # local symlinks for slide preview
 slides/classlib
