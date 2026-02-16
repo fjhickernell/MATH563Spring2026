@@ -75,7 +75,11 @@ These [upper critical values]{.alert} are *not* $\alpha$-quantiles.
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
-from classlib.plots import annotate_xaxis_marks
+from classlib.plots import (
+    annotate_xaxis_marks,
+    curve_color,
+    tail_color,
+)
 plt.rcParams["mathtext.fontset"] = "cm"
 
 alpha = 0.025
@@ -91,12 +95,12 @@ fig, ax = plt.subplots()
 ax.plot(x, y, linewidth=4)
 
 # Critical value line: ONLY up to the pdf
-ax.vlines(z, 0, y_z, linestyle="-", linewidth=4, color="tab:orange")
+ax.vlines(z, 0, y_z, linestyle="-", linewidth=4, color=tail_color)
 
 # Upper tail shading
 xtail = x[x >= z]
 ytail = st.norm.pdf(xtail)
-ax.fill_between(xtail, 0, ytail, alpha=0.3, color="tab:orange")
+ax.fill_between(xtail, 0, ytail, alpha=0.3, color=tail_color)
 
 # Title
 ax.set_title(rf"Upper tail area $\alpha = {alpha} = {100*alpha}\%$", fontsize=24)
@@ -111,7 +115,7 @@ annotate_xaxis_marks(
     ax,
     [z],
     [r"$z_{0.025}$"],
-    colors=["tab:orange"],
+    colors=[tail_color],
     tick_height=0.10,
     tick_linewidth=3.0,
     fontsize=24,
