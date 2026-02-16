@@ -518,6 +518,7 @@ annotate_xaxis_marks(
     tick_linewidth=3.0,
     text_offset_pts=-20,
     fontsize=18,
+    ha="right"
 )
 
 # --- CLT ticks ABOVE axis ---
@@ -531,8 +532,9 @@ annotate_xaxis_marks(
     colors=[clt_color, clt_color],
     tick_height=0.10,       # longer tick so it visually “belongs” to lower row
     tick_linewidth=3.0,
-    text_offset_pts=-42,    # push much further down
+    text_offset_pts=-54,    # push much further down
     fontsize=18,
+    ha="left"
 )
 
 # Vertical lines at critical values (up to curve heights)
