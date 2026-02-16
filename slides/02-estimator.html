@@ -491,6 +491,7 @@ Fred J. Hickernell
 </section>
 <section id="summary-statistics" class="slide level2">
 <h2>Summary statistics</h2>
+<p><span class="small">(CB §5.3, §5.4, §6.1; WMS §6.7, §8.1, §9.6)</span></p>
 <p>Given IID data, <span class="math inline">\(X_1, \ldots, X_n\)</span>, we often compute</p>
 <ul>
 <li><p><span class="alert">Empirical Distribution</span> <span class="math inline">\(F_{\{X_i\}}(x) := \frac 1n \sum_{i=1}^n \indic(X_i \le x)\)</span></p></li>
@@ -519,6 +520,7 @@ Fred J. Hickernell
 </section>
 <section id="maximum-likelihood-estimators" class="slide level2">
 <h2>Maximum likelihood estimators</h2>
+<p><span class="small">(CB §7.2.2; WMS §9.7)</span></p>
 <p>The joint density of data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)^\top\)</span> given a parameter, <span class="math inline">\(\vtheta\)</span>, is <span class="math inline">\(\varrho_{X_1, \ldots, X_n| \vtheta}\)</span>. The <span class="alert">likelihood</span>, <span class="math inline">\(L\)</span> turns that around to make the parameter the variable, so <span class="math display">\[\begin{align*}
 L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1, \ldots, x_n) \\
 &amp; = \prod_{i=1}^n \varrho_{X_1 |\vtheta}(x_i) \qquad \text{if } X_1, \ldots, X_n \text{ are } \IID
@@ -526,6 +528,12 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <p>The <span class="alert">maximum likelihood estimator (MLE)</span> of <span class="math inline">\(\vtheta\)</span> is the one that fits the observed data best in terms of <span class="math display">\[
 \vTheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta | X_1, \ldots, X_n)
 \]</span></p>
+<p>It may be easier to work with the <span class="alert">log-likelihood</span> <span class="math inline">\(\ell(\vtheta) := \log(L(\vtheta))\)</span> since the logarithm is a monotone transformation, so <span class="math display">\[
+\vTheta_{\MLE}  = \Argmax{\vtheta} \ell(\vtheta | X_1, \ldots, X_n)
+\]</span></p>
+</section>
+<section class="slide level2">
+
 <p><span class="math inline">\(\exstar\)</span> What is the MLE of <span class="math inline">\(p\)</span> for the distribution <span class="math inline">\(\Bern(p)\)</span>?</p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span>What is the MLE of <span class="math inline">\(\lambda\)</span> for <span class="math inline">\(\Exp(\lambda)\)</span>? What are the MLE of <span class="math inline">\(\mu=\Ex(X)\)</span> and <span class="math inline">\(\sigma^2=\var(X)\)</span> for <span class="math inline">\(X\sim\Exp(\lambda)\)</span>?</span></p>
@@ -549,6 +557,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </section>
 <section id="biasvar" class="slide level2">
 <h2>Bias, variance, and mean squared error of estimators</h2>
+<p><span class="small">(CB §7.3.1; WMS §§8.2–8.4)</span></p>
 <p>Suppose that <span class="math inline">\(\Theta\)</span> is an estimator of a parameter, <span class="math inline">\(\theta\)</span>, of a population</p>
 <ul>
 <li><p><span class="alert">Bias</span> <span class="math inline">\(\bias(\Theta) = \Ex(\Theta) - \theta\)</span></p>
@@ -577,6 +586,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 </section>
 <section id="distribest" class="slide level2">
 <h2>Distributions of estimators (see <a href="../slides/01-intro.html#prob-distrib">Important Distributions</a>)</h2>
+<p><span class="small">(CB §5.2–5.4; WMS §§7.2)</span></p>
 <p>For the sample mean <span class="math inline">\(\barX_n\)</span>, based on IID data</p>
 <ul>
 <li><p><span class="math inline">\(n \barX_n \sim \Bin(n,p)\)</span> if <span class="math inline">\(X \sim \Bern(p)\)</span></p></li>
@@ -662,6 +672,7 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <section>
 <section id="confidence-intervals" class="title-slide slide level1 center">
 <h1>Confidence Intervals</h1>
+<p><span class="small">(CB §9.1; WMS §8.5)</span></p>
 <p>If</p>
 <ul>
 <li><p><span class="math inline">\(\theta\)</span> is a parameter of interest of a distribution, and</p></li>
@@ -674,20 +685,23 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <li><p>a one-sided upper interval with <span class="math inline">\(\Prob(\theta \le \Theta_U) \ge 1-\alpha\)</span></p></li>
 </ul>
 <p>The bounds <span class="math inline">\(\Theta_L\)</span> and <span class="math inline">\(\Theta_U\)</span> are random because they depend on random data. Here <span class="math inline">\(\alpha\)</span> is our willingness to be wrong, typically <span class="math inline">\(\alpha = 5\%\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<p>More about confidence intervals:</p>
 <ul>
 <li>In many continuous cases, the probability is exactly <span class="math inline">\(1-\alpha\)</span></li>
 <li>For discrete distributions, the probability is often slightly larger than <span class="math inline">\(1-\alpha\)</span></li>
 </ul>
-</section>
-<section class="slide level2">
-
 <p>This process often proceeds by</p>
 <ul>
 <li>Identifying a <span class="alert">estimator</span> <span class="math inline">\(\Theta\)</span> for <span class="math inline">\(\theta\)</span> that depends only on the data</li>
 <li>Finding the the <span class="alert">sampling distribution</span> of the estimator <span class="math inline">\(\Theta\)</span></li>
 <li>Using the sampling distribution to find <span class="alert">quantiles</span> that give the desired coverage probability</li>
 </ul>
-<p>&nbsp;</p>
+</section>
+<section class="slide level2">
+
 <ul>
 <li><a href="#/critical-value-notation-important">Critical value notation</a></li>
 <li><a href="#/large-sample-confidence-intervals-for-means">Large sample size confidence intervals for means</a></li>
@@ -716,7 +730,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="34d369c0" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="6dd97f91" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -729,14 +743,28 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </section>
 <section id="large-sample-confidence-intervals-for-means" class="slide level2">
 <h2>Large sample size confidence intervals for means</h2>
-<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and <span class="math inline">\(\barX_n\)</span> is the sample mean, then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
+<p><span class="small">(CB §9.2; WMS §§8.6–8.7)</span></p>
+<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> are IID with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, and</p>
+<ul>
+<li><p><span class="math inline">\(\barX_n\)</span> is the sample mean,</p></li>
+<li><p><span class="math inline">\(S_n^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p></li>
+</ul>
+<p>then by the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> <span class="math display">\[
 \frac{\barX_n - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
-\]</span> Letting <span class="math inline">\(z_{\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(\Norm(0,1)\)</span>, i.e., <span class="math inline">\(z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)\)</span>, then <span class="math display">\[\begin{align*}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[
+\frac{\barX_n - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+\]</span></p>
+<p>Letting <span class="math inline">\(z_{\alpha/2}\)</span> be the upper <span class="math inline">\(\alpha/2\)</span> quantile of <span class="math inline">\(\Norm(0,1)\)</span>, i.e., <span class="math inline">\(z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)\)</span>, then <span class="math display">\[\begin{align*}
 1 - \alpha &amp; \approx
 \Prob \biggl( -z_{\alpha/2} \le \frac{\barX_n - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
 &amp; \approx \Prob \biggl( \barX_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
 &amp; \approx \Prob \biggl( \underbrace{\barX_n - z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX_n + z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_U} \biggr)
-\end{align*}\]</span> where <span class="math inline">\(S_n^2\)</span> is some estimate of the unknown population variance <span class="math inline">\(\sigma^2\)</span> (e.g., unbiased or MLE)</p>
+\end{align*}\]</span></p>
+<p>Thus, a large sample size confidence interval for <span class="math inline">\(\mu\)</span> is <span class="math display">\[\left[ \barX_n - z_{\alpha/2} \frac{S_n}{\sqrt{n}}, \; \barX_n + z_{\alpha/2} \frac{S_n}{\sqrt{n}} \right]\]</span></p>
 </section>
 <section class="slide level2">
 
@@ -744,7 +772,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a 95% confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
-<div id="8a2367b2" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
+<div id="30b72f30" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -754,7 +782,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 </div>
 </div><div class="column" style="width:42%;">
-<div id="04454509" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
+<div id="e094e09e" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -767,7 +795,14 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </section>
 <section id="small-sample-confidence-intervals-for-means-when-the-distribution-is-known" class="slide level2">
 <h2>Small sample size confidence intervals for means when the distribution is known</h2>
-<p>If the sample size is not large enough for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply, but the sample mean has a known distribution, then exact confidence intervals can sometimes be constructed</p>
+<p><span class="small">(CB §9.2; WMS §8.8–8.9)</span></p>
+<ul>
+<li><p>If the sample sizem <span class="math inline">\(n\)</span>, is <span class="alert">not large enough</span> for the <a href="../slides/01-intro.html#clt">Central Limit Theorem</a> to apply,</p></li>
+<li><p>But the sample mean has a <span class="alert">known distribution</span>, then exact confidence intervals can sometimes be constructed</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
 <h3 id="confidence-interval-for-the-mean-of-an-exponential-distribution">Confidence interval for the mean of an exponential distribution</h3>
 <p>You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.based on <span class="math inline">\(n\)</span> observations. You construct a <span class="math inline">\(95\%\)</span> confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>. Since we have the true distribution of <span class="math inline">\(\barX_n\)</span>:</p>
 <div class="columns">
@@ -780,7 +815,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="8dcca7ab" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="6b592a0d" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -794,7 +829,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section class="slide level2">
 
 <h3 id="exact-vs-clt-sampling-distribution-of-overlinex-when-x_i-sim-exp1mu">Exact vs CLT sampling distribution of <span class="math inline">\(\overline{X}\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span></h3>
-<div id="667ea946" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="2d0214a7" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -809,7 +844,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h3 id="exact-vs-clt-confidence-intervals-for-mu-when-x_i-sim-exp1mu-two-sample-sizes">Exact vs CLT confidence intervals for <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span> (two sample sizes)</h3>
 <div class="columns">
 <div class="column" style="width:65%;">
-<div id="9b1a0ccf" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
+<div id="89114c64" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -847,7 +882,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="26d97fa3" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
+<div id="748007d6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1142,6 +1177,7 @@ F_{\,n_X-1,n_Y-1}
 </section>
 <section id="bootstrap-confidence-intervals" class="slide level2">
 <h2>Bootstrap Confidence Intervals</h2>
+<p><span class="small">(EH Ch. 11)</span></p>
 <p>Classical confidence intervals rely on assumptions such as:</p>
 <ul>
 <li>Known or estimable variance</li>
@@ -1205,10 +1241,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-1.83, 1.00, 3.31, 2.01, 4.40, 0.60, 3.21, 0.37
+2.11, 1.35, 1.68, 1.15, 2.26, 0.89, 9.34, 0.39
 </td>
 <td>
-2.09
+2.40
 </td>
 </tr>
 <tr>
@@ -1216,10 +1252,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-4.40, 3.21, 0.60, 1.00, 4.40, 3.21, 1.83, 2.01
+0.39, 0.89, 0.39, 9.34, 1.15, 0.89, 1.68, 1.35
 </td>
 <td>
-2.58
+2.01
 </td>
 </tr>
 <tr>
@@ -1227,10 +1263,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-1.00, 3.31, 3.21, 0.37, 3.31, 1.83, 0.60, 0.37
+1.68, 1.35, 1.68, 1.68, 0.89, 2.11, 0.39, 1.35
 </td>
 <td>
-1.75
+1.39
 </td>
 </tr>
 <tr>
@@ -1238,10 +1274,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-3.31, 3.31, 0.37, 3.31, 0.60, 3.21, 1.83, 1.00
+9.34, 0.39, 0.39, 0.39, 2.11, 2.26, 2.11, 0.89
 </td>
 <td>
-2.12
+2.24
 </td>
 </tr>
 <tr>
@@ -1249,10 +1285,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-3.21, 3.21, 2.01, 1.00, 3.21, 2.01, 3.21, 4.40
+1.35, 1.68, 1.35, 2.11, 1.35, 1.35, 2.26, 1.35
 </td>
 <td>
-2.78
+1.60
 </td>
 </tr>
 <tr>
