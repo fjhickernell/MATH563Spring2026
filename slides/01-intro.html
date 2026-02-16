@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="01-intro_files/libs/revealjs/dist/theme/quarto-fcf96aab5a4d5dd9a38527d256d7ec31.css">
+  <link rel="stylesheet" href="01-intro_files/libs/revealjs/dist/theme/quarto-a4f4ce268b45b87ef8da64a58b5c5383.css">
   <link href="01-intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01-intro_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01-intro_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -817,14 +817,13 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </section>
 <section id="prob-concepts" class="slide level2">
 <h2>Key probability concepts</h2>
-<p>(CB Ch. 1–2; WMS Ch. 1–2) {.small}</p>
+<p><span class="small">(CB Ch. 1–2; WMS Ch. 1–2)</span></p>
 <ul>
 <li><p><span class="alert">Outcome</span> — a single possible result of a random process, e.g., <code>yes</code>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\((1,-2)\)</span>.</p></li>
 <li><p><span class="alert">Sample space</span> — the set of all possible outcomes, e.g., <span class="math inline">\(\{\text{yes},\text{no}\}\)</span>, <span class="math inline">\(\reals\)</span>.</p></li>
 <li><p><span class="alert">Event</span> — a <em>subset of the sample space</em> to which we may assign a probability, e.g., intervals like <span class="math inline">\([0,\infty)\)</span> or regions such as <span class="math inline">\(\{(x,y) : x^2 + y^2 \le 1\}\)</span>.</p></li>
 <li><p><span class="alert">Event space</span> — a collection of events (subsets of the sample space) that we are allowed to assign probabilities to.</p></li>
-<li><p><span class="alert">Probability</span> — a function<br>
-[ :] satisfying:</p>
+<li><p><span class="alert">Probability</span> — a function <span class="math inline">\(\Prob:\text{event space}\to[0,1]\)</span> satisfying:</p>
 <ul>
 <li><span class="math inline">\(0 \le \Prob(A) \le 1\)</span> for every event <span class="math inline">\(A\)</span></li>
 <li><span class="math inline">\(\Prob(\text{sample space}) = 1\)</span></li>
@@ -902,6 +901,7 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t}
 </section>
 <section id="prob-distrib" class="slide level2">
 <h2>Important distributions</h2>
+<p><span class="small">(CB §§3.1–3.3; WMS §§3.1–3.4, 4.1–4.6)</span></p>
 <ul>
 <li><p><span class="alert">Binomial</span> (free-throw shooting, discrete) <span class="math inline">\(\Bin(n,p)\)</span> <span class="math display">\[
 \varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \quad \Ex(X) = np, \; \var(X) = np(1-p)
