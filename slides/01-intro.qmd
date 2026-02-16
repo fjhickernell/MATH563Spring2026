@@ -42,6 +42,8 @@ Java | 1
 
 ## Exponential families of distributions
 
+[({{< meta texts.cb.initials >}} §3.4)]{.small}
+
 If a PMF or PDF can be expressed as
 $$
 \varrho(\vx\mid \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d,
