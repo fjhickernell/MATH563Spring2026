@@ -6,7 +6,7 @@ subtitle: |
   Diagnostic Quiz due 1/16 <br>
   Assignment 2 due 1/30</span>
 author: "Fred J. Hickernell"
-date: last-modified
+date: today
 date-format: "MMMM D, YYYY"
 reveal-options:
   disableLayout: false
