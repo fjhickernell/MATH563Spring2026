@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-16">
+  <meta name="dcterms.date" content="2026-02-17">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -285,6 +285,9 @@
           vz:  "{\\boldsymbol{z}}",
           vZ:  "{\\boldsymbol{Z}}",
 
+          tg:  "{\\widetilde{g}}",
+          th:  "{\\widetilde{h}}",
+
           valpha: "{\\boldsymbol{\\alpha}}",
           vbeta:  "{\\boldsymbol{\\beta}}",
           vgamma: "{\\boldsymbol{\\gamma}}",
@@ -312,6 +315,9 @@
           hX:     "{\\widehat{X}}",
           hY:     "{\\widehat{Y}}",
           hZ:     "{\\widehat{Z}}",
+
+          ct: "{\\mathcal{T}}",
+          cx: "{\\mathcal{X}}",
 
           vzero: "{\\boldsymbol{0}}",
           vone:  "{\\boldsymbol{1}}",
@@ -464,7 +470,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 16, 2026</p>
+  <p class="date">February 17, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -730,7 +736,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="3589bb86" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="8b71cf59" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -772,7 +778,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a 95% confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
-<div id="0d3c2607" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
+<div id="1fe88e8a" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -782,7 +788,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 </div>
 </div><div class="column" style="width:42%;">
-<div id="52bc6418" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
+<div id="8a4a128c" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -815,7 +821,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="908637b4" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="442677f5" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -829,7 +835,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section class="slide level2">
 
 <h3 id="exact-vs-clt-sampling-distribution-of-overlinex-when-x_i-sim-exp1mu">Exact vs CLT sampling distribution of <span class="math inline">\(\overline{X}\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span></h3>
-<div id="f11e6cb0" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="4858ca44" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -844,7 +850,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h3 id="exact-vs-clt-confidence-intervals-for-mu-when-x_i-sim-exp1mu-two-sample-sizes">Exact vs CLT confidence intervals for <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span> (two sample sizes)</h3>
 <div class="columns">
 <div class="column" style="width:65%;">
-<div id="754bf180" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
+<div id="957b7778" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -882,7 +888,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="8b8fbffa" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
+<div id="24f9957e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1241,10 +1247,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-1.77, 1.98, 1.70, 6.11, 1.93, 0.52, 1.30, 1.66
+3.32, 0.79, 0.62, 0.24, 0.71, 0.39, 0.14, 3.76
 </td>
 <td>
-2.12
+1.25
 </td>
 </tr>
 <tr>
@@ -1252,10 +1258,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-1.98, 1.93, 0.52, 6.11, 1.70, 1.93, 1.77, 1.77
+0.71, 0.39, 3.76, 0.62, 0.71, 0.39, 0.24, 0.71
 </td>
 <td>
-2.21
+0.94
 </td>
 </tr>
 <tr>
@@ -1263,10 +1269,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-0.52, 1.70, 1.66, 1.98, 6.11, 0.52, 1.70, 1.98
+0.14, 3.76, 0.62, 3.32, 0.39, 0.79, 0.39, 3.76
 </td>
 <td>
-2.02
+1.65
 </td>
 </tr>
 <tr>
@@ -1274,10 +1280,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-1.77, 0.52, 1.70, 1.98, 1.30, 1.93, 1.93, 1.93
+0.24, 3.76, 0.39, 0.24, 0.14, 0.71, 0.62, 0.24
 </td>
 <td>
-1.63
+0.80
 </td>
 </tr>
 <tr>
@@ -1285,10 +1291,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-1.66, 1.93, 1.70, 1.70, 1.30, 1.66, 1.66, 1.70
+3.76, 0.62, 0.71, 0.39, 0.24, 3.32, 0.39, 0.14
 </td>
 <td>
-1.67
+1.20
 </td>
 </tr>
 <tr>
@@ -1494,31 +1500,203 @@ Bootstrap 4
 </section>
 <section id="sufficiency" class="slide level2">
 <h2>Sufficiency</h2>
-<p>Let <span class="math inline">\(X_1,\dots,X_n\)</span> have joint PMF/PDF <span class="math inline">\(\varrho(\vx \mid \vtheta)\)</span>.</p>
+<p>Let <span class="math inline">\(\vX =(X_1,\dots,X_n)\)</span> have joint PMF/PDF <span class="math inline">\(\varrho(\vx \mid \vtheta)\)</span>.</p>
 <p>&nbsp;</p>
 <p>A statistic <span class="math inline">\(T(\vX)\)</span> is <span class="alert">sufficient</span> for <span class="math inline">\(\vtheta\)</span> if</p>
 <p>the conditional distribution of <span class="math inline">\(\vX\)</span> given <span class="math inline">\(T(\vX)\)</span></p>
 <p>does <strong>NOT</strong> depend on <span class="math inline">\(\vtheta\)</span>.</p>
 <p>&nbsp;</p>
-<p>Interpretation:</p>
 <blockquote>
-<p>Once <span class="math inline">\(T\)</span> is known, the sample contains no additional information about <span class="math inline">\(\vtheta\)</span></p>
+<p>If a sufficient statistic, <span class="math inline">\(T\)</span>, is known, then the sample contains no additional information about <span class="math inline">\(\vtheta\)</span></p>
 </blockquote>
 </section>
 <section id="factorization-theorem" class="slide level2">
 <h2>Factorization Theorem</h2>
 <p><span class="math inline">\(T(\vX)\)</span> is <span class="alert">sufficient</span> for <span class="math inline">\(\vtheta\)</span> iff</p>
-<p><span class="math display">\[
-\varrho(\vx \mid \vtheta)
-=
-g(T(\vx), \vtheta)\, h(\vx)
-\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\varrho(\vx \mid \vtheta) = L(\vtheta \mid \vx)
+&amp; =
+g(T(\vx), \vtheta)\, h(\vx) \\
+\text{or equivalently } \qquad \ell(\vtheta \mid \vx)  = \log(L(\vtheta \mid \vx)) &amp; = \tg(T(\vx), \vtheta) + \th(\vx)
+\end{align*}\]</span></p>
 <p>where</p>
 <ul>
 <li><span class="math inline">\(g\)</span> depends on data only through <span class="math inline">\(T\)</span></li>
 <li><span class="math inline">\(h\)</span> does not depend on <span class="math inline">\(\vtheta\)</span></li>
 </ul>
 <p>This is the fundamental practical tool for proving sufficiency</p>
+<p><em>Example</em>: For <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Bern(p)\)</span>, the log likelihood is <span class="math display">\[
+\ell(p \mid \vx) = \sum_{i=1}^n \left [ x_i \log(p) + (1-x_i)\log(1-p) \right]
+= \left(\sum_{i=1}^n x_i \right) [\log(p) - \log(1-p)]  + n\log(1-p)
+\]</span> so <span class="math inline">\(\displaystyle T(\vX) = \sum_{i=1}^n X_i\)</span> is sufficient for <span class="math inline">\(p\)</span></p>
+</section>
+<section class="slide level2">
+
+<p><span class="math inline">\(\exstar\)</span> For <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Exp(\lambda)\)</span>, the statistic <span class="math inline">\(\displaystyle T(\vX) = \sum_{i=1}^n X_i\)</span> is sufficient for <span class="math inline">\(\lambda\)</span></p>
+<p><span class="math inline">\(\exstar\)</span> For <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)\)</span>, the statistic <span class="math inline">\(\displaystyle T(\vX) = \sum_{i=1}^n X_i\)</span> is not sufficient for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><span class="math inline">\(\exstar\)</span> Find a sufficient (vector) statistic for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> for <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)\)</span></p>
+</section>
+<section id="minimal-sufficiency" class="slide level2">
+<h2>Minimal Sufficiency</h2>
+<p>A sufficient statistic <span class="math inline">\(T\)</span> is <em>minimal sufficient</em> if</p>
+<ul>
+<li><p>it is sufficient, and</p></li>
+<li><p>it is a function of every other sufficient statistic.</p></li>
+</ul>
+<blockquote>
+<p>A minimial sufficient statistic compresses the data as much as possible<br>
+without losing information about <span class="math inline">\(\vtheta\)</span></p>
+</blockquote>
+<p><strong>Theorem</strong>: A statistic <span class="math inline">\(T(\vX)\)</span> is minimal sufficient if for all sample points <span class="math inline">\(\vx\)</span>, <span class="math inline">\(\vy\)</span>,</p>
+<p><span class="math display">\[
+\left . \begin{array}{r} \displaystyle \frac{L(\vtheta \mid \vx)}{L(\vtheta \mid \vy)} \\
+\text{ or equivalently} \quad \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) \end{array} \right \}
+\text{ is independent of } \vtheta
+\quad
+\Longleftrightarrow
+\quad
+T(\vx) = T(\vy)
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><em>Proof</em>: Suppose that <span class="math inline">\(\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)\)</span> is independent of <span class="math inline">\(\vtheta\)</span> iff <span class="math inline">\(T(\vx) = T(\vy)\)</span>.</p>
+<p>Let</p>
+<ul>
+<li><span class="math inline">\(\cx\)</span> be the sample space of the data, <span class="math inline">\(\vX\)</span></li>
+<li><span class="math inline">\(\ct : = T(\vtheta \mid \cx)\)</span> be the image of <span class="math inline">\(T\)</span></li>
+</ul>
+<p>For each <span class="math inline">\(t \in \ct\)</span>, find one <span class="math inline">\(\vx_t \in \cx\)</span> such that <span class="math inline">\(T(\vx_t) = t\)</span>, and define</p>
+<ul>
+<li><span class="math inline">\(\th(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})\)</span>, and</li>
+<li><span class="math inline">\(\tg(t,\vtheta) : = \ell(\vtheta \mid \vx_t)\)</span></li>
+</ul>
+<p>Then for any <span class="math inline">\(\vx \in \cx\)</span>,</p>
+<p><span class="math display">\[
+\ell(\vtheta \mid \vx) = \th(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) = \th(\vx) + \tg(T(\vx),\vtheta)  
+\]</span></p>
+<p>so <span class="math inline">\(T\)</span> is sufficient</p>
+</section>
+<section class="slide level2">
+
+<p>To show that <span class="math inline">\(T(\vX)\)</span> is minimal</p>
+<ul>
+<li><p>Let <span class="math inline">\(T'(\vX)\)</span> be any other sufficient statistic, so</p></li>
+<li><p><span class="math inline">\(\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx)\)</span></p></li>
+</ul>
+<p>For any <span class="math inline">\(\vx, \vy \in \cx\)</span> with <span class="math inline">\(T'(\vx) = T'(\vy)\)</span>, we have <span class="math display">\[
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) = \th'(\vx) - \th'(\vy)\]</span> which does not depend on <span class="math inline">\(\vtheta\)</span>. Thus, <span class="math inline">\(T(\vx) = T(\vy)\)</span>.</p>
+<p>Since <span class="math inline">\(T'(\vx) = T'(\vy)\)</span> implies <span class="math inline">\(T(\vx) = T(\vy)\)</span>, it follows that <span class="math inline">\(T\)</span> is a function of <span class="math inline">\(T'\)</span> <span class="math inline">\(\qquad \square\)</span></p>
+<p><em>Example</em>: For <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Bern(p)\)</span>, <span class="math inline">\(\displaystyle T(\vX) = \sum_{i=1}^n X_i\)</span> is a sufficient statistic for <span class="math inline">\(p\)</span>. To show that it is minimal sufficient, note that for any <span class="math inline">\(\vx\)</span>, <span class="math inline">\(\vy\)</span>, <span class="math display">\[
+\ell(p \mid \vx) - \ell(p \mid \vy) = \bigl(T(\vx) - T(\vy) \bigr) [\log(p) - \log(1-p)]  = 0 \iff T(\vx) = T(\vy)
+\]</span> so <span class="math inline">\(T(\vX)\)</span> is minimal sufficient for <span class="math inline">\(p\)</span></p>
+</section>
+<section id="completeness" class="slide level2">
+<h2>Completeness</h2>
+<p>A statistic <span class="math inline">\(T\)</span> is <em>complete</em> if</p>
+<p><span class="math display">\[
+\Ex_\vtheta[g(T)] = 0 \quad \forall \vtheta
+\quad \implies \quad
+g(T)=0 \text{ a.s.}
+\]</span></p>
+<p>Completeness eliminates hidden unbiased estimators.</p>
+<p>It is the key hypothesis in Lehmann–Scheffé.</p>
+</section>
+<section id="raoblackwell-theorem" class="slide level2">
+<h2>Rao–Blackwell Theorem</h2>
+<p>Let <span class="math inline">\(\hat{\vtheta}\)</span> be unbiased and let <span class="math inline">\(T\)</span> be sufficient.</p>
+<p>Define</p>
+<p><span class="math display">\[
+\tilde{\vtheta} = \E[\hat{\vtheta} \mid T].
+\]</span></p>
+<p>Then</p>
+<ul>
+<li><span class="math inline">\(\tilde{\vtheta}\)</span> is unbiased<br>
+</li>
+<li><span class="math inline">\(\Var(\tilde{\vtheta}) \le \Var(\hat{\vtheta})\)</span></li>
+</ul>
+<p>Conditioning on sufficient statistics improves estimators.</p>
+</section>
+<section id="lehmannscheffé-theorem" class="slide level2">
+<h2>Lehmann–Scheffé Theorem</h2>
+<p>If</p>
+<ul>
+<li><span class="math inline">\(T\)</span> is complete and sufficient<br>
+</li>
+<li><span class="math inline">\(\hat{\vtheta} = g(T)\)</span> is unbiased</li>
+</ul>
+<p>then <span class="math inline">\(\hat{\vtheta}\)</span> is the unique MVUE.</p>
+<p>This is the main structural route to minimum variance unbiased estimators.</p>
+</section>
+<section id="cramérrao-lower-bound" class="slide level2">
+<h2>Cramér–Rao Lower Bound</h2>
+<p>Under regularity conditions,</p>
+<p><span class="math display">\[
+\Var(\hat{\vtheta})
+\ge
+\frac{1}{I(\vtheta)}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+I(\vtheta)
+=
+\E\!\left[
+\left(
+\frac{\partial}{\partial \vtheta}
+\log \varrho(\vX \mid \vtheta)
+\right)^2
+\right].
+\]</span></p>
+<p>This gives a universal lower bound on variance of unbiased estimators.</p>
+</section>
+<section id="conceptual-pipeline" class="slide level2">
+<h2>Conceptual Pipeline</h2>
+<p>Data<br>
+<span class="math inline">\(\longrightarrow\)</span> Sufficient statistic<br>
+<span class="math inline">\(\longrightarrow\)</span> Complete sufficient statistic<br>
+<span class="math inline">\(\longrightarrow\)</span> MVUE (Lehmann–Scheffé)</p>
+<p>This is the classical parametric estimation framework.</p>
+</section>
+<section id="connection-to-exponential-families" class="slide level2">
+<h2>Connection to Exponential Families</h2>
+<p>We previously defined exponential families as</p>
+<p><span class="math display">\[
+\varrho(\vx\mid \vtheta)
+=
+h(\vx)\, c(\vtheta)\,
+\exp\!\left(
+\sum_k w_k(\vtheta) t_k(\vx)
+\right).
+\]</span></p>
+<p>For IID data,</p>
+<p><span class="math display">\[
+\sum_{i=1}^n t_k(\vX_i)
+\]</span></p>
+<p>is automatically sufficient for <span class="math inline">\(\vtheta\)</span>.</p>
+<p>In regular cases, this statistic is also</p>
+<ul>
+<li>minimal sufficient<br>
+</li>
+<li>complete</li>
+</ul>
+<p>which makes Lehmann–Scheffé especially powerful.</p>
+</section>
+<section id="why-exponential-families-make-everything-work" class="slide level2">
+<h2>Why Exponential Families Make Everything Work</h2>
+<p>Because of their structure:</p>
+<ul>
+<li>finite-dimensional sufficient statistics<br>
+</li>
+<li>minimal sufficiency automatically<br>
+</li>
+<li>completeness (in full regular families)<br>
+</li>
+<li>tractable Fisher information<br>
+</li>
+<li>explicit sampling distributions</li>
+</ul>
+<p>This is why classical parametric inference is so clean for</p>
+<p>Bernoulli, Poisson, Exponential, Normal, Gamma, etc.</p>
 
 </section></section>
     </div>
