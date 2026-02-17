@@ -23,9 +23,9 @@ Fri Jan 30 | **Assignment 2 Due**
 | Tue Feb 3 | Distributions of estimators | |
 | Thu Feb 5 | Confidence intervals | |
 | Tue Feb 10 | Confidence intervals for means | |
-| Thu Feb 12 | | |
+| Thu Feb 12 | Confidence intervals for variances, Bootstrap confidence intervals| |
 Fri Feb 13 | **Assignment 3 Due**
-| Tue Feb 17 | | |
+| Tue Feb 17 | Sufficient statistics and related topics | |
 | Thu Feb 19 | | |
 | Tue Feb 24 | | |
 | Thu Feb 26 | **Test 1** | |
