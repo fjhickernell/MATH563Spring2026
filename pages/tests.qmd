@@ -9,7 +9,7 @@ execute:
 
 Unless otherwise noted
 
-- Tests are closed book, but you may use **four** letter-sized sheets of notes (both sides)
+- Tests are closed book, but you may use **four** letter-sized sheets of notes (both sides) handwritten or typed as you please; no sharing of notes during the test
 - Calculators and other electronic devices are **not** allowed; phones must be placed in your bags under your desks or at the front of the room; hands must be on top of your desks
 - You are expected to simplify any expressions that can be simplified as even numbers, but you may leave other expressions as is, e.g., $\sqrt{47}$ or $18/29$
 - You will be provided all of the **critical values** that you need and are not expected to memorize them, but you should know how to use them
