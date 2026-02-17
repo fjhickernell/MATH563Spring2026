@@ -4,9 +4,20 @@ execute:
   echo: false
 ---
 
-Information about midterms, finals, and archived tests is posted here.
 
-## This semester’s tests and exams
+### Instructions for Tests and Exams
+
+Unless otherwise noted
+
+- Tests are closed book, but you may use **four** letter-sized sheets of notes (both sides)
+- Calculators and other electronic devices are **not** allowed; phones must be placed in your bags under your desks or at the front of the room; hands must be on top of your desks
+- You are expected to simplify any expressions that can be simplified as even numbers, but you may leave other expressions as is, e.g., $\sqrt{47}$ or $18/29$
+- You will be provided all of the **critical values** that you need and are not expected to memorize them, but you should know how to use them
+- Show all **your work** to justify your answers; answers without adequate justification will not receive credit
+- You will be asked to sign an **integrity** statement on the question paper, and you are expected to abide by it
+
+
+### This semester’s tests and exams
 
 Dates, coverage, and PDFs for this semester will appear here as they become available.
 
