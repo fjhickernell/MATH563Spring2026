@@ -266,9 +266,9 @@ estimators.
 Under regularity conditions,
 
 $$
-\Var(\hat{\vtheta})
+\var(\vTheta)
 \ge
-\frac{1}{I(\vtheta)}
+\frac{1}{I(\vTheta)}
 $$
 
 where
@@ -276,12 +276,12 @@ where
 $$
 I(\vtheta)
 =
-\E\!\left[
+\Ex\!\left[
 \left(
 \frac{\partial}{\partial \vtheta}
 \log \varrho(\vX \mid \vtheta)
 \right)^2
-\right].
+\right]
 $$
 
 This gives a universal lower bound on variance of unbiased estimators.
