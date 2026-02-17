@@ -75,6 +75,9 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 # Do we have the right estimators to summarize our data and construct confidence intervals?
 
 - [Sufficiency](#sufficiency)
+- [Rao--Blackwell](#rao-blackwell)
+- [Completeness](#completeness)
+- [Cramér--Rao](#cramer-rao)
 
 
 ## Sufficiency {#sufficiency}
@@ -152,7 +155,7 @@ $$
 
 ---
 
-_Proof_: Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$. 
+_Proof_: Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$
 
 Let 
 
@@ -193,7 +196,33 @@ $$
 $$
 so $T(\vX)$ is minimal sufficient for $p$
 
-## Completeness
+---
+
+## Rao--Blackwell Theorem {#rao-blackwell}
+
+Let $\vTheta$ be unbiased and let $T$ be sufficient
+
+Define
+
+$$
+\widetilde{\vTheta} := \Ex(\vTheta \mid T)
+$$
+
+Then
+
+-   $\widetilde{\vTheta}$ is unbiased\
+-   $\var(\widetilde{\vTheta}) \le \var(\vTheta)$
+
+Conditioning on sufficient statistics improves estimators
+
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.  The estimator $\Theta := X_1$ is unbiased for $p$, but it is not a function of $T$.  The Rao--Blackwell improvement of $\Theta$ is
+$$
+\widetilde{\Theta} = \Ex(X_1 \mid T) = \frac{T}{n} =   \frac 1n \sum_{i=1}^n X_i = \barX
+$$
+
+---
+
+## Completeness {#completeness}
 
 A statistic $T$ is *complete* if
 
@@ -207,42 +236,32 @@ Completeness eliminates hidden unbiased estimators.
 
 It is the key hypothesis in Lehmann--Scheffé.
 
-------------------------------------------------------------------------
+---
 
-## Rao--Blackwell Theorem
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.  To show that it is complete, note that if $\Ex_p[g(T)] = 0$ 
+\begin{align*}
+0 & =\sum_{t=0}^n g(t) \binom{n}{t} p^t (1-p)^{n-t} \\
+\implies & 0 =  \sum_{t=0}^n g(t) \binom{n}{t} \left( \frac{p}{1-p} \right)^t
+\end{align*}
+Since the right hand side is a polynomial in $p/(1-p)$ with coefficients $g(t) \binom{n}{t}$ that is zero for all $p \in (0,1)$, we must have $g(t) = 0$ for all $t \in \{0, \ldots, n\}$, so $g(T) = 0$ a.s.  
 
-Let $\hat{\vtheta}$ be unbiased and let $T$ be sufficient.
+Thus, $T(\vX)$ is complete for $p\in (0,1)$  
 
-Define
-
-$$
-\tilde{\vtheta} = \E[\hat{\vtheta} \mid T].
-$$
-
-Then
-
--   $\tilde{\vtheta}$ is unbiased\
--   $\Var(\tilde{\vtheta}) \le \Var(\hat{\vtheta})$
-
-Conditioning on sufficient statistics improves estimators.
-
-------------------------------------------------------------------------
-
-## Lehmann--Scheffé Theorem
+## Lehmann--Scheffé Theorem 
 
 If
 
 -   $T$ is complete and sufficient\
--   $\hat{\vtheta} = g(T)$ is unbiased
+-   $\vTheta = g(T)$ is unbiased
 
-then $\hat{\vtheta}$ is the unique MVUE.
+then $\vTheta$ is the unique MVUE
 
 This is the main structural route to minimum variance unbiased
 estimators.
 
 ------------------------------------------------------------------------
 
-## Cramér--Rao Lower Bound
+## Cramér--Rao Lower Bound {#cramer-rao}
 
 Under regularity conditions,
 
