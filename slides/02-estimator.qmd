@@ -286,46 +286,109 @@ Since the right hand side is a polynomial in $p/(1-p)$ with coefficients $g(t) \
 
 Thus, $T(\vX)$ is complete for $p\in (0,1)$  
 
-## Lehmann--Scheffé Theorem 
+---
 
-If
+### Example of minimal sufficient but NOT complete
 
--   $T$ is complete and sufficient\
--   $\vTheta = g(T)$ is unbiased
+Let $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$.  We show later that the statistic $T(\vX) = (\barX, S^2)$ is minimial sufficient for $(\mu,\sigma^2)$
 
-then $\vTheta$ is the unique MVUE
+&nbsp;
 
-This is the main structural route to minimum variance unbiased
-estimators.
+We know $\barX \sim \Norm(\mu,\sigma^2/n)$.  Define
 
-------------------------------------------------------------------------
+$$
+g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2.
+$$
+
+Then
+
+$$
+\mathbb{E}[g(T)] = 0
+\quad \text{for all } (\mu,\sigma^2),
+$$
+
+but $g(T)$ is not almost surely zero. Therefore,
+
+$$
+T \text{ is not complete.}
+$$
+
+
 
 ## Cramér--Rao Lower Bound {#cramer-rao}
 
 Under regularity conditions,
 
 $$
-\var(\vTheta)
+\var(\Theta)
 \ge
-\frac{1}{I(\vTheta)}
+\frac{1}{I(\Theta)}
 $$
 
 where
 
 $$
-I(\vtheta)
+I(\theta)
 =
 \Ex\!\left[
 \left(
-\frac{\partial}{\partial \vtheta}
-\log \varrho(\vX \mid \vtheta)
+\frac{\partial \ell(\theta \mid \vX)}{\partial \theta}
 \right)^2
 \right]
+=
+- 
+\Ex\!
+\left(
+\frac{\partial^2 \ell(\theta \mid \vX)}{\partial \theta^2}
+\right)
 $$
 
-This gives a universal lower bound on variance of unbiased estimators.
+This gives a universal lower bound on variance of unbiased estimators
 
-------------------------------------------------------------------------
+---
+
+### Bernoulli example
+
+Let $X_1, \dots, X_n \IIDsim \Bern(p)$
+
+\begin{align*}
+\text{log likelihood} \quad \ell(p)
+& =
+\sum_{i=1}^n
+\left[
+X_i \log p
++
+(1 - X_i)\log(1-p)
+\right] \\
+\text{score function} \quad \ell'(p) &=
+\sum_{i=1}^n
+\left(
+\frac{X_i}{p}
+-
+\frac{1 - X_i}{1-p}
+\right)
+=
+\frac{1}{p(1-p)}
+\sum_{i=1}^n (X_i - p) \\
+\text{second derivative} \quad \ell''(p) & =
+-
+\sum_{i=1}^n
+\left(
+\frac{X_i}{p^2}
++
+\frac{1 - X_i}{(1-p)^2}
+\right) \\
+\text{Fisher information} \quad I_n(p) & = 
+- \Ex[\ell''(p)] = 
+\left(
+\frac{p}{p^2}
++
+\frac{1-p}{(1-p)^2}
+\right)
+=
+\frac{n}{p(1-p)} \\
+\text{CRLB} \quad \var(P) & \ge \frac{1}{I_n(p)} = \frac{p(1-p)}{n} = \var(\barX)
+\end{align*}
 
 ## Conceptual Pipeline
 
