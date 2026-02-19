@@ -4,7 +4,7 @@ subtitle: |
   <span class="deck-title">Estimators and Confidence Intervals</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
   Assignment 3 due 2/13 <br>
-  Test 1 on 2/26
+  Test 1 on 2/26 on Probability Review, Estimators, & Confidence Intervals
   </span>
 author: "Fred J. Hickernell"
 date: today
@@ -74,9 +74,15 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 
 # Do we have the right estimators to summarize our data and construct confidence intervals?
 
-- [Sufficiency](#sufficiency)
-- [Rao--Blackwell](#rao-blackwell)
-- [Completeness](#completeness)
+- [Sufficiency](#sufficiency) 
+
+  - Do we have a statistic that captures *all* of the information about $\vtheta$ in the data?
+  - Do we have a *minimal* statistic that compresses the data as much as possible without losing information about $\vtheta$?
+
+- [Rao--Blackwell](#rao-blackwell) — better estimators through conditioning
+
+- [Completeness](#completeness) — eliminating hidden unbiased estimators
+
 - [Cramér--Rao](#cramer-rao)
 
 
@@ -114,12 +120,24 @@ where
 
 This is the fundamental practical tool for proving sufficiency
 
+---
+
 _Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the log likelihood is
 $$
 \ell(p \mid \vx) = \sum_{i=1}^n \left [ x_i \log(p) + (1-x_i)\log(1-p) \right]
 = \left(\sum_{i=1}^n x_i \right) [\log(p) - \log(1-p)]  + n\log(1-p)
 $$
-so $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$
+so $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.
+
+&nbsp;
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span><span>
+For $X_1, \ldots, X_n \IIDsim \Bern(p)$
+<span class="exsub">Is the statistic $T(\vX)=X_1+X_2$ sufficient for $p$?</span>
+<span class="exsub">Is the statistic $T(\vX)=\left(X_1+X_2, \sum_{i=3}^n X_i\right)$ sufficient for $p$?</span>
+</span>
+:::
 
 ---
 
@@ -155,7 +173,18 @@ $$
 
 ---
 
-_Proof_: Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$
+**Theorem**: A statistic $T(\vX)$ is minimal sufficient if for all sample points $\vx$, $\vy$,
+
+$$
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)
+\text{ is independent of } \vtheta
+\quad
+\Longleftrightarrow
+\quad
+T(\vx) = T(\vy)
+$$
+
+_Proof that $T(\vX)$ is sufficient_: Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$
 
 Let 
 
@@ -164,37 +193,43 @@ Let
 
 For each $t \in \ct$, find one $\vx_t \in \cx$ such that $T(\vx_t) = t$, and define 
 
-- $\th(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})$, and
-- $\tg(t,\vtheta) : = \ell(\vtheta \mid \vx_t)$
+- $\th(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})\quad \forall x\in \cx \qquad$ (independent of $\vtheta$ by the hypothesis)
+
+- $\tg(t,\vtheta) : = \ell(\vtheta \mid \vx_t)\quad \forall \vtheta, \forall t \in \ct$
 
 Then for any $\vx \in \cx$,
 
 $$
-\ell(\vtheta \mid \vx) = \th(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) = \th(\vx) + \tg(T(\vx),\vtheta)  
+\ell(\vtheta \mid \vx) \underbrace{=}_{\text{def. of} \th} \th(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) \underbrace{=}_{\text{def. of} \tg}  \th(\vx) + \tg(T(\vx),\vtheta)  
+\quad  \forall \vtheta, \ \forall \vx \in \cx
 $$
 
 so $T$ is sufficient
 
 ---
 
-To show that $T(\vX)$ is minimal
+_Proof that $T(\vX)$ is minimal sufficient_:  Let $T'(\vX)$ be any other sufficient statistic, so
 
--   Let $T'(\vX)$ be any other sufficient statistic, so
-
--  $\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx)$
+-  $\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx)$ by the Factorization Theorem
 
 For any $\vx, \vy \in \cx$ with $T'(\vx) = T'(\vy)$, we have
 $$
-\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) = \th'(\vx) - \th'(\vy)$$
-which does not depend on $\vtheta$.  Thus, $T(\vx) = T(\vy)$.
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \th'(\vx) - \th'(\vy)$$
+which does not depend on $\vtheta$.  Thus, $T(\vx) = T(\vy)$ by the hypothesis of the theorem.
 
-Since $T'(\vx) = T'(\vy)$ implies $T(\vx) = T(\vy)$, it follows that  $T$ is a function of $T'$  $\qquad \square$
+Since $T'(\vx) = T'(\vy) \implies T(\vx) = T(\vy)$, it follows that  $T$ is a function of $T'$  $\qquad \square$
+
+---
 
 _Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is a sufficient statistic for $p$.  To show that it is minimal sufficient, note that for any $\vx$, $\vy$,
 $$
 \ell(p \mid \vx) - \ell(p \mid \vy) = \bigl(T(\vx) - T(\vy) \bigr) [\log(p) - \log(1-p)]  = 0 \iff T(\vx) = T(\vy)
 $$
 so $T(\vX)$ is minimal sufficient for $p$
+
+&nbsp;
+
+$\exstar$ For $X_1, \ldots, X_n \IIDsim \Bern(p)$, is the statistic $T'(\vX)=\left(X_1+X_2, \sum_{i=3}^n X_i\right)$ minimal sufficient for $p$?
 
 ---
 
@@ -214,6 +249,8 @@ Then
 -   $\var(\widetilde{\vTheta}) \le \var(\vTheta)$
 
 Conditioning on sufficient statistics improves estimators
+
+---
 
 _Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.  The estimator $\Theta := X_1$ is unbiased for $p$, but it is not a function of $T$.  The Rao--Blackwell improvement of $\Theta$ is
 $$
@@ -244,6 +281,8 @@ _Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle
 \implies & 0 =  \sum_{t=0}^n g(t) \binom{n}{t} \left( \frac{p}{1-p} \right)^t
 \end{align*}
 Since the right hand side is a polynomial in $p/(1-p)$ with coefficients $g(t) \binom{n}{t}$ that is zero for all $p \in (0,1)$, we must have $g(t) = 0$ for all $t \in \{0, \ldots, n\}$, so $g(T) = 0$ a.s.  
+
+&nbsp;
 
 Thus, $T(\vX)$ is complete for $p\in (0,1)$  
 
