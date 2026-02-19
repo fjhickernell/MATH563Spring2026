@@ -1,0 +1,14 @@
+---
+title: "MATH 563 — Mathematical Statistics"
+subtitle: |
+  <span class="deck-title">Hypothesis Testing</span><br>
+  <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 8<br> 
+  </span>
+author: "Fred J. Hickernell"
+date: today
+date-format: "MMMM D, YYYY"
+reveal-options:
+  disableLayout: false
+---
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/hypothesis-frame.qmd >}}
