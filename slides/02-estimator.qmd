@@ -334,7 +334,7 @@ Under regularity conditions,
 $$
 \var(\Theta)
 \ge
-\frac{1}{I(\Theta)}
+\frac{1}{I(\theta)}
 $$
 
 where
@@ -401,6 +401,81 @@ X_i \log p
 \frac{n}{p(1-p)} \\
 \text{CRLB} \quad \var(P) & \ge \frac{1}{I_n(p)} = \frac{p(1-p)}{n} = \var(\barX)
 \end{align*}
+
+## Why are the two definitions of Fisher information equal?
+
+### Set-up
+
+- $\ell(\theta \mid \vX) = \log \bigl( \varrho(\vX \mid \theta) \bigr)$ is the [log-likelihood function]{.alert}
+
+- $\displaystyle U(\theta \mid \vX) =
+\frac{\partial}{\partial \theta}
+\ell(\theta \mid X)
+$ is the [score function]{.alert}
+
+Assume:
+
+- the support of $\varrho(\vx\mid\theta)$ does not depend on $\theta$
+- differentiation and integration may be interchanged
+
+---
+
+### Score has mean zero for all $\theta$
+
+\begin{align*}
+0 & = \frac{\partial}{\partial \theta}
+\int \varrho(\vx \mid \theta)\, \dif \vx \qquad \text{because densities always integrate to 1} \\
+& = \int
+\frac{\partial}{\partial \theta}
+\varrho(\vx \mid \theta)
+\, \dif \vx \qquad \text{since differentiation and integration may be interchanged} \\
+& = \int
+\varrho(\vx \mid \theta) \,
+\frac{\partial}{\partial \theta}
+\log \varrho(\vx \mid \theta) 
+\, \dif \vx \qquad \text{since }\frac{\partial}{\partial \theta}\varrho(\vx \mid \theta) = \varrho(\vx \mid \theta) \frac{\partial}{\partial \theta} \log \varrho(\vx \mid \theta) \\
+& = \int
+\varrho(\vx \mid \theta)
+\frac{\partial}{\partial \theta}
+\ell(\theta \mid \vx) \, \dif \vx = \Ex[U(\theta \mid \vX)]
+\end{align*}
+
+---
+
+### Differentiate again
+
+\begin{align*}
+0 & = \frac{\partial}{\partial \theta} \Ex[U(\theta \mid \vX)] = \frac{\partial}{\partial \theta}
+\int \varrho(\vx \mid \theta)\, U(\theta \mid \vx) \, \dif \vx \\
+& = \int
+\left[
+\frac{\partial \varrho(\theta \mid \vx)}{\partial \theta}\, U(\theta \mid \vx)
++
+\varrho (\theta \mid \vx) \frac{\partial U(\theta \mid \vx)}{\partial \theta}
+\right]
+\, \dif \vx  \\
+& \qquad \qquad \text{since differentiation and integration may be interchanged} \\
+& = \int
+\left[ \varrho (\theta \mid \vx)
+\{U(\theta \mid \vx)\}^2
++
+\varrho (\theta \mid \vx) \frac{\partial U(\theta \mid \vx)}{\partial \theta}
+\right]
+\, \dif \vx \\
+& = \Ex\bigl[U^2(\theta \mid \vX)\bigr]
++
+\Ex\!\left[\frac{\partial U(\theta \mid \vX)}{\partial \theta}\right]
+\end{align*}
+
+That is,
+
+$$
+ I_n(\theta) = \Ex\!\left[
+\left(
+\frac{\partial \ell(\theta \mid X)}{\partial \theta}
+\right)^2
+\right] = \Ex\bigl[U^2(\theta \mid \vX)\bigr] = - \Ex\!\left[\frac{\partial U(\theta \mid \vX)}{\partial \theta}\right] = - \Ex\!\left[\frac{\partial^2 \ell(\theta \mid \vX)}{\partial \theta^2}\right]
+$$
 
 ## Conceptual Pipeline
 
