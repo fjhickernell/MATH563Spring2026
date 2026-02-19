@@ -313,6 +313,18 @@ $$
 T \text{ is not complete.}
 $$
 
+## Lehmann--Scheffé Theorem 
+
+If
+
+-   $T$ is complete and sufficient\
+-   $\vTheta = g(T)$ is unbiased estimator of $\theta$
+
+then $\vTheta$ is the unique MVUE
+
+This is the main structural route to minimum variance unbiased
+estimators
+
 
 
 ## Cramér--Rao Lower Bound {#cramer-rao}
@@ -411,7 +423,7 @@ $$
 h(\vx)\, c(\vtheta)\,
 \exp\!\left(
 \sum_k w_k(\vtheta) t_k(\vx)
-\right).
+\right)
 $$
 
 For IID data,
@@ -420,14 +432,14 @@ $$
 \sum_{i=1}^n t_k(\vX_i)
 $$
 
-is automatically sufficient for $\vtheta$.
+is automatically sufficient for $\vtheta$
 
 In regular cases, this statistic is also
 
 -   minimal sufficient\
 -   complete
 
-which makes Lehmann--Scheffé especially powerful.
+which makes Lehmann--Scheffé especially powerful
 
 ------------------------------------------------------------------------
 
