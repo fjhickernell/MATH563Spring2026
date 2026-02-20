@@ -21,13 +21,11 @@ Unless otherwise noted
 
 Dates, coverage, and PDFs for this semester will appear here as they become available.
 
-<!--
-Example table you can enable later:
-
-Date | Assessment | Coverage / Notes | PDF
+Date | Assessment  | PDF
 ---|---|---|---
-Feb 12 | Midterm | Chapters 1–4 | [Midterm questions](...)
--->
+| Thu Feb 26 | Test 1 | [Test 1 Questions and Answers](...)
+| Thu Apr 7 | Test 2 | [Test 2 Questions and Answers](...)
+| Tue May ? | Final Exam  | [Final Exam Questions and Answers](...)
 
 ---
 
