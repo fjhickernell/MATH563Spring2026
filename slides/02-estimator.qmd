@@ -372,7 +372,10 @@ $$
 \indic(0 < x_{(n)} < \theta)
 $$
 
-and depends on the sample only through $X_{(n)}$.\
+and depends on the sample only through $X_{(n)}$
+
+&nbsp;
+
 Thus $T$ is sufficient (indeed minimal sufficient) for $\theta$
 
 ------------------------------------------------------------------------
@@ -406,6 +409,8 @@ Hence $T$ is complete
 $$
 Ex_\theta[T] = \frac{n}{n+1}\theta, \qquad \text{so } \Theta : =\frac{n+1}{n}T \text{ is unbiased for } \theta
 $$
+
+&nbsp;
 
 ### 4. Conclusion (Lehmann--Scheffé)
 
@@ -596,4 +601,9 @@ For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is 
 
 &nbsp;
 
-The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful
+The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful.
+
+::: {.text-end}
+[Continue to Hypothesis Testing →](03-hypothesis.html)
+:::
+
