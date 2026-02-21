@@ -16,3 +16,5 @@ execute:
   kernel: qmcpy
   warning: false
   message: false
+  freeze: false
+  fig-path: "{basename}_files/figure-revealjs/"
