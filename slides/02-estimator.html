@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-20">
+  <meta name="dcterms.date" content="2026-02-21">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="02-estimator_files/libs/revealjs/dist/theme/quarto-4fdc9d4d667a1b168778fe9b3926dd37.css">
+  <link rel="stylesheet" href="02-estimator_files/libs/revealjs/dist/theme/quarto-3192187e307e388cb0efd8ef8f3408d7.css">
   <link href="02-estimator_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="02-estimator_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="02-estimator_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -473,7 +473,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 20, 2026</p>
+  <p class="date">February 21, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -530,15 +530,14 @@ Fred J. Hickernell
 <section id="maximum-likelihood-estimators" class="slide level2">
 <h2>Maximum likelihood estimators</h2>
 <p><span class="small">(CB §7.2.2; WMS §9.7)</span></p>
-<p>The joint density of data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)^\top\)</span> given a parameter, <span class="math inline">\(\vtheta\)</span>, is <span class="math inline">\(\varrho_{X_1, \ldots, X_n| \vtheta}\)</span>. The <span class="alert">likelihood</span>, <span class="math inline">\(L\)</span> turns that around to make the parameter the variable, so <span class="math display">\[\begin{align*}
-L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1, \ldots, x_n) \\
-&amp; = \prod_{i=1}^n \varrho_{X_1 |\vtheta}(x_i) \qquad \text{if } X_1, \ldots, X_n \text{ are } \IID
-\end{align*}\]</span></p>
-<p>The <span class="alert">maximum likelihood estimator (MLE)</span> of <span class="math inline">\(\vtheta\)</span> is the one that fits the observed data best in terms of <span class="math display">\[
-\vTheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta | X_1, \ldots, X_n)
+<p>The joint density of <span class="alert">data</span>, <span class="math inline">\(\vX = (X_1, \ldots, X_n)^\top\)</span> given a parameter, <span class="math inline">\(\vtheta\)</span>, is <span class="math inline">\(\varrho_{\vX \mid  \vtheta}\)</span>. The <span class="alert">likelihood</span>, <span class="math inline">\(L\)</span> turns that around to make the parameter the variable, so <span class="math display">\[
+L(\vtheta  \mid  \vx) := \varrho_{\vX  \mid  \vtheta}(\vx); \qquad L(\vtheta  \mid  \vx)  = \prod_{i=1}^n \varrho_{X_1  \mid \vtheta}(x_i) \quad \text{if } X_1, \ldots, X_n \text{ are } \IID
 \]</span></p>
-<p>It may be easier to work with the <span class="alert">log-likelihood</span> <span class="math inline">\(\ell(\vtheta) := \log(L(\vtheta))\)</span> since the logarithm is a monotone transformation, so <span class="math display">\[
-\vTheta_{\MLE}  = \Argmax{\vtheta} \ell(\vtheta | X_1, \ldots, X_n)
+<p>The <span class="alert">maximum likelihood estimator (MLE)</span> of <span class="math inline">\(\vtheta\)</span> is the one that fits the observed data best in terms of <span class="math display">\[
+\vTheta_{\MLE}  = \Argmax{\vtheta} L(\vtheta  \mid  \vX)
+\]</span></p>
+<p>It may be easier to work with the <span class="alert">log-likelihood</span> <span class="math inline">\(\ell(\vtheta \mid \vX) := \log(L(\vtheta \mid \vX))\)</span> since the logarithm is a monotone transformation, so <span class="math display">\[
+\vTheta_{\MLE}  = \Argmax{\vtheta} \ell(\vtheta  \mid  \vX)
 \]</span></p>
 </section>
 <section class="slide level2">
@@ -640,16 +639,16 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 <p>&nbsp;</p>
 <p><span class="math inline">\(\exstar\)</span> Is the MLE <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> for <span class="math inline">\(X \sim \Unif(0,\theta)\)</span> unbiased? Can you modify it to be unbiased?</p>
 </section>
-<section id="estimators-for-exponential-families-of-distributions" class="slide level2">
-<h2>Estimators for exponential families of distributions</h2>
-<p>Recall that exponential families of distributions have PMF or PDF that can be expressed as <span class="math display">\[
-\varrho(\vx ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
+<section id="exp-families-estimators" class="slide level2">
+<h2>Estimators for <a href="01-intro.html#exp-families">exponential families</a> of distributions</h2>
+<p>Recall that <a href="01-intro.html#exp-families">exponential families</a> of distributions have PMF or PDF of the form <span class="math display">\[
+\varrho(x ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr) \quad x \in \reals
 \]</span> The binomial, exponential, and normal are all exponential families</p>
 <h3 id="likelihood-equations-depend-on-sample-averages">1. Likelihood equations depend on sample averages</h3>
-<p>The log-likelihood for IID <span class="math inline">\(X_1,\dots,X_n\)</span> is <span class="math display">\[
-\ell(\vtheta) : = \log(L(\vtheta))
-= \sum_{i=1}^n \log \bigl(h(\vX_i) \bigr) +     n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
-\]</span> Solving for the MLE depends on the data only through the averages: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)\)</span></p>
+<p>The log-likelihood for IID data <span class="math inline">\(\vX = (X_1,\dots,X_n)\)</span> is <span class="math display">\[
+\ell(\vtheta \mid \vX) : = \log(L(\vtheta \mid \vX))
+= \sum_{i=1}^n \log \bigl(h(X_i) \bigr) +   n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(X_i) \Biggr]
+\]</span> Solving for the MLE depends on the data only through the averages: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} t_k(X_i)\)</span></p>
 <ul>
 <li><span class="math inline">\(\Bern(\mu)\)</span> and <span class="math inline">\(\Exp(\lambda)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span>, &nbsp; &nbsp; &nbsp; <span class="math inline">\(\Norm(\mu,\sigma^2)\)</span>: <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i\)</span> and <span class="math inline">\(\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2\)</span></li>
 </ul>
@@ -673,9 +672,10 @@ L(\vtheta | x_1, \ldots, x_n) &amp; := \varrho_{X_1, \ldots, X_n | \vtheta}(x_1,
 
 <h3 id="bias-behavior-is-transparent">3. Bias behavior is transparent</h3>
 <p>Although many MLEs are asymptotically unbiased, they are biased for finite sample size, but the bias is computable</p>
-<p>Although</p>
+<p>&nbsp;</p>
+<p>Note that</p>
 <p><span class="math display">\[\theta_2 = g(\theta_1) \implies \Theta_{2,\MLE} = g(\Theta_{1,\MLE})\]</span></p>
-<p>one also has</p>
+<p>But</p>
 <p><span class="math display">\[ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased}\]</span></p>
 </section></section>
 <section>
@@ -739,7 +739,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="615d07f0" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="fada8d60" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -781,7 +781,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a 95% confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
-<div id="80f2f5db" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
+<div id="4b3cb68b" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -791,7 +791,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 </div>
 </div><div class="column" style="width:42%;">
-<div id="57b1c555" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
+<div id="f68e1c44" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -824,7 +824,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="5fef6f35" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="157454dd" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -838,7 +838,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section class="slide level2">
 
 <h3 id="exact-vs-clt-sampling-distribution-of-overlinex-when-x_i-sim-exp1mu">Exact vs CLT sampling distribution of <span class="math inline">\(\overline{X}\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span></h3>
-<div id="25182bb5" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="72e6d8aa" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -853,7 +853,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h3 id="exact-vs-clt-confidence-intervals-for-mu-when-x_i-sim-exp1mu-two-sample-sizes">Exact vs CLT confidence intervals for <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span> (two sample sizes)</h3>
 <div class="columns">
 <div class="column" style="width:65%;">
-<div id="aaac9ca0" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
+<div id="a4871f74" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -891,7 +891,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="6dcdedd7" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
+<div id="18d08a5e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1250,10 +1250,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-2.13, 2.44, 1.02, 0.11, 0.26, 2.29, 0.73, 0.29
+1.25, 0.53, 1.92, 0.31, 4.82, 0.79, 3.65, 7.58
 </td>
 <td>
-1.16
+2.61
 </td>
 </tr>
 <tr>
@@ -1261,10 +1261,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-0.29, 2.29, 0.11, 0.73, 0.73, 0.11, 2.29, 0.29
+1.25, 1.25, 4.82, 1.92, 1.92, 1.25, 4.82, 3.65
 </td>
 <td>
-0.86
+2.61
 </td>
 </tr>
 <tr>
@@ -1272,10 +1272,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-0.29, 0.73, 1.02, 0.73, 0.73, 0.73, 0.26, 2.13
+7.58, 4.82, 0.31, 0.53, 0.79, 7.58, 1.92, 1.25
 </td>
 <td>
-0.83
+3.10
 </td>
 </tr>
 <tr>
@@ -1283,10 +1283,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-2.29, 0.73, 0.73, 2.13, 2.29, 2.13, 0.26, 2.29
+0.53, 0.31, 0.53, 1.92, 3.65, 0.53, 0.31, 7.58
 </td>
 <td>
-1.60
+1.92
 </td>
 </tr>
 <tr>
@@ -1294,10 +1294,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-0.11, 1.02, 0.73, 0.29, 0.26, 2.44, 0.11, 0.26
+0.31, 1.25, 0.31, 4.82, 4.82, 7.58, 1.92, 0.79
 </td>
 <td>
-0.66
+2.73
 </td>
 </tr>
 <tr>
@@ -1505,7 +1505,7 @@ Bootstrap 4
 </ul></li>
 <li><p><a href="#/rao-blackwell">Rao–Blackwell</a> — better estimators through conditioning</p></li>
 <li><p><a href="#/completeness">Completeness</a> — eliminating hidden unbiased estimators</p></li>
-<li><p><a href="#/cramer-rao">Cramér–Rao</a></p></li>
+<li><p><a href="#/cramer-rao">Cramér–Rao</a> — lower bounds on the variance of unbiased estimators</p></li>
 </ul>
 </section>
 <section id="sufficiency" class="slide level2">
@@ -1586,8 +1586,8 @@ T(\vx) = T(\vy)
 \quad
 T(\vx) = T(\vy)
 \]</span></p>
-<p><em>Proof that <span class="math inline">\(T(\vX)\)</span> is sufficient</em>: Suppose that <span class="math inline">\(\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)\)</span> is independent of <span class="math inline">\(\vtheta\)</span> iff <span class="math inline">\(T(\vx) = T(\vy)\)</span></p>
-<p>Let</p>
+<p><em>Proof that <span class="math inline">\(T(\vX)\)</span> is sufficient</em>:</p>
+<p>Suppose that <span class="math inline">\(\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)\)</span> is independent of <span class="math inline">\(\vtheta\)</span> iff <span class="math inline">\(T(\vx) = T(\vy)\)</span>. Let</p>
 <ul>
 <li><span class="math inline">\(\cx\)</span> be the sample space of the data, <span class="math inline">\(\vX\)</span></li>
 <li><span class="math inline">\(\ct : = T(\vtheta \mid \cx)\)</span> be the image of <span class="math inline">\(T\)</span></li>
@@ -1606,12 +1606,12 @@ T(\vx) = T(\vy)
 </section>
 <section class="slide level2">
 
-<p><em>Proof that <span class="math inline">\(T(\vX)\)</span> is minimal sufficient</em>: Let <span class="math inline">\(T'(\vX)\)</span> be any other sufficient statistic, so</p>
-<ul>
-<li><span class="math inline">\(\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx)\)</span> by the Factorization Theorem</li>
-</ul>
+<p><em>Proof that <span class="math inline">\(T(\vX)\)</span> is minimal sufficient</em>:</p>
+<p>Let <span class="math inline">\(T'(\vX)\)</span> be any other sufficient statistic, so</p>
+<p><span class="math display">\[\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx) \quad \text{by the Factorization Theorem}\]</span></p>
 <p>For any <span class="math inline">\(\vx, \vy \in \cx\)</span> with <span class="math inline">\(T'(\vx) = T'(\vy)\)</span>, we have <span class="math display">\[
 \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \th'(\vx) - \th'(\vy)\]</span> which does not depend on <span class="math inline">\(\vtheta\)</span>. Thus, <span class="math inline">\(T(\vx) = T(\vy)\)</span> by the hypothesis of the theorem.</p>
+<p>&nbsp;</p>
 <p>Since <span class="math inline">\(T'(\vx) = T'(\vy) \implies T(\vx) = T(\vy)\)</span>, it follows that <span class="math inline">\(T\)</span> is a function of <span class="math inline">\(T'\)</span> <span class="math inline">\(\qquad \square\)</span></p>
 </section>
 <section class="slide level2">
@@ -1635,7 +1635,10 @@ T(\vx) = T(\vy)
 </li>
 <li><span class="math inline">\(\var(\widetilde{\vTheta}) \le \var(\vTheta)\)</span></li>
 </ul>
+<p>&nbsp;</p>
+<blockquote>
 <p>Conditioning on sufficient statistics improves estimators</p>
+</blockquote>
 </section>
 <section class="slide level2">
 
@@ -1651,8 +1654,8 @@ T(\vx) = T(\vy)
 \quad \implies \quad
 g(T)=0 \text{ a.s.}
 \]</span></p>
-<p>Completeness eliminates hidden unbiased estimators.</p>
-<p>It is the key hypothesis in Lehmann–Scheffé.</p>
+<p>Completeness eliminates hidden unbiased estimators</p>
+<p>It is the key hypothesis in Lehmann–Scheffé</p>
 </section>
 <section class="slide level2">
 
@@ -1665,22 +1668,35 @@ g(T)=0 \text{ a.s.}
 </section>
 <section class="slide level2">
 
-<h3 id="example-of-minimal-sufficient-but-not-complete">Example of minimal sufficient but NOT complete</h3>
+<h3 id="minimal-sufficient-notimplies-complete">Minimal sufficient <span class="math inline">\(\notimplies\)</span> complete</h3>
 <p>Let <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)\)</span>. We show later that the statistic <span class="math inline">\(T(\vX) = (\barX, S^2)\)</span> is minimial sufficient for <span class="math inline">\((\mu,\sigma^2)\)</span></p>
 <p>&nbsp;</p>
 <p>We know <span class="math inline">\(\barX \sim \Norm(\mu,\sigma^2/n)\)</span>. Define</p>
 <p><span class="math display">\[
-g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2.
+g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2
 \]</span></p>
 <p>Then</p>
 <p><span class="math display">\[
 \mathbb{E}[g(T)] = 0
-\quad \text{for all } (\mu,\sigma^2),
+\quad \text{for all } (\mu,\sigma^2)
 \]</span></p>
 <p>but <span class="math inline">\(g(T)\)</span> is not almost surely zero. Therefore,</p>
 <p><span class="math display">\[
-T \text{ is not complete.}
+T \text{ is not complete}
 \]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="complete-notimplies-minimal-sufficient">Complete <span class="math inline">\(\notimplies\)</span> minimal sufficient</h3>
+<p>Let <span class="math inline">\(X_1, \ldots, X_n \IIDsim \Bern(p)\)</span> with <span class="math inline">\(n&gt;1\)</span>, and <span class="math inline">\(U=X_1\)</span>.</p>
+<p>&nbsp;</p>
+<p>We know that <span class="math inline">\(U\)</span> is not sufficient for <span class="math inline">\(p\)</span></p>
+<p>&nbsp;</p>
+<p>Let <span class="math inline">\(g:\{0,1\}\to\reals\)</span>. Then <span class="math display">\[
+\Ex_p[g(U)] = (1-p)g(0) + p g(1) = g(0) + p(g(1)-g(0))
+\]</span> If <span class="math inline">\(\Ex_p[g(U)]=0\)</span> for all <span class="math inline">\(p\in(0,1)\)</span>, then this linear polynomial in <span class="math inline">\(p\)</span> must be identically zero, so <span class="math inline">\(g(0)= g(1)=0\)</span></p>
+<p>&nbsp;</p>
+<p>Hence <span class="math inline">\(g(U)=0\)</span> a.s., and <span class="math inline">\(U\)</span> is complete</p>
 </section>
 <section id="lehmannscheffé-theorem" class="slide level2">
 <h2>Lehmann–Scheffé Theorem</h2>
@@ -1690,8 +1706,53 @@ T \text{ is not complete.}
 </li>
 <li><span class="math inline">\(\vTheta = g(T)\)</span> is unbiased estimator of <span class="math inline">\(\theta\)</span></li>
 </ul>
-<p>then <span class="math inline">\(\vTheta\)</span> is the unique MVUE</p>
+<p>then <span class="math inline">\(\vTheta\)</span> is the unique <span class="alert">minimum variance unbiased estimator (MVUE)</span> of <span class="math inline">\(\theta\)</span></p>
 <p>This is the main structural route to minimum variance unbiased estimators</p>
+</section>
+<section id="mvue-for-theta-in-textunif0theta" class="slide level2">
+<h2>MVUE for <span class="math inline">\(\theta\)</span> in <span class="math inline">\(\text{Unif}(0,\theta)\)</span></h2>
+<p>Let <span class="math inline">\(X_1,\ldots,X_n \IIDsim \Unif(0,\theta)\)</span> with <span class="math inline">\(\theta&gt;0\)</span>. Let <span class="math inline">\(T = X_{(n)} = \max_i X_i\)</span>.</p>
+<h3 id="sufficiency-1">1. Sufficiency</h3>
+<p>The joint density of the data <span class="math inline">\(\vX = (X_1,\ldots,X_n)\)</span> is</p>
+<p><span class="math display">\[
+\varrho(\vx\mid\theta)
+=
+\frac{1}{\theta^n}
+\indic(0 &lt; x_{(n)} &lt; \theta)
+\]</span></p>
+<p>and depends on the sample only through <span class="math inline">\(X_{(n)}\)</span>.<br>
+Thus <span class="math inline">\(T\)</span> is sufficient (indeed minimal sufficient) for <span class="math inline">\(\theta\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="completeness-1">2. Completeness</h3>
+<p>The pdf of <span class="math inline">\(T = X_{(n)}\)</span> is</p>
+<p><span class="math display">\[
+\varrho_T(t\mid\theta)
+=
+\frac{n t^{n-1}}{\theta^n},
+\qquad 0&lt;t&lt;\theta
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[\begin{align*}
+\Ex_\theta[g(T)] = 0 \quad \forall \theta &amp; \implies \int_0^\theta g(t)\frac{n t^{n-1}}{\theta^n}\, \dif t = 0 \quad \forall \theta &gt; 0 \\
+&amp; \implies \int_0^\theta g(t) t^{n-1}\, \dif t = 0 \quad \forall \theta &gt; 0 \\
+&amp; \implies g(\theta)\theta^{n-1} = 0 \quad \forall \theta &gt; 0 \\
+&amp; \implies g(\theta) = 0 \quad \forall \theta &gt; 0
+\end{align*}\]</span></p>
+<p>Hence <span class="math inline">\(T\)</span> is complete</p>
+</section>
+<section class="slide level2">
+
+<h3 id="unbiased-estimator">3. Unbiased Estimator</h3>
+<p><span class="math display">\[
+Ex_\theta[T] = \frac{n}{n+1}\theta, \qquad \text{so } \Theta : =\frac{n+1}{n}T \text{ is unbiased for } \theta
+\]</span></p>
+<h3 id="conclusion-lehmannscheffé">4. Conclusion (Lehmann–Scheffé)</h3>
+<p>Since <span class="math inline">\(X_{(n)}\)</span> is complete sufficient,</p>
+<p><span class="math display">\[
+\hat\theta_{\text{MVUE}} = \frac{n+1}{n} X_{(n)}
+\]</span></p>
 </section>
 <section id="cramer-rao" class="slide level2">
 <h2>Cramér–Rao Lower Bound</h2>
@@ -1841,45 +1902,18 @@ I_n(\theta) = \Ex\!\left[
 <p>This is the classical parametric estimation framework.</p>
 </section>
 <section id="connection-to-exponential-families" class="slide level2">
-<h2>Connection to Exponential Families</h2>
-<p>We previously defined exponential families as</p>
-<p><span class="math display">\[
-\varrho(\vx\mid \vtheta)
-=
-h(\vx)\, c(\vtheta)\,
-\exp\!\left(
-\sum_k w_k(\vtheta) t_k(\vx)
-\right)
+<h2>Connection to <a href="#/exp-families">Exponential Families</a></h2>
+<p>Recall that for IID data, the <a href="#/exp-families-estimators">log-likelihood for exponential families</a> is <span class="math display">\[
+\ell(\vtheta \mid \vX) : = \log(L(\vtheta \mid \vX))
+= \sum_{i=1}^n \log \bigl(h(X_i) \bigr) +   n \log \bigl(c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(X_i) \Biggr]
 \]</span></p>
-<p>For IID data,</p>
-<p><span class="math display">\[
-\sum_{i=1}^n t_k(\vX_i)
+<p>Under regularity conditions <span class="math display">\[
+T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \text{ is minimal sufficient for } \vtheta
 \]</span></p>
-<p>is automatically sufficient for <span class="math inline">\(\vtheta\)</span></p>
-<p>In regular cases, this statistic is also</p>
-<ul>
-<li>minimal sufficient<br>
-</li>
-<li>complete</li>
-</ul>
-<p>which makes Lehmann–Scheffé especially powerful</p>
-</section>
-<section id="why-exponential-families-make-everything-work" class="slide level2">
-<h2>Why Exponential Families Make Everything Work</h2>
-<p>Because of their structure:</p>
-<ul>
-<li>finite-dimensional sufficient statistics<br>
-</li>
-<li>minimal sufficiency automatically<br>
-</li>
-<li>completeness (in full regular families)<br>
-</li>
-<li>tractable Fisher information<br>
-</li>
-<li>explicit sampling distributions</li>
-</ul>
-<p>This is why classical parametric inference is so clean for</p>
-<p>Bernoulli, Poisson, Exponential, Normal, Gamma, etc.</p>
+<p>&nbsp;</p>
+<p>For one-parameter full exponential families, <span class="math inline">\(T(\vX) := \sum_{i=1}^n t(X_i)\)</span> is typically complete, which makes Lehmann-Scheffé especially powerful</p>
+<p>&nbsp;</p>
+<p>The Fisher information is often tractable, which makes the Cramér–Rao lower bound especially powerful</p>
 
 </section></section>
     </div>
