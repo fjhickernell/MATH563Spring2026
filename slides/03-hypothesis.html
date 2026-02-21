@@ -498,23 +498,19 @@ Fred J. Hickernell
 <p>Suppose</p>
 <p><span class="math display">\[
 X_1,\dots,X_n \IIDsim \Exp(1/\mu),
-\qquad \Ex(X)=\mu.
+\qquad \Ex(X)=\mu
 \]</span></p>
 <p>Here</p>
 <ul>
-<li><span class="math inline">\(X_i\)</span> is the <em>time between unexpected server failures</em> (e.g., crashes/outages) for a particular service</li>
-<li>The provider claims the <em>mean time between failures</em> is <span class="math inline">\(\mu_0 = 200\)</span> hours</li>
-<li>We want evidence that reliability has <em>worsened</em>, i.e.&nbsp;failures are happening more frequently</li>
+<li><p><span class="math inline">\(X_i\)</span> is the <em>time between unexpected server failures</em> (e.g., crashes/outages) for a particular service</p></li>
+<li><p>The provider claims the <em>mean time between failures</em> is <span class="math inline">\(\mu_0 = 200\)</span> hours</p></li>
+<li><p>We want evidence that reliability has <em>worsened</em>, i.e.&nbsp;failures are happening more frequently</p></li>
 </ul>
 <div class="fragment">
 <h3 id="step-1-hypotheses">Step 1: Hypotheses</h3>
 <ul>
-<li><p><span class="alert">Null hypothesis</span> (innocence, status quo) <span class="math display">\[
-H_0: \mu = 200
-\]</span></p></li>
-<li><p><span class="alert">Alternative hypothesis</span> (guilty, change) <span class="math display">\[
-H_A: \mu &lt; 200
-\]</span></p></li>
+<li><span class="alert">Null hypothesis</span> (innocence, status quo): <span class="math inline">\(\qquad H_0:\ \mu=200\)</span></li>
+<li><span class="alert">Alternative hypothesis</span> (guilty, change): <span class="math inline">\(\qquad H_A:\ \mu&lt;200\)</span></li>
 </ul>
 </div>
 </section>
@@ -522,15 +518,14 @@ H_A: \mu &lt; 200
 
 <h3 id="step-2-construct-test-statistic">Step 2: Construct test statistic</h3>
 <p>Use the pivot <span class="math inline">\(\displaystyle
-\frac{2n\barX}{\mu} \sim \chi^2_{2n}\)</span> so that under <span class="math inline">\(H_0: \mu = 200\)</span>,</p>
-<p><span class="math display">\[
-T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}
-\]</span></p>
+\frac{2n\barX}{\mu} \sim \chi^2_{2n}\)</span></p>
+<p>so that under <span class="math inline">\(H_0: \mu = 200\)</span> <span class="math display">\[
+T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}\]</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="step-3-choose-significance-level-and-construct-rejection-region">Step 3: Choose significance level and construct rejection region</h3>
-<p>Choose <span class="math inline">\(\alpha = 0.05\)</span> as the maximum tolerable risk of falsely accusing underperformance.</p>
+<p>Choose <span class="math inline">\(\alpha = 0.05\)</span> as the maximum tolerable risk of falsely accusing underperformance</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Left-tailed test:</p>
@@ -539,18 +534,16 @@ T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}
 =
 \left\{
 T &lt; \chi^2_{2n,1-\alpha}
-\right\}.
+\right\}
 \]</span></p>
 <p>Equivalently, reject when</p>
-<p><span class="math display">\[
-\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}.
-\]</span></p>
+<p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="0f6188a9" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="1">
+<div id="27ffd015" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-2-output-1.png" width="949" height="467"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-8-output-1.png" width="949" height="467"></p>
 </figure>
 </div>
 </div>
@@ -561,40 +554,33 @@ T &lt; \chi^2_{2n,1-\alpha}
 
 <h3 id="step-4-observed-data">Step 4: Observed Data</h3>
 <p>Let</p>
-<p><span class="math display">\[
-n=10,
-\qquad
-\barX=176
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-T_{\text{obs}}=\frac{2(10)(176)}{200}=17.6
-\]</span></p>
+<p><span class="math display">\[n=10,\qquad \barX=176\]</span></p>
+<p>Then <span class="math display">\[T_{\text{obs}}=\frac{2(10)(176)}{200}=17.60\]</span></p>
 <h3 id="step-5-p-value">Step 5: p-value</h3>
 <p>The <span class="alert"><span class="math inline">\(p\)</span>-value</span> is</p>
-<p><span class="math display">\[
-p=\Prob\big(\chi^2_{20} \le 17.6\big)  \approx 0.38
-\]</span></p>
-<p>Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(p\le \alpha\)</span></p>
-<p>So we do not reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha=0.05\)</span> level</p>
+<p><span class="math display">\[p=\Prob\big(\chi^2_{20} \le 17.60\big)  \approx 0.39\]</span></p>
+Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(p\le \alpha\)</span>
+<div style="height:40px;">
+
+</div>
+<p>So we do NOT reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha=0.05\)</span> level</p>
 </section>
 <section class="slide level2">
 
 <h3 id="type-i-and-type-ii-errors">Type I and Type II Errors</h3>
 <ul>
-<li><p><span class="alert">Type I error</span> <span class="math inline">\(\alpha\)</span>:<br>
-Falsely conclude that reliability has worsened when the true mean time between failures is 200 hours <span class="math display">\[
-\alpha
-=
-\Prob(\text{reject }H_0\mid \mu=200)
-\]</span></p></li>
-<li><p><span class="alert">Type II error</span> <span class="math inline">\(\beta(\mu_1)\)</span> (for some <span class="math inline">\(\mu_1&lt;200\)</span>):<br>
-Fail to detect that the system is less reliable than claimed <span class="math display">\[
+<li><p><span class="alert">Type I error</span> <span class="math inline">\(\alpha\)</span>:</p>
+<p>Falsely conclude that reliability has worsened when the true mean time between failures is 200 hours <span class="math display">\[\alpha=\Prob(\text{reject }H_0\mid \mu=200)\]</span></p></li>
+<li><p><span class="alert">Type II error</span> <span class="math inline">\(\beta(\mu_1)\)</span> (for some <span class="math inline">\(\mu_1&lt;200\)</span>):</p>
+<p>Fail to detect that the system is less reliable than claimed <span class="math display">\[
 \beta(\mu_1)
 =
-\Prob(\text{fail to reject }H_0 | \mu = \mu_1)
+\Prob(\text{fail to reject }H_0 \mid \mu = \mu_1)
 \]</span></p></li>
-<li><p><span class="alert">Power function</span> <span class="math inline">\(\power(\mu_1)\)</span> The probability of correctly detecting reduced reliability (for some <span class="math inline">\(\mu_1&lt;200\)</span>) <span class="math display">\[
+<li><p><span class="alert">Power function</span> <span class="math inline">\(\power(\mu_1)\)</span><br>
+</p>
+<p>The probability of correctly detecting reduced reliability (for some <span class="math inline">\(\mu_1&lt;200\)</span>)</p>
+<p><span class="math display">\[
 \power(\mu_1)
 =
 \Prob(\text{reject }H_0 | \mu = \mu_1)
@@ -606,30 +592,24 @@ Fail to detect that the system is less reliable than claimed <span class="math d
 <section class="slide level2">
 
 <h3 id="power-for-the-server-reliability-test">Power for the Server Reliability Test</h3>
-<p>From Step 3, we reject <span class="math inline">\(H_0\)</span> when <span class="math display">\[
-T=\frac{2n\barX}{200} &lt; \chi^2_{2n,1-\alpha}
-\]</span></p>
-<p>If the true mean is actually <span class="math inline">\(\mu_1\)</span>, then <span class="math display">\[
-\frac{200 T }{\mu_1} = \frac{2n\barX}{\mu_1} \sim\chi^2_{2n}
-\]</span></p>
+<p>From Step 3, we reject <span class="math inline">\(H_0\)</span> when</p>
+<p><span class="math display">\[T=\frac{2n\barX}{200} &lt; \chi^2_{2n,1-\alpha}\]</span></p>
+<p>If the true mean is actually <span class="math inline">\(\mu_1\)</span>, then <span class="math display">\[\frac{200 T }{\mu_1} = \frac{2n\barX}{\mu_1} \sim\chi^2_{2n}\]</span></p>
 <p>Therefore the <span class="alert">power function</span> is <span class="math display">\[\begin{align*}
 \power(\mu_1)
-&amp; =
-\Prob(T&lt; \chi^2_{2n,1-\alpha} \mid \mu = \mu_1)
-=
-\Prob \!\left (\frac{200 T }{\mu_1}&lt; \frac{200 \chi^2_{2n,1-\alpha}}{\mu_1} \mid \mu = \mu_1 \right) \\
-&amp; =
-F_{\chi^2_{2n}}\!\left(\frac{200 \chi^2_{2n,1-\alpha}}{\mu_1}\right) \qquad \text{increases as $\mu_1$ decreases}
+&amp;= \Prob\!\left(T &lt; \chi^2_{2n,\,1-\alpha}\mid \mu=\mu_1\right)
+= \Prob\!\left(\frac{200\,T}{\mu_1} &lt; \frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1} \,\middle|\, \mu=\mu_1\right)\\
+&amp;= F_{\chi^2_{2n}}\!\left(\frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1}\right)\qquad \text{increases as $\mu_1$ decreases.}
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="f3fa5ed8" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="2">
+<div id="2a248469" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-3-output-1.png" width="949" height="471"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-14-output-1.png" width="949" height="471"></p>
 </figure>
 </div>
 </div>
@@ -659,18 +639,17 @@ F_{\chi^2_{2n}}\!\left(\frac{200 \chi^2_{2n,1-\alpha}}{\mu_1}\right) \qquad \tex
 <section id="link-to-confidence-intervals" class="slide level2">
 <h2>Link to Confidence Intervals</h2>
 <p>Tests and CIs are two views of the same pivot idea</p>
+<p>We need to add a table here with ChatGPT’s help to make this more explicit</p>
 </section>
 <section id="likelihood-viewpoint-563-emphasis" class="slide level2">
 <h2>Likelihood viewpoint (563 emphasis)</h2>
 <ul>
 <li>Likelihood <span class="math inline">\(L(\theta \mid \vx)\)</span></li>
 <li>Likelihood ratio statistic</li>
+<li>Neyman-Pearson lemma and uniformly most powerful tests</li>
+<li>what else?</li>
+<li>we do need to talk about different hypotheses, e.g., one-sided vs two-sided, simple vs composite, etc.</li>
 </ul>
-</section>
-<section id="sufficiency-link-563-emphasis" class="slide level2">
-<h2>Sufficiency link (563 emphasis)</h2>
-<p>If likelihood depends on data only through <span class="math inline">\(T(\vX)\)</span>, then <span class="math inline">\(T(\vX)\)</span> is sufficient.</p>
-<p>Tests depend only on sufficient statistics.</p>
 
 </section></section>
     </div>
