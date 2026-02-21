@@ -19,22 +19,22 @@ reveal-options:
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/estimators.qmd >}}
 
-## Estimators for exponential families of distributions
+## Estimators for [exponential families](01-intro.html#exp-families) of distributions {#exp-families-estimators}
 
-Recall that exponential families of distributions have PMF or PDF that can be expressed as
+Recall that [exponential families](01-intro.html#exp-families) of distributions have PMF or PDF of the form
 $$
-\varrho(\vx ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(\vx) \biggr) \quad \vx \in \reals^d
+\varrho(x ; \vtheta) = h(\vx) \, c(\vtheta) \, \exp \biggl(\sum_k w_k(\vtheta) t_k(x) \biggr) \quad x \in \reals
 $$
 The binomial, exponential, and normal are all exponential families
 
 ### 1. Likelihood equations depend on sample averages
 
-The log-likelihood for IID $X_1,\dots,X_n$ is
+The log-likelihood for IID data $\vX = (X_1,\dots,X_n)$ is
 $$
-\ell(\vtheta) : = \log(L(\vtheta))
-= \sum_{i=1}^n \log \bigl(h(\vX_i) \bigr) + 	n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(\vX_i) \Biggr]
+\ell(\vtheta \mid \vX) : = \log(L(\vtheta \mid \vX))
+= \sum_{i=1}^n \log \bigl(h(X_i) \bigr) + 	n \log \bigl( c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(X_i) \Biggr]
 $$
-Solving for the MLE depends on the data only through the averages: $\displaystyle \frac 1n \sum_{i=1}^{n} t_k(\vX_i)$
+Solving for the MLE depends on the data only through the averages: $\displaystyle \frac 1n \sum_{i=1}^{n} t_k(X_i)$
 
 - $\Bern(\mu)$ and $\Exp(\lambda)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$, &nbsp; &nbsp; &nbsp;  $\Norm(\mu,\sigma^2)$: $\displaystyle \frac 1n \sum_{i=1}^{n} X_i$ and $\displaystyle \frac 1n \sum_{i=1}^{n} X_i^2$
 
@@ -59,11 +59,13 @@ This buys us
 ### 3. Bias behavior is transparent
 Although many MLEs are asymptotically unbiased, they are biased for finite sample size, but the bias is computable
 
-Although 
+&nbsp;
+
+Note that 
 
 $$\theta_2 = g(\theta_1) \implies \Theta_{2,\MLE} = g(\Theta_{1,\MLE})$$
 
-one also has
+But
 
 $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased}$$
 
@@ -83,7 +85,7 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 
 - [Completeness](#completeness) — eliminating hidden unbiased estimators
 
-- [Cramér--Rao](#cramer-rao)
+- [Cramér--Rao](#cramer-rao) — lower bounds on the variance of unbiased estimators
 
 
 ## Sufficiency {#sufficiency}
@@ -184,9 +186,9 @@ $$
 T(\vx) = T(\vy)
 $$
 
-_Proof that $T(\vX)$ is sufficient_: Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$
+_Proof that $T(\vX)$ is sufficient_: 
 
-Let 
+Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$. Let 
 
 - $\cx$ be the sample space of the data, $\vX$
 - $\ct : = T(\vtheta \mid \cx)$ be the image of $T$
@@ -208,14 +210,18 @@ so $T$ is sufficient
 
 ---
 
-_Proof that $T(\vX)$ is minimal sufficient_:  Let $T'(\vX)$ be any other sufficient statistic, so
+_Proof that $T(\vX)$ is minimal sufficient_:  
 
--  $\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx)$ by the Factorization Theorem
+Let $T'(\vX)$ be any other sufficient statistic, so
+
+ $$\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx) \quad \text{by the Factorization Theorem}$$
 
 For any $\vx, \vy \in \cx$ with $T'(\vx) = T'(\vy)$, we have
 $$
 \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \th'(\vx) - \th'(\vy)$$
 which does not depend on $\vtheta$.  Thus, $T(\vx) = T(\vy)$ by the hypothesis of the theorem.
+
+&nbsp;
 
 Since $T'(\vx) = T'(\vy) \implies T(\vx) = T(\vy)$, it follows that  $T$ is a function of $T'$  $\qquad \square$
 
@@ -248,7 +254,9 @@ Then
 -   $\widetilde{\vTheta}$ is unbiased\
 -   $\var(\widetilde{\vTheta}) \le \var(\vTheta)$
 
-Conditioning on sufficient statistics improves estimators
+&nbsp;
+
+> Conditioning on sufficient statistics improves estimators
 
 ---
 
@@ -269,9 +277,9 @@ $$
 g(T)=0 \text{ a.s.}
 $$
 
-Completeness eliminates hidden unbiased estimators.
+Completeness eliminates hidden unbiased estimators
 
-It is the key hypothesis in Lehmann--Scheffé.
+It is the key hypothesis in Lehmann--Scheffé
 
 ---
 
@@ -288,7 +296,7 @@ Thus, $T(\vX)$ is complete for $p\in (0,1)$
 
 ---
 
-### Example of minimal sufficient but NOT complete
+### Minimal sufficient $\notimplies$ complete
 
 Let $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$.  We show later that the statistic $T(\vX) = (\barX, S^2)$ is minimial sufficient for $(\mu,\sigma^2)$
 
@@ -297,21 +305,43 @@ Let $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$.  We show later that the stat
 We know $\barX \sim \Norm(\mu,\sigma^2/n)$.  Define
 
 $$
-g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2.
+g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2
 $$
 
 Then
 
 $$
 \mathbb{E}[g(T)] = 0
-\quad \text{for all } (\mu,\sigma^2),
+\quad \text{for all } (\mu,\sigma^2)
 $$
 
 but $g(T)$ is not almost surely zero. Therefore,
 
 $$
-T \text{ is not complete.}
+T \text{ is not complete}
 $$
+
+---
+
+### Complete $\notimplies$  minimal sufficient
+
+Let $X_1, \ldots, X_n \IIDsim \Bern(p)$ with $n>1$, and $U=X_1$.  
+
+&nbsp;
+
+We know that $U$ is not sufficient for $p$
+
+&nbsp;
+
+Let $g:\{0,1\}\to\reals$. Then
+$$
+\Ex_p[g(U)] = (1-p)g(0) + p g(1) = g(0) + p(g(1)-g(0))
+$$
+If $\Ex_p[g(U)]=0$ for all $p\in(0,1)$, then this linear polynomial in $p$ must be identically zero, so $g(0)= g(1)=0$
+
+&nbsp;
+
+Hence $g(U)=0$ a.s., and $U$ is complete
 
 ## Lehmann--Scheffé Theorem 
 
@@ -320,10 +350,70 @@ If
 -   $T$ is complete and sufficient\
 -   $\vTheta = g(T)$ is unbiased estimator of $\theta$
 
-then $\vTheta$ is the unique MVUE
+then $\vTheta$ is the unique [minimum variance unbiased estimator (MVUE)]{.alert} of $\theta$
 
 This is the main structural route to minimum variance unbiased
 estimators
+
+---
+
+## MVUE for $\theta$ in $\text{Unif}(0,\theta)$
+
+Let $X_1,\ldots,X_n \IIDsim \Unif(0,\theta)$ with $\theta>0$. Let $T = X_{(n)} = \max_i X_i$.
+
+### 1. Sufficiency
+
+The joint density of the data $\vX = (X_1,\ldots,X_n)$ is
+
+$$
+\varrho(\vx\mid\theta)
+=
+\frac{1}{\theta^n}
+\indic(0 < x_{(n)} < \theta)
+$$
+
+and depends on the sample only through $X_{(n)}$.\
+Thus $T$ is sufficient (indeed minimal sufficient) for $\theta$
+
+------------------------------------------------------------------------
+
+### 2. Completeness
+
+The pdf of $T = X_{(n)}$ is
+
+$$
+\varrho_T(t\mid\theta)
+=
+\frac{n t^{n-1}}{\theta^n},
+\qquad 0<t<\theta
+$$
+
+Then
+
+\begin{align*}
+\Ex_\theta[g(T)] = 0 \quad \forall \theta & \implies \int_0^\theta g(t)\frac{n t^{n-1}}{\theta^n}\, \dif t = 0 \quad \forall \theta > 0 \\
+& \implies \int_0^\theta g(t) t^{n-1}\, \dif t = 0 \quad \forall \theta > 0 \\
+& \implies g(\theta)\theta^{n-1} = 0 \quad \forall \theta > 0 \\
+& \implies g(\theta) = 0 \quad \forall \theta > 0
+\end{align*}
+
+Hence $T$ is complete
+
+---
+
+### 3. Unbiased Estimator
+
+$$
+Ex_\theta[T] = \frac{n}{n+1}\theta, \qquad \text{so } \Theta : =\frac{n+1}{n}T \text{ is unbiased for } \theta
+$$
+
+### 4. Conclusion (Lehmann--Scheffé)
+
+Since $X_{(n)}$ is complete sufficient,
+
+$$
+\hat\theta_{\text{MVUE}} = \frac{n+1}{n} X_{(n)}
+$$
 
 
 
@@ -486,48 +576,24 @@ $\longrightarrow$ MVUE (Lehmann--Scheffé)
 
 This is the classical parametric estimation framework.
 
-------------------------------------------------------------------------
 
-## Connection to Exponential Families
+## Connection to [Exponential Families](#exp-families)
 
-We previously defined exponential families as
-
+Recall that for IID data, the [log-likelihood for exponential families](#exp-families-estimators) is
 $$
-\varrho(\vx\mid \vtheta)
-=
-h(\vx)\, c(\vtheta)\,
-\exp\!\left(
-\sum_k w_k(\vtheta) t_k(\vx)
-\right)
+\ell(\vtheta \mid \vX) : = \log(L(\vtheta \mid \vX))
+= \sum_{i=1}^n \log \bigl(h(X_i) \bigr) + 	n \log \bigl(c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(X_i) \Biggr]
 $$
 
-For IID data,
-
+Under regularity conditions
 $$
-\sum_{i=1}^n t_k(\vX_i)
+T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \text{ is minimal sufficient for } \vtheta
 $$
 
-is automatically sufficient for $\vtheta$
+&nbsp;
 
-In regular cases, this statistic is also
+For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is typically complete, which makes Lehmann-Scheffé especially powerful
 
--   minimal sufficient\
--   complete
+&nbsp;
 
-which makes Lehmann--Scheffé especially powerful
-
-------------------------------------------------------------------------
-
-## Why Exponential Families Make Everything Work
-
-Because of their structure:
-
--   finite-dimensional sufficient statistics\
--   minimal sufficiency automatically\
--   completeness (in full regular families)\
--   tractable Fisher information\
--   explicit sampling distributions
-
-This is why classical parametric inference is so clean for
-
-Bernoulli, Poisson, Exponential, Normal, Gamma, etc.
+The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful

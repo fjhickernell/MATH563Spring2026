@@ -40,7 +40,7 @@ Java | 1
 
 {{< include ../classlib/classlib/quarto/slides/shared/probability/probability-review-distrib-part-1.qmd >}}
 
-## Exponential families of distributions
+## Exponential families of distributions {#exp-families}
 
 [({{< meta texts.cb.initials >}} §3.4)]{.small}
 
