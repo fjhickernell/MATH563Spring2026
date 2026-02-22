@@ -66,12 +66,12 @@ $$
 
 {{< include ../classlib/classlib/quarto/slides/shared/probability/converge-clt.qmd >}}
 
-::: {.text-end}
+
 ```{=html}
 <div class="deck-nav">
   <span></span>
   <a class="deck-next" href="{{< meta decks.d02.file >}}">{{< meta decks.d02.title >}} →</a>
 </div>
 ```
-:::
+
 

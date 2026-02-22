@@ -598,11 +598,11 @@ For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is 
 
 The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful.
 
-::: {.text-end}
+
 ```{=html}
 <div class="deck-nav">
   <a class="deck-prev" href="{{< meta decks.d01.file >}}">← {{< meta decks.d01.title >}}</a>
   <a class="deck-next" href="{{< meta decks.d03.file >}}">{{< meta decks.d03.title >}} →</a>
 </div>
 ```
-:::
+
