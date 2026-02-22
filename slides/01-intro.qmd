@@ -1,15 +1,10 @@
 ---
-title: "MATH 563 — Mathematical Statistics"
+title: {{< meta course_title >}}
 subtitle: |
-  <span class="deck-title">Introduction and Probability Review</span><br>
+  <span class="deck-title">{{< meta decks.d01.title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 1–4 (parts) <br> 
   Diagnostic Quiz due 1/16 <br>
   Assignment 2 due 1/30</span>
-author: "Fred J. Hickernell"
-date: today
-date-format: "MMMM D, YYYY"
-reveal-options:
-  disableLayout: false
 ---
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/intro/how-to-read-slides.qmd >}}
@@ -70,3 +65,13 @@ $$
 {{< include ../classlib/classlib/quarto/slides/shared/probability/conditional-prob.qmd >}}
 
 {{< include ../classlib/classlib/quarto/slides/shared/probability/converge-clt.qmd >}}
+
+::: {.text-end}
+```{=html}
+<div class="deck-nav">
+  <span></span>
+  <a class="deck-next" href="{{< meta decks.d02.file >}}">{{< meta decks.d02.title >}} →</a>
+</div>
+```
+:::
+

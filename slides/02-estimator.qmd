@@ -1,16 +1,11 @@
 ---
-title: "MATH 563 — Mathematical Statistics"
+title: {{< meta course_title >}}
 subtitle: |
-  <span class="deck-title">Estimators and Confidence Intervals</span><br>
+  <span class="deck-title">{{< meta decks.d02.title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
   Assignment 3 due 2/13 <br>
   Test 1 on 2/26 on Probability Review, Estimators, & Confidence Intervals
   </span>
-author: "Fred J. Hickernell"
-date: today
-date-format: "MMMM D, YYYY"
-reveal-options:
-  disableLayout: false
 ---
 
 
@@ -604,6 +599,10 @@ For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is 
 The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful.
 
 ::: {.text-end}
-[Continue to Hypothesis Testing →](03-hypothesis.html)
+```{=html}
+<div class="deck-nav">
+  <a class="deck-prev" href="{{< meta decks.d01.file >}}">← {{< meta decks.d01.title >}}</a>
+  <a class="deck-next" href="{{< meta decks.d03.file >}}">{{< meta decks.d03.title >}} →</a>
+</div>
+```
 :::
-

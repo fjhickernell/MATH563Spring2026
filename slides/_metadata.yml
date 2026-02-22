@@ -1,8 +1,30 @@
 metadata-files:
   - ../classlib/classlib/quarto/slides/hickernell-slides.yml
   - ../classlib/classlib/quarto/metadata/hickernell-texts.yml
-  
+
+course_title: "MATH 563 — Mathematical Statistics"
+author: "Fred J. Hickernell"
+date: today
+date-format: "MMMM D, YYYY"
+
+reveal-options:
+  disableLayout: false
+
 course_website: https://fjhickernell.github.io/MATH563Spring2026/
+
+decks:
+  d01:
+    file: 01-intro.html
+    title: Introduction and Probability Review
+
+  d02:
+    file: 02-estimator.html
+    title: Estimators and Confidence Intervals
+
+  d03:
+    file: 03-hypothesis.html
+    title: Hypothesis Testing
+
 
 format:
   revealjs:
