@@ -539,7 +539,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="d0c6bf95" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="a94f143c" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -605,7 +605,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="35e38faf" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="328c1857" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -650,6 +650,75 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </tr>
 </tbody>
 </table>
+</section>
+<section id="confidence-intervals-vs-hypothesis-testing" class="slide level2">
+<h2>Confidence Intervals vs Hypothesis Testing</h2>
+<h3 id="structural-comparison">Structural Comparison</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 54%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Confidence Interval</th>
+<th>Hypothesis Test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Produces an <strong>interval</strong> of plausible values</td>
+<td>Produces a <strong>decision</strong></td>
+</tr>
+<tr class="even">
+<td>Random interval</td>
+<td>Random decision</td>
+</tr>
+<tr class="odd">
+<td>Statement about <span class="math inline">\(\theta\)</span></td>
+<td>Statement about <span class="math inline">\(H_0\)</span></td>
+</tr>
+<tr class="even">
+<td>No special value privileged</td>
+<td>Tests a specific value <span class="math inline">\(\theta_0\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="shared-ingredients">Shared Ingredients</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Both Use</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Level <span class="math inline">\(\alpha\)</span></td>
+<td>Willingness to be wrong</td>
+</tr>
+<tr class="even">
+<td>Pivot / test statistic</td>
+<td>Standardized measure of evidence</td>
+</tr>
+<tr class="odd">
+<td>Sampling distribution</td>
+<td>Controls coverage / Type I error</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="deep-connection-two-sided-case">Deep Connection (Two-Sided Case)</h3>
+<p><span class="math display">\[
+\theta_0 \text{ rejected at level } \alpha
+\iff
+\theta_0 \notin (1-\alpha)\text{ CI}
+\]</span></p>
 </section>
 <section id="link-to-confidence-intervals" class="slide level2">
 <h2>Link to Confidence Intervals</h2>
