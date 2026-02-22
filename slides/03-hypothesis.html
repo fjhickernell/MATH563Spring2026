@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="03-hypothesis_files/libs/revealjs/dist/theme/quarto-49ecff2030651a29aa743e6775ff7dac.css">
+  <link rel="stylesheet" href="03-hypothesis_files/libs/revealjs/dist/theme/quarto-01a253baf228f18ac7c27718706c6393.css">
   <link href="03-hypothesis_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="03-hypothesis_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="03-hypothesis_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -539,7 +539,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="6047a662" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="7651d048" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -605,7 +605,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="d215fec4" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="f7e25ada" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -622,7 +622,7 @@ H_0 \text{ null hypothesis (default, innocence) in terms of } \theta
 \qquad
 H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 \]</span></p>
-<p><span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> must be mutually exclusive</p>
+<p><span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> are mutually exclusive</p>
 <h3 id="truth-vs-decision">Truth vs Decision</h3>
 <table class="caption-top">
 <colgroup>
@@ -652,9 +652,13 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </table>
 </section>
 <section id="confidence-intervals-hypothesis-testing" class="slide level2">
-<h2>Confidence Intervals &amp; Hypothesis Testing</h2>
-<h3 id="structural-comparison">Structural Comparison</h3>
+<h2>Confidence intervals &amp; hypothesis testing</h2>
+<h3 id="structural-comparison">Structural comparison</h3>
 <table class="caption-top">
+<colgroup>
+<col style="width: 54%">
+<col style="width: 45%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Confidence Interval</th>
@@ -664,7 +668,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <tbody>
 <tr class="odd">
 <td>An <em>interval</em> of plausible values</td>
-<td>A <em>decision</em></td>
+<td>A <em>reject / do not reject decision</em></td>
 </tr>
 <tr class="even">
 <td>Random interval</td>
@@ -680,7 +684,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </tr>
 </tbody>
 </table>
-<h3 id="shared-ingredients">Shared Ingredients</h3>
+<h3 id="shared-ingredients">Shared ingredients</h3>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -706,8 +710,165 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <p><span class="math display">\[
 \theta_0 \text{ rejected at level } \alpha
 \iff
-\theta_0 \notin \text{corresponding } 1-\alpha\text{ confidence interval}
+\theta_0 \notin \text{corresponding } (1-\alpha) \text{ confidence interval}
 \]</span></p>
+</section>
+<section id="what-depends-on-data-and-what-does-not" class="slide level2">
+<h2>What depends on data and what does not?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="chosen-before-seeing-data">Chosen before seeing data</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Who chooses it?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span></td>
+<td>Us</td>
+</tr>
+<tr class="even">
+<td>Form of test statistic <span class="math inline">\(T\)</span></td>
+<td>Us</td>
+</tr>
+<tr class="odd">
+<td>Significance level <span class="math inline">\(\alpha\)</span></td>
+<td>Us</td>
+</tr>
+<tr class="even">
+<td>Sample size <span class="math inline">\(n\)</span></td>
+<td>Us</td>
+</tr>
+<tr class="odd">
+<td>Rejection region <span class="math inline">\(\RR\)</span></td>
+<td>Determined by <span class="math inline">\(\alpha\)</span> &amp; <span class="math inline">\(n\)</span><br> (once <span class="math inline">\(H_0\)</span>, <span class="math inline">\(T\)</span> are fixed)</td>
+</tr>
+<tr class="even">
+<td>Type II error <span class="math inline">\(\beta(\theta)\)</span> <br><span class="math inline">\(\power(\theta)\)</span></td>
+<td>Determined by <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(n\)</span>, &amp; <span class="math inline">\(\theta\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Once <span class="math inline">\(H_0\)</span> and <span class="math inline">\(T\)</span> are fixed:</p>
+<ul>
+<li>One may choose two of <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(\RR\)</span>,<br>
+</li>
+<li>But not all three independently</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:45%;">
+<h3 id="depends-on-data">Depends on data</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: left;">Why?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Test statistic value</td>
+<td style="text-align: left;">Computed from sample</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p-value</td>
+<td style="text-align: left;">Function of statistic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Decision (reject / not reject)</td>
+<td style="text-align: left;">Depends on statistic</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="forms-of-h_0-and-h_a" class="slide level2">
+<h2>Forms of <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span></h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="common-structures">Common structures</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Two-sided</td>
+<td><span class="math inline">\(\theta = \theta_0\)</span></td>
+<td><span class="math inline">\(\theta \ne \theta_0\)</span></td>
+</tr>
+<tr class="even">
+<td>One-sided (upper)</td>
+<td><span class="math inline">\(\theta = \theta_0\)</span></td>
+<td><span class="math inline">\(\theta &gt; \theta_0\)</span></td>
+</tr>
+<tr class="odd">
+<td>One-sided (lower)</td>
+<td><span class="math inline">\(\theta = \theta_0\)</span></td>
+<td><span class="math inline">\(\theta &lt; \theta_0\)</span></td>
+</tr>
+<tr class="even">
+<td>Two simple values</td>
+<td><span class="math inline">\(\theta = \theta_0\)</span></td>
+<td><span class="math inline">\(\theta = \theta_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><span class="alert">Simple</span>: a single <span class="math inline">\(\theta\)</span> value</p></li>
+<li><p><span class="alert">Composite</span>: multiple <span class="math inline">\(\theta\)</span> values</p></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3 id="composite-null-example">Composite null example</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Version A</th>
+<th>Version B</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0:\ \theta = \theta_0\)</span></td>
+<td><span class="math inline">\(H_0:\ \theta \ge \theta_0\)</span></td>
+<td>Same?</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_A:\ \theta &lt; \theta_0\)</span></td>
+<td><span class="math inline">\(H_A:\ \theta &lt; \theta_0\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The test is calibrated at the boundary:</p>
+<p><span class="math display">\[\begin{align*}
+\text{A}: \quad &amp;\Prob(\text{Reject } H_0 \mid \theta_0)=\alpha \\
+\text{B}: \quad &amp;\sup_{\theta \ge \theta_0}
+\Prob(\text{Reject } H_0 \mid \theta)
+= \alpha
+\end{align*}\]</span></p>
+<h3 id="key-idea">Key idea</h3>
+<ul>
+<li><span class="math inline">\(H_0\)</span> may be composite<br>
+</li>
+<li>The boundary value controls Type I error<br>
+</li>
+<li>Test the <em>least favorable</em> value</li>
+</ul>
+</div></div>
 </section>
 <section id="likelihood-viewpoint-563-emphasis" class="slide level2">
 <h2>Likelihood viewpoint (563 emphasis)</h2>
