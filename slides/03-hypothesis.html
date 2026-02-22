@@ -539,7 +539,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="6bd95b98" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="f71d7d32" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -605,7 +605,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="6826c937" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="79d9d8e2" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -615,26 +615,41 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="big-picture-summary">Big Picture Summary</h3>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: default reliability claim<br>
-</li>
-<li><span class="math inline">\(H_A\)</span>: evidence of reduced reliability<br>
-</li>
-<li><span class="math inline">\(T(\vX)\)</span>: summary of the observed inter-failure times<br>
-</li>
-<li><span class="math inline">\(\RR\)</span>: values of <span class="math inline">\(T\)</span> that signal reliability has worsened<br>
-</li>
-<li><span class="math inline">\(\alpha\)</span>: risk of falsely accusing underperformance<br>
-</li>
-<li><span class="math inline">\(p\)</span>-value: strength of evidence against the claim<br>
-</li>
-<li><span class="math inline">\(\beta\)</span>: risk of missing a real reliability problem<br>
-</li>
-<li><span class="math inline">\(1-\beta\)</span>: probability of detecting reduced reliability</li>
-</ul>
+<section id="two-kinds-of-error" class="slide level2">
+<h2>Two kinds of error</h2>
+<p><span class="math display">\[
+H_0 \text{ null hypothesis (default, innocence) in terms of } \theta
+\qquad
+H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
+\]</span></p>
+<p><span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> must be mutually exclusive</p>
+<h3 id="truth-vs-decision">Truth vs Decision</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Truth about <span class="math inline">\(H_0\)</span></th>
+<th>Reject <span class="math inline">\(H_0\)</span></th>
+<th>Do Not Reject <span class="math inline">\(H_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0\)</span> true</td>
+<td><strong>Type I error</strong> <br> probability <span class="math inline">\(\alpha\)</span></td>
+<td>Correct</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_0\)</span> false</td>
+<td>Correct <br> probability <span class="math inline">\(\power(\theta)\)</span></td>
+<td><strong>Type II error</strong> <br> probability <span class="math inline">\(\beta(\theta)\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="link-to-confidence-intervals" class="slide level2">
 <h2>Link to Confidence Intervals</h2>
@@ -662,7 +677,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Institute of Technology <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">Course website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise for the reader </span> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Institute of Technology <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 563 — Mathematical Statistics Course Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise for the reader </span> </span></p>
 </div>
 </div>
 </div></div>
