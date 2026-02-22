@@ -1,5 +1,5 @@
 ---
-title: {{< meta course_title >}}
+title: "{{< meta course_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta decks.d03.title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 8<br> 
@@ -7,10 +7,6 @@ subtitle: |
 ---
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/hypothesis-frame.qmd >}}
-
----
-
-{{< meta decks.d02.title >}}
 
 ::: {.text-end}
 ```{=html}
