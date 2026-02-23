@@ -601,7 +601,7 @@ For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is 
 The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful
 
 
-{{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/predct-tolerance.qmd >}}
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/predict_tolerance.qmd >}}
 
 ```{=html}
 <div class="deck-nav">
