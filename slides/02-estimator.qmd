@@ -603,6 +603,8 @@ The Fisher information is often tractable, which makes the Cramér--Rao lower bo
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/predict_tolerance.qmd >}}
 
+&nbsp;
+
 ```{=html}
 <div class="deck-nav">
   <a class="deck-prev" href="{{< meta decks.d01.file >}}">← {{< meta decks.d01.title >}}</a>
