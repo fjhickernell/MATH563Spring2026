@@ -68,6 +68,8 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/confidence.qmd >}}
 
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/sufficiency_completeness_information.qmd >}}
+
 
 # Do we have the right estimators to summarize our data and construct confidence intervals?
 
@@ -596,8 +598,10 @@ For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is 
 
 &nbsp;
 
-The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful.
+The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful
 
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/predct-tolerance.qmd >}}
 
 ```{=html}
 <div class="deck-nav">
