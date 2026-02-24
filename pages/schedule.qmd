@@ -26,8 +26,8 @@ Fri Jan 30 | **Assignment 2 Due**
 | Thu Feb 12 | Confidence intervals for variances, Bootstrap confidence intervals| |
 Fri Feb 13 | **Assignment 3 Due**
 | Tue Feb 17 | Sufficient statistics and related topics | |
-| Thu Feb 19 | | |
-| Tue Feb 24 | | |
+| Thu Feb 19 | Completeness, Rao-Blackwell, Cramér-Rao lower bound, exponential families| |
+| Tue Feb 24 | Prediction and tolerance intervals, hypothesis testing| [Hypothesis Testing](../slides/03-hypothesis.html)
 | Thu Feb 26 | **Test 1** | |
 ### March
 
