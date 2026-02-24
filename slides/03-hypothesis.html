@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-23">
+  <meta name="dcterms.date" content="2026-02-24">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -473,7 +473,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 23, 2026</p>
+  <p class="date">February 24, 2026</p>
 </section>
 <section>
 <section id="hypothesis-testing-framework" class="title-slide slide level1 center">
@@ -539,7 +539,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="f4f46dab" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="114f0161" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -605,7 +605,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="a504f40c" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="2567d587" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -879,6 +879,99 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <li>what else?</li>
 <li>we do need to talk about different hypotheses, e.g., one-sided vs two-sided, simple vs composite, etc.</li>
 </ul>
+</section></section>
+<section>
+<section id="examples-of-hypothesis-testing" class="title-slide slide level1 center">
+<h1>Examples of hypothesis testing</h1>
+<p>Building on the established framework</p>
+<ul>
+<li><p><a href="#/translating-words-into-hypotheses">Translating words into hypotheses</a></p></li>
+<li><p><a href="#/twoclttest">Two-sided large sample size CLT test for the mean</a></p></li>
+</ul>
+</section>
+<section id="translating-words-into-h_0-and-h_a" class="slide level2">
+<h2>Translating words into <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span></h2>
+<ul>
+<li><span class="math inline">\(H_0\)</span> contains the status quo — often written with equality</li>
+<li><span class="math inline">\(H_A\)</span> reflects the research claim</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Words</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Is the mean different from 10?”</td>
+<td><span class="math inline">\(\theta = 10\)</span></td>
+<td><span class="math inline">\(\theta \ne 10\)</span></td>
+</tr>
+<tr class="even">
+<td>“Is the mean greater than 10?”</td>
+<td><span class="math inline">\(\theta = 10\)</span></td>
+<td><span class="math inline">\(\theta &gt; 10\)</span></td>
+</tr>
+<tr class="odd">
+<td>“Is the defect rate below 5%?”</td>
+<td><span class="math inline">\(\theta = 0.05\)</span></td>
+<td><span class="math inline">\(\theta &lt; 0.05\)</span></td>
+</tr>
+<tr class="even">
+<td>“Has the process changed?”</td>
+<td><span class="math inline">\(\theta = \theta_0\)</span></td>
+<td><span class="math inline">\(\theta \ne \theta_0\)</span></td>
+</tr>
+<tr class="odd">
+<td>“Our average time between failures is greater than 200 hours”</td>
+<td><span class="math inline">\(\mu = 200\)</span></td>
+<td><span class="math inline">\(\mu &gt; 200\)</span></td>
+</tr>
+<tr class="even">
+<td>“Your average time between failures is less than 200 hours”</td>
+<td><span class="math inline">\(\mu = 200\)</span></td>
+<td><span class="math inline">\(\mu &lt; 200\)</span></td>
+</tr>
+<tr class="odd">
+<td>“Our job placement rate is 90%, not 70%” (two simple)</td>
+<td><span class="math inline">\(p = 0.7\)</span></td>
+<td><span class="math inline">\(p = 0.9\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="two-sided-test-for-a-mean-clt" class="slide level2">
+<h2>Two-sided test for a mean (CLT)</h2>
+<p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex[X_i] = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
+<p>Test <span class="math inline">\(H_0: \mu = \mu_0\)</span> against <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
+<ul>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \appxsim \Norm(0,1) \text{ under } H_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Z_n: |Z_n| &gt; z_{\alpha/2}\}\)</span></p></li>
+<li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p></li>
+</ul>
+<p><span class="math display">\[
+\power(\mu_1)= \Prob(|Z_n|&gt;z_{\alpha/2} \mid \mu = \mu_1) = 1 - \Phi\!\left(z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right) + \Phi\!\left(-z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right  )
+\]</span></p>
+</section>
+<section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
+<h2>Power curves for the two-sided CLT test</h2>
+<div id="092e74c1" class="cell" data-message="false" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-15-output-1.png" width="948" height="564"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
   <span class="deck-next deck-disabled"></span>
