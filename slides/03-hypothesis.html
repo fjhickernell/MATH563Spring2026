@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="03-hypothesis_files/libs/revealjs/dist/theme/quarto-01a253baf228f18ac7c27718706c6393.css">
+  <link rel="stylesheet" href="03-hypothesis_files/libs/revealjs/dist/theme/quarto-f40efc9c2addd22605eff515b14f1811.css">
   <link href="03-hypothesis_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="03-hypothesis_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="03-hypothesis_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -517,13 +517,8 @@ X_1,\dots,X_n \IIDsim \Exp(1/\mu),
 <section class="slide level2">
 
 <h3 id="step-2-construct-test-statistic">Step 2: Construct test statistic</h3>
-<p>Use the pivot <span class="math inline">\(\displaystyle
-\frac{2n\barX}{\mu} \sim \chi^2_{2n}\)</span></p>
-<p>so that under <span class="math inline">\(H_0: \mu = 200\)</span> <span class="math display">\[
-T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}\]</span></p>
-</section>
-<section class="slide level2">
-
+<p><span class="math display">\[\text{Use the pivot } \frac{2n\barX}{\mu} \sim \chi^2_{2n}, \qquad \text{so that under } H_0: \mu = 200, \quad T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}\]</span></p>
+<div class="fragment">
 <h3 id="step-3-choose-significance-level-and-construct-rejection-region">Step 3: Choose significance level and construct rejection region</h3>
 <p>Choose <span class="math inline">\(\alpha = 0.05\)</span> as the maximum tolerable risk of falsely accusing underperformance</p>
 <div class="columns">
@@ -539,7 +534,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="7c5e90b3" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="5e463fb8" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -549,6 +544,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 </div>
 </div>
 </div></div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -556,7 +552,8 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Let</p>
 <p><span class="math display">\[n=10,\qquad \barX=176\]</span></p>
 <p>Then <span class="math display">\[T_{\text{obs}}=\frac{2(10)(176)}{200}=17.60\]</span></p>
-<h3 id="step-5-p-value">Step 5: p-value</h3>
+<div class="fragment">
+<h3 id="step-5-p-value-and-decision">Step 5: <span class="math inline">\(p\)</span>-value and decision</h3>
 <p>The <span class="alert"><span class="math inline">\(p\)</span>-value</span> is</p>
 <p><span class="math display">\[p=\Prob\big(\chi^2_{20} \le 17.60\big)  \approx 0.39\]</span></p>
 Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(p\le \alpha\)</span>
@@ -564,6 +561,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 
 </div>
 <p>So we do NOT reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha=0.05\)</span> level</p>
+</div>
 </section>
 <section class="slide level2">
 
@@ -591,21 +589,21 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 </section>
 <section class="slide level2">
 
-<h3 id="power-for-the-server-reliability-test">Power for the Server Reliability Test</h3>
+<h3 id="power-for-the-server-reliability-test">Power for the Server Reliability test</h3>
 <p>From Step 3, we reject <span class="math inline">\(H_0\)</span> when</p>
 <p><span class="math display">\[T=\frac{2n\barX}{200} &lt; \chi^2_{2n,1-\alpha}\]</span></p>
 <p>If the true mean is actually <span class="math inline">\(\mu_1\)</span>, then <span class="math display">\[\frac{200 T }{\mu_1} = \frac{2n\barX}{\mu_1} \sim\chi^2_{2n}\]</span></p>
 <p>Therefore the <span class="alert">power function</span> is <span class="math display">\[\begin{align*}
 \power(\mu_1)
 &amp;= \Prob\!\left(T &lt; \chi^2_{2n,\,1-\alpha}\mid \mu=\mu_1\right)
-= \Prob\!\left(\frac{200\,T}{\mu_1} &lt; \frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1} \,\middle|\, \mu=\mu_1\right)\\
-&amp;= F_{\chi^2_{2n}}\!\left(\frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1}\right)\qquad \text{increases as $\mu_1$ decreases.}
+= \Prob\!\left(\frac{200\,T}{\mu_1} \sim \chi^2_{2n} &lt; \frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1} \,\middle|\, \mu=\mu_1\right)\\
+&amp;\qquad \qquad \text{increases as $\mu_1$ decreases.}
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="a596bf07" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="a48bb5e2" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -614,14 +612,18 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 </div>
 </div>
 </div>
+<div class="key-point">
+<p><strong>Do not</strong> use the power curve to decide whether to reject after seeing the data</p>
+<p>Power is about the test procedure, not about the observed data</p>
+</div>
 </section>
 <section id="two-kinds-of-error" class="slide level2">
 <h2>Two kinds of error</h2>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{gather*}
 H_0 \text{ null hypothesis (default, innocence) in terms of } \theta
-\qquad
+\\
 H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
-\]</span></p>
+\end{gather*}\]</span></p>
 <p><span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> are mutually exclusive</p>
 <h3 id="truth-vs-decision">Truth vs Decision</h3>
 <table class="caption-top">
@@ -869,16 +871,6 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <li>Test the <em>least favorable</em> value</li>
 </ul>
 </div></div>
-</section>
-<section id="likelihood-viewpoint-563-emphasis" class="slide level2">
-<h2>Likelihood viewpoint (563 emphasis)</h2>
-<ul>
-<li>Likelihood <span class="math inline">\(L(\theta \mid \vx)\)</span></li>
-<li>Likelihood ratio statistic</li>
-<li>Neyman-Pearson lemma and uniformly most powerful tests</li>
-<li>what else?</li>
-<li>we do need to talk about different hypotheses, e.g., one-sided vs two-sided, simple vs composite, etc.</li>
-</ul>
 </section></section>
 <section>
 <section id="examples-of-hypothesis-testing" class="title-slide slide level1 center">
@@ -950,6 +942,20 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </tbody>
 </table>
 </section>
+<section id="definition-of-the-p-value" class="slide level2">
+<h2>Definition of the <span class="math inline">\(p\)</span>-value</h2>
+<p>The <em><span class="math inline">\(p\)</span>-value</em> is the probability, computed under <span class="math inline">\(H_0\)</span>, of observing a test statistic at least as extreme as the one observed, assuming <span class="math inline">\(H_0\)</span> is true</p>
+<p>If <span class="math inline">\(T\)</span> is the test statistic and <span class="math inline">\(t_{\text{obs}}\)</span> is the observed value, then</p>
+<ul>
+<li><p>Right-tailed test: <span class="math inline">\(\quad p\text{-value} = \Prob_{H_0}(T \ge t_{\text{obs}})\)</span></p></li>
+<li><p>Left-tailed test: <span class="math inline">\(\quad p\text{-value} = \Prob_{H_0}(T \le t_{\text{obs}})\)</span></p></li>
+<li><p>Two-sided test: <span class="math inline">\(\quad p\text{-value} = \Prob_{H_0}(|T| \ge |t_{\text{obs}}|)\)</span></p></li>
+</ul>
+<div class="key-point">
+<p>Compute <span class="math inline">\(p\)</span>-values <strong>after</strong> setting the significance level <span class="math inline">\(\alpha\)</span>, rather than choosing <span class="math inline">\(\alpha\)</span> after seeing the data</p>
+<p>Changing <span class="math inline">\(\alpha\)</span> after seeing the <span class="math inline">\(p\)</span>-value is a form of <span class="alert">data snooping</span></p>
+</div>
+</section>
 <section id="two-sided-test-for-a-mean-clt" class="slide level2">
 <h2>Two-sided test for a mean (CLT)</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex[X_i] = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
@@ -957,17 +963,20 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <p><span class="math inline">\(H_0: \mu = \mu_0\)</span> against</p>
 <p><span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
 <ul>
-<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \appxsim \Norm(0,1) \text{ under } H_0\)</span></p></li>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \appxsim \Norm(0,1) \text{ for large } n \text{ under } H_0\)</span></p></li>
 <li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Z_n: |Z_n| &gt; z_{\alpha/2}\}\)</span></p></li>
 <li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p></li>
 </ul>
 <p><span class="math display">\[
 \power(\mu_1)= \Prob(|Z_n|&gt;z_{\alpha/2} \mid \mu = \mu_1) = 1 - \Phi\!\left(z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right) + \Phi\!\left(-z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right  )
 \]</span></p>
+<ul>
+<li><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(z_{\text{obs}}\)</span> is <span class="math inline">\(p = 2\big(1 - \Phi(|z_{\text{obs}}|)\big)\)</span></li>
+</ul>
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="ce41a5cd" class="cell" data-message="false" data-execution_count="14">
+<div id="d1847129" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -975,6 +984,11 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </figure>
 </div>
 </div>
+</div>
+<div class="key-point">
+<p>Power is <span class="math inline">\(\Prob(\text{reject} \mid \theta)\)</span></p>
+<p>It is <strong>not</strong> <span class="math inline">\(\Prob(\theta \mid \text{data})\)</span></p>
+<p>Power describes the test design, not the evidence in this sample</p>
 </div>
 </section>
 <section id="onesided_t_test" class="slide level2">
@@ -993,10 +1007,13 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 \implies \power(\mu_1) = \Prob(T_n &gt; t_{\alpha,n-1} \mid \mu=\mu_1) = 1 - F_{t_{n-1}(\delta)}\!\left(t_{\alpha,n-1}\right)
 \end{multline*}\]</span></p>
 <p>where <span class="math inline">\(F_{t_{n-1}(\delta)}\)</span> is the CDF of the noncentral t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom and noncentrality parameter <span class="math inline">\(\delta\)</span></p>
+<ul>
+<li><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(t_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(t_{n-1} \ge t_{\text{obs}})\)</span></li>
+</ul>
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="1af26221" class="cell" data-message="false" data-execution_count="15">
+<div id="17e1f504" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1027,11 +1044,12 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 \chi^2_{n-1} &gt; \frac{\sigma_0^2}{\sigma_1^2}\chi^2_{n-1,\alpha}
 \right)
 \]</span></p></li>
+<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(q_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(\chi^2_{n-1} \ge q_{\text{obs}})\)</span></p></li>
 </ul>
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="36a0d888" class="cell" data-message="false" data-execution_count="16">
+<div id="9f393dc0" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
