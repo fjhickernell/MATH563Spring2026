@@ -12,6 +12,9 @@ subtitle: |
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/hypothesis-examples.qmd >}}
 
 
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/likelihoodratio.qmd >}}
+
+
 ```{=html}
 <div class="deck-nav">
   <a class="deck-prev" href="{{< meta decks.d02.file >}}">← {{< meta decks.d02.title >}}</a>
