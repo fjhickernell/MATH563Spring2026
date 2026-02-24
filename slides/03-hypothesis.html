@@ -539,7 +539,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 </div><div class="column" style="width:60%;">
-<div id="737a4d9f" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="54d72ea5" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -605,7 +605,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="03d03987" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="3d90ceda" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -887,6 +887,8 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <ul>
 <li><p><a href="#/translating-words-into-hypotheses">Translating words into hypotheses</a></p></li>
 <li><p><a href="#/twoclttest">Two-sided large sample size CLT test for the mean</a></p></li>
+<li><p><a href="#/onesided_t_test">One-sided <span class="math inline">\(t\)</span>-test for the mean</a></p></li>
+<li><p><a href="#/chisq_test">Chi-squared test for variance</a></p></li>
 </ul>
 </section>
 <section id="translating-words-into-h_0-and-h_a" class="slide level2">
@@ -951,7 +953,9 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 <section id="two-sided-test-for-a-mean-clt" class="slide level2">
 <h2>Two-sided test for a mean (CLT)</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex[X_i] = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
-<p>Test <span class="math inline">\(H_0: \mu = \mu_0\)</span> against <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
+<p>Test</p>
+<p><span class="math inline">\(H_0: \mu = \mu_0\)</span> against</p>
+<p><span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
 <ul>
 <li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \appxsim \Norm(0,1) \text{ under } H_0\)</span></p></li>
 <li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Z_n: |Z_n| &gt; z_{\alpha/2}\}\)</span></p></li>
@@ -963,15 +967,168 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="4bdf457e" class="cell" data-message="false" data-execution_count="14">
+<div id="3d6dc892" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-15-output-1.png" width="948" height="564"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-15-output-1.png" width="1139" height="566"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="onesided_t_test" class="slide level2">
+<h2>One-sided test for a mean (Normal data)</h2>
+<p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span></p>
+<p>Test<br>
+<span class="math inline">\(H_0: \mu \le \mu_0\)</span> against<br>
+<span class="math inline">\(H_A: \mu &gt; \mu_0\)</span></p>
+<ul>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle T_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \sim t_{n-1} \text{ under } \mu=\mu_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{T_n: T_n &gt; t_{\alpha,n-1}\}\)</span></p></li>
+<li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p></li>
+</ul>
+<p><span class="math display">\[\begin{multline*}
+T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt{n}} \\
+\implies \power(\mu_1) = \Prob(T_n &gt; t_{\alpha,n-1} \mid \mu=\mu_1) = 1 - F_{t_{n-1}(\delta)}\!\left(t_{\alpha,n-1}\right)
+\end{multline*}\]</span></p>
+<p>where <span class="math inline">\(F_{t_{n-1}(\delta)}\)</span> is the CDF of the noncentral t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom and noncentrality parameter <span class="math inline">\(\delta\)</span></p>
+</section>
+<section id="power-curves-for-the-one-sided-t-test" class="slide level2">
+<h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
+<div id="5dbb40ba" class="cell" data-message="false" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-16-output-1.png" width="1139" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="one-sided-chi2-test-for-a-variance-normal-model" class="slide level2">
+<h2>One-sided <span class="math inline">\(\chi^2\)</span> test for a variance (Normal model)</h2>
+<p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span>.</p>
+<p>Test<br>
+<span class="math inline">\(H_0: \sigma^2 = \sigma_0^2\)</span> against<br>
+<span class="math inline">\(H_A: \sigma^2 &gt; \sigma_0^2\)</span></p>
+<ul>
+<li><p><span class="alert">Pivot / test statistic</span> <span class="math inline">\(\displaystyle Q = \frac{(n-1)S^2}{\sigma_0^2} \sim \chi^2_{n-1} \text{ under } H_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Q: Q &gt; \chi^2_{n-1,\alpha}\}\)</span></p></li>
+<li><p><span class="alert">Power function</span><br>
+<span class="math display">\[
+\power(\sigma_1)
+=
+\Prob\!\left(
+Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
+\right)
+=
+\Prob\!\left(
+\chi^2_{n-1} &gt; \frac{\sigma_0^2}{\sigma_1^2}\chi^2_{n-1,\alpha}
+\right)
+\]</span></p></li>
+</ul>
+</section>
+<section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
+<h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
+<div id="26d8574c" class="cell" data-message="false" data-execution_count="16">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-17-output-1.png" width="950" height="565"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="optimal-tests-and-likelihood-methods" class="title-slide slide level1 center">
+<h1>Optimal Tests and Likelihood Methods</h1>
+<ul>
+<li></li>
+</ul>
+</section>
+<section id="from-procedures-to-optimality" class="slide level2">
+<h2>From procedures to optimality</h2>
+<p>We have constructed tests, and we have computed their size and power, but</p>
+<blockquote>
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, which has the highest power (at a fixed alternative)?</p>
+</blockquote>
+<p>To compare two hypotheses</p>
+<p><span class="math display">\[
+H_0: \theta = \theta_0 \text{ vs } H_A: \theta = \theta_1
+\]</span></p>
+<p>Consider the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> ratio statistic</p>
+<p><span class="math display">\[
+\Lambda(\vX)
+=
+\frac{L(\theta_0 \mid \vX)}
+     {L(\theta_1 \mid \vX)}
+\]</span></p>
+<p>Small <span class="math inline">\(\Lambda \implies\)</span> evidence against <span class="math inline">\(H_0\)</span></p>
+<p>Or for more general hypotheses, e.g., <span class="math inline">\(H_0: \theta \in \Theta_0\)</span> vs <span class="math inline">\(H_A: \theta \in \Theta_A\)</span>:</p>
+<p><span class="math display">\[
+\Lambda(\vX)
+=
+\frac{\sup_{\theta\in H_0} L(\theta \mid \vX)}
+     {\sup_{\theta\in H_A} L(\theta \mid \vX)}
+\]</span></p>
+</section>
+<section id="neymanpearson-lemma-simple-vs-simple" class="slide level2">
+<h2>Neyman–Pearson lemma (simple vs simple)</h2>
+<p>Test</p>
+<p><span class="math display">\[
+H_0:\theta=\theta_0
+\qquad
+H_A:\theta=\theta_1
+\]</span></p>
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>,</p>
+<blockquote>
+<p>The likelihood ratio test is most powerful</p>
+</blockquote>
+<p>Reject <span class="math inline">\(H_0\)</span> when</p>
+<p><span class="math display">\[
+\frac{L(\theta_1 \mid \vX)}
+     {L(\theta_0 \mid \vX)}
+&gt; k
+\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is chosen to make the test have size <span class="math inline">\(\alpha\)</span></p>
+</section>
+<section id="example-normal-mean-known-sigma" class="slide level2">
+<h2>Example: normal mean (known <span class="math inline">\(\sigma\)</span>)</h2>
+<p>Test</p>
+<p><span class="math display">\[
+H_0:\mu=\mu_0
+\qquad
+H_A:\mu=\mu_1
+\]</span></p>
+<p>Likelihood ratio simplifies to a function of <span class="math inline">\(\barX_n\)</span>.</p>
+<p>Rejection region:</p>
+<p><span class="math display">\[
+\barX_n &gt; c
+\]</span></p>
+<p>This is exactly the familiar <span class="math inline">\(z\)</span>-test.</p>
+</section>
+<section id="from-neymanpearson-to-likelihood-ratio-tests" class="slide level2">
+<h2>From Neyman–Pearson to likelihood ratio tests</h2>
+<p>For composite hypotheses,</p>
+<p><span class="math display">\[
+\Lambda(\vX)
+=
+\frac{\sup_{\theta\in H_0} L(\theta)}
+     {\sup_{\theta\in \Theta} L(\theta)}
+\]</span></p>
+<p>Reject for small <span class="math inline">\(\Lambda\)</span>.</p>
+</section>
+<section id="large-sample-behavior-of-the-likelihood-ratio-statistic" class="slide level2">
+<h2>Large-sample behavior of the likelihood ratio statistic</h2>
+<p>Under regularity conditions,</p>
+<p><span class="math display">\[
+-2\log \Lambda
+\appxsim
+\chi^2_{df}
+\]</span></p>
+<p>Degrees of freedom = difference in parameter dimension.</p>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
   <span class="deck-next deck-disabled"></span>
