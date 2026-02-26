@@ -269,6 +269,8 @@
           abs:  ["{\\left\\lvert #1 \\right\\rvert}", 1],
           norm: ["{\\left\\lVert #1 \\right\\rVert}", 1],
           ip:   ["{\\left\\langle #1, #2 \\right\\rangle}", 2],
+          dim:   "{\\operatorname{dim}}",
+          df:   "{\\mathrm{df}}",
 
 
           bvec: ["{\\boldsymbol{#1}}", 1],
@@ -538,7 +540,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="668fcd0c" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="f0d247e8" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -607,7 +609,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="1dbed3a2" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="10ac1c18" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -980,7 +982,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="20e22697" class="cell" data-message="false" data-execution_count="14">
+<div id="1a053efc" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1017,7 +1019,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="a3c6fe87" class="cell" data-message="false" data-execution_count="15">
+<div id="ed35967b" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1053,7 +1055,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="f630efc3" class="cell" data-message="false" data-execution_count="16">
+<div id="822cdd7d" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1062,15 +1064,23 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </div>
 </div>
 </div>
+</section>
+<section id="try-on-your-own" class="slide level2">
+<h2>Try on your own</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span>Construct small sample size one-sided and two-sided tests for the mean of an exponential distribution and sketch the power curves</span></p>
+</div>
 </section></section>
 <section>
 <section id="optimal-tests-and-likelihood-methods" class="title-slide slide level1 center">
 <h1>Optimal Tests and Likelihood Methods</h1>
 <ul>
-<li></li>
+<li><p><a href="#/likelihoodratiotests">Likelihood ratio tests (LRT)</a></p></li>
+<li><p><a href="#/neymanpearson">Neyman–Pearson lemma</a></p></li>
+<li><p><a href="#/largesamplelikelihoodratio">Large-sample behavior of the likelihood ratio statistic</a></p></li>
 </ul>
 </section>
-<section id="from-procedures-to-optimality" class="slide level2">
+<section id="likelihoodratiotests" class="slide level2">
 <h2>From procedures to optimality</h2>
 <p>We have constructed tests, and we have computed their size and power, but</p>
 <blockquote>
@@ -1096,7 +1106,7 @@ H_0: \theta = \theta_0 \text{ vs } H_A: \theta = \theta_1
      {\sup_{\theta\in H_A} L(\theta \mid \vX)}
 \]</span></p>
 </section>
-<section id="neymanpearson-lemma-simple-vs-simple" class="slide level2">
+<section id="neymanpearson-lemma-simple-vs-simple" class="slide level2 neymanpearson">
 <h2>Neyman–Pearson lemma (simple vs simple)</h2>
 <p>Test</p>
 <p><span class="math display">\[
@@ -1116,20 +1126,35 @@ H_A:\theta=\theta_1
 \]</span></p>
 <p>where <span class="math inline">\(k\)</span> is chosen to make the test have size <span class="math inline">\(\alpha\)</span></p>
 </section>
-<section id="example-normal-mean-known-sigma" class="slide level2">
-<h2>Example: normal mean (known <span class="math inline">\(\sigma\)</span>)</h2>
+<section class="slide level2">
+
+<h3 id="example-mean-of-normal-data-with-known-sigma">Example: mean of Normal data with known <span class="math inline">\(\sigma\)</span></h3>
 <p>Test</p>
 <p><span class="math display">\[
 H_0:\mu=\mu_0
 \qquad
-H_A:\mu=\mu_1
+H_A:\mu=\mu_1 \quad \text{with } \mu_1 &gt; \mu_0
 \]</span></p>
-<p>Likelihood ratio simplifies to a function of <span class="math inline">\(\barX_n\)</span>.</p>
-<p>Rejection region:</p>
+<p>Assume <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span>. We know that <span class="math inline">\(\barX_n\)</span> is the MLE of <span class="math inline">\(\mu\)</span>, so the <span class="alert">likelihood ratio</span> test statistic is</p>
 <p><span class="math display">\[
-\barX_n &gt; c
+\Lambda
+=
+\frac{L(\mu_0)}{L(\barX_n)}
+=
+\exp\!\left(
+-\frac{n}{2\sigma^2}
+(\barX_n - \mu_0)^2
+\right)
 \]</span></p>
-<p>This is exactly the familiar <span class="math inline">\(z\)</span>-test.</p>
+<p><span class="alert">Reject</span> when <span class="math inline">\(\Lambda\)</span> is small <span class="math inline">\(\iff (\barX_n - \mu_0)^2 \iff \barX_n\)</span> is large, because alternative is one-sided</p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\frac{\barX_n - \mu_0}{\sigma/\sqrt n}
+&gt;
+z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\alpha$}
+\]</span></p>
+<p>The LRT reproduces the classical <span class="math inline">\(z\)</span>-test for the mean of a normal distribution with known variance</p>
+<p><span class="math inline">\(\exstar\)</span> Show that the LRT for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu  = \mu_1\)</span> with <span class="math inline">\(\mu_1 &gt; \mu_0\)</span> and <span class="math inline">\(\sigma\)</span> unknown is the same as the <span class="math inline">\(t\)</span>-test</p>
 </section>
 <section id="from-neymanpearson-to-likelihood-ratio-tests" class="slide level2">
 <h2>From Neyman–Pearson to likelihood ratio tests</h2>
@@ -1140,17 +1165,52 @@ H_A:\mu=\mu_1
 \frac{\sup_{\theta\in H_0} L(\theta)}
      {\sup_{\theta\in \Theta} L(\theta)}
 \]</span></p>
-<p>Reject for small <span class="math inline">\(\Lambda\)</span>.</p>
+<p>Reject for small <span class="math inline">\(\Lambda\)</span></p>
 </section>
-<section id="large-sample-behavior-of-the-likelihood-ratio-statistic" class="slide level2">
-<h2>Large-sample behavior of the likelihood ratio statistic</h2>
+<section id="wilks-theorem" class="slide level2">
+<h2>Wilks’ Theorem</h2>
 <p>Under regularity conditions,</p>
 <p><span class="math display">\[
--2\log \Lambda
-\appxsim
-\chi^2_{df}
+-2 \log \Lambda
+\dto
+\chi^2_{\df}
+\]</span> where the degrees of freedom is <span class="math display">\[
+\df
+=
+\dim(\text{full model}) - \dim(\text{null model}))
 \]</span></p>
-<p>Degrees of freedom = difference in parameter dimension.</p>
+<h3 id="example-normal-data-with-unknown-sigma">Example: Normal data with unknown <span class="math inline">\(\sigma\)</span></h3>
+<ul>
+<li>Full model for <span class="math inline">\(\Norm(\mu,\sigma^2)\)</span> has <span class="math inline">\(\dim(\Theta) = 2\)</span></li>
+<li>Null model for <span class="math inline">\(H_0: \mu = \mu_0\)</span> has <span class="math inline">\(\dim(\Theta_0) = 1\)</span></li>
+<li><span class="math inline">\(\df = 2 - 1 = 1\)</span></li>
+</ul>
+</section>
+<section id="why-bother-with-the-likelihood-ratio-test-lrt" class="slide level2">
+<h2>Why bother with the likelihood ratio test (LRT)</h2>
+<p><span class="math display">\[
+\Lambda(x)
+=
+\frac{\sup_{\theta \in \Theta_0} L(\theta)}
+{\sup_{\theta \in \Theta} L(\theta)} \qquad \text{Reject when $\Lambda$ is small}
+\]</span></p>
+<p>Even though</p>
+<ul>
+<li><p>We already know the <span class="math inline">\(z\)</span>, <span class="math inline">\(t\)</span>, and other tests, the LRT</p></li>
+<li><p>We still need to choose the rejection region cut-off to get the desired size <span class="math inline">\(\alpha\)</span>,</p></li>
+</ul>
+<p>However, the LRT</p>
+<ul>
+<li>Is a unifying concept</li>
+<li>Handles composite hypotheses<br>
+</li>
+<li>Reproduces <span class="math inline">\(z\)</span>, <span class="math inline">\(t\)</span>, <span class="math inline">\(\chi^2\)</span>, <span class="math inline">\(F\)</span> tests<br>
+</li>
+<li>Scales to multi-parameter models<br>
+</li>
+<li>Has large-sample theory (Wilks)</li>
+</ul>
+<p>&nbsp;</p>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
   <span class="deck-next deck-disabled"></span>
