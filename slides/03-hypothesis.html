@@ -488,9 +488,9 @@ Fred J. Hickernell
 <li><p><span class="alert">Type II error</span> <span class="math inline">\(\beta\)</span> — probability of failing to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_A\)</span> is true</p></li>
 <li><p><span class="alert">Power</span> <span class="math inline">\(1-\beta\)</span> — probability of correctly rejecting <span class="math inline">\(H_0\)</span></p></li>
 </ul>
-<blockquote>
+<div class="key-point">
 <p>Hypothesis testing is a formal way of deciding whether the data provide enough evidence to overturn a protected default assumption</p>
-</blockquote>
+</div>
 <p>We will use ideas from estimation, confidence intervals, and pivots to construct tests</p>
 </section>
 <section id="example-server-reliability-claim-mean-time-between-failures" class="slide level2">
@@ -533,8 +533,12 @@ T &lt; \chi^2_{2n,1-\alpha}
 \]</span></p>
 <p>Equivalently, reject when</p>
 <p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
+<p>&nbsp;</p>
+<div class="key-point">
+<p>No data has been observed yet</p>
+</div>
 </div><div class="column" style="width:60%;">
-<div id="fe47f373" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="668fcd0c" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -550,8 +554,8 @@ T &lt; \chi^2_{2n,1-\alpha}
 
 <h3 id="step-4-observed-data">Step 4: Observed Data</h3>
 <p>Let</p>
-<p><span class="math display">\[n=10,\qquad \barX=176\]</span></p>
-<p>Then <span class="math display">\[T_{\text{obs}}=\frac{2(10)(176)}{200}=17.60\]</span></p>
+<p><span class="math display">\[n=10,\qquad \barx_n=176\]</span></p>
+<p>Then <span class="math display">\[t_{\text{obs}}=\frac{2(10)(176)}{200}=17.60\]</span></p>
 <div class="fragment">
 <h3 id="step-5-p-value-and-decision">Step 5: <span class="math inline">\(p\)</span>-value and decision</h3>
 <p>The <span class="alert"><span class="math inline">\(p\)</span>-value</span> is</p>
@@ -603,11 +607,11 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="59b89a07" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="1dbed3a2" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-14-output-1.png" width="949" height="471"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-14-output-1.png" width="949" height="469"></p>
 </figure>
 </div>
 </div>
@@ -976,7 +980,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="f0bb2017" class="cell" data-message="false" data-execution_count="14">
+<div id="20e22697" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1013,7 +1017,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="5e16252c" class="cell" data-message="false" data-execution_count="15">
+<div id="a3c6fe87" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1049,7 +1053,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="15e31d60" class="cell" data-message="false" data-execution_count="16">
+<div id="f630efc3" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
