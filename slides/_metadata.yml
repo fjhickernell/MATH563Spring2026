@@ -16,14 +16,17 @@ decks:
   d01:
     file: 01-intro.html
     title: Introduction and Probability Review
+    shoft_title:  Intro & Prob Review
 
   d02:
     file: 02-estimator.html
     title: Estimators and Confidence Intervals
+    short_title: Estimators & CIs
 
   d03:
     file: 03-hypothesis.html
     title: Hypothesis Testing
+    short_title: Hypothesis Testing
 
 
 format:
