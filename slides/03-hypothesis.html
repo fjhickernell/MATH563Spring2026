@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-02-27">
+  <meta name="dcterms.date" content="2026-02-28">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,72 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="03-hypothesis_files/libs/revealjs/dist/theme/quarto-f40efc9c2addd22605eff515b14f1811.css">
   <link href="03-hypothesis_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -524,6 +458,9 @@
   })();
   </script>
 
+  <script src="03-hypothesis_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="03-hypothesis_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="03-hypothesis_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -541,7 +478,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">February 27, 2026</p>
+  <p class="date">February 28, 2026</p>
 </section>
 <section>
 <section id="hypothesis-testing-framework" class="title-slide slide level1 center">
@@ -606,7 +543,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="3cbe3f37" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="80e61358" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -675,7 +612,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="50cedd8c" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="a03e24ce" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -788,26 +725,45 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 \]</span></p>
 </section>
 <section id="hypothesis-testing-design-vs-data" class="slide level2">
-<h2>Hypothesis testing: design vs data</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {mermaid} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>flowchart LR</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>  subgraph D1["Design Phase (Before Data)"]</span>
-<span id="cb1-4"><a href=""></a>    A[Model Assumptions]</span>
-<span id="cb1-5"><a href=""></a>    B[Choose Test Statistic]</span>
-<span id="cb1-6"><a href=""></a>    C[Sampling Distribution under H0]</span>
-<span id="cb1-7"><a href=""></a>    D[Fix Rejection Region (size α)]</span>
-<span id="cb1-8"><a href=""></a>  end</span>
-<span id="cb1-9"><a href=""></a></span>
-<span id="cb1-10"><a href=""></a>  subgraph D2["Data Phase (After Data)"]</span>
-<span id="cb1-11"><a href=""></a>    E[Observe Data]</span>
-<span id="cb1-12"><a href=""></a>    F[Compute Test Statistic]</span>
-<span id="cb1-13"><a href=""></a>    G[Decision: Reject or Not]</span>
-<span id="cb1-14"><a href=""></a>  end</span>
-<span id="cb1-15"><a href=""></a></span>
-<span id="cb1-16"><a href=""></a>  A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section class="slide level2">
+<h2>Hypothesis Testing: Design vs Data</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"themeVariables":{"fontSize":"36px"}}}%%
+flowchart LR
+  D1T["Design Phase&lt;br/&gt;(Before Data)"]
+  D2T["Data Phase&lt;br/&gt;(After Data)"]
 
+  subgraph D1 [ ]
+    A[Model&lt;br/&gt;Assumptions]
+    B[Choose Test&lt;br/&gt;Statistic]
+    C[Sampling&lt;br/&gt;Distribution&lt;br/&gt;under null]
+    D["Fix Rejection&lt;br/&gt;Region&lt;br/&gt;(size α)"]
+  end
+
+  subgraph D2 [ ]
+    E[Observe&lt;br/&gt;Data]
+    F[Compute&lt;br/&gt;Test&lt;br/&gt;Statistic]
+    G[Decision:&lt;br/&gt;Reject or Not]
+  end
+
+  D1T --&gt; A
+  D2T --&gt; E
+  A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+
+  style D1 fill:transparent,stroke:#888,stroke-width:2px
+  style D2 fill:transparent,stroke:#888,stroke-width:2px
+
+  style D1T fill:transparent,stroke:transparent,font-weight:bold
+  style D2T fill:transparent,stroke:transparent,font-weight:bold
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <h3 id="emphasis">Emphasis</h3>
 <ul>
 <li>Everything in the <strong>Design Phase</strong> defines the procedure<br>
@@ -816,9 +772,9 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </li>
 <li>The Data Phase only applies the pre-defined rule</li>
 </ul>
-<blockquote>
+<div class="key-point">
 <p>The power curve describes the procedure, not the observed dataset</p>
-</blockquote>
+</div>
 </section>
 <section id="what-depends-on-data-and-what-does-not" class="slide level2">
 <h2>What depends on data and what does not?</h2>
@@ -1081,7 +1037,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="0216e87a" class="cell" data-message="false" data-execution_count="14">
+<div id="beae94ce" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1118,7 +1074,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="f41a220b" class="cell" data-message="false" data-execution_count="15">
+<div id="7fd572a4" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1154,7 +1110,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="b2a54555" class="cell" data-message="false" data-execution_count="16">
+<div id="c4c97bdb" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
