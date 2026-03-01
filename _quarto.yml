@@ -73,4 +73,4 @@ course_repo_label: "MATH563Spring2026 on GitHub"
 execute:
   kernel: qmcpy
   env:
-    RETICULATE_PYTHON: ${HOME}/miniconda3/envs/qmcpy/bin/python
+    RETICULATE_PYTHON: /opt/miniconda3/envs/qmcpy/bin/python

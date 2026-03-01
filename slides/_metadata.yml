@@ -16,7 +16,7 @@ decks:
   d01:
     file: 01-intro.html
     title: Introduction and Probability Review
-    shoft_title:  Intro & Prob Review
+    short_title: Intro & Prob Review
 
   d02:
     file: 02-estimator.html
@@ -38,7 +38,6 @@ format:
       url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js
 
 execute:
-  kernel: qmcpy
   warning: false
   message: false
   freeze: false
