@@ -543,7 +543,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="c0416205" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="452c6bbd" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -612,7 +612,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="a49ea22b" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="fb7df029" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -940,11 +940,11 @@ flowchart LR
 <ul>
 <li><p><a href="#/translating-words-into-hypotheses">Translating words into hypotheses</a></p></li>
 <li><p><a href="#/twoclttest">Two-sided large sample size CLT test for the mean</a></p></li>
-<li><p><a href="#/onesided_t_test">One-sided <span class="math inline">\(t\)</span>-test for the mean</a></p></li>
-<li><p><a href="#/chisq_test">Chi-squared test for variance</a></p></li>
+<li><p><a href="#/onesided_t_test">One-sided <span class="math inline">\(t\)</span>-test for the mean under Normal data</a></p></li>
+<li><p><a href="#/chisq_test">Chi-squared test for variance under Normal data</a></p></li>
 </ul>
 </section>
-<section id="translating-words-into-h_0-and-h_a" class="slide level2">
+<section id="translating-words-into-hypotheses" class="slide level2">
 <h2>Translating words into <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span></h2>
 <ul>
 <li><span class="math inline">\(H_0\)</span> contains the status quo — often written with equality</li>
@@ -1017,8 +1017,8 @@ flowchart LR
 <p>Changing <span class="math inline">\(\alpha\)</span> after seeing the <span class="math inline">\(p\)</span>-value is a form of <span class="alert">data snooping</span></p>
 </div>
 </section>
-<section id="two-sided-test-for-a-mean-clt" class="slide level2">
-<h2>Two-sided test for a mean (CLT)</h2>
+<section id="twoclttest" class="slide level2">
+<h2>Two-sided CLT-enabled test for a mean assuming large sample size</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex[X_i] = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
 <p>Test</p>
 <p><span class="math inline">\(H_0: \mu = \mu_0\)</span> against</p>
@@ -1037,7 +1037,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="80624ecb" class="cell" data-message="false" data-execution_count="14">
+<div id="e9c391fa" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1053,7 +1053,7 @@ flowchart LR
 </div>
 </section>
 <section id="onesided_t_test" class="slide level2">
-<h2>One-sided test for a mean (Normal data)</h2>
+<h2>One-sided test for a mean under Normal data</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span></p>
 <p>Test<br>
 <span class="math inline">\(H_0: \mu \le \mu_0\)</span> against<br>
@@ -1074,7 +1074,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="cdbff1f8" class="cell" data-message="false" data-execution_count="15">
+<div id="e701c1b6" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1084,8 +1084,8 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </div>
 </div>
 </section>
-<section id="one-sided-chi2-test-for-a-variance-normal-model" class="slide level2">
-<h2>One-sided <span class="math inline">\(\chi^2\)</span> test for a variance (Normal model)</h2>
+<section id="chisq_test" class="slide level2">
+<h2>One-sided <span class="math inline">\(\chi^2\)</span> test for the variance under Normal data</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span>.</p>
 <p>Test<br>
 <span class="math inline">\(H_0: \sigma^2 = \sigma_0^2\)</span> against<br>
@@ -1110,7 +1110,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="5ba160ef" class="cell" data-message="false" data-execution_count="16">
+<div id="96d6dba5" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
