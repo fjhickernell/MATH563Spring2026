@@ -543,7 +543,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="987b5442" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="7082d7cb" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -612,7 +612,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="29f3c715" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="7bba71fd" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1037,7 +1037,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="c06281a6" class="cell" data-message="false" data-execution_count="14">
+<div id="b765d42f" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1074,7 +1074,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="e212eaaa" class="cell" data-message="false" data-execution_count="15">
+<div id="0411b7e5" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1110,7 +1110,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="bb6da050" class="cell" data-message="false" data-execution_count="16">
+<div id="2a96ad1a" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1161,7 +1161,7 @@ H_0: \theta = \theta_0 \text{ vs } H_A: \theta = \theta_1
      {\sup_{\theta\in H_A} L(\theta \mid \vX)}
 \]</span></p>
 </section>
-<section id="neymanpearson-lemma-simple-vs-simple" class="slide level2 neymanpearson">
+<section id="neymanpearson" class="slide level2">
 <h2>Neyman–Pearson lemma (simple vs simple)</h2>
 <p>Test</p>
 <p><span class="math display">\[
@@ -1209,7 +1209,12 @@ H_A:\mu=\mu_1 \quad \text{with } \mu_1 &gt; \mu_0
 z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\alpha$}
 \]</span></p>
 <p>The LRT reproduces the classical <span class="math inline">\(z\)</span>-test for the mean of a normal distribution with known variance</p>
-<p><span class="math inline">\(\exstar\)</span> Show that the LRT for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu  = \mu_1\)</span> with <span class="math inline">\(\mu_1 &gt; \mu_0\)</span> and <span class="math inline">\(\sigma\)</span> unknown is the same as the <span class="math inline">\(t\)</span>-test</p>
+</section>
+<section class="slide level2">
+
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Show that the LRT for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu  = \mu_1\)</span> with <span class="math inline">\(\mu_1 &gt; \mu_0\)</span> and <span class="math inline">\(\sigma\)</span> unknown is the same as the <span class="math inline">\(t\)</span>-test </span></p>
+</div>
 </section>
 <section id="from-neymanpearson-to-likelihood-ratio-tests" class="slide level2">
 <h2>From Neyman–Pearson to likelihood ratio tests</h2>
@@ -1222,8 +1227,14 @@ z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\
 \]</span></p>
 <p>Reject for small <span class="math inline">\(\Lambda\)</span></p>
 </section>
-<section id="wilks-theorem" class="slide level2">
+<section id="largesamplelikelihoodratio" class="slide level2">
 <h2>Wilks’ Theorem</h2>
+<p><span class="math display">\[
+\Lambda(\vX)
+=
+\frac{\displaystyle \sup_{\theta\in \text{null model}} L(\theta \mid \vX)}
+     {\displaystyle \sup_{\theta\in \text{full model}} L(\theta \mid \vX)}
+\]</span></p>
 <p>Under regularity conditions,</p>
 <p><span class="math display">\[
 -2 \log \Lambda
