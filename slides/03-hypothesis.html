@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-01">
+  <meta name="dcterms.date" content="2026-03-02">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -478,7 +478,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 1, 2026</p>
+  <p class="date">March 2, 2026</p>
 </section>
 <section>
 <section id="hypothesis-testing-framework" class="title-slide slide level1 center">
@@ -543,7 +543,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="04e5ed8b" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="c0416205" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -612,7 +612,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="154c1120" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="a49ea22b" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1037,7 +1037,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="3bf04871" class="cell" data-message="false" data-execution_count="14">
+<div id="80624ecb" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1074,7 +1074,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="3067ab09" class="cell" data-message="false" data-execution_count="15">
+<div id="cdbff1f8" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1110,7 +1110,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="51629886" class="cell" data-message="false" data-execution_count="16">
+<div id="5ba160ef" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1530,6 +1530,82 @@ z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\
       document.addEventListener("webkitfullscreenchange", setScale);
       document.addEventListener("visibilitychange", setScale);
       setScale();
+    })();
+    </script>
+
+    <script>
+    (function () {
+      function install() {
+        if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return false;
+        if (Reveal.__fh_h_to_top_installed) return true;
+        Reveal.__fh_h_to_top_installed = true;
+
+        let prevH = null;
+
+        // When h changes, keep forcing v=0 for a short window (ms).
+        let lockH = null;
+        let lockUntil = 0;
+
+        function nowMs() {
+          return (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
+        }
+
+        function startLock(h, ms) {
+          lockH = h;
+          lockUntil = nowMs() + ms;
+        }
+
+        function snapTopIfNeeded(tag) {
+          if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return;
+
+          if (Reveal.isOverview && Reveal.isOverview()) return;
+          if (Reveal.isPaused && Reveal.isPaused()) return;
+
+          const idx = Reveal.getIndices();
+          const t = nowMs();
+
+          // Detect any horizontal move (either direction) and start a lock.
+          if (prevH === null) {
+            prevH = idx.h;
+          } else if (idx.h !== prevH) {
+            prevH = idx.h;
+            startLock(idx.h, 350);
+          }
+
+          // While locked, force v=0 (and reset fragments) if needed.
+          if (lockH !== null && t <= lockUntil) {
+            if (idx.h === lockH && idx.v !== 0) {
+              Reveal.slide(lockH, 0, 0);
+            }
+          } else {
+            lockH = null;
+          }
+        }
+
+        // Poll is the most reliable because it catches:
+        // - keyboard, click, remote
+        // - Reveal’s async “state carry” that can push to v=1 after the jump
+        setInterval(function () { snapTopIfNeeded("poll"); }, 60);
+
+        // Also react quickly after Reveal events (reduces visible jerk).
+        if (Reveal.on) {
+          Reveal.on("slidechanged", function () { snapTopIfNeeded("slidechanged"); });
+          Reveal.on("slidetransitionend", function () { snapTopIfNeeded("transitionend"); });
+          Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
+        }
+
+        window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
+
+        return true;
+      }
+
+      let tries = 0;
+      (function wait() {
+        tries += 1;
+        if (install()) return;
+        if (tries >= 200) return;
+        setTimeout(wait, 25);
+      })();
     })();
     </script>
 
