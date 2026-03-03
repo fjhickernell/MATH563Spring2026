@@ -345,6 +345,7 @@
           dif: "{\\mathrm{d}}",
           IID: "{\\mathrm{IID}}",
           MLE: "{\\mathrm{MLE}}",
+          LRT: "{\\mathrm{LRT}}",
 
           exstar: "{\\mathop{\\mathchoice{\\color{gold}{\\Large\\star}}{\\color{gold}{\\Large\\star}}{\\color{gold}{\\large\\star}}{\\color{gold}{\\star}}}}",
           exeq: "{\\mathrel{\\,\\overset{\\exstar}{=}\\,}}",
@@ -543,7 +544,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="91326082" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="72414bf7" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -612,7 +613,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="00b9ed3a" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="396f6a5f" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1037,7 +1038,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="f8e3a1aa" class="cell" data-message="false" data-execution_count="14">
+<div id="1181ab36" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1074,7 +1075,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="3653d094" class="cell" data-message="false" data-execution_count="15">
+<div id="a2471c1f" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1110,7 +1111,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="dd71e5e0" class="cell" data-message="false" data-execution_count="16">
+<div id="d61cd3fa" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1277,6 +1278,154 @@ z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\
 <li>Has large-sample theory (Wilks)</li>
 </ul>
 <p>&nbsp;</p>
+</section>
+<section id="proof-of-the-neymanpearson-lemma-simple-vs-simple" class="slide level2">
+<h2>Proof of the Neyman–Pearson lemma (simple vs simple)</h2>
+<p>Test <span class="math display">\[
+H_0:\theta=\theta_0,
+\qquad
+H_A:\theta=\theta_1
+\]</span></p>
+<p>Let densities under these two hypotheses be <span class="math inline">\(\varrho_0(x)\)</span> and <span class="math inline">\(\varrho_1(x)\)</span></p>
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>,</p>
+<div class="key-point">
+<p>The likelihood ratio test is most powerful</p>
+</div>
+<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math display">\[
+\frac{\varrho_1(x)}{\varrho_0(x)} &gt; k
+\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is chosen so that <span class="math display">\[
+\Prob_{\theta_0}(\text{Reject}) = \alpha
+\]</span></p>
+<table class="caption-top" style="width:3%;">
+<colgroup>
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>## Finishing the proof</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>k (^{} - )_0,dx . $$</td>
+</tr>
+<tr class="even">
+<td>But</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+\int \phi \varrho_0\,dx
+=
+\Ex_{\theta_0}[\phi]
+\le
+\Ex_{\theta_0}[\phi^{\LRT}]
+=
+\int \phi^{\LRT} \varrho_0\,dx,
+\]</span></td>
+</tr>
+<tr class="even">
+<td>so</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
+\]</span></td>
+</tr>
+<tr class="even">
+<td>Therefore</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+\int \phi^{\LRT} \varrho_1\,dx
+\ge
+\int \phi \varrho_1\,dx.
+\]</span></td>
+</tr>
+<tr class="even">
+<td>Thus</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[
+\power_{\theta_1}(\phi^{\LRT})
+\ge
+\power_{\theta_1}(\phi).
+\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\square\)</span> ### Proof by comparison argument</td>
+</tr>
+<tr class="odd">
+<td>Let <span class="math inline">\(\phi^{\LRT}(x)\)</span> be the likelihood ratio test Let <span class="math inline">\(\phi(x)\)</span> be any other test with</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+\Ex_{\theta_0}[\phi] \le \alpha
+=
+\Ex_{\theta_0}[\phi^{\LRT}].
+\]</span></td>
+</tr>
+<tr class="odd">
+<td>Consider</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx.
+\]</span></td>
+</tr>
+<tr class="odd">
+<td>By construction of <span class="math inline">\(\phi^{\LRT}\)</span>:</td>
+</tr>
+<tr class="even">
+<td>- If <span class="math inline">\(\phi^{\LRT}(x)=1\)</span> and <span class="math inline">\(\phi(x)=0\)</span>, then <span class="math inline">\(\varrho_1 - k\varrho_0 \ge 0\)</span> - If <span class="math inline">\(\phi^{\LRT}(x)=0\)</span> and <span class="math inline">\(\phi(x)=1\)</span>, then <span class="math inline">\(\varrho_1 - k\varrho_0 \le 0\)</span></td>
+</tr>
+<tr class="odd">
+<td>Hence</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[
+\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx \ge 0.
+\]</span></td>
+</tr>
+<tr class="odd">
+<td>## Finishing the proof</td>
+</tr>
+<tr class="even">
+<td>Expand:</td>
+</tr>
+<tr class="odd">
+<td>$$ (^{} - )_1,dx</td>
+</tr>
+</tbody>
+</table>
+<p>k (^{} - )_0,dx . $$</p>
+<p>But</p>
+<p><span class="math display">\[
+\int \phi \varrho_0\,dx
+=
+\Ex_{\theta_0}[\phi]
+\le
+\Ex_{\theta_0}[\phi^{\LRT}]
+=
+\int \phi^{\LRT} \varrho_0\,dx,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\int \phi^{\LRT} \varrho_1\,dx
+\ge
+\int \phi \varrho_1\,dx.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\power_{\theta_1}(\phi^{\LRT})
+\ge
+\power_{\theta_1}(\phi).
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
   <span class="deck-next deck-disabled"></span>
