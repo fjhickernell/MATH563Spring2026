@@ -544,7 +544,7 @@ T &lt; \chi^2_{2n,1-\alpha}
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="32dfbb95" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="1fccc63d" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -613,7 +613,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curve">Power Curve</h3>
-<div id="dbd34172" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<div id="32f82745" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1038,7 +1038,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="f91d06e9" class="cell" data-message="false" data-execution_count="14">
+<div id="5699a1a5" class="cell" data-message="false" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1075,7 +1075,7 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="bb5c1c74" class="cell" data-message="false" data-execution_count="15">
+<div id="82079dd6" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1111,7 +1111,7 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="9fffe32d" class="cell" data-message="false" data-execution_count="16">
+<div id="9bb5d4a8" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1228,6 +1228,92 @@ z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\
 \]</span></p>
 <p>Reject for small <span class="math inline">\(\Lambda\)</span></p>
 </section>
+<section id="example-lrt-for-a-normal-mean-unknown-variance" class="slide level2">
+<h2>Example: LRT for a normal mean (unknown variance)</h2>
+<p>Suppose <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span></p>
+<p>Test <span class="math inline">\(\quad
+H_0:\mu=\mu_0
+\qquad \text{vs} \qquad
+H_A:\mu\ne\mu_0\)</span></p>
+<p>Parameter vector: <span class="math inline">\(\theta=(\mu,\sigma^2),
+\qquad
+\sigma^2 \text{ is nuisance parameter}\)</span></p>
+<h3 id="step-1-unrestricted-mle">Step 1: Unrestricted MLE</h3>
+<p>Log-likelihood (up to constants): <span class="math display">\[
+\ell(\mu,\sigma^2)
+=
+-\frac{n}{2}\log \sigma^2
+-
+\frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu)^2.
+\]</span></p>
+<p>Maximizing gives <span class="math display">\[
+\mu_{\MLE} = \barX,
+\qquad
+\sigma_{\MLE}^2
+=
+\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2.
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="step-2-mle-under-h_0">Step 2: MLE under <span class="math inline">\(H_0\)</span></h3>
+<p>Under <span class="math inline">\(\mu=\mu_0\)</span>, <span class="math display">\[
+\sigma_{0,\MLE}^2
+=
+\frac{1}{n}\sum_{i=1}^n (X_i-\mu_0)^2
+\]</span></p>
+<h3 id="step-3-likelihood-ratio">Step 3: Likelihood ratio</h3>
+<p><span class="math display">\[
+\Lambda
+=
+\frac{
+\sup_{\mu=\mu_0,\sigma^2} L(\mu,\sigma^2)
+}{
+\sup_{\mu,\sigma^2} L(\mu,\sigma^2)
+}
+=
+\left(
+\frac{\sigma_{\MLE}^2}{\sigma_{0,\MLE}^2}
+\right)^{n/2}
+\]</span></p>
+</section>
+<section id="step-4-where-nuisance-disappears" class="slide level2">
+<h2>Step 4: Where nuisance disappears</h2>
+<p>Decomposition: <span class="math display">\[
+\sum_{i=1}^n (X_i-\mu_0)^2
+=
+\sum_{i=1}^n (X_i-\barX)^2
++
+n(\barX-\mu_0)^2
+\]</span></p>
+<p>Therefore <span class="math display">\[\begin{align*}
+\frac{\sigma_{0,\MLE}^2}{\sigma_{\MLE}^2}
+&amp; =
+1
++
+\frac{n (\barX-\mu_0)^2}
+     {\displaystyle  \sum_{i=1}^n (X_i-\barX)^2} = 1
++
+\frac{n(\bar X-\mu_0)^2}
+     {(n-1)S^2} \\
+&amp; = 1 + \frac{T^2}{n-1}
+\end{align*}\]</span></p>
+<p>where <span class="math inline">\(\displaystyle T = \frac{\bar X-\mu_0}{S/\sqrt n}\)</span> is the familiar <span class="math inline">\(t\)</span>-statistic</p>
+</section>
+<section class="slide level2">
+
+<h3 id="final-form">Final form</h3>
+<p><span class="math display">\[
+\Lambda
+=
+\left(
+1 + \frac{T^2}{n-1}
+\right)^{-n/2}.
+\]</span></p>
+<p>Thus the likelihood ratio depends only on the <span class="math inline">\(t\)</span>-statistic for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
+<p>The nuisance parameter <span class="math inline">\(\sigma^2\)</span> has disappeared</p>
+</section>
 <section id="largesamplelikelihoodratio" class="slide level2">
 <h2>Wilks’ Theorem</h2>
 <p><span class="math display">\[
@@ -1281,151 +1367,90 @@ z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\
 </section>
 <section id="proof-of-the-neymanpearson-lemma-simple-vs-simple" class="slide level2">
 <h2>Proof of the Neyman–Pearson lemma (simple vs simple)</h2>
-<p>Test <span class="math display">\[
+<p><span class="math display">\[
 H_0:\theta=\theta_0,
 \qquad
 H_A:\theta=\theta_1
 \]</span></p>
-<p>Let densities under these two hypotheses be <span class="math inline">\(\varrho_0(x)\)</span> and <span class="math inline">\(\varrho_1(x)\)</span></p>
+<p>Let densities under these two hypotheses be <span class="math inline">\(\varrho_0\)</span> and <span class="math inline">\(\varrho_1\)</span></p>
 <p>Among all tests with size <span class="math inline">\(\alpha\)</span>,</p>
 <div class="key-point">
 <p>The likelihood ratio test is most powerful</p>
 </div>
-<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math display">\[
-\frac{\varrho_1(x)}{\varrho_0(x)} &gt; k
+<p>Given data <span class="math inline">\(\vX = (X_1, \ldots, X_n)\)</span>, reject <span class="math inline">\(H_0\)</span> when <span class="math display">\[
+\frac{\varrho_1(\vX)}{\varrho_0(\vX)} &gt; k, \qquad \text{i.e. } \varrho_1(\vX) - k \varrho_0(\vX) &gt; 0
 \]</span></p>
 <p>where <span class="math inline">\(k\)</span> is chosen so that <span class="math display">\[
 \Prob_{\theta_0}(\text{Reject}) = \alpha
 \]</span></p>
-<table class="caption-top" style="width:3%;">
-<colgroup>
-<col style="width: 2%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>## Finishing the proof</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>k (^{} - )_0,dx . $$</td>
-</tr>
-<tr class="even">
-<td>But</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[
-\int \phi \varrho_0\,dx
+</section>
+<section class="slide level2">
+
+<h3 id="proof-by-comparison-argument">Proof by comparison argument</h3>
+<ul>
+<li><p>Let <span class="math inline">\(\phi^{\LRT}(\vX)\)</span> be the likelihood ratio test, i.e., <span class="math inline">\(\phi^{\LRT}(\vX) = \begin{cases} 1 &amp; \text{if reject}, \varrho_1(\vX) - k \varrho_0(\vX) &gt; 0 \\ 0 &amp; \text{not reject} \end{cases}\)</span></p></li>
+<li><p>Let <span class="math inline">\(\phi(\vX)\)</span> be any other test with <span class="math inline">\(\Ex_{\theta_0}[\phi(\vX)] \le \alpha
 =
-\Ex_{\theta_0}[\phi]
-\le
-\Ex_{\theta_0}[\phi^{\LRT}]
-=
-\int \phi^{\LRT} \varrho_0\,dx,
-\]</span></td>
-</tr>
-<tr class="even">
-<td>so</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[
-\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
-\]</span></td>
-</tr>
-<tr class="even">
-<td>Therefore</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[
-\int \phi^{\LRT} \varrho_1\,dx
-\ge
-\int \phi \varrho_1\,dx.
-\]</span></td>
-</tr>
-<tr class="even">
-<td>Thus</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[
-\power_{\theta_1}(\phi^{\LRT})
-\ge
-\power_{\theta_1}(\phi).
-\]</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\square\)</span> ### Proof by comparison argument</td>
-</tr>
-<tr class="odd">
-<td>Let <span class="math inline">\(\phi^{\LRT}(x)\)</span> be the likelihood ratio test Let <span class="math inline">\(\phi(x)\)</span> be any other test with</td>
-</tr>
-<tr class="even">
-<td><span class="math display">\[
-\Ex_{\theta_0}[\phi] \le \alpha
-=
-\Ex_{\theta_0}[\phi^{\LRT}].
-\]</span></td>
-</tr>
-<tr class="odd">
-<td>Consider</td>
-</tr>
-<tr class="even">
-<td><span class="math display">\[
-\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx.
-\]</span></td>
-</tr>
-<tr class="odd">
-<td>By construction of <span class="math inline">\(\phi^{\LRT}\)</span>:</td>
-</tr>
-<tr class="even">
-<td>- If <span class="math inline">\(\phi^{\LRT}(x)=1\)</span> and <span class="math inline">\(\phi(x)=0\)</span>, then <span class="math inline">\(\varrho_1 - k\varrho_0 \ge 0\)</span> - If <span class="math inline">\(\phi^{\LRT}(x)=0\)</span> and <span class="math inline">\(\phi(x)=1\)</span>, then <span class="math inline">\(\varrho_1 - k\varrho_0 \le 0\)</span></td>
-</tr>
-<tr class="odd">
-<td>Hence</td>
-</tr>
-<tr class="even">
-<td><span class="math display">\[
-\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx \ge 0.
-\]</span></td>
-</tr>
-<tr class="odd">
-<td>## Finishing the proof</td>
-</tr>
-<tr class="even">
-<td>Expand:</td>
-</tr>
-<tr class="odd">
-<td>$$ (^{} - )_1,dx</td>
-</tr>
-</tbody>
-</table>
-<p>k (^{} - )_0,dx . $$</p>
+\Ex_{\theta_0}[\phi^{\LRT}(\vX)]\)</span></p></li>
+</ul>
+<p>Consider</p>
+<p><span class="math display">\[
+\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\bigl(\varrho_1(\vx) - k \varrho_0(\vx)\bigr)\, \dif \vx
+\]</span></p>
+<p>By construction of <span class="math inline">\(\phi^{\LRT}\)</span>:</p>
+<ul>
+<li>If <span class="math inline">\(\phi^{\LRT}(\vx)=1\)</span> and <span class="math inline">\(\phi(\vx)=0\)</span>, then <span class="math inline">\(\varrho_1(\vx) - k\varrho_0(\vx) \ge 0\)</span><br>
+</li>
+<li>If <span class="math inline">\(\phi^{\LRT}(\vx)=0\)</span> and <span class="math inline">\(\phi(\vx)=1\)</span>, then <span class="math inline">\(\varrho_1(\vx) - k\varrho_0(\vx) \le 0\)</span></li>
+</ul>
+<p>Hence</p>
+<p><span class="math display">\[
+\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\bigl(\varrho_1(\vx) - k \varrho_0(\vx)\bigr)\, \dif \vx \ge 0
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="finishing-the-proof">Finishing the proof</h3>
+<p>Expand the inequality above:</p>
+<p><span class="math display">\[
+\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_1(\vx)\, \dif \vx  
+-
+k
+\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_0(\vx)\, \dif \vx
+\ge 0
+\]</span></p>
 <p>But</p>
 <p><span class="math display">\[
-\int \phi \varrho_0\,dx
+\int \phi(\vx) \varrho_0(\vx)\, \dif \vx
 =
 \Ex_{\theta_0}[\phi]
 \le
 \Ex_{\theta_0}[\phi^{\LRT}]
 =
-\int \phi^{\LRT} \varrho_0\,dx,
+\int \phi^{\LRT}(\vx) \varrho_0(\vx)\, \dif \vx
 \]</span></p>
 <p>so</p>
 <p><span class="math display">\[
-\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
+\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_0(\vx)\, \dif \vx \ge 0
 \]</span></p>
 <p>Therefore</p>
 <p><span class="math display">\[
-\int \phi^{\LRT} \varrho_1\,dx
+\int \phi^{\LRT}(\vx) \varrho_1(\vx)\, \dif \vx
 \ge
-\int \phi \varrho_1\,dx.
+\int \phi(\vx) \varrho_1(\vx)\, \dif \vx
 \]</span></p>
-<p>Thus</p>
-<p><span class="math display">\[
-\power_{\theta_1}(\phi^{\LRT})
+</section>
+<section class="slide level2">
+
+<p>Thus,</p>
+<p><span class="math display">\[\begin{multline*}
+\power^{\phi^{\LRT}}(\theta_1) = \Ex_{\theta_1}[\phi^{\LRT}(\vX)] = \int \phi^{\LRT}(\vx) \varrho_1(\vx)\, \dif \vx
+\\
 \ge
-\power_{\theta_1}(\phi).
-\]</span></p>
+\int \phi(\vx) \varrho_1(\vx)\, \dif \vx = \Ex_{\theta_1}[\phi(\vX)] = \power^{\phi}(\theta_1)
+\end{multline*}\]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
+<p>&nbsp;</p>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
   <span class="deck-next deck-disabled"></span>
