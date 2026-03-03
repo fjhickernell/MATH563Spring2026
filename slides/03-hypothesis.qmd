@@ -15,6 +15,158 @@ subtitle: |
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/likelihoodratio.qmd >}}
 
+## Proof of the Neyman–Pearson lemma (simple vs simple)
+
+Test
+$$
+H_0:\theta=\theta_0,
+\qquad
+H_A:\theta=\theta_1
+$$
+
+Let densities under these two hypotheses be $\varrho_0(x)$ and $\varrho_1(x)$
+
+Among all tests with size $\alpha$,
+
+::: {.key-point}
+The likelihood ratio test is most powerful
+:::
+
+Reject $H_0$ when
+$$
+\frac{\varrho_1(x)}{\varrho_0(x)} > k
+$$
+
+where $k$ is chosen so that
+$$
+\Prob_{\theta_0}(\text{Reject}) = \alpha
+$$
+
+---
+## Finishing the proof
+
+Expand:
+
+$$
+\int (\phi^{\LRT} - \phi)\varrho_1\,dx
+-
+k
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx
+\ge 0.
+$$
+
+But
+
+$$
+\int \phi \varrho_0\,dx
+=
+\Ex_{\theta_0}[\phi]
+\le
+\Ex_{\theta_0}[\phi^{\LRT}]
+=
+\int \phi^{\LRT} \varrho_0\,dx,
+$$
+
+so
+
+$$
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
+$$
+
+Therefore
+
+$$
+\int \phi^{\LRT} \varrho_1\,dx
+\ge
+\int \phi \varrho_1\,dx.
+$$
+
+Thus
+
+$$
+\power_{\theta_1}(\phi^{\LRT})
+\ge
+\power_{\theta_1}(\phi).
+$$
+
+$\square$
+### Proof by comparison argument
+
+Let $\phi^{\LRT}(x)$ be the likelihood ratio test
+Let $\phi(x)$ be any other test with
+
+$$
+\Ex_{\theta_0}[\phi] \le \alpha
+=
+\Ex_{\theta_0}[\phi^{\LRT}].
+$$
+
+Consider
+
+$$
+\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx.
+$$
+
+By construction of $\phi^{\LRT}$:
+
+- If $\phi^{\LRT}(x)=1$ and $\phi(x)=0$, then $\varrho_1 - k\varrho_0 \ge 0$  
+- If $\phi^{\LRT}(x)=0$ and $\phi(x)=1$, then $\varrho_1 - k\varrho_0 \le 0$
+
+Hence
+
+$$
+\int (\phi^{\LRT} - \phi)(\varrho_1 - k \varrho_0)\,dx \ge 0.
+$$
+
+
+## Finishing the proof
+
+Expand:
+
+$$
+\int (\phi^{\LRT} - \phi)\varrho_1\,dx
+-
+k
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx
+\ge 0.
+$$
+
+But
+
+$$
+\int \phi \varrho_0\,dx
+=
+\Ex_{\theta_0}[\phi]
+\le
+\Ex_{\theta_0}[\phi^{\LRT}]
+=
+\int \phi^{\LRT} \varrho_0\,dx,
+$$
+
+so
+
+$$
+\int (\phi^{\LRT} - \phi)\varrho_0\,dx \ge 0.
+$$
+
+Therefore
+
+$$
+\int \phi^{\LRT} \varrho_1\,dx
+\ge
+\int \phi \varrho_1\,dx.
+$$
+
+Thus
+
+$$
+\power_{\theta_1}(\phi^{\LRT})
+\ge
+\power_{\theta_1}(\phi).
+$$
+
+$\square$
+
 
 ```{=html}
 <div class="deck-nav">
