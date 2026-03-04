@@ -33,7 +33,7 @@ Fri Feb 13 | **Assignment 3 Due**
 
 | Date   | Topic                    | Slides                             |
 |--------|---------------------------|-------------------------|
-| Tue Mar 3 | | |
+| Tue Mar 3 | Hypothesis testing examples, likelihood ratio tests | |
 | Thu Mar 5 | | |
 | Fri Mar 6 | **Project Submission Due** | |
 | Tue Mar 10 | | |
