@@ -552,7 +552,7 @@ X_1,\dots,X_n \IIDsim \Exp(1/\mu),
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="75b5c810" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
+<div id="b9597a2b" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -621,7 +621,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curves">Power Curves</h3>
-<div id="dae7eb71" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
+<div id="db3ecc56" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1047,7 +1047,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="63ba2074" class="cell" data-message="false" data-execution_count="15">
+<div id="82728d26" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1082,7 +1082,7 @@ T_n(\vX) \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="20e99a5a" class="cell" data-message="false" data-execution_count="16">
+<div id="04760382" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1119,7 +1119,7 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="facabe3b" class="cell" data-message="false" data-execution_count="17">
+<div id="cc1858ad" class="cell" data-message="false" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1134,6 +1134,8 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span>Construct small sample size one-sided and two-sided tests for the mean of an exponential distribution and sketch the power curves</span></p>
 </div>
+<p>&nbsp;</p>
+<p><a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/matched_pairs_sleep_study.ipynb" download=""> ⬇ Matched Pairs Sleep Study 📓 </a></p>
 </section></section>
 <section>
 <section id="optimal-tests-and-likelihood-methods" class="title-slide slide level1 center">
@@ -1459,37 +1461,33 @@ H_A:\theta=\theta_1
 <section class="slide level2">
 
 <h3 id="proof-by-comparison-argument">Proof by comparison argument</h3>
-<p>Let the likelihood ratio test have rejection region (for data <span class="math inline">\(\vX\)</span>): <span class="math display">\[
-\RR^{\LRT}=\{\vx:\ \varrho_0(\vx)-k\varrho_1(\vx)&lt;0\}
-\]</span> Thus it rejects with indicator <span class="math inline">\(\indic(\vx\in \RR^{\LRT})\)</span></p>
-<p>Let <span class="math inline">\(T(\vx)\)</span> be any other test statistic with rejection region <span class="math inline">\(\RR\)</span> (for data <span class="math inline">\(\vX\)</span>)</p>
-<p>Assume this competing test has size at most <span class="math inline">\(\alpha\)</span>: <span class="math display">\[
-\Prob(\vX\in\RR\mid \theta=\theta_0)
-=
+<p>For convenience of notation, we defined rejection regions <span class="alert">in terms of data</span>, <span class="math inline">\(\vX\)</span>, rather than test statistics. Let the likelihood ratio test have rejection region: <span class="math display">\[
+\RR^{\LRT}=\{\vX:\ \varrho_0(\vX)-k\varrho_1(\vX)&lt;0\}
+\]</span> Thus it rejects with indicator <span class="math inline">\(\indic(\vX\in \RR^{\LRT})\)</span></p>
+<p>Let <span class="math inline">\(T(\vX)\)</span> be any other test statistic with rejection region <span class="math inline">\(\RR\)</span> (for data <span class="math inline">\(\vX\)</span>)</p>
+<p>Assume this competing test has size at most <span class="math inline">\(\alpha\)</span>:</p>
+<p><span class="math display">\[\begin{multline*}
 \int \indic(\vx\in\RR)\,\varrho_0(\vx)\,\dif\vx
+= \Ex [ \indic(\vX\in\RR) \mid \theta=\theta_0]
+= \Prob(\vX\in\RR\mid \theta=\theta_0)
+\\
 \le
 \alpha
-=
+= \Prob(\vX\in\RR^{\LRT}\mid \theta=\theta_0) =
+\Ex [ \indic(\vX\in\RR^{\LRT}) \mid \theta=\theta_0] =
 \int \indic(\vx\in\RR^{\LRT})\,\varrho_0(\vx)\,\dif\vx
-\]</span></p>
+\end{multline*}\]</span></p>
+</section>
+<section class="slide level2">
+
 <p>Consider the integral <span class="math display">\[
 I
 =
 \int
-\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
-\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx
+\underbrace{\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]}_{\text{which test is rejecting?}}
+\underbrace{\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]}_{\LRT \text{ will reject if this is positive}}\,\dif\vx
 \]</span></p>
-</section>
-<section class="slide level2">
-
 <h3 id="step-1-ige-0">Step 1: <span class="math inline">\(I\ge 0\)</span></h3>
-<p><span class="math display">\[
-I
-=
-\int
-\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
-\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx
-\]</span></p>
 <p>Check pointwise signs:</p>
 <ul>
 <li><p>If <span class="math inline">\(\vx\in\RR\)</span> but <span class="math inline">\(\vx\notin\RR^{\LRT}\)</span>, then <span class="math inline">\(\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})=1\)</span> and <span class="math inline">\(\varrho_0(\vx)-k\varrho_1(\vx)\ge 0\)</span>, so the product is <span class="math inline">\(\ge 0\)</span></p></li>
