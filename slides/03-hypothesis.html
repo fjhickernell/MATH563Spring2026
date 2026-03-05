@@ -552,7 +552,7 @@ X_1,\dots,X_n \IIDsim \Exp(1/\mu),
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="1c6065f8" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
+<div id="6220cb3d" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -621,7 +621,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curves">Power Curves</h3>
-<div id="1319ad0b" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
+<div id="84cb891e" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1047,7 +1047,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="4eb36d29" class="cell" data-message="false" data-execution_count="15">
+<div id="cf89de0a" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1082,7 +1082,7 @@ T_n(\vX) \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="2b6f804f" class="cell" data-message="false" data-execution_count="16">
+<div id="ab5c4f67" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1119,7 +1119,7 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="2bed5fc9" class="cell" data-message="false" data-execution_count="17">
+<div id="d775b403" class="cell" data-message="false" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1148,27 +1148,20 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 <h2>From procedures to optimality</h2>
 <p>We have constructed tests, and we have computed their size and power, but</p>
 <div class="key-point">
-<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, which has the highest power (at a fixed alternative)?</p>
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, which test has the highest power against a fixed alternative?</p>
 </div>
 <p>To compare two hypotheses</p>
 <p><span class="math display">\[
 H_0: \theta = \theta_0 \qquad \text{vs} \qquad H_A: \theta = \theta_A
 \]</span></p>
-<p>Consider the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> ratio statistic</p>
-<p><span class="math display">\[
+<p>Consider the likelihood ratio statistic constructed from the ratio of the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> values <span class="math display">\[
 \Lambda(\vX)
 =
 \frac{L(\theta_0 \mid \vX)}
      {L(\theta_A \mid \vX)}
+= \frac{\varrho_{\vX}(\vX \mid \theta_0)}{\varrho_{\vX}(\vX \mid \theta_A)}
 \]</span></p>
-<p><span class="alert">Small <span class="math inline">\(\Lambda \implies\)</span> evidence against <span class="math inline">\(H_0\)</span></span></p>
-<p>Or for more general hypotheses, e.g., <span class="math inline">\(H_0: \theta \in \ct_0\)</span> vs <span class="math inline">\(H_A: \theta \in \ct_A\)</span>:</p>
-<p><span class="math display">\[
-\Lambda(\vX)
-=
-\frac{\sup_{\theta\in \ct_0} L(\theta \mid \vX)}
-     {\sup_{\theta\in \ct} L(\theta \mid \vX)}
-\]</span></p>
+<p>If the data are much more likely under <span class="math inline">\(H_A\)</span> than under <span class="math inline">\(H_0\)</span>, the ratio <span class="math inline">\(\Lambda(\vX)\)</span> will be small, and this is <span class="alert">evidence against <span class="math inline">\(H_0\)</span></span></p>
 </section>
 <section id="neymanpearson" class="slide level2">
 <h2>Neyman–Pearson lemma (simple vs simple)</h2>
@@ -1179,60 +1172,83 @@ H_0:\theta=\theta_0
 H_A:\theta=\theta_A
 \]</span></p>
 <div class="key-point">
-<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, the likelihood ratio test is most powerful</p>
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, the test that rejects for sufficiently small likelihood ratio is most powerful</p>
 </div>
 <p>Reject <span class="math inline">\(H_0\)</span> when</p>
 <p><span class="math display">\[
+\Lambda(\vX)
+=
 \frac{L(\theta_0 \mid \vX)}
      {L(\theta_A \mid \vX)}
-&lt; k
+&lt;
+k
 \]</span></p>
-<p>where <span class="math inline">\(k\)</span> is chosen to make the test have size <span class="math inline">\(\alpha\)</span></p>
+<p>where <span class="math inline">\(k\)</span> is chosen so that</p>
+<p><span class="math display">\[
+\Prob(\text{reject }H_0 \mid \theta = \theta_0)= \Prob(\Lambda(\vX) &lt; k \mid \theta = \theta_0) = \alpha
+\]</span></p>
 </section>
 <section class="slide level2">
 
-<h3 id="example-mean-of-normal-data-with-known-sigma">Example: mean of Normal data with known <span class="math inline">\(\sigma\)</span></h3>
-<p>Test</p>
+<h3 id="example-mean-of-iid-normal-data-with-known-sigma">Example: mean of IID Normal data with known <span class="math inline">\(\sigma\)</span></h3>
 <p><span class="math display">\[
 H_0:\mu=\mu_0
 \qquad
-H_A:\mu=\mu_1 \quad \text{with } \mu_1 &gt; \mu_0
+H_A:\mu=\mu_A \quad \text{with } \mu_A &gt; \mu_0
 \]</span></p>
-<p>Assume <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span>. We know that <span class="math inline">\(\barX_n\)</span> is the MLE of <span class="math inline">\(\mu\)</span>, so the <span class="alert">likelihood ratio</span> test statistic is</p>
+<p>Assume <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span>. The <span class="alert">likelihood ratio</span> test statistic is</p>
 <p><span class="math display">\[
 \Lambda
 =
-\frac{L(\mu_0)}{L(\barX_n)}
+\frac{L(\mu_0 \mid \vX)}{L(\mu_A \mid \vX)}
+\]</span></p>
+<p>Because the logarithm is increasing, it is convenient to work with</p>
+<p><span class="math display">\[\begin{multline*}
+\log \Lambda(\vX)
 =
-\exp\!\left(
--\frac{n}{2\sigma^2}
-(\barX_n - \mu_0)^2
-\right)
-\]</span></p>
-<p><span class="alert">Reject</span> when <span class="math inline">\(\Lambda\)</span> is small <span class="math inline">\(\iff (\barX_n - \mu_0)^2 \iff \barX_n\)</span> is large, because alternative is one-sided</p>
-<p>Equivalently,</p>
-<p><span class="math display">\[
-\frac{\barX_n - \mu_0}{\sigma/\sqrt n}
-&gt;
-z_\alpha, \qquad \text{which gives the cut-off in terms of $n$, $\sigma$, and $\alpha$}
-\]</span></p>
-<p>The LRT reproduces the classical <span class="math inline">\(z\)</span>-test for the mean of a normal distribution with known variance</p>
+\log \bigl(L(\mu_0 \mid \vX)\bigr)-\log L(\mu_A \mid \vX) \\
+= -\frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu_0)^2 + \frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu_A)^2 = \cdots \\
+= \frac{n(\mu_0-\mu_A)}{\sigma^2} \left(\barX_n - \frac{\mu_0+\mu_A}{2}\right)
+\end{multline*}\]</span></p>
 </section>
 <section class="slide level2">
 
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Show that the LRT for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu  = \mu_1\)</span> with <span class="math inline">\(\mu_1 &gt; \mu_0\)</span> and <span class="math inline">\(\sigma\)</span> unknown is the same as the <span class="math inline">\(t\)</span>-test </span></p>
+<p><span class="math display">\[\begin{equation*}
+\log \Lambda(\vX)
+= \frac{n(\mu_0-\mu_A)}{\sigma^2} \left(\barX_n - \frac{\mu_0+\mu_A}{2}\right)
+\end{equation*}\]</span></p>
+<p><span class="alert">Reject</span> when <span class="math inline">\(\barX_n &gt; c\)</span> for some cut-off <span class="math inline">\(c\)</span>, which is chosen so that</p>
+<p><span class="math display">\[
+\Prob(\barX_n&gt;c \mid \mu=\mu_0)=\alpha, \qquad \text{i.e., }  c = \mu_0 + z_\alpha \frac{\sigma}{\sqrt n}
+\]</span></p>
+<p>Because the Type-I error is computed assuming <span class="math inline">\(H_0\)</span> is true, the cutoff does <em>not depend on</em> <span class="math inline">\(\mu_A\)</span></p>
+<div class="key-point">
+<p>The likelihood ratio test is most powerful among all tests with size <span class="math inline">\(\alpha\)</span> for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu = \mu_A\)</span> with <span class="math inline">\(\mu_A &gt; \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is known</p>
 </div>
+<p>&nbsp;</p>
+<p>The likelihood ratio test therefore reproduces the classical <span class="math inline">\(z\)</span>-test for the mean of a normal distribution with known variance</p>
 </section>
 <section id="from-neymanpearson-to-likelihood-ratio-tests" class="slide level2">
 <h2>From Neyman–Pearson to likelihood ratio tests</h2>
-<p>For composite hypotheses,</p>
+<p>More generally, for hypotheses</p>
+<p><span class="math display">\[
+H_0:\theta \in \ct_0
+\qquad\text{vs}\qquad
+H_A:\theta \in \ct_A
+\]</span></p>
+<p>the likelihood ratio statistic is</p>
 <p><span class="math display">\[
 \Lambda(\vX)
 =
-\frac{\displaystyle \sup_{\theta\in \text{null model}} L(\theta \mid \vX)}
-     {\displaystyle \sup_{\theta\in \text{full model}} L(\theta \mid \vX)}
+\frac{\sup_{\theta\in \ct_0} L(\theta \mid \vX)}
+     {\sup_{\theta\in \ct} L(\theta \mid \vX)}
+     =\frac{\text{best fit under }H_0}
+          {\text{best fit over the entire parameter space}}
 \]</span></p>
+<p>The numerator is the largest likelihood <em>under <span class="math inline">\(H_0\)</span></em>,<br>
+while the denominator is the largest likelihood <strong>over the entire parameter space</strong></p>
 <p>Reject for small <span class="math inline">\(\Lambda\)</span></p>
 </section>
 <section id="example-lrt-for-a-normal-mean-unknown-variance" class="slide level2">
@@ -1320,6 +1336,10 @@ n(\barX-\mu_0)^2
 \]</span></p>
 <p>Thus the likelihood ratio depends only on the <span class="math inline">\(t\)</span>-statistic for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
 <p>The nuisance parameter <span class="math inline">\(\sigma^2\)</span> has disappeared</p>
+<p>–</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Show that the LRT for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu  = \mu_1\)</span> with <span class="math inline">\(\mu_1 &gt; \mu_0\)</span> and <span class="math inline">\(\sigma\)</span> unknown is the same as the <span class="math inline">\(t\)</span>-test </span></p>
+</div>
 </section>
 <section id="largesamplelikelihoodratio" class="slide level2">
 <h2>Wilks’ Theorem</h2>
