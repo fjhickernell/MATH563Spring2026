@@ -51,45 +51,42 @@ $$
 
 ### Proof by comparison argument
 
-Let the likelihood ratio test have rejection region (for data $\vX$):
+For convenience of notation, we defined rejection regions [in terms of data]{.alert}, $\vX$, rather than test statistics. Let the likelihood ratio test have rejection region:
 $$
-\RR^{\LRT}=\{\vx:\ \varrho_0(\vx)-k\varrho_1(\vx)<0\}
+\RR^{\LRT}=\{\vX:\ \varrho_0(\vX)-k\varrho_1(\vX)<0\}
 $$
-Thus it rejects with indicator $\indic(\vx\in \RR^{\LRT})$
+Thus it rejects with indicator $\indic(\vX\in \RR^{\LRT})$
 
-Let $T(\vx)$ be any other test statistic with rejection region $\RR$ (for data $\vX$)
+Let $T(\vX)$ be any other test statistic with rejection region $\RR$ (for data $\vX$)
 
 Assume this competing test has size at most $\alpha$:
-$$
-\Prob(\vX\in\RR\mid \theta=\theta_0)
-=
+
+\begin{multline*}
 \int \indic(\vx\in\RR)\,\varrho_0(\vx)\,\dif\vx
+= \Ex [ \indic(\vX\in\RR) \mid \theta=\theta_0]
+= \Prob(\vX\in\RR\mid \theta=\theta_0)
+\\
 \le
 \alpha
-=
+= \Prob(\vX\in\RR^{\LRT}\mid \theta=\theta_0) =
+\Ex [ \indic(\vX\in\RR^{\LRT}) \mid \theta=\theta_0] = 
 \int \indic(\vx\in\RR^{\LRT})\,\varrho_0(\vx)\,\dif\vx 
-$$
+\end{multline*}
+
+---
 
 Consider the integral
 $$
 I
 =
 \int
-\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
-\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx 
+\underbrace{\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]}_{\text{which test is rejecting?}}
+\underbrace{\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]}_{\LRT \text{ will reject if this is positive}}\,\dif\vx 
 $$
 
----
 
 ### Step 1: $I\ge 0$
 
-$$
-I
-=
-\int
-\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
-\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx 
-$$
 
 Check pointwise signs:
 
