@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-04">
+  <meta name="dcterms.date" content="2026-03-05">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -223,7 +223,7 @@
           med:   "{\\operatorname{med}}",
           vol:   "{\\operatorname{vol}}",
           bias:  "{\\operatorname{bias}}",
-          RR:   "{\\mathrm{RR}}",
+          RR:   "{\\mathcal{R}}",
 
           Bern:  "{\\operatorname{Bern}}",
           Bin:   "{\\operatorname{Bin}}",
@@ -480,25 +480,38 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 4, 2026</p>
+  <p class="date">March 5, 2026</p>
 </section>
 <section>
 <section id="hypothesis-testing-framework" class="title-slide slide level1 center">
 <h1>Hypothesis Testing Framework</h1>
 <ul>
-<li><p><span class="alert">Null hypothesis</span> <span class="math inline">\(H_0\)</span> — the default assumption, <span class="alert">innocence</span>, often “no effect” or “status quo”</p></li>
-<li><p><span class="alert">Alternative hypothesis</span> <span class="math inline">\(H_A\)</span> — <span class="alert">guilty</span>, the claim requiring evidence</p></li>
-<li><p><span class="alert">Test statistic</span> <span class="math inline">\(T(\vX)\)</span> — a function (summary) of the data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)\)</span>, used to assess <span class="math inline">\(H_0\)</span></p></li>
-<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR\)</span> — values of <span class="math inline">\(T(\vX)\)</span> for which we reject <span class="math inline">\(H_0\)</span></p></li>
-<li><p><span class="alert">Type I error</span> <span class="math inline">\(\alpha\)</span> — <span class="alert">reasonable doubt</span>, probability of falsely rejecting <span class="math inline">\(H_0\)</span></p></li>
-<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> — (under <span class="math inline">\(H_0\)</span>) probability of observing a result at least as extreme as the one observed</p></li>
+<li><p><span class="alert">Null hypothesis</span> <span class="math inline">\(H_0\)</span> — the default assumption, often of the form <span class="math inline">\(H_0: \theta = \theta_0\)</span> or <span class="math inline">\(H_0: \theta \in \ct_0\)</span></p>
+<ul>
+<li><span class="alert">innocence</span>, “no effect” or “status quo”</li>
+</ul></li>
+<li><p><span class="alert">Alternative hypothesis</span> <span class="math inline">\(H_A\)</span> — the alternative, often of the form <span class="math inline">\(H_A: \theta = \theta_1\)</span> or <span class="math inline">\(H_A: \theta \in \ct_A\)</span></p>
+<ul>
+<li><span class="alert">guilt</span>, “effect”, or “change”</li>
+</ul></li>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(T(\vX) \in \ct\)</span> — a function/summary of the data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)\)</span>, used to assess <span class="math inline">\(H_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR \subseteq \ct\)</span> — values of <span class="math inline">\(T(\vX)\)</span> for which we reject <span class="math inline">\(H_0\)</span></p></li>
+<li><p><span class="alert">Decision rule</span> — reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(T(\vX) \in \RR\)</span></p></li>
+<li><p><span class="alert">Type I error</span> <span class="math inline">\(\alpha\)</span> — <span class="alert">reasonable doubt</span>, probability of falsely rejecting <span class="math inline">\(H_0\)</span></p>
+<ul>
+<li><span class="math inline">\(H_0\)</span> gets protection via the bound on Type I error</li>
+</ul></li>
+<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> — (under <span class="math inline">\(H_0\)</span>) probability that the test statistic is at least as extreme as the observed value</p></li>
 <li><p><span class="alert">Type II error</span> <span class="math inline">\(\beta\)</span> — probability of failing to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_A\)</span> is true</p></li>
 <li><p><span class="alert">Power</span> <span class="math inline">\(1-\beta\)</span> — probability of correctly rejecting <span class="math inline">\(H_0\)</span></p></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="key-point">
 <p>Hypothesis testing is a formal way of deciding whether the data provide enough evidence to overturn a protected default assumption</p>
 </div>
-<p>We will use ideas from estimation, confidence intervals, and pivots to construct tests</p>
+<p>We will use ideas from estimation, confidence intervals, and pivots</p>
 </section>
 <section id="example-server-reliability-claim-mean-time-between-failures" class="slide level2">
 <h2>Example: Server Reliability Claim (Mean Time Between Failures)</h2>
@@ -524,32 +537,26 @@ X_1,\dots,X_n \IIDsim \Exp(1/\mu),
 <section class="slide level2">
 
 <h3 id="step-2-construct-test-statistic">Step 2: Construct test statistic</h3>
-<p><span class="math display">\[\text{Use the pivot } \frac{2n\barX}{\mu} \sim \chi^2_{2n}, \qquad \text{so that under } H_0: \mu = 200, \quad T(\vX) = \frac{2n\barX}{200} \sim \chi^2_{2n}\]</span></p>
+<p><span class="math display">\[\text{Use the pivot } \frac{2n\barX_n}{\mu} \sim \chi^2_{2n}, \qquad \text{so that under } H_0: \mu = 200, \quad T(\vX) = \frac{2n\barX_n}{200} \sim \chi^2_{2n}\]</span></p>
 <div class="fragment">
 <h3 id="step-3-choose-significance-level-and-construct-rejection-region">Step 3: Choose significance level and construct rejection region</h3>
 <p>Choose <span class="math inline">\(\alpha = 0.05\)</span> as the maximum tolerable risk of falsely accusing underperformance</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Left-tailed test:</p>
-<p><span class="math display">\[
-\RR
-=
-\left\{
-T &lt; \chi^2_{2n,1-\alpha}
-\right\}
-\]</span></p>
+<p><span class="math display">\[\RR = [0, \chi^2_{2n,1-\alpha}) = [0, 10.85)\]</span></p>
 <p>Equivalently, reject when</p>
-<p><span class="math display">\[\barX &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
+<p><span class="math display">\[\barX_n &lt; \frac{200}{2n}\,\chi^2_{2n,1-\alpha}\]</span></p>
 <p>&nbsp;</p>
 <div class="key-point">
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="d589034a" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="7">
+<div id="1c6065f8" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-8-output-1.png" width="949" height="467"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-9-output-1.png" width="950" height="468"></p>
 </figure>
 </div>
 </div>
@@ -571,7 +578,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <div style="height:40px;">
 
 </div>
-<p>So we do NOT reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha=0.05\)</span> level</p>
+<p>So we do NOT reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha=0.05\)</span> level. This is <em>not</em> the same as accepting <span class="math inline">\(H_0\)</span>!</p>
 </div>
 </section>
 <section class="slide level2">
@@ -602,23 +609,23 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 
 <h3 id="power-for-the-server-reliability-test">Power for the Server Reliability test</h3>
 <p>From Step 3, we reject <span class="math inline">\(H_0\)</span> when</p>
-<p><span class="math display">\[T=\frac{2n\barX}{200} &lt; \chi^2_{2n,1-\alpha}\]</span></p>
-<p>If the true mean is actually <span class="math inline">\(\mu_1\)</span>, then <span class="math display">\[\frac{200 T }{\mu_1} = \frac{2n\barX}{\mu_1} \sim\chi^2_{2n}\]</span></p>
+<p><span class="math display">\[T(\boldsymbol{X})=\frac{2n\barX_n}{200} &lt; \chi^2_{2n,1-\alpha}\]</span></p>
+<p>If the true mean is actually <span class="math inline">\(\mu_1\)</span>, then <span class="math display">\[\frac{200 T(\boldsymbol{X}) }{\mu_1} = \frac{2n\barX_n }{\mu_1} \sim\chi^2_{2n}\]</span></p>
 <p>Therefore the <span class="alert">power function</span> is <span class="math display">\[\begin{align*}
 \power(\mu_1)
-&amp;= \Prob\!\left(T &lt; \chi^2_{2n,\,1-\alpha}\mid \mu=\mu_1\right)
-= \Prob\!\left(\frac{200\,T}{\mu_1} \sim \chi^2_{2n} &lt; \frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1} \,\middle|\, \mu=\mu_1\right)\\
+&amp;= \Prob\!\left(T(\boldsymbol{{X}}) &lt; \chi^2_{2n,\,1-\alpha}\mid \mu=\mu_1\right)
+= \Prob\!\left(\frac{200\,T(\boldsymbol{X})}{\mu_1} \sim \chi^2_{2n} &lt; \frac{200\,\chi^2_{2n,\,1-\alpha}}{\mu_1} \,\middle|\, \mu=\mu_1\right)\\
 &amp;\qquad \qquad \text{increases as $\mu_1$ decreases.}
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
-<h3 id="power-curve">Power Curve</h3>
-<div id="56089cbe" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="13">
+<h3 id="power-curves">Power Curves</h3>
+<div id="1319ad0b" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-14-output-1.png" width="949" height="469"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-15-output-1.png" width="949" height="469"></p>
 </figure>
 </div>
 </div>
@@ -645,7 +652,7 @@ H_A \text{ alternative hypothesis (evidence, guilt) in terms of } \theta
 </colgroup>
 <thead>
 <tr class="header">
-<th>Truth about <span class="math inline">\(H_0\)</span></th>
+<th></th>
 <th>Reject <span class="math inline">\(H_0\)</span></th>
 <th>Do Not Reject <span class="math inline">\(H_0\)</span></th>
 </tr>
@@ -1021,17 +1028,18 @@ flowchart LR
 </section>
 <section id="twoclttest" class="slide level2">
 <h2>Two-sided CLT-enabled test for a mean assuming large sample size</h2>
-<p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex[X_i] = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
-<p>Test</p>
-<p><span class="math inline">\(H_0: \mu = \mu_0\)</span> against</p>
-<p><span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
+<p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(\Ex(X_i) = \mu\)</span>, <span class="math inline">\(\var(X_i) = \sigma^2\)</span> with large <span class="math inline">\(n\)</span></p>
+<p>Test <span class="math inline">\(H_0: \mu = \mu_0\)</span> against <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p>
 <ul>
-<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \appxsim \Norm(0,1) \text{ for large } n \text{ under } H_0\)</span></p></li>
-<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Z_n: |Z_n| &gt; z_{\alpha/2}\}\)</span></p></li>
-<li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p></li>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle Z_n(\vX) = \frac{\barX_n - \mu_0}{S_n/\sqrt{n}} \appxsim \Norm(0,1) \text{ for large } n \text{ under } H_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = (-\infty, -z_{\alpha/2}) \cup (z_{\alpha/2}, \infty)\)</span></p></li>
+<li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p>
+<ul>
+<li>(approximate power, treating <span class="math inline">\(S_n\approx \sigma\)</span> for large <span class="math inline">\(n\)</span>)</li>
+</ul></li>
 </ul>
 <p><span class="math display">\[
-\power(\mu_1)= \Prob(|Z_n|&gt;z_{\alpha/2} \mid \mu = \mu_1) = 1 - \Phi\!\left(z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right) + \Phi\!\left(-z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right  )
+\power(\mu_1)= \Prob(|Z_n(\vX)|&gt;z_{\alpha/2} \mid \mu = \mu_1) = 1 - \Phi\!\left(z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right) + \Phi\!\left(-z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right  )
 \]</span></p>
 <ul>
 <li><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(z_{\text{obs}}\)</span> is <span class="math inline">\(p = 2\big(1 - \Phi(|z_{\text{obs}}|)\big)\)</span></li>
@@ -1039,11 +1047,11 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="c78cb46b" class="cell" data-message="false" data-execution_count="14">
+<div id="4eb36d29" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-15-output-1.png" width="1139" height="566"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-16-output-1.png" width="1139" height="566"></p>
 </figure>
 </div>
 </div>
@@ -1057,17 +1065,15 @@ flowchart LR
 <section id="onesided_t_test" class="slide level2">
 <h2>One-sided test for a mean under Normal data</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span></p>
-<p>Test<br>
-<span class="math inline">\(H_0: \mu \le \mu_0\)</span> against<br>
-<span class="math inline">\(H_A: \mu &gt; \mu_0\)</span></p>
+<p>Test <span class="math inline">\(H_0: \mu \le \mu_0\)</span> against <span class="math inline">\(H_A: \mu &gt; \mu_0\)</span></p>
 <ul>
-<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle T_n = \frac{\barX_n - \mu_0}{S/\sqrt{n}} \sim t_{n-1} \text{ under } \mu=\mu_0\)</span></p></li>
-<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{T_n: T_n &gt; t_{\alpha,n-1}\}\)</span></p></li>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(\displaystyle T_n(\vX) = \frac{\barX_n - \mu_0}{S_n/\sqrt{n}} \sim t_{n-1} \text{ under } \mu=\mu_0\)</span></p></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = (t_{n-1,\alpha}, \infty)\)</span></p></li>
 <li><p><span class="alert">Power function</span> — the probability of rejecting <span class="math inline">\(H_0\)</span> when the true mean is <span class="math inline">\(\mu_1\)</span></p></li>
 </ul>
 <p><span class="math display">\[\begin{multline*}
-T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt{n}} \\
-\implies \power(\mu_1) = \Prob(T_n &gt; t_{\alpha,n-1} \mid \mu=\mu_1) = 1 - F_{t_{n-1}(\delta)}\!\left(t_{\alpha,n-1}\right)
+T_n(\vX) \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt{n}} \\
+\implies \power(\mu_1) = \Prob(T_n(\vX) &gt; t_{n-1,\alpha} \mid \mu=\mu_1) = 1 - F_{t_{n-1}(\delta)}\!\left(t_{n-1,\alpha}\right)
 \end{multline*}\]</span></p>
 <p>where <span class="math inline">\(F_{t_{n-1}(\delta)}\)</span> is the CDF of the noncentral t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom and noncentrality parameter <span class="math inline">\(\delta\)</span></p>
 <ul>
@@ -1076,11 +1082,11 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="0b39723e" class="cell" data-message="false" data-execution_count="15">
+<div id="2b6f804f" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-16-output-1.png" width="1139" height="566"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-17-output-1.png" width="1139" height="566"></p>
 </figure>
 </div>
 </div>
@@ -1089,34 +1095,35 @@ T_n \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt
 <section id="chisq_test" class="slide level2">
 <h2>One-sided <span class="math inline">\(\chi^2\)</span> test for the variance under Normal data</h2>
 <p>Suppose <span class="math inline">\(X_1,\dots,X_n\)</span> IID with <span class="math inline">\(X_i \sim \Norm(\mu,\sigma^2)\)</span>.</p>
-<p>Test<br>
-<span class="math inline">\(H_0: \sigma^2 = \sigma_0^2\)</span> against<br>
-<span class="math inline">\(H_A: \sigma^2 &gt; \sigma_0^2\)</span></p>
+<p>Test <span class="math inline">\(H_0: \sigma^2 = \sigma_0^2\)</span> against <span class="math inline">\(H_A: \sigma^2 &gt; \sigma_0^2\)</span></p>
 <ul>
-<li><p><span class="alert">Pivot / test statistic</span> <span class="math inline">\(\displaystyle Q = \frac{(n-1)S^2}{\sigma_0^2} \sim \chi^2_{n-1} \text{ under } H_0\)</span></p></li>
-<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = \{Q: Q &gt; \chi^2_{n-1,\alpha}\}\)</span></p></li>
+<li><p><span class="alert">Pivot / test statistic</span> <span class="math inline">\(\displaystyle T_n(\vX) = \frac{(n-1)S_n^2}{\sigma_0^2} \sim \chi^2_{n-1} \text{ under } H_0\)</span></p>
+<ul>
+<li>where <span class="math inline">\(S_n^2\)</span> is the unbiased sample variance</li>
+</ul></li>
+<li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR = (\chi^2_{n-1,\alpha}, \infty)\)</span></p></li>
 <li><p><span class="alert">Power function</span><br>
 <span class="math display">\[
 \power(\sigma_1)
 =
 \Prob\!\left(
-Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
+T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 \right)
 =
 \Prob\!\left(
 \chi^2_{n-1} &gt; \frac{\sigma_0^2}{\sigma_1^2}\chi^2_{n-1,\alpha}
 \right)
 \]</span></p></li>
-<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(q_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(\chi^2_{n-1} \ge q_{\text{obs}})\)</span></p></li>
+<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(q_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(\chi^2_{n-1} \ge t_{\text{obs}})\)</span></p></li>
 </ul>
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="bd5d70f5" class="cell" data-message="false" data-execution_count="16">
+<div id="2bed5fc9" class="cell" data-message="false" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-hypothesis_files/figure-revealjs/cell-17-output-1.png" width="950" height="565"></p>
+<p><img data-src="03-hypothesis_files/figure-revealjs/cell-18-output-1.png" width="950" height="565"></p>
 </figure>
 </div>
 </div>
@@ -1140,27 +1147,27 @@ Q &gt; \chi^2_{n-1,\alpha}\mid \sigma_1
 <section id="likelihoodratiotests" class="slide level2">
 <h2>From procedures to optimality</h2>
 <p>We have constructed tests, and we have computed their size and power, but</p>
-<blockquote>
+<div class="key-point">
 <p>Among all tests with size <span class="math inline">\(\alpha\)</span>, which has the highest power (at a fixed alternative)?</p>
-</blockquote>
+</div>
 <p>To compare two hypotheses</p>
 <p><span class="math display">\[
-H_0: \theta = \theta_0 \text{ vs } H_A: \theta = \theta_1
+H_0: \theta = \theta_0 \qquad \text{vs} \qquad H_A: \theta = \theta_A
 \]</span></p>
 <p>Consider the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> ratio statistic</p>
 <p><span class="math display">\[
 \Lambda(\vX)
 =
 \frac{L(\theta_0 \mid \vX)}
-     {L(\theta_1 \mid \vX)}
+     {L(\theta_A \mid \vX)}
 \]</span></p>
-<p>Small <span class="math inline">\(\Lambda \implies\)</span> evidence against <span class="math inline">\(H_0\)</span></p>
-<p>Or for more general hypotheses, e.g., <span class="math inline">\(H_0: \theta \in \Theta_0\)</span> vs <span class="math inline">\(H_A: \theta \in \Theta_A\)</span>:</p>
+<p><span class="alert">Small <span class="math inline">\(\Lambda \implies\)</span> evidence against <span class="math inline">\(H_0\)</span></span></p>
+<p>Or for more general hypotheses, e.g., <span class="math inline">\(H_0: \theta \in \ct_0\)</span> vs <span class="math inline">\(H_A: \theta \in \ct_A\)</span>:</p>
 <p><span class="math display">\[
 \Lambda(\vX)
 =
-\frac{\sup_{\theta\in H_0} L(\theta \mid \vX)}
-     {\sup_{\theta\in H_A} L(\theta \mid \vX)}
+\frac{\sup_{\theta\in \ct_0} L(\theta \mid \vX)}
+     {\sup_{\theta\in \ct} L(\theta \mid \vX)}
 \]</span></p>
 </section>
 <section id="neymanpearson" class="slide level2">
@@ -1168,18 +1175,17 @@ H_0: \theta = \theta_0 \text{ vs } H_A: \theta = \theta_1
 <p>Test</p>
 <p><span class="math display">\[
 H_0:\theta=\theta_0
-\qquad
-H_A:\theta=\theta_1
+\qquad\text{vs}\qquad
+H_A:\theta=\theta_A
 \]</span></p>
-<p>Among all tests with size <span class="math inline">\(\alpha\)</span>,</p>
-<blockquote>
-<p>The likelihood ratio test is most powerful</p>
-</blockquote>
+<div class="key-point">
+<p>Among all tests with size <span class="math inline">\(\alpha\)</span>, the likelihood ratio test is most powerful</p>
+</div>
 <p>Reject <span class="math inline">\(H_0\)</span> when</p>
 <p><span class="math display">\[
-\frac{L(\theta_1 \mid \vX)}
-     {L(\theta_0 \mid \vX)}
-&gt; k
+\frac{L(\theta_0 \mid \vX)}
+     {L(\theta_A \mid \vX)}
+&lt; k
 \]</span></p>
 <p>where <span class="math inline">\(k\)</span> is chosen to make the test have size <span class="math inline">\(\alpha\)</span></p>
 </section>
