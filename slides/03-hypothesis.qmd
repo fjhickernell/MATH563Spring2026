@@ -15,7 +15,8 @@ subtitle: |
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/likelihoodratio.qmd >}}
 
-## Proof of the Neyman–Pearson lemma (simple vs simple)
+
+## Proof of the [Neyman–Pearson lemma](#neymanpearson) (simple vs simple)
 
 $$
 H_0:\theta=\theta_0,
@@ -23,105 +24,144 @@ H_0:\theta=\theta_0,
 H_A:\theta=\theta_1
 $$
 
-Let densities under these two hypotheses be $\varrho_0$ and $\varrho_1$
-
-Among all tests with size $\alpha$,
+Let the joint densities of $\vX$ under $\theta_0$ and $\theta_1$ be
+$\varrho_0(\vx)$ and $\varrho_1(\vx)$.
 
 ::: {.key-point}
-The likelihood ratio test is most powerful
+Among all tests with size $\alpha$, the likelihood ratio test is most powerful.
 :::
 
-Given data $\vX = (X_1, \ldots, X_n)$, reject $H_0$ when
+Given data $\vX$, reject $H_0$ when
 $$
-\frac{\varrho_1(\vX)}{\varrho_0(\vX)} > k, \qquad \text{i.e. } \varrho_1(\vX) - k \varrho_0(\vX) > 0
+\Lambda(\vx)
+=
+\frac{L(\theta_0\mid \vx)}{L(\theta_1\mid \vx)}
+=
+\frac{\varrho_0(\vx)}{\varrho_1(\vx)}
+< k,
+\qquad\text{i.e.}\qquad
+\varrho_0(\vx)-k\varrho_1(\vx)<0
 $$
-
 where $k$ is chosen so that
 $$
-\Prob_{\theta_0}(\text{Reject}) = \alpha
+\Prob(\text{Reject }H_0\mid \theta=\theta_0)=\alpha
 $$
 
 ---
 
 ### Proof by comparison argument
 
-- Let $\phi^{\LRT}(\vX)$ be the likelihood ratio test, i.e., $\phi^{\LRT}(\vX) = \begin{cases} 1 & \text{if reject}, \varrho_1(\vX) - k \varrho_0(\vX) > 0 \\ 0 & \text{not reject} \end{cases}$
+Let the likelihood ratio test have rejection region (for data $\vX$):
+$$
+\RR^{\LRT}=\{\vx:\ \varrho_0(\vx)-k\varrho_1(\vx)<0\}
+$$
+Thus it rejects with indicator $\indic(\vx\in \RR^{\LRT})$
 
-- Let $\phi(\vX)$ be any other test with $\Ex_{\theta_0}[\phi(\vX)] \le \alpha
+Let $T(\vx)$ be any other test statistic with rejection region $\RR$ (for data $\vX$)
+
+Assume this competing test has size at most $\alpha$:
+$$
+\Prob(\vX\in\RR\mid \theta=\theta_0)
 =
-\Ex_{\theta_0}[\phi^{\LRT}(\vX)]
-$
-
-Consider
-
-$$
-\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\bigl(\varrho_1(\vx) - k \varrho_0(\vx)\bigr)\, \dif \vx
+\int \indic(\vx\in\RR)\,\varrho_0(\vx)\,\dif\vx
+\le
+\alpha
+=
+\int \indic(\vx\in\RR^{\LRT})\,\varrho_0(\vx)\,\dif\vx 
 $$
 
-By construction of $\phi^{\LRT}$:
-
-- If $\phi^{\LRT}(\vx)=1$ and $\phi(\vx)=0$, then $\varrho_1(\vx) - k\varrho_0(\vx) \ge 0$  
-- If $\phi^{\LRT}(\vx)=0$ and $\phi(\vx)=1$, then $\varrho_1(\vx) - k\varrho_0(\vx) \le 0$
-
-Hence
-
+Consider the integral
 $$
-\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\bigl(\varrho_1(\vx) - k \varrho_0(\vx)\bigr)\, \dif \vx \ge 0
+I
+=
+\int
+\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
+\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx 
 $$
 
 ---
 
-### Finishing the proof
-
-Expand the inequality above:
+### Step 1: $I\ge 0$
 
 $$
-\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_1(\vx)\, \dif \vx  
+I
+=
+\int
+\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]
+\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]\,\dif\vx 
+$$
+
+Check pointwise signs:
+
+- If $\vx\in\RR$ but $\vx\notin\RR^{\LRT}$, then
+  $\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})=1$ and
+  $\varrho_0(\vx)-k\varrho_1(\vx)\ge 0$,
+  so the product is $\ge 0$
+
+- If $\vx\notin\RR$ but $\vx\in\RR^{\LRT}$, then
+  $\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})=-1$ and
+  $\varrho_0(\vx)-k\varrho_1(\vx)< 0$,
+  so the product is also $\ge 0$
+
+- Otherwise the difference of indicators is $0$.
+
+Hence the integrand is everywhere $\ge 0$, so $I\ge 0$
+
+---
+
+### Step 2: Expand $I$ and use the size constraint
+
+Expand:
+\begin{multline*}
+I
+=
+\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\\
 -
-k
-\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_0(\vx)\, \dif \vx
+k\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_1(\vx)\,\dif\vx
+\ge 0
+\end{multline*}
+
+The size condition implies
+\begin{multline*}
+\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\\
+=
+\Prob(\vX\in\RR\mid \theta=\theta_0)-\Prob(\vX\in\RR^{\LRT}\mid \theta=\theta_0)
+= \Prob(\vX\in\RR\mid \theta=\theta_0)- \alpha
+\le 0
+\end{multline*}
+
+Therefore, since $I\ge 0$,
+$$
+-k\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_1(\vx)\,\dif\vx
+\ge
+-\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\ge 0,
+$$
+
+---
+
+Because $k>0$, we have
+$$
+\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_1(\vx)\,\dif\vx
 \ge 0
 $$
 
-But
-
-$$
-\int \phi(\vx) \varrho_0(\vx)\, \dif \vx
-=
-\Ex_{\theta_0}[\phi]
-\le
-\Ex_{\theta_0}[\phi^{\LRT}]
-=
-\int \phi^{\LRT}(\vx) \varrho_0(\vx)\, \dif \vx
-$$
-
-so
-
-$$
-\int \bigl(\phi^{\LRT}(\vx) - \phi(\vx)\bigr)\varrho_0(\vx)\, \dif \vx \ge 0
-$$
-
-Therefore
-
-$$
-\int \phi^{\LRT}(\vx) \varrho_1(\vx)\, \dif \vx
-\ge
-\int \phi(\vx) \varrho_1(\vx)\, \dif \vx
-$$
-
----
-
-Thus,
-
+That is,
 \begin{multline*}
-\power^{\phi^{\LRT}}(\theta_1) = \Ex_{\theta_1}[\phi^{\LRT}(\vX)] = \int \phi^{\LRT}(\vx) \varrho_1(\vx)\, \dif \vx
-\\
+\power^{\LRT}(\theta_1) = \Prob(\vX \in \RR^{\LRT} \mid \theta=\theta_1) =
+\int \indic(\vx\in\RR^{\LRT})\,\varrho_1(\vx)\,\dif\vx \\
 \ge
-\int \phi(\vx) \varrho_1(\vx)\, \dif \vx = \Ex_{\theta_1}[\phi(\vX)] = \power^{\phi}(\theta_1)
+\int \indic(\vx\in\RR)\,\varrho_1(\vx)\,\dif\vx = \Prob(\vX \in \RR \mid \theta=\theta_1)= \power(\theta_1)
 \end{multline*}
 
+Therefore $\power^{\LRT}(\theta_1)\ge \power(\theta_1)$ for every test with size
+at most $\alpha$ so the likelihood ratio test is most powerful 
 
+::: {.text-end}
 $\square$
+:::
 
 &nbsp;
 
