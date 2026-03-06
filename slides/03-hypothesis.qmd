@@ -80,29 +80,29 @@ $$
 I
 =
 \int
-\underbrace{\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]}_{\text{which test is rejecting?}}
-\underbrace{\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]}_{\LRT \text{ will reject if this is positive}}\,\dif\vx 
+\underbrace{\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]}_{\text{which test is rejecting?}}
+\underbrace{\bigl[\varrho_0(\vx)-k\varrho_1(\vx)\bigr]}_{\LRT \text{ will reject if this is negative}}\,\dif\vx 
 $$
 
 
-### Step 1: $I\ge 0$
+### Step 1: $I\le 0$
 
 
 Check pointwise signs:
 
-- If $\vx\in\RR$ but $\vx\notin\RR^{\LRT}$, then
-  $\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})=1$ and
-  $\varrho_0(\vx)-k\varrho_1(\vx)\ge 0$,
-  so the product is $\ge 0$
+- If $\vx\in\RR^{\LRT}$ but $\vx\notin\RR$, then
+  $\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)=1$ and
+  $\varrho_0(\vx)-k\varrho_1(\vx) < 0$,
+  so the product is $\le 0$
 
-- If $\vx\notin\RR$ but $\vx\in\RR^{\LRT}$, then
-  $\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})=-1$ and
-  $\varrho_0(\vx)-k\varrho_1(\vx)< 0$,
+- If $\vx\notin\RR^{\LRT}$ but $\vx\in\RR$, then
+  $\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)=-1$ and
+  $\varrho_0(\vx)-k\varrho_1(\vx) \ge 0$,
   so the product is also $\ge 0$
 
 - Otherwise the difference of indicators is $0$.
 
-Hence the integrand is everywhere $\ge 0$, so $I\ge 0$
+Hence the integrand is everywhere $\le 0$, so $I\le 0$
 
 ---
 
@@ -112,28 +112,28 @@ Expand:
 \begin{multline*}
 I
 =
-\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_0(\vx)\,\dif\vx
 \\
 -
-k\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_1(\vx)\,\dif\vx
-\ge 0
+k\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_1(\vx)\,\dif\vx
+\le 0
 \end{multline*}
 
 The size condition implies
 \begin{multline*}
-\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_0(\vx)\,\dif\vx
 \\
 =
-\Prob(\vX\in\RR\mid \theta=\theta_0)-\Prob(\vX\in\RR^{\LRT}\mid \theta=\theta_0)
-= \Prob(\vX\in\RR\mid \theta=\theta_0)- \alpha
-\le 0
+\Prob(\vX\in\RR^{\LRT}\mid \theta=\theta_0)-\Prob(\vX\in\RR\mid \theta=\theta_0)
+= \alpha - \Prob(\vX\in\RR\mid \theta=\theta_0)
+\ge 0
 \end{multline*}
 
-Therefore, since $I\ge 0$,
+Therefore, since $I\le 0$,
 $$
--k\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_1(\vx)\,\dif\vx
+k\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_1(\vx)\,\dif\vx
 \ge
--\int\bigl[\indic(\vx\in\RR)-\indic(\vx\in\RR^{\LRT})\bigr]\varrho_0(\vx)\,\dif\vx
+\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_0(\vx)\,\dif\vx
 \ge 0,
 $$
 
