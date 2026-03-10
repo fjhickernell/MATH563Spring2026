@@ -12,6 +12,12 @@ reveal-options:
 
 course_website: https://fjhickernell.github.io/MATH563Spring2026/
 
+deck_order:
+  - d01
+  - d02
+  - d03
+  - d04
+
 decks:
   d01:
     file: 01-intro.html
@@ -29,9 +35,9 @@ decks:
     short_title: Hypothesis Testing
 
   d04:
-      file: 04-linear_models.html
-      title: Linear Models
-      short_title: Linear Models
+    file: 04-linear_models.html
+    title: Linear Models
+    short_title: Linear Models
 
 
 format:
