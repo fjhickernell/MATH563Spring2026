@@ -486,6 +486,7 @@ Fred J. Hickernell
 <section>
 <section id="hypothesis-testing-framework" class="title-slide slide level1 center">
 <h1>Hypothesis Testing Framework</h1>
+<p><span class="small">(CB §8.1–8.3; WMS §10.1–10.2)</span></p>
 <ul>
 <li><p><span class="alert">Null hypothesis</span> <span class="math inline">\(H_0\)</span> — the default assumption, often of the form <span class="math inline">\(H_0: \theta = \theta_0\)</span> or <span class="math inline">\(H_0: \theta \in \ct_0\)</span></p>
 <ul>
@@ -495,7 +496,7 @@ Fred J. Hickernell
 <ul>
 <li><span class="alert">guilt</span>, “effect”, or “change”</li>
 </ul></li>
-<li><p><span class="alert">Test statistic</span> <span class="math inline">\(T(\vX) \in \ct\)</span> — a function/summary of the data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)\)</span>, used to assess <span class="math inline">\(H_0\)</span></p></li>
+<li><p><span class="alert">Test statistic</span> <span class="math inline">\(T(\vX) = T_n(\vX) \in \ct\)</span> — a function/summary of the data, <span class="math inline">\(\vX = (X_1, \ldots, X_n)\)</span>, used to assess <span class="math inline">\(H_0\)</span></p></li>
 <li><p><span class="alert">Rejection region</span> <span class="math inline">\(\RR \subseteq \ct\)</span> — values of <span class="math inline">\(T(\vX)\)</span> for which we reject <span class="math inline">\(H_0\)</span></p></li>
 <li><p><span class="alert">Decision rule</span> — reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(T(\vX) \in \RR\)</span></p></li>
 <li><p><span class="alert">Type I error</span> <span class="math inline">\(\alpha\)</span> — <span class="alert">reasonable doubt</span>, probability of falsely rejecting <span class="math inline">\(H_0\)</span></p>
@@ -553,7 +554,7 @@ X_1,\dots,X_n \IIDsim \Exp(1/\mu),
 <p>No data has been observed yet</p>
 </div>
 </div><div class="column" style="width:60%;">
-<div id="870c176f" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
+<div id="3ee94f88" class="cell" data-fig-height="2.3" data-fig-width="6" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -622,7 +623,7 @@ Reject <span class="math inline">\(H_0\)</span> iff <span class="math inline">\(
 <section class="slide level2">
 
 <h3 id="power-curves">Power Curves</h3>
-<div id="06b64b9c" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
+<div id="befa7263" class="cell" data-fig-height="3.2" data-fig-width="6.2" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -946,6 +947,7 @@ flowchart LR
 <section>
 <section id="examples-of-hypothesis-testing" class="title-slide slide level1 center">
 <h1>Examples of hypothesis testing</h1>
+<p><span class="small">(CB §8.1–8.3; WMS §10.3-10.9)</span></p>
 <p>Building on the established framework</p>
 <ul>
 <li><p><a href="#/translating-words-into-hypotheses">Translating words into hypotheses</a></p></li>
@@ -1048,7 +1050,7 @@ flowchart LR
 </section>
 <section id="power-curves-for-the-two-sided-clt-test" class="slide level2">
 <h2>Power curves for the two-sided CLT test</h2>
-<div id="d50fcd7a" class="cell" data-message="false" data-execution_count="15">
+<div id="f6913053" class="cell" data-message="false" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1083,7 +1085,7 @@ T_n(\vX) \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/
 </section>
 <section id="power-curves-for-the-one-sided-t-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(t\)</span>-test</h2>
-<div id="bc050509" class="cell" data-message="false" data-execution_count="16">
+<div id="8197d62c" class="cell" data-message="false" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1115,12 +1117,12 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 \chi^2_{n-1} &gt; \frac{\sigma_0^2}{\sigma_1^2}\chi^2_{n-1,\alpha}
 \right)
 \]</span></p></li>
-<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(q_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(\chi^2_{n-1} \ge t_{\text{obs}})\)</span></p></li>
+<li><p><span class="alert"><span class="math inline">\(p\)</span>-value</span> for observed <span class="math inline">\(t_{\text{obs}}\)</span> is <span class="math inline">\(p = \Prob(\chi^2_{n-1} \ge t_{\text{obs}})\)</span></p></li>
 </ul>
 </section>
 <section id="power-curves-for-the-one-sided-chi2-test" class="slide level2">
 <h2>Power curves for the one-sided <span class="math inline">\(\chi^2\)</span> test</h2>
-<div id="5131c0f3" class="cell" data-message="false" data-execution_count="17">
+<div id="70ee6467" class="cell" data-message="false" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1141,6 +1143,7 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 <section>
 <section id="optimal-tests-and-likelihood-methods" class="title-slide slide level1 center">
 <h1>Optimal Tests and Likelihood Methods</h1>
+<p><span class="small">(CB §8.2–8.3; WMS §10.10-10.11)</span></p>
 <ul>
 <li><p><a href="#/likelihoodratiotests_simple">Likelihood ratio tests (LRT)</a></p></li>
 <li><p><a href="#/neymanpearson">Neyman–Pearson lemma</a></p></li>
@@ -1158,7 +1161,7 @@ T_n(\vX) &gt; \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
 <p><span class="math display">\[
 H_0: \theta = \theta_0 \qquad \text{vs} \qquad H_A: \theta = \theta_A
 \]</span></p>
-<p>Consider the likelihood ratio statistic constructed from the ratio of the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> values <span class="math display">\[
+<p>Consider the likelihood ratio statistic constructed from the ratio of the <a href="02-estimator.html#maximum-likelihood-estimators">likelihood</a> values based on data <span class="math inline">\(\vX = (X_1,\dots,X_n)\)</span>: <span class="math display">\[
 \Lambda(\vX)
 =
 \frac{L(\theta_0 \mid \vX)}
@@ -1203,7 +1206,7 @@ H_0:\mu=\mu_0
 \qquad
 H_A:\mu=\mu_A \quad \text{with } \mu_A &gt; \mu_0
 \]</span></p>
-<p>Assume <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span>. The <span class="alert">likelihood ratio</span> test statistic is</p>
+<p>Assume <span class="math inline">\(X_1,\dots,X_n \sim \Norm(\mu,\sigma^2)\)</span>. The <span class="alert">likelihood ratio</span> test statistic based on this data, <span class="math inline">\(\vX = (X_1,\dots,X_n)\)</span>, is</p>
 <p><span class="math display">\[
 \Lambda
 =
@@ -1245,7 +1248,7 @@ H_0:\theta \in \ct_0
 \qquad\text{vs}\qquad
 H_A:\theta \in \ct_A
 \]</span></p>
-<p>the likelihood ratio statistic is</p>
+<p>the likelihood ratio statistic based on data <span class="math inline">\(\vX = (X_1,\dots,X_n)\)</span> is</p>
 <p><span class="math display">\[
 \Lambda(\vX)
 =
@@ -1254,8 +1257,12 @@ H_A:\theta \in \ct_A
      =\frac{\text{best fit under }H_0}
           {\text{best fit over the entire parameter space}}
 \]</span></p>
-<p>The numerator is the largest likelihood <em>under <span class="math inline">\(H_0\)</span></em>,<br>
-while the denominator is the largest likelihood <strong>over the entire parameter space</strong></p>
+<ul>
+<li>The numerator is the largest likelihood <em>under <span class="math inline">\(H_0\)</span></em><br>
+</li>
+<li>The denominator is the largest likelihood <span class="alert">over the entire parameter space</span></li>
+</ul>
+<p>&nbsp;</p>
 <p>Reject for small <span class="math inline">\(\Lambda\)</span></p>
 </section>
 <section class="slide level2">
@@ -1371,14 +1378,14 @@ H_A:\mu\ne\mu_0
 =
 \frac{(\barX_n-\mu_0)^2}
      {(n-1) S_n^2/n} + 1
-= \frac{T^2}{n-1} + 1\\
+= \frac{T_n^2}{n-1} + 1\\
 \Lambda(\vX)
 &amp; =
 \left(
-1 + \frac{T^2}{n-1}
+1 + \frac{T_n^2}{n-1}
 \right)^{-n/2}
 \end{align*}\]</span></p>
-<p>where <span class="math inline">\(\displaystyle T = \frac{\barX_n-\mu_0}{S/\sqrt n}\)</span> is the familiar <span class="math inline">\(t\)</span>-statistic</p>
+<p>where <span class="math inline">\(\displaystyle T_n = \frac{\barX_n-\mu_0}{S/\sqrt n}\)</span> is the familiar <span class="math inline">\(t\)</span>-statistic</p>
 <ul>
 <li><p>The likelihood ratio depends only on the <span class="math inline">\(t\)</span>-statistic for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs <span class="math inline">\(H_A: \mu \ne \mu_0\)</span></p></li>
 <li><p>The nuisance parameter <span class="math inline">\(\sigma^2\)</span> has disappeared</p></li>
@@ -1543,7 +1550,7 @@ k\int\bigl[\indic(\vx\in\RR^{\LRT})-\indic(\vx\in\RR)\bigr]\varrho_1(\vx)\,\dif\
 <p>&nbsp;</p>
 <div class="deck-nav">
   <a class="deck-prev" href="02-estimator.html">← Estimators and Confidence Intervals</a>
-  <span class="deck-next deck-disabled"></span>
+  <a class="deck-next" href="04-linear_models.html">Linear Models →</a>
 </div>
 
 </section></section>
