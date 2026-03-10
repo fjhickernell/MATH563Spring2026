@@ -1,11 +1,27 @@
 ---
 title: "{{< meta course_title >}}"
+deck_id: d02
+deck_title: "{{< meta decks.d02.title >}}"
 deck_short_title: "{{< meta decks.d02.short_title >}}"
+
+include-after-body:
+  - text: |
+      <script id="deck-nav-meta" type="application/json">
+      {
+        "deck_prev_file": "{{< meta decks.d01.file >}}",
+        "deck_prev_title": "{{< meta decks.d01.title >}}",
+        "deck_next_file": "{{< meta decks.d03.file >}}",
+        "deck_next_title": "{{< meta decks.d03.title >}}"
+      }
+      </script>
+
 subtitle: |
   <span class="deck-title">{{< meta decks.d02.title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
   Assignment 3 due 2/13 <br>
-  Test 1 on 2/26 on Probability Review, Estimators, & Confidence Intervals
+  Test 1 on 2/26 on <br> <span class="indent">
+  Probability Review, Estimators, & Confidence Intervals
+  </span>
   </span>
 ---
 
@@ -71,13 +87,4 @@ $$ \Theta_{1,\MLE} \text{ unbiased } \notimplies \Theta_{2,\MLE} \text{ unbiased
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/sufficiency_completeness_information.qmd >}}
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/estimation/predict_tolerance.qmd >}}
-
-&nbsp;
-
-```{=html}
-<div class="deck-nav">
-  <a class="deck-prev" href="{{< meta decks.d01.file >}}">← {{< meta decks.d01.title >}}</a>
-  <a class="deck-next" href="{{< meta decks.d03.file >}}">{{< meta decks.d03.title >}} →</a>
-</div>
-```
 

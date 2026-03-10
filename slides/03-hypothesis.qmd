@@ -1,10 +1,24 @@
 ---
 title: "{{< meta course_title >}}"
+deck_id: d03
+deck_title: "{{< meta decks.d03.title >}}"
 deck_short_title: "{{< meta decks.d03.short_title >}}"
+
+include-after-body:
+  - text: |
+      <script id="deck-nav-meta" type="application/json">
+      {
+        "deck_prev_file": "{{< meta decks.d02.file >}}",
+        "deck_prev_title": "{{< meta decks.d02.title >}}",
+        "deck_next_file": "{{< meta decks.d04.file >}}",
+        "deck_next_title": "{{< meta decks.d04.title >}}"
+      }
+      </script>
+
 subtitle: |
-  <span class="deck-title">{{< meta decks.d03.title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 8<br> 
-  </span>
+  <span class="deck-title">{{< meta deck_title >}}</span><br>
+  <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 8<br>
+  Assignment 4 due 3/13</span>
 ---
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/hypothesis-frame.qmd >}}
@@ -159,14 +173,5 @@ at most $\alpha$ so the likelihood ratio test is most powerful
 ::: {.text-end}
 $\square$
 :::
-
-&nbsp;
-
-```{=html}
-<div class="deck-nav">
-  <a class="deck-prev" href="{{< meta decks.d02.file >}}">← {{< meta decks.d02.title >}}</a>
-  <span class="deck-next deck-disabled"></span>
-</div>
-```
 
 

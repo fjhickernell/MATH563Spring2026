@@ -34,9 +34,9 @@ Fri Feb 13 | **Assignment 3 Due**
 | Date   | Topic                    | Slides                             |
 |--------|---------------------------|-------------------------|
 | Tue Mar 3 | Hypothesis testing examples, likelihood ratio tests | |
-| Thu Mar 5 | | |
+| Thu Mar 5 | Likelihood ratio tests | |
 | Fri Mar 6 | **Project Submission Due** | |
-| Tue Mar 10 | | |
+| Tue Mar 10 | Review of concepts, look at Test 1| [Linear Models](../slides/04-linear_models.html)|
 | Thu Mar 12 | | |
 | Fri Mar 13 | **Assignment 4 Due** | |
 | Tue Mar 17 | **No Class, Spring Break** | |
