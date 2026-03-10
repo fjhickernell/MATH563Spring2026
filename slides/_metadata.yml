@@ -28,6 +28,11 @@ decks:
     title: Hypothesis Testing
     short_title: Hypothesis Testing
 
+  d04:
+      file: 04-linear_models.html
+      title: Linear Models
+      short_title: Linear Models
+
 
 format:
   revealjs:
