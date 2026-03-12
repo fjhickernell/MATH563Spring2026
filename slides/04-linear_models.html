@@ -320,8 +320,8 @@
           mX: "{\\mathsf{X}}",
           mP: "{\\mathsf{P}}",
           mI: "{\\mathsf{I}}",
-          m0: "{\\mathsf{0}}",
-          m1: "{\\mathsf{1}}",
+          mzero: "{\\mathsf{0}}",
+          mone: "{\\mathsf{1}}",
 
           htheta: "{\\widehat{\\theta}}",
           hTheta: "{\\widehat{\\Theta}}",
@@ -568,7 +568,7 @@ Fred J. Hickernell
 </tr>
 <tr class="odd">
 <td>Confidence/prediction regions for</td>
-<td><span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\Ex[Y(x)]\)</span>, <span class="math inline">\(Y(x)\)</span></td>
+<td><span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\Ex(Y \mid \vx)\)</span>, <span class="math inline">\(Y \mid \vx\)</span></td>
 <td><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y\)</span></td>
 </tr>
 </tbody>
@@ -578,13 +578,17 @@ Fred J. Hickernell
 <section id="least-squares-linear-regression" class="title-slide slide level1 center">
 <h1>Least Squares Linear Regression</h1>
 <ul>
-<li>Model: <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span>
+<li><p>Model: <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon \qquad\)</span> with <span class="math inline">\(\Ex(\varepsilon)=0,
+\quad \var(\varepsilon)=\sigma^2\)</span></p>
 <ul>
 <li><span class="math inline">\(x_j\)</span> may be a variable or a function of variables</li>
 </ul></li>
-<li>Model with data: <span class="math inline">\(\displaystyle
+<li><p>Model with data: <span class="math inline">\(\displaystyle
 \overbrace{\begin{pmatrix}Y_1 \\ Y_2 \\ \vdots \\ \vdots \\ Y_n\end{pmatrix}}^{\vY}
-= \overbrace{\begin{pmatrix} x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\ x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \end{pmatrix}}^{\mX}\, \overbrace{\begin{pmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d \end{pmatrix}}^{\vbeta} + \overbrace{\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \vdots \\ \varepsilon_n \end{pmatrix}}^{\vveps}\)</span></li>
+= \overbrace{\begin{pmatrix} x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\ x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \end{pmatrix}}^{\mX}\, \overbrace{\begin{pmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d \end{pmatrix}}^{\vbeta} + \overbrace{\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \vdots \\ \varepsilon_n \end{pmatrix}}^{\vveps}\)</span></p>
+<ul>
+<li><span class="math inline">\(\mX\)</span> is fixed and has full column rank</li>
+</ul></li>
 </ul>
 </section>
 <section id="estimation-of-vbeta-by-least-squares" class="slide level2">
@@ -593,7 +597,7 @@ Fred J. Hickernell
 \argmin_{\vb \in \reals^d} \lVert \vY -   \mX \vb \rVert^2 = (\mX^\top \mX)^{-1} \mX^\top \vY =: \hvbeta
 \]</span></p>
 <h3 id="proof">Proof</h3>
-<p>Let <span class="math inline">\(\vbeta\)</span> be defined as above, and let <span class="math inline">\(\vb\)</span> be any other vector in <span class="math inline">\(\reals^d\)</span>: <span class="math display">\[\begin{align*}
+<p>Let <span class="math inline">\(\hvbeta\)</span> be defined as above, and let <span class="math inline">\(\vb\)</span> be any other vector in <span class="math inline">\(\reals^d\)</span>: <span class="math display">\[\begin{align*}
 \lVert \vY -   \mX \vb \rVert^2 &amp; =
 \lVert (\vY - \mX \hvbeta) + \mX (\hvbeta - \vb) \rVert^2 \\
 &amp; = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX \hvbeta)} + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
@@ -606,13 +610,14 @@ Fred J. Hickernell
 
 <p>Furthermore</p>
 <ul>
-<li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is the prediction of <span class="math inline">\(\Ex(\vY)\)</span></p></li>
-<li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>, which are orthogonal to all columns of <span class="math inline">\(\mX\)</span></p>
+<li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx)\)</span></p></li>
+<li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is an estimator of <span class="math inline">\(\mu(\vX) = \Ex(\vY)\)</span></p></li>
+<li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>, which are orthogonal to all columns of <span class="math inline">\(\mX\)</span>, i.e., orthogonal to <span class="math inline">\(\cc(\mX)\)</span></p>
 <ul>
 <li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
-<div id="0d6a57fb" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="dd8de2d7" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -622,9 +627,293 @@ Fred J. Hickernell
 </div>
 </div>
 </section>
-<section id="help" class="slide level2">
-<h2>help</h2>
-<p>Let <span class="math inline">\(\mP = \mX (\mX^\top \mX)^{-1} \mX^\top\)</span>, this is a <a href="https://en.wikipedia.org/wiki/Projection_(linear_algebra)">projection matrix</a></p>
+<section id="unbiasedness-of-estimators" class="slide level2">
+<h2>Unbiasedness of estimators</h2>
+<p>Recall that <span class="math inline">\(Y = \mX \vbeta + \vveps\)</span>, with <span class="math inline">\(\Ex(\vveps)=0, \ \cov(\vveps)=\sigma^2 \mI\)</span>, where <span class="math inline">\(\mX\)</span> is fixed and of full column rank</p>
+<h3 id="unbiasedness-of-hvbeta-and-hmuvx">Unbiasedness of <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></h3>
+<p><span class="math display">\[\begin{align*}
+\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY \implies
+\Ex(\hvbeta)
+&amp;= (\mX^\top \mX)^{-1} \mX^\top \Ex(\vY) \\
+&amp;= (\mX^\top \mX)^{-1} \mX^\top \mX \vbeta \\
+&amp;= \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\
+\hmu(\vx) = \vx^\top \hvbeta \implies
+\Ex(\hmu(\vx))
+&amp;= \vx^\top \Ex(\hvbeta) \\
+&amp;= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}}
+\end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="residual-sum-of-squares-and-unbiased-estimation-of-sigma2">Residual sum of squares and unbiased estimation of <span class="math inline">\(\sigma^2\)</span></h3>
+<p>Recall that <span class="math display">\[\begin{align*}
+\hvveps &amp;= \vY - \hvY = (\mI-\mP)\vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
+&amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
+&amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$}
+\end{align*}\]</span></p>
+<p>Hence <span class="math display">\[\begin{equation*}
+\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \Ex\bigl(\vveps^\top (\mI-\mP)\vveps\bigr) \\
+= \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
+\end{equation*}\]</span></p>
+<p>Now <span class="math inline">\(\mP\)</span> is a projection matrix onto <span class="math inline">\(\cc(\mX)\)</span>, it has eigenvalues of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> only, so <span class="math display">\[
+\trace(\mP)=\rank(\mP)=\rank(\mX)=d
+\]</span></p>
+<p>Therefore <span class="math inline">\(\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \sigma^2 (n-d)\)</span> and so <span class="math display">\[
+S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
+= \frac{\lVert \hvveps \rVert^2}{n-d}
+= \frac{1}{n-d}\,\vY^\top(\mI-\mP)\vY \quad \text{
+is an \class{alert}{unbiased} estimator of $\sigma^2$}
+\]</span></p>
+</section>
+<section id="confidence-regions-for-vbeta-and-muvx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
+<h2>Confidence regions for <span class="math inline">\(\vbeta\)</span> and <span class="math inline">\(\mu(\vx)\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
+<h3 id="distribution-of-hvbeta">Distribution of <span class="math inline">\(\hvbeta\)</span></h3>
+<p>Assume <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2\mI)\)</span> and recall that <span class="math inline">\(\hvbeta = (\mX^\top\mX)^{-1}\mX^\top\vY\)</span>. Since <span class="math inline">\(\vY = \mX\vbeta + \vveps\)</span>,</p>
+<p><span class="math display">\[
+\hvbeta
+= (\mX^\top\mX)^{-1}\mX^\top(\mX\vbeta+\vveps)
+= \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim
+\Norm\!\left(
+\vbeta,\;
+\sigma^2(\mX^\top\mX)^{-1}
+\right)
+\]</span> because a <span class="alert">linear combination of normal random variables is normal</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="confidence-ellipsoid-for-vbeta">Confidence ellipsoid for <span class="math inline">\(\vbeta\)</span></h3>
+<p>From the normal distribution of <span class="math inline">\(\hvbeta\)</span>, it follows that <span class="math display">\[\frac{
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+}{\sigma^2}
+\sim \chi^2_d
+\]</span></p>
+<p>Replacing <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(S^2\)</span> gives</p>
+<p><span class="math display">\[
+\frac{
+(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+}{dS^2}
+\sim F_{d,n-d}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+d S^2
+F_{d,n-d,1-\alpha}
+\]</span></p>
+<p>defines a <span class="math inline">\(\class{alert}{(1-\alpha)\text{ confidence ellipsoid for }\vbeta}\)</span> centered at <span class="math inline">\(\hvbeta\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="individual-confidence-intervals-for-the-beta_j">Individual confidence intervals for the <span class="math inline">\(\beta_j\)</span></h3>
+<p>Since <span class="math inline">\(\hvbeta \sim
+\Norm\!\left(
+\vbeta,\;
+\sigma^2(\mX^\top\mX)^{-1}
+\right)\)</span>, it follows that for each <span class="math inline">\(j=1,\dots,d\)</span>,</p>
+<p><span class="math display">\[
+\hbeta_j \sim \Norm\!\left(
+\beta_j,\;
+\sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}
+\right)
+\]</span></p>
+<p>where <span class="math inline">\(\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}\)</span> denotes the <span class="math inline">\(j\)</span>th diagonal entry of <span class="math inline">\((\mX^\top\mX)^{-1}\)</span>.</p>
+<p>Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives</p>
+<p><span class="math display">\[
+\frac{
+\hbeta_j-\beta_j
+}{
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}}
+}
+\sim t_{n-d}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\hbeta_j
+\pm
+t_{n-d,1-\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \qquad{\text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="joint-vs-individual-confidence-statements">Joint vs individual confidence statements</h3>
+<p><span class="math display">\[\begin{gather*}
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+dS^2F_{d,n-d,1-\alpha} \quad \text{is a joint confidence region \class{alert}{for the whole vector $\vbeta$}}
+\\
+\hbeta_j
+\pm
+t_{n-d,1-\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
+\; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
+\end{gather*}\]</span></p>
+<div class="key-point">
+<p>Joint confidence for <span class="math inline">\(\vbeta\)</span> is not the same as simultaneous confidence for all <span class="math inline">\(\beta_j\)</span></p>
+</div>
+<h3 id="caution-about-many-intervals">Caution about many intervals</h3>
+<p>If we form separate <span class="math inline">\((1-\alpha)\)</span> confidence intervals for each <span class="math inline">\(\beta_j\)</span>, the probability that of them are simultaneously correct is generally less than <span class="math inline">\((1-\alpha)\)</span></p>
+<p>So:</p>
+<ul>
+<li>individual confidence intervals control each <span class="math inline">\(\beta_j\)</span> separately</li>
+<li>the confidence ellipsoid controls <span class="math inline">\(\vbeta\)</span> jointly</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="confidence-interval-for-muvx" class="title-slide slide level1 center">
+<h1>Confidence interval for <span class="math inline">\(\mu(\vx)\)</span></h1>
+<p>Recall</p>
+<p><span class="math display">\[
+\mu(\vx)=\vx^\top\vbeta
+\qquad
+\hmu(\vx)=\vx^\top\hvbeta
+\]</span></p>
+<p>Since <span class="math inline">\(\hvbeta\)</span> is normal,</p>
+<p><span class="math display">\[
+\hmu(\vx)
+\sim
+\Norm\!\left(
+\mu(\vx),\;
+\sigma^2
+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)
+\]</span></p>
+</section>
+<section id="standardized-statistic" class="slide level2">
+<h2>Standardized statistic</h2>
+<p>Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives</p>
+<p><span class="math display">\[
+\frac{
+\hmu(\vx)-\mu(\vx)
+}{
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+}
+\sim t_{n-d}
+\]</span></p>
+</section>
+<section id="alpha-confidence-interval" class="slide level2">
+<h2><span class="math inline">\((1-\alpha)\)</span> confidence interval</h2>
+<p>Therefore</p>
+<p><span class="math display">\[
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+\;
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+\]</span></p>
+<p>is a</p>
+<p><span class="math display">\[
+\class{alert}{(1-\alpha)\text{ confidence interval for }\mu(\vx)}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="prediction-interval-for-ymid-vx" class="title-slide slide level1 center">
+<h1>Prediction interval for <span class="math inline">\(Y\mid \vx\)</span></h1>
+
+</section>
+<section id="future-observation" class="slide level2">
+<h2>Future observation</h2>
+<p>For a new observation</p>
+<p><span class="math display">\[
+Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)
+\]</span></p>
+<p>independent of the data.</p>
+</section>
+<section id="variance" class="slide level2">
+<h2>Variance</h2>
+<p>Then</p>
+<p><span class="math display">\[
+Y_{\text{new}}-\hmu(\vx)
+=
+\varepsilon_{\text{new}}
+-
+\vx^\top(\hvbeta-\vbeta)
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\var(Y_{\text{new}}-\hmu(\vx))
+=
+\sigma^2
+\left(
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)
+\]</span></p>
+</section>
+<section id="alpha-prediction-interval" class="slide level2">
+<h2><span class="math inline">\((1-\alpha)\)</span> prediction interval</h2>
+<p>Therefore</p>
+<p><span class="math display">\[
+Y_{\text{new}}
+\in
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+\]</span></p>
+<p>which is the</p>
+<p><span class="math display">\[
+\class{alert}{(1-\alpha)\text{ prediction interval for }Y|\vx}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="mean-vs-prediction-intervals" class="title-slide slide level1 center">
+<h1>Mean vs prediction intervals</h1>
+<p>Confidence interval for mean response:</p>
+<p><span class="math display">\[
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+\]</span></p>
+<p>Prediction interval for a new observation:</p>
+<p><span class="math display">\[
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+\]</span></p>
+<p>Key point:</p>
+<p><span class="math display">\[
+\class{alert}{\text{Prediction intervals are wider}}
+\]</span></p>
+</section>
+<section id="prediction-regions-for-y-mid-vx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
+<h2>Prediction regions for <span class="math inline">\(Y \mid \vx\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
 
 </section></section>
     </div>
