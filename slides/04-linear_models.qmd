@@ -23,3 +23,5 @@ subtitle: |
 
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/linear_frame.qmd >}}
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/lsqregress.qmd >}}
