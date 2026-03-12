@@ -53,7 +53,7 @@
     "href": "pages/notebooks.html",
     "title": "Jupyter Notebooks",
     "section": "",
-    "text": "Here you will find Jupyter notebooks used in the course.\nClick the link to download, and then open in JupyterLab on your computer.\n\nApproval Ratings: Bernoulli, Binomial, CLT, and Confidence Intervals\nBayesian Quadrature\nHealth, Wealth, and Life Expectancy (Gapminder)"
+    "text": "Here you will find Jupyter notebooks used in the course.\nClick the link to download, and then open in JupyterLab on your computer.\n\nApproval Ratings: Bernoulli, Binomial, CLT, and Confidence Intervals\nBayesian Quadrature\nHealth, Wealth, and Life Expectancy (Gapminder)\nExact vs CLT vs Bootstrap Confidence Interval Coverage\nMatched Pairs Sleep Study"
   },
   {
     "objectID": "index.html",
