@@ -10,3 +10,7 @@ Click the link to download, and then open in JupyterLab on your computer.
 - [Bayesian Quadrature](../classlib/classlib/notebooks/Bayesian_quadrature.ipynb)
 
 - [Health, Wealth, and Life Expectancy (Gapminder)](../classlib/classlib/notebooks/health_wealth_gapminder_regression.ipynb)
+
+- [Exact vs CLT vs Bootstrap Confidence Interval Coverage](../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb)
+
+- [Matched Pairs Sleep Study](../classlib/classlib/notebooks/matched_pairs_sleep_study.ipynb)
