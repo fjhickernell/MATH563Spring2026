@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-10">
+  <meta name="dcterms.date" content="2026-03-12">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-c6e0d179ba531893140de23f04b9c11e.css">
+  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-c0777d4f9241198e85ef413ae94a8314.css">
   <link href="04-linear_models_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -279,6 +279,7 @@
           avec: ["{\\vec{#1}}", 1],
           vecsym: ["{\\boldsymbol{#1}}", 1],
 
+          vb:  "{\\boldsymbol{b}}",
           vf:  "{\\boldsymbol{f}}",
           tvf: "{\\widetilde{\\boldsymbol{f}}}",
           vk:  "{\\boldsymbol{k}}",
@@ -287,10 +288,14 @@
           vx:  "{\\boldsymbol{x}}",
           vX:  "{\\boldsymbol{X}}",
           vy:  "{\\boldsymbol{y}}",
+          vY:  "{\\boldsymbol{Y}}",
+          vz:  "{\\boldsymbol{z}}",
+          vZ:  "{\\boldsymbol{Z}}",
           tvy: "{\\widetilde{\\boldsymbol{y}}}",
           vY:  "{\\boldsymbol{Y}}",
           vz:  "{\\boldsymbol{z}}",
           vZ:  "{\\boldsymbol{Z}}",
+          
 
           tg:  "{\\widetilde{g}}",
           th:  "{\\widetilde{h}}",
@@ -300,6 +305,7 @@
           vgamma: "{\\boldsymbol{\\gamma}}",
           vdelta: "{\\boldsymbol{\\delta}}",
           vepsilon: "{\\boldsymbol{\\epsilon}}",
+          vveps: "{\\boldsymbol{\\varepsilon}}",
           vlambda:  "{\\boldsymbol{\\lambda}}",
           vsigma:   "{\\boldsymbol{\\sigma}}",
           vtheta:   "{\\boldsymbol{\\theta}}",
@@ -311,19 +317,30 @@
           vmu:      "{\\boldsymbol{\\mu}}",
           vnu:     "{\\boldsymbol{\\nu}}",
 
+          mX: "{\\mathsf{X}}",
+          mP: "{\\mathsf{P}}",
+          mI: "{\\mathsf{I}}",
+          m0: "{\\mathsf{0}}",
+          m1: "{\\mathsf{1}}",
+
           htheta: "{\\widehat{\\theta}}",
           hTheta: "{\\widehat{\\Theta}}",
           hbeta:  "{\\widehat{\\beta}}",
+          hvbeta: "{\\widehat{\\boldsymbol{\\beta}}}",
           hlambda: "{\\widehat{\\lambda}}",
           hmu:    "{\\widehat{\\mu}}",
           hsigma: "{\\widehat{\\sigma}}",
           hSigma: "{\\widehat{\\Sigma}}",
+          hp:    "{\\widehat{p}}",
           hP:     "{\\widehat{P}}",
           hX:     "{\\widehat{X}}",
           hY:     "{\\widehat{Y}}",
+          hvY:    "{\\widehat{\\boldsymbol{Y}}}",
           hZ:     "{\\widehat{Z}}",
+          hvveps: "{\\widehat{\\boldsymbol{\\varepsilon}}}",
 
           ct: "{\\mathcal{T}}",
+          cc: "{\\mathcal{C}}",
           cx: "{\\mathcal{X}}",
 
           vzero: "{\\boldsymbol{0}}",
@@ -478,8 +495,9 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 10, 2026</p>
+  <p class="date">March 12, 2026</p>
 </section>
+<section>
 <section id="linear-models" class="title-slide slide level1 center">
 <h1>Linear Models</h1>
 <p>Now we move the situation where we have a</p>
@@ -489,10 +507,126 @@ Fred J. Hickernell
 </ul>
 <p>Types of linear models</p>
 <ul>
-<li><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span></li>
+<li><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></li>
 </ul>
-
 </section>
+<section id="comparison-of-inference-for-linear-models-and-population-parameters" class="slide level2">
+<h2>Comparison of inference for linear models and population parameters</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Linear models</th>
+<th>Population parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Model</td>
+<td><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> <br> <span class="math inline">\(\Ex(Y) = \vx^\top \vbeta\)</span></td>
+<td><span class="math inline">\(Y \sim \Bern(p)\)</span>, <span class="math inline">\(Y \sim \Exp(\lambda)\)</span>, <span class="math inline">\(Y \sim \Norm(\mu,\sigma^2)\)</span>, …</td>
+</tr>
+<tr class="even">
+<td>Parameters</td>
+<td><span class="math inline">\(\vbeta \in \reals^d\)</span></td>
+<td><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="odd">
+<td>Fixed</td>
+<td><span class="math inline">\(\vx\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Random</td>
+<td><span class="math inline">\(Y\)</span>, <span class="math inline">\(\varepsilon\)</span></td>
+<td><span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="odd">
+<td>Data</td>
+<td><span class="math inline">\((\vx_1,Y_1),\dots,(\vx_n,Y_n)\)</span></td>
+<td><span class="math inline">\(Y_1,\dots,Y_n\)</span></td>
+</tr>
+<tr class="even">
+<td>Model with data</td>
+<td><span class="math inline">\(Y_i = \vx_i^\top \vbeta + \varepsilon_i\)</span> <br> <span class="math inline">\(\underbrace{\vY}_{n \times 1} = \underbrace{\mX}_{n \times d}\, \underbrace{\vbeta}_{d \times 1} + \underbrace{\vveps}_{n \times 1}\)</span></td>
+<td><span class="math inline">\(Y_i \sim \Bern(p)\)</span>, <span class="math inline">\(Y_i \sim \Exp(\lambda)\)</span>, <span class="math inline">\(Y_i \sim \Norm(\mu,\sigma^2)\)</span>, …</td>
+</tr>
+<tr class="odd">
+<td>Not observable</td>
+<td><span class="math inline">\(\varepsilon_1,\dots,\varepsilon_n\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Point estimators</td>
+<td><span class="math inline">\(\hbeta = (\mX^\top \mX)^{-1} \mX^\top \vY\)</span>, <span class="math inline">\(\hvY = \mX \hbeta\)</span></td>
+<td><span class="math inline">\(\barY\)</span>, <span class="math inline">\(S^2\)</span>, <span class="math inline">\(\hlambda_{\MLE}\)</span>, <span class="math inline">\(\hp_{\MLE}\)</span>, …</td>
+</tr>
+<tr class="odd">
+<td>Confidence/prediction regions for</td>
+<td><span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\Ex[Y(x)]\)</span>, <span class="math inline">\(Y(x)\)</span></td>
+<td><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y\)</span></td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="least-squares-linear-regression" class="title-slide slide level1 center">
+<h1>Least Squares Linear Regression</h1>
+<ul>
+<li>Model: <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span>
+<ul>
+<li><span class="math inline">\(x_j\)</span> may be a variable or a function of variables</li>
+</ul></li>
+<li>Model with data: <span class="math inline">\(\displaystyle
+\overbrace{\begin{pmatrix}Y_1 \\ Y_2 \\ \vdots \\ \vdots \\ Y_n\end{pmatrix}}^{\vY}
+= \overbrace{\begin{pmatrix} x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} \\ x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2d} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \end{pmatrix}}^{\mX}\, \overbrace{\begin{pmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d \end{pmatrix}}^{\vbeta} + \overbrace{\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \vdots \\ \varepsilon_n \end{pmatrix}}^{\vveps}\)</span></li>
+</ul>
+</section>
+<section id="estimation-of-vbeta-by-least-squares" class="slide level2">
+<h2>Estimation of <span class="math inline">\(\vbeta\)</span> by least squares</h2>
+<p><span class="math display">\[
+\argmin_{\vb \in \reals^d} \lVert \vY -   \mX \vb \rVert^2 = (\mX^\top \mX)^{-1} \mX^\top \vY =: \hvbeta
+\]</span></p>
+<h3 id="proof">Proof</h3>
+<p>Let <span class="math inline">\(\vbeta\)</span> be defined as above, and let <span class="math inline">\(\vb\)</span> be any other vector in <span class="math inline">\(\reals^d\)</span>: <span class="math display">\[\begin{align*}
+\lVert \vY -   \mX \vb \rVert^2 &amp; =
+\lVert (\vY - \mX \hvbeta) + \mX (\hvbeta - \vb) \rVert^2 \\
+&amp; = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX \hvbeta)} + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+&amp; = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX (\mX^\top \mX)^{-1} \mX^\top \vY)}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+&amp; = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{[\mX^\top \vY - \mX^\top \mX (\mX^\top \mX)^{-1} \mX^\top \vY]}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+  &amp; = \lVert \vY - \mX \hvbeta \rVert^2 + \lVert \mX (\hvbeta - \vb) \rVert^2  \ge \lVert \vY - \mX \hvbeta \rVert^2
+\end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>Furthermore</p>
+<ul>
+<li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is the prediction of <span class="math inline">\(\Ex(\vY)\)</span></p></li>
+<li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>, which are orthogonal to all columns of <span class="math inline">\(\mX\)</span></p>
+<ul>
+<li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
+</ul></li>
+</ul>
+<div id="f0121da4" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="1041" height="537"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="help" class="slide level2">
+<h2>help</h2>
+<p>Let <span class="math inline">\(\mP = \mX (\mX^\top \mX)^{-1} \mX^\top\)</span>, this is a <a href="https://en.wikipedia.org/wiki/Projection_(linear_algebra)">projection matrix</a></p>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
