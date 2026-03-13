@@ -177,10 +177,10 @@ data sets through explanatory text, tables and graphs.
 
 ## Assessment
 
-- **Homework:** 15%  
-- **Midterm Tests:** 25%  
+- [**Homework:**](pages/homework.html) 15%  
+- [**Midterm Tests:**](pages/tests.html) 25%  
 - [**Project:**](pages/project.html) 20%  
-- **Final Exam:** 40%  
+- [**Final Exam:**](pages/tests.html) 40%  
 - **Extra Credit:** up to 10%<br>
   Beginning January 20, if you are the first to find an error in
     - My lecture slides, Jupyter Notebooks, or assignments at least 24 hours after I have presented them in class, or
