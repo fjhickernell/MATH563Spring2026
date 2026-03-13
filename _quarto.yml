@@ -42,6 +42,8 @@ website:
         text: Assignments
       - href: pages/tests.qmd
         text: Tests
+      - href: pages/project.qmd
+        text: Project 
       - text: Resources
         menu:
           - href: classlib/classlib/quarto/pages/policies.qmd
