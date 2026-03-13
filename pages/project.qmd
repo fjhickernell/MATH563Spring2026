@@ -27,7 +27,7 @@ Choose **one** of the following project types:
 
 ## Presentations and observations
 
-- Project presentations will be scheduled near the end of the semester &lt;To Be Announced&gt;.
+- Project presentations are scheduled for April 20–22. You must assign yourself to a presentation slot using the [Excel spreadsheet](https://iit0-my.sharepoint.com/:x:/g/personal/hickernell_illinoistech_edu/IQAPhiGptNJkQaZ1j6vfrQAvAW1quqWhPe4seRgd2lqkjjE?e=wagdFO) by **Friday, March 27, 2026**.
 - **Each student must observe and assess TWO other presentations** (using the [Project Assessment Form](project-assessment.qmd)).
 - Your project grade is likely to **suffer** if:
   - you are not on time for your presentation or observations,
