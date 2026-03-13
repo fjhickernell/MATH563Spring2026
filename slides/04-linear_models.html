@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-12">
+  <meta name="dcterms.date" content="2026-03-13">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -495,20 +495,20 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 12, 2026</p>
+  <p class="date">March 13, 2026</p>
 </section>
 <section>
 <section id="linear-models" class="title-slide slide level1 center">
 <h1>Linear Models</h1>
 <p>Now we move the situation where we have a</p>
 <ul>
-<li><p><span class="alert">Repsonse/Output/Dependent Variable</span> <span class="math inline">\(Y\)</span></p></li>
+<li><p><span class="alert">Response/Output/Dependent Variable</span> <span class="math inline">\(Y\)</span></p></li>
 <li><p><span class="alert">Explained/Predicted</span> by a vector of <span class="alert">Predictors/Explanatory Variables/Inputs/Indpendent Variables</span> <span class="math inline">\(\vx\)</span>, where the <span class="math inline">\(x_j\)</span> may be functions of other variables or each other</p></li>
 </ul>
 <p>Types of linear models</p>
 <ul>
-<li><p><span class="alert">Ordinary least squares (OLX)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
-<li><p>ANOVA</p></li>
+<li><p><span id="lsqregress">Ordinary least squares (OLS)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
+<li><p><span class="alert">Analysis of variance (ANOVA)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
 <li><p>Logistic regression and other generalized linear models</p></li>
 <li><p>Gaussian process regression</p></li>
 </ul>
@@ -620,7 +620,7 @@ Fred J. Hickernell
 <li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
-<div id="e04f4b4e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="d8216795" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
