@@ -4,9 +4,9 @@ deck_id: d03
 deck_title: "{{< meta decks.d03.title >}}"
 deck_short_title: "{{< meta decks.d03.short_title >}}"
 
-include-in-header: |
-  <meta name="apple-mobile-web-app-title" content="563 Hypothesis">
-
+include-in-header:
+  - text: |
+      <meta name="apple-mobile-web-app-title" content="563 Hypothesis">
 
 include-after-body:
   - text: |
