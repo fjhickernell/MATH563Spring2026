@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-20">
+  <meta name="dcterms.date" content="2026-03-21">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="02-estimator_files/libs/revealjs/dist/theme/quarto-76c6a1af59fba8bd2ff0830f09d9b598.css">
+  <link rel="stylesheet" href="02-estimator_files/libs/revealjs/dist/theme/quarto-7d867c126396def88cd9b105df38d3d0.css">
   <link href="02-estimator_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="02-estimator_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="02-estimator_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -345,6 +345,7 @@
           hvveps: "{\\widehat{\\boldsymbol{\\varepsilon}}}",
 
           ct: "{\\mathcal{T}}",
+          cf: "{\\mathcal{F}}",
           cc: "{\\mathcal{C}}",
           cx: "{\\mathcal{X}}",
 
@@ -502,7 +503,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 20, 2026</p>
+  <p class="date">March 21, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -801,7 +802,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="f6b00561" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="9ef39fd9" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -843,7 +844,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a 95% confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
-<div id="ae79b34f" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
+<div id="92b53f9b" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -853,7 +854,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 </div>
 </div><div class="column" style="width:42%;">
-<div id="00ef4954" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
+<div id="142bd481" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -886,7 +887,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="e310f505" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="7532d76e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -900,7 +901,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section class="slide level2">
 
 <h3 id="exact-vs-clt-sampling-distribution-of-overlinex-when-x_i-sim-exp1mu">Exact vs CLT sampling distribution of <span class="math inline">\(\overline{X}\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span></h3>
-<div id="df4553d8" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="49fcca91" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -915,7 +916,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h3 id="exact-vs-clt-confidence-intervals-for-mu-when-x_i-sim-exp1mu-two-sample-sizes">Exact vs CLT confidence intervals for <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span> (two sample sizes)</h3>
 <div class="columns">
 <div class="column" style="width:65%;">
-<div id="6ac4efc4" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
+<div id="4042977f" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -953,7 +954,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="c36597d1" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
+<div id="e8d5bea9" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1312,10 +1313,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-2.71, 1.13, 1.58, 0.61, 5.97, 0.13, 1.06, 0.17
+0.85, 0.95, 2.48, 2.84, 1.03, 0.17, 0.89, 0.61
 </td>
 <td>
-1.67
+1.23
 </td>
 </tr>
 <tr>
@@ -1323,10 +1324,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-5.97, 0.61, 2.71, 2.71, 0.17, 0.13, 5.97, 1.58
+0.89, 0.85, 0.95, 0.17, 2.84, 2.48, 0.61, 0.89
 </td>
 <td>
-2.48
+1.21
 </td>
 </tr>
 <tr>
@@ -1334,10 +1335,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-1.06, 2.71, 1.06, 5.97, 0.13, 1.06, 1.06, 0.17
+0.17, 2.84, 0.95, 0.95, 0.17, 0.61, 0.89, 2.84
 </td>
 <td>
-1.65
+1.18
 </td>
 </tr>
 <tr>
@@ -1345,10 +1346,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-0.13, 0.13, 0.13, 1.13, 2.71, 1.13, 1.06, 1.58
+0.61, 1.03, 2.48, 1.03, 0.95, 0.89, 0.85, 0.95
 </td>
 <td>
-1.00
+1.10
 </td>
 </tr>
 <tr>
@@ -1356,10 +1357,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-2.71, 1.58, 0.61, 1.58, 1.13, 1.06, 1.13, 0.61
+0.85, 0.95, 0.61, 0.61, 1.03, 0.17, 0.17, 1.03
 </td>
 <td>
-1.30
+0.68
 </td>
 </tr>
 <tr>
@@ -2096,7 +2097,7 @@ T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \t
 </section>
 <section id="manufacturing-example-parameterized" class="slide level2">
 <h2>Manufacturing example (parameterized)</h2>
-<div id="fc068bb6" class="cell" data-message="false" data-execution_count="12">
+<div id="0ee65ddd" class="cell" data-message="false" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <ul>
 <li><span class="math inline">\(n=25\)</span>, <span class="math inline">\(\barx=10.0200\)</span>, <span class="math inline">\(s=0.2000\)</span></li>
@@ -2115,7 +2116,7 @@ T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \t
 </section>
 <section class="slide level2">
 
-<div id="68d8cd4e" class="cell" data-message="false" data-execution_count="13">
+<div id="bb72c182" class="cell" data-message="false" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
