@@ -1,0 +1,130 @@
+---
+title: "Homework 5: Exact and Approximate Inference for Call Center Waiting Times"
+metadata-files:
+  - ../classlib/classlib/quarto/website/hickernell-website.yml
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+---
+
+## Background
+
+Waiting times in service systems are often modeled using the **exponential distribution**.
+
+Suppose
+
+$$
+X_1,\dots,X_n \sim \Exp(\theta),
+$$
+
+where $\theta$ is the mean waiting time.
+
+A key property of the exponential distribution is that
+
+$$
+\sum_{i=1}^n X_i \sim \Gam(n,\theta).
+$$
+
+Equivalently,
+
+$$
+\frac{2\sum_{i=1}^n X_i}{\theta} \sim \chi^2_{2n}.
+$$
+
+This allows exact inference for $\theta$.
+
+## Data
+
+The context for this assignment is based on real data from the New York City Open Data portal:
+
+**NYC Open Data.** *311 Service Requests from 2010 to Present.*  
+The observations used here are inter-arrival waiting times (in seconds) computed from service-request timestamps for a fixed complaint type.
+
+For this homework, we use a subset of 20 waiting times selected from that real dataset.
+
+The following waiting times (in seconds) were observed:
+
+```
+4 7 8 11 29 34 36 41 47 49
+53 65 79 89 134 134 165 178 227 375
+```
+
+Thus,
+
+$$
+n = 20.
+$$
+
+## Question
+
+Suppose that a service target states that the mean waiting time should not exceed **60 seconds**.
+
+We test
+
+$$
+H_0:\theta = 60
+\qquad\text{vs}\qquad
+H_a:\theta > 60.
+$$
+
+Use significance level
+
+$$
+\alpha = 0.05.
+$$
+
+### Part 1: Model Discussion
+
+Explain why the exponential distribution is often used to model waiting times.
+
+Discuss at least two properties that make it reasonable in this context.
+
+### Part 2: Exact Hypothesis Test
+
+Using the result above:
+
+a. Derive the rejection region for a level-$\alpha$ test of
+   $H_0:\theta=\theta_0
+   \qquad\text{vs}\qquad
+   H_a:\theta>\theta_0$.
+
+b. Apply the test to the dataset above with $\theta_0 = 60$.
+
+c. Compute the **p-value**.
+
+d. State your conclusion in context.
+
+### Part 4: Exact Upper Confidence Bound
+
+Derive a $(1-\alpha)$ **upper confidence bound** for $\theta$ of the form $[0,\theta_U]$. Compute this bound for the dataset and interpret it in context.
+
+### Part 5: Normal Approximation
+
+Using the Central Limit Theorem, construct the approximate test statistic in terms of the sample mean, $\barX$.
+
+a. Compute the approximate p-value.
+
+b. Construct the approximate 95% upper confidence bound.
+
+### Part 6: Comparison and Discussion
+
+Compare the **exact exponential inference** and the **normal approximation**.
+
+Discuss:
+
+a. the difference between the two p-values,
+b. the difference between the two upper confidence bounds,
+c. whether the two methods lead to the same practical conclusion,
+d. how skewness affects the approximation.
+
+## Submission
+
+Your work should include:
+
+- clear derivations,
+- numerical calculations,
+- interpretation in context,
+- sufficient detail for reproducibility.
