@@ -51,6 +51,7 @@ Classes are normally held in RE 102 at 10 AM on Tuesdays and Thursdays
 |  | Thu Apr 2 | | |
 | 12 | Tue Apr 7 | **Test 2** on Optimality of Estimators, Hypothesis Testing, and Ordinary Least Squares | |
 |  | Thu Apr 9 | | |
+| | Fri Apr 10 | **Assignment 5 Due** | |
 | 13 | Tue Apr 14 | | |
 |  | Thu Apr 16 | | |
 | 14| Mon Apr 20 | **Project Presentation** in Galvin Tower 14th Floor West Side Conference Room | |

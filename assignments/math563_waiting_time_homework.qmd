@@ -88,7 +88,7 @@ Using the result above:
 
 a. Derive the rejection region for a level-$\alpha$ test of
    $H_0:\theta=\theta_0
-   \qquad\text{vs}\qquad
+   \text{ vs }
    H_a:\theta>\theta_0$.
 
 b. Apply the test to the dataset above with $\theta_0 = 60$.
