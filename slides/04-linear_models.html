@@ -635,7 +635,7 @@ Fred J. Hickernell
 <li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
-<div id="720f2f54" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="fc3d8d6e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -663,20 +663,13 @@ Fred J. Hickernell
 \mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
 &amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
 &amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
-\implies \Ex(\vzero) &amp; = \vzero
+\implies \Ex(\vveps) &amp; = \vzero
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="residual-sum-of-squares-and-unbiased-estimation-of-sigma2">Residual sum of squares and unbiased estimation of <span class="math inline">\(\sigma^2\)</span></h3>
-<p>Recall that <span class="math display">\[\begin{align*}
-\hvveps &amp;= \vY - \hvY = (\mI-\mP)\vY,
-\qquad
-\mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
-&amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
-&amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$}
-\end{align*}\]</span></p>
-<p>Hence <span class="math display">\[\begin{equation*}
+<p>Recall that <span class="math inline">\(\hvveps = (\mI-\mP)\vveps\)</span>. Hence <span class="math display">\[\begin{equation*}
 \Ex\bigl(\lVert \hvveps \rVert^2\bigr)
 = \Ex\bigl(\vveps^\top (\mI-\mP)\vveps\bigr) \\
 = \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
@@ -704,7 +697,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 </section>
 <section class="slide level2">
 
-<h3 id="confidence-ellipsoid-for-vbeta">Confidence ellipsoid for <span class="math inline">\(\vbeta\)</span></h3>
+<h3 id="confidence-ellipsoid-for-vbeta-assuming-vveps-sim-normvzerosigma2-mi">Confidence ellipsoid for <span class="math inline">\(\vbeta\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h3>
 <p>From the normal distribution of <span class="math inline">\(\hvbeta\)</span>, it follows that <span class="math display">\[\frac{
 (\hvbeta-\vbeta)^\top
 (\mX^\top\mX)
@@ -732,7 +725,7 @@ F_{d,n-d,1-\alpha}
 </section>
 <section class="slide level2">
 
-<h3 id="individual-confidence-intervals-for-the-beta_j">Individual confidence intervals for the <span class="math inline">\(\beta_j\)</span></h3>
+<h3 id="individual-confidence-intervals-for-the-beta_j-assuming-vveps-sim-normvzerosigma2-mi">Individual confidence intervals for the <span class="math inline">\(\beta_j\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h3>
 <p>Since <span class="math inline">\(\hvbeta \sim
 \Norm\!\left(
 \vbeta,\;
@@ -755,13 +748,14 @@ S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}}
 \sim t_{n-d}
 \]</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{multline*}
 \hbeta_j
 \pm
 t_{n-d,1-\alpha/2}
 \;
-S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \qquad{\text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d}
-\]</span></p>
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \\
+\text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
+\end{multline*}\]</span></p>
 </section>
 <section class="slide level2">
 
@@ -791,31 +785,9 @@ S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 <li>the confidence ellipsoid controls <span class="math inline">\(\vbeta\)</span> jointly</li>
 </ul>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="confidence-interval-for-muvx" class="title-slide slide level1 center">
-<h1>Confidence interval for <span class="math inline">\(\mu(\vx)\)</span></h1>
-<p>Recall</p>
-<p><span class="math display">\[
-\mu(\vx)=\vx^\top\vbeta
-\qquad
-\hmu(\vx)=\vx^\top\hvbeta
-\]</span></p>
-<p>Since <span class="math inline">\(\hvbeta\)</span> is normal,</p>
-<p><span class="math display">\[
-\hmu(\vx)
-\sim
-\Norm\!\left(
-\mu(\vx),\;
-\sigma^2
-\vx^\top(\mX^\top\mX)^{-1}\vx
-\right)
-\]</span></p>
-</section>
-<section id="standardized-statistic" class="slide level2">
-<h2>Standardized statistic</h2>
+<section id="confidence-interval-for-muvx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
+<h2>Confidence interval for <span class="math inline">\(\mu(\vx)\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
+<p>Recall <span class="math inline">\(\mu(\vx)=\vx^\top\vbeta\)</span>, <span class="math inline">\(\hmu(\vx)= \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p>
 <p>Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives</p>
 <p><span class="math display">\[
 \frac{
@@ -826,9 +798,6 @@ S
 }
 \sim t_{n-d}
 \]</span></p>
-</section>
-<section id="alpha-confidence-interval" class="slide level2">
-<h2><span class="math inline">\((1-\alpha)\)</span> confidence interval</h2>
 <p>Therefore</p>
 <p><span class="math display">\[
 \hmu(\vx)
@@ -838,21 +807,10 @@ t_{n-d,1-\alpha/2}
 S
 \sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
 \]</span></p>
-<p>is a</p>
-<p><span class="math display">\[
-\class{alert}{(1-\alpha)\text{ confidence interval for }\mu(\vx)}
-\]</span></p>
+<p>is a <span class="alert"><span class="math inline">\((1-\alpha)\)</span> confidence interval for <span class="math inline">\(\mu(\vx)\)</span></span></p>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="prediction-interval-for-ymid-vx" class="title-slide slide level1 center">
-<h1>Prediction interval for <span class="math inline">\(Y\mid \vx\)</span></h1>
-
-</section>
-<section id="future-observation" class="slide level2">
-<h2>Future observation</h2>
+<section id="prediction-interval-for-ymid-vx" class="slide level2">
+<h2>Prediction interval for <span class="math inline">\(Y\mid \vx\)</span></h2>
 <p>For a new observation</p>
 <p><span class="math display">\[
 Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}
