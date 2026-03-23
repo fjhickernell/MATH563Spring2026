@@ -591,9 +591,6 @@ Fred J. Hickernell
 </tr>
 </tbody>
 </table>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="lsqregress" class="title-slide slide level1 center">
@@ -631,14 +628,14 @@ Fred J. Hickernell
 
 <p>Furthermore</p>
 <ul>
-<li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx)\)</span></p></li>
+<li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta\)</span></p></li>
 <li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is an estimator of <span class="math inline">\(\mu(\vX) = \Ex(\vY)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>, which are orthogonal to all columns of <span class="math inline">\(\mX\)</span>, i.e., orthogonal to <span class="math inline">\(\cc(\mX)\)</span></p>
 <ul>
 <li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
-<div id="58f97cfc" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="720f2f54" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -653,15 +650,20 @@ Fred J. Hickernell
 <p>Recall that <span class="math inline">\(Y = \mX \vbeta + \vveps\)</span>, with <span class="math inline">\(\Ex(\vveps)=0, \ \cov(\vveps)=\sigma^2 \mI\)</span>, where <span class="math inline">\(\mX\)</span> is fixed and of full column rank</p>
 <h3 id="unbiasedness-of-hvbeta-and-hmuvx">Unbiasedness of <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></h3>
 <p><span class="math display">\[\begin{align*}
-\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY \implies
+\hvbeta = &amp; (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
 \Ex(\hvbeta)
-&amp;= (\mX^\top \mX)^{-1} \mX^\top \Ex(\vY) \\
-&amp;= (\mX^\top \mX)^{-1} \mX^\top \mX \vbeta \\
-&amp;= \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\
-\hmu(\vx) = \vx^\top \hvbeta \implies
+&amp;= \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
+\hmu(\vx) &amp; = \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
 \Ex(\hmu(\vx))
-&amp;= \vx^\top \Ex(\hvbeta) \\
-&amp;= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}}
+&amp;= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}} \\[12pt]
+\hvveps &amp;= \vY - \hvY = (\mI-\mP)\vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
+&amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
+&amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
+\implies \Ex(\vzero) &amp; = \vzero
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
@@ -692,17 +694,13 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 </section>
 <section id="confidence-regions-for-vbeta-and-muvx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
 <h2>Confidence regions for <span class="math inline">\(\vbeta\)</span> and <span class="math inline">\(\mu(\vx)\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
-<h3 id="distribution-of-hvbeta">Distribution of <span class="math inline">\(\hvbeta\)</span></h3>
-<p>Assume <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2\mI)\)</span> and recall that <span class="math inline">\(\hvbeta = (\mX^\top\mX)^{-1}\mX^\top\vY\)</span>. Since <span class="math inline">\(\vY = \mX\vbeta + \vveps\)</span>,</p>
-<p><span class="math display">\[
-\hvbeta
-= (\mX^\top\mX)^{-1}\mX^\top(\mX\vbeta+\vveps)
-= \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim
-\Norm\!\left(
-\vbeta,\;
-\sigma^2(\mX^\top\mX)^{-1}
-\right)
-\]</span> because a <span class="alert">linear combination of normal random variables is normal</span></p>
+<p>Now we assume that <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span>. Since a <span class="alert">linear combination of normal random variables is normal</span>, the following <span class="alert">data-based</span> quantities are all normally distributed:</p>
+<ul>
+<li><p><span class="math inline">\(\vY = \mX \vbeta + \vveps \sim \Norm(\mX\vbeta,\sigma^2 \mI)\)</span></p></li>
+<li><p><span class="math inline">\(\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top\mX)^{-1}\mX^\top (\mX \vbeta + \vveps) = \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\vbeta,\sigma^2 (\mX^\top \mX)^{-1}\right)\)</span></p></li>
+<li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
+<li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
+</ul>
 </section>
 <section class="slide level2">
 
