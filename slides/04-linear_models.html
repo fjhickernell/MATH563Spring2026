@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-23">
+  <meta name="dcterms.date" content="2026-03-24">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -510,7 +510,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 23, 2026</p>
+  <p class="date">March 24, 2026</p>
 </section>
 <section>
 <section id="linear-models" class="title-slide slide level1 center">
@@ -630,12 +630,25 @@ Fred J. Hickernell
 <ul>
 <li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta\)</span></p></li>
 <li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is an estimator of <span class="math inline">\(\mu(\vX) = \Ex(\vY)\)</span></p></li>
-<li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>, which are orthogonal to all columns of <span class="math inline">\(\mX\)</span>, i.e., orthogonal to <span class="math inline">\(\cc(\mX)\)</span></p>
+<li><p><span class="math inline">\(\mP\)</span> is the projection matrix onto <span class="math inline">\(\cc(\mX)\)</span>, the column space of <span class="math inline">\(\mX\)</span>, which means the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span>. This means that</p>
 <ul>
+<li><span class="math inline">\(\mP^2 = \mP\)</span> (idempotent), and so <span class="math inline">\(\mP\)</span> has eigenvalues of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> only</li>
+<li><span class="math inline">\(\mP^\top = \mP\)</span> (symmetric)</li>
+<li><span class="math inline">\(\mP \mX = \mX\)</span> (projection onto <span class="math inline">\(\cc(\mX)\)</span>)<br>
+</li>
+<li><span class="math inline">\((\mI - \mP) \mX = \mzero\)</span> (projection onto the orthogonal complement of <span class="math inline">\(\cc(\mX)\)</span> )</li>
+</ul></li>
+<li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>,</p>
+<ul>
+<li>Orthogonal to all columns of <span class="math inline">\(\mX\)</span>, i.e., orthogonal to <span class="math inline">\(\cc(\mX)\)</span></li>
 <li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
-<div id="fc3d8d6e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+</section>
+<section class="slide level2">
+
+<h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
+<div id="c67cf022" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -650,10 +663,10 @@ Fred J. Hickernell
 <p>Recall that <span class="math inline">\(Y = \mX \vbeta + \vveps\)</span>, with <span class="math inline">\(\Ex(\vveps)=0, \ \cov(\vveps)=\sigma^2 \mI\)</span>, where <span class="math inline">\(\mX\)</span> is fixed and of full column rank</p>
 <h3 id="unbiasedness-of-hvbeta-and-hmuvx">Unbiasedness of <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></h3>
 <p><span class="math display">\[\begin{align*}
-\hvbeta = &amp; (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\hvbeta &amp; = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
 \implies
 \Ex(\hvbeta)
-&amp;= \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
+&amp; = \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
 \hmu(\vx) &amp; = \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
 \implies
 \Ex(\hmu(\vx))
@@ -663,13 +676,13 @@ Fred J. Hickernell
 \mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
 &amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
 &amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
-\implies \Ex(\vveps) &amp; = \vzero
+\implies \Ex(\hvveps) &amp; = \vzero
 \end{align*}\]</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="residual-sum-of-squares-and-unbiased-estimation-of-sigma2">Residual sum of squares and unbiased estimation of <span class="math inline">\(\sigma^2\)</span></h3>
-<p>Recall that <span class="math inline">\(\hvveps = (\mI-\mP)\vveps\)</span>. Hence <span class="math display">\[\begin{equation*}
+<p>Since <span class="math inline">\(\hvveps = (\mI-\mP)\vveps\)</span>, it follows that <span class="math display">\[\begin{equation*}
 \Ex\bigl(\lVert \hvveps \rVert^2\bigr)
 = \Ex\bigl(\vveps^\top (\mI-\mP)\vveps\bigr) \\
 = \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
@@ -684,6 +697,23 @@ S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
 = \frac{1}{n-d}\,\vY^\top(\mI-\mP)\vY \quad \text{
 is an \class{alert}{unbiased} estimator of $\sigma^2$}
 \]</span></p>
+</section></section>
+<section>
+<section id="inference-for-regression-parameters-and-predictions-assuming-vveps-sim-normvzerosigma2-mi" class="title-slide slide level1 center">
+<h1>Inference for regression parameters and predictions assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h1>
+<p>So far, we have only used the assumptions that</p>
+<ul>
+<li><span class="math inline">\(\mX\)</span> is fixed and of full column rank</li>
+<li><span class="math inline">\(\Ex(\vveps)=\vzero\)</span> and <span class="math inline">\(\cov(\vveps)=\sigma^2 \mI\)</span></li>
+</ul>
+<p>Going forward, we will assume that <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span>. This allows us to</p>
+<ul>
+<li>Make probabilistic statements about the estimators <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></li>
+<li>Construct confidence intervals for <span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\mu(\vx)\)</span>, and <span class="math inline">\(\sigma^2\)</span></li>
+<li>Construct prediction intervals for <span class="math inline">\(Y \mid \vx\)</span></li>
+<li>Perform hypothesis tests about <span class="math inline">\(\vbeta\)</span> and <span class="math inline">\(\mu(\vx)\)</span></li>
+<li>Assess model fit and compare models</li>
+</ul>
 </section>
 <section id="confidence-regions-for-vbeta-and-muvx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
 <h2>Confidence regions for <span class="math inline">\(\vbeta\)</span> and <span class="math inline">\(\mu(\vx)\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
@@ -705,7 +735,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 }{\sigma^2}
 \sim \chi^2_d
 \]</span></p>
-<p>Replacing <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(S^2\)</span> gives</p>
+<p><span class="math inline">\(\hvbeta\)</span> depends on the projection of <span class="math inline">\(\vY\)</span> onto <span class="math inline">\(\cc(\mX)\)</span>, while <span class="math inline">\(S^2\)</span> depends on the projection onto <span class="math inline">\(\cc(\mX)^\perp\)</span>; under normality, these orthogonal components are independent. Therefore, replacing <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(S^2\)</span> gives</p>
 <p><span class="math display">\[
 \frac{
 (\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
@@ -719,7 +749,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 (\hvbeta-\vbeta)
 \le
 d S^2
-F_{d,n-d,1-\alpha}
+F_{d,n-d,\alpha}, \quad \text{where } \Prob(F_{d,n-d} &gt; F_{d,n-d,\alpha}) = \alpha
 \]</span></p>
 <p>defines a <span class="math inline">\(\class{alert}{(1-\alpha)\text{ confidence ellipsoid for }\vbeta}\)</span> centered at <span class="math inline">\(\hvbeta\)</span></p>
 </section>
@@ -751,7 +781,7 @@ S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}}
 <p><span class="math display">\[\begin{multline*}
 \hbeta_j
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 \;
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \\
 \text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
@@ -765,11 +795,11 @@ S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \\
 (\mX^\top\mX)
 (\hvbeta-\vbeta)
 \le
-dS^2F_{d,n-d,1-\alpha} \quad \text{is a joint confidence region \class{alert}{for the whole vector $\vbeta$}}
+dS^2F_{d,n-d,\alpha} \quad \text{is a joint confidence region \class{alert}{for the whole vector $\vbeta$}}
 \\
 \hbeta_j
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 \;
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
@@ -802,7 +832,7 @@ S
 <p><span class="math display">\[
 \hmu(\vx)
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 \;
 S
 \sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
@@ -811,86 +841,247 @@ S
 </section>
 <section id="prediction-interval-for-ymid-vx" class="slide level2">
 <h2>Prediction interval for <span class="math inline">\(Y\mid \vx\)</span></h2>
-<p>For a new observation</p>
-<p><span class="math display">\[
-Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}
-\]</span></p>
-<p>with</p>
-<p><span class="math display">\[
-\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)
-\]</span></p>
-<p>independent of the data.</p>
-</section>
-<section id="variance" class="slide level2">
-<h2>Variance</h2>
-<p>Then</p>
-<p><span class="math display">\[
-Y_{\text{new}}-\hmu(\vx)
-=
-\varepsilon_{\text{new}}
--
-\vx^\top(\hvbeta-\vbeta)
-\]</span></p>
-<p>so</p>
-<p><span class="math display">\[
-\var(Y_{\text{new}}-\hmu(\vx))
-=
-\sigma^2
-\left(
+<p>A <em>new</em> observation, <span class="math inline">\(Y \mid \vx = Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}\)</span>, depends both on</p>
+<ul>
+<li>the value of <span class="math inline">\(\vx\)</span> and</li>
+<li>the new error <span class="math inline">\(\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)\)</span> that is independent of the data used to fit the model</li>
+</ul>
+<p>Predicting <span class="math inline">\(Y_{\text{new}}\)</span> by <span class="math inline">\(\hmu(\vx)\)</span> has uncertainty coming both from the uncertainty in the model parameters and the new error term:</p>
+<p><span class="math display">\[\begin{align*}
+Y_{\text{new}}-\hmu(\vx) &amp; = \bigl(\vx^\top\vbeta+\varepsilon_{\text{new}}\bigr) - \bigl(\vx^\top\vbeta + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \bigr) \\
+&amp; = \varepsilon_{\text{new}} - \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps\\
+&amp; \sim \Norm\!\left(0,\;
+\sigma^2\left(
 1+\vx^\top(\mX^\top\mX)^{-1}\vx
-\right)
-\]</span></p>
-</section>
-<section id="alpha-prediction-interval" class="slide level2">
-<h2><span class="math inline">\((1-\alpha)\)</span> prediction interval</h2>
-<p>Therefore</p>
+\right)\right) \qquad \text{since $\varepsilon_{\text{new}}$ is independent of $\vveps$}
+\end{align*}\]</span></p>
+<p>Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives a <span class="math inline">\(t\)</span>-distribution for the standardized prediction error. A <span class="alert"><span class="math inline">\((1-\alpha)\)</span> prediction interval</span> for <span class="math inline">\(Y_{\text{new}}\)</span> is then given by</p>
 <p><span class="math display">\[
 Y_{\text{new}}
 \in
 \hmu(\vx)
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 S
 \sqrt{
 1+\vx^\top(\mX^\top\mX)^{-1}\vx
 }
 \]</span></p>
-<p>which is the</p>
-<p><span class="math display">\[
-\class{alert}{(1-\alpha)\text{ prediction interval for }Y|\vx}
-\]</span></p>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="mean-vs-prediction-intervals" class="title-slide slide level1 center">
-<h1>Mean vs prediction intervals</h1>
+<section id="mean-vs-prediction-intervals" class="slide level2">
+<h2>Mean vs prediction intervals</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
 <p>Confidence interval for mean response:</p>
 <p><span class="math display">\[
 \hmu(\vx)
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 S
 \sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
 \]</span></p>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
 <p>Prediction interval for a new observation:</p>
 <p><span class="math display">\[
 \hmu(\vx)
 \pm
-t_{n-d,1-\alpha/2}
+t_{n-d,\alpha/2}
 S
 \sqrt{
 1+\vx^\top(\mX^\top\mX)^{-1}\vx
 }
 \]</span></p>
-<p>Key point:</p>
-<p><span class="math display">\[
-\class{alert}{\text{Prediction intervals are wider}}
-\]</span></p>
+</div></div>
+<div class="key-point">
+<p>Prediction intervals are wider</p>
+</div>
+</section></section>
+<section>
+<section id="regression-diagnostics-and-model-selection" class="title-slide slide level1 center">
+<h1>Regression diagnostics and model selection</h1>
+<p>Up to this point, we have assumed that the chosen linear model is appropriate.<br>
+In practice, we should also check whether the model assumptions are reasonable and whether the chosen set of predictors is adequate.</p>
 </section>
-<section id="prediction-regions-for-y-mid-vx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
-<h2>Prediction regions for <span class="math inline">\(Y \mid \vx\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
+<section id="regression-diagnostics" class="slide level2">
+<h2>Regression diagnostics</h2>
+<p>Regression diagnostics help us assess whether the assumptions behind least squares regression are reasonable.</p>
+<p>The main questions are:</p>
+<ul>
+<li>Is the mean response approximately linear in the chosen predictors?</li>
+<li>Does the variability of the errors stay roughly constant?</li>
+<li>Are the errors approximately normally distributed?</li>
+<li>Are there unusual or influential observations that strongly affect the fit?</li>
+</ul>
+<h3 id="residuals-and-fitted-values">Residuals and fitted values</h3>
+<p>Recall that</p>
+<p><span class="math display">\[
+\hvY = \mX \hvbeta,
+\qquad
+\hvveps = \vY - \hvY
+\]</span></p>
+<p>The residuals <span class="math inline">\(\hat\varepsilon_i = Y_i - \hat Y_i\)</span> estimate the unknown errors <span class="math inline">\(\varepsilon_i\)</span>.</p>
+<p>A good first diagnostic is a plot of residuals versus fitted values.</p>
+<h3 id="residuals-versus-fitted-values">Residuals versus fitted values</h3>
+<p>If the linear model is appropriate, then the residual plot should show</p>
+<ul>
+<li>points scattered around <span class="math inline">\(0\)</span></li>
+<li>no strong curve or pattern</li>
+<li>roughly constant vertical spread across the range of fitted values</li>
+</ul>
+<p>Possible warning signs:</p>
+<ul>
+<li>a curved pattern suggests that the mean response is not linear</li>
+<li>a funnel shape suggests nonconstant variance</li>
+<li>isolated large residuals suggest possible outliers</li>
+</ul>
+<div class="key-point">
+<p>A residual plot should look like random noise around zero, not like a pattern.</p>
+</div>
+<h3 id="normal-q-q-plot">Normal Q-Q plot</h3>
+<p>Many inference procedures for regression assume that the errors are normally distributed.</p>
+<p>A normal Q-Q plot compares the residuals to what we would expect under normality.</p>
+<ul>
+<li>If the residuals are approximately normal, the points should lie roughly on a straight line.</li>
+<li>Strong bending or heavy tails suggest departures from normality.</li>
+</ul>
+<p>This matters most for small samples.<br>
+For large samples, moderate nonnormality is often less serious for estimation, though it may still affect inference.</p>
+<h3 id="hat-matrix-and-leverage">Hat matrix and leverage</h3>
+<p>The fitted values satisfy</p>
+<p><span class="math display">\[
+\hvY = \mH \vY,
+\qquad
+\mH := \mX(\mX^\top \mX)^{-1}\mX^\top
+\]</span></p>
+<p>The matrix <span class="math inline">\(\mH\)</span> is called the <span class="alert">hat matrix</span> because it puts a “hat” on <span class="math inline">\(\vY\)</span>.</p>
+<p>Its diagonal entries <span class="math inline">\(h_{ii}\)</span> are called the <span class="alert">leverages</span>.</p>
+<ul>
+<li>A large value of <span class="math inline">\(h_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span>.</li>
+<li>Such observations can have a large effect on the fitted regression line or surface.</li>
+</ul>
+<h3 id="standardized-residuals">Standardized residuals</h3>
+<p>Since the variability of <span class="math inline">\(\hat\varepsilon_i\)</span> depends on <span class="math inline">\(h_{ii}\)</span>, it is useful to scale residuals.</p>
+<p>A standardized residual is</p>
+<p><span class="math display">\[
+r_i
+=
+\frac{\hat\varepsilon_i}{S\sqrt{1-h_{ii}}}
+\]</span></p>
+<p>Large values of <span class="math inline">\(|r_i|\)</span> indicate observations whose responses are unusual relative to the fitted model.</p>
+<p>As a rough rule of thumb, values with <span class="math inline">\(|r_i|&gt;2\)</span> deserve attention, and values with <span class="math inline">\(|r_i|&gt;3\)</span> deserve serious attention.</p>
+<h3 id="influence-and-cooks-distance">Influence and Cook’s distance</h3>
+<p>An observation can be unusual in two different ways:</p>
+<ul>
+<li>it can have a large residual</li>
+<li>it can have high leverage</li>
+</ul>
+<p>An observation that combines both may be <span class="alert">influential</span>, meaning that removing it could noticeably change the fitted model.</p>
+<p>A common summary measure is Cook’s distance:</p>
+<p><span class="math display">\[
+D_i
+=
+\frac{r_i^2}{d}\frac{h_{ii}}{1-h_{ii}}
+\]</span></p>
+<p>Large values of <span class="math inline">\(D_i\)</span> indicate potentially influential observations.</p>
+<h3 id="summary-of-common-diagnostic-plots">Summary of common diagnostic plots</h3>
+<p>Common diagnostic plots include:</p>
+<ul>
+<li><p>residuals versus fitted values<br>
+checks linearity and constant variance</p></li>
+<li><p>normal Q-Q plot<br>
+checks approximate normality of residuals</p></li>
+<li><p>scale-location plot<br>
+checks whether residual spread is roughly constant</p></li>
+<li><p>residuals versus leverage, often with Cook’s distance shown<br>
+checks for influential observations</p></li>
+</ul>
+<h3 id="what-to-do-if-diagnostics-look-bad">What to do if diagnostics look bad</h3>
+<p>If diagnostics reveal problems, possible responses include:</p>
+<ul>
+<li>transforming the response or some predictors</li>
+<li>adding nonlinear terms such as <span class="math inline">\(x^2\)</span></li>
+<li>adding interaction terms</li>
+<li>using weighted least squares if variance is not constant</li>
+<li>checking for data-entry errors or unusual observations</li>
+<li>reconsidering whether a different model is more appropriate</li>
+</ul>
+<div class="key-point">
+<p>Diagnostics do not automatically tell us the right fix, but they do tell us where the model may be going wrong.</p>
+</div>
+</section>
+<section id="model-selection" class="slide level2">
+<h2>Model selection</h2>
+<p>In regression, adding more predictors almost always improves the fit to the observed data.<br>
+However, a more complicated model is not always better.</p>
+<p>Model selection aims to balance</p>
+<ul>
+<li>goodness of fit</li>
+<li>model simplicity</li>
+<li>interpretability</li>
+<li>predictive performance</li>
+</ul>
+<h3 id="comparing-nested-models">Comparing nested models</h3>
+<p>Suppose we compare two <span class="alert">nested</span> models:</p>
+<ul>
+<li>a reduced model with <span class="math inline">\(d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\text{RSS}_0\)</span></li>
+<li>a full model with <span class="math inline">\(d_1&gt;d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\text{RSS}_1\)</span></li>
+</ul>
+<p>Since the full model has more predictors, we always have</p>
+<p><span class="math display">\[
+\text{RSS}_1 \le \text{RSS}_0
+\]</span></p>
+<p>The question is whether the reduction in RSS is large enough to justify the extra parameters.</p>
+<h3 id="f-test-for-nested-models">F-test for nested models</h3>
+<p>To test whether the additional predictors in the full model are needed, use</p>
+<p><span class="math display">\[
+F
+=
+\frac{(\text{RSS}_0-\text{RSS}_1)/(d_1-d_0)}{\text{RSS}_1/(n-d_1)}
+\]</span></p>
+<p>Under the null hypothesis that the extra coefficients are all zero,</p>
+<p><span class="math display">\[
+F \sim F_{d_1-d_0,\;n-d_1}
+\]</span></p>
+<p>A large value of <span class="math inline">\(F\)</span> gives evidence that the extra predictors improve the model.</p>
+<h3 id="measures-of-model-quality">Measures of model quality</h3>
+<p>Several criteria are commonly used to compare models.</p>
+<h4 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h4>
+<p>Ordinary <span class="math inline">\(R^2\)</span> never decreases when more predictors are added.<br>
+Adjusted <span class="math inline">\(R^2\)</span> corrects for this by penalizing model complexity:</p>
+<p><span class="math display">\[
+R^2_{\text{adj}}
+=
+1-\frac{\text{RSS}/(n-d)}{\text{TSS}/(n-1)}
+\]</span></p>
+<p>Larger values of adjusted <span class="math inline">\(R^2\)</span> are better.</p>
+<h4 id="aic-and-bic">AIC and BIC</h4>
+<p>Two widely used criteria are:</p>
+<ul>
+<li>AIC = Akaike information criterion</li>
+<li>BIC = Bayesian information criterion</li>
+</ul>
+<p>Both reward good fit but penalize overly complicated models.</p>
+<ul>
+<li>AIC usually favors somewhat larger models</li>
+<li>BIC usually favors simpler models more strongly</li>
+</ul>
+<h3 id="training-fit-versus-prediction">Training fit versus prediction</h3>
+<p>A model that fits the observed data extremely well may still predict poorly on new data.</p>
+<p>This is called <span class="alert">overfitting</span>.</p>
+<p>So in practice, we should not judge a model only by how small its RSS is on the training data.</p>
+<h3 id="practical-principles-for-model-selection">Practical principles for model selection</h3>
+<p>When comparing regression models:</p>
+<ul>
+<li>prefer simpler models if they explain the data nearly as well</li>
+<li>use subject-matter knowledge, not just automatic procedures</li>
+<li>check diagnostics again after selecting a model</li>
+<li>remember that the “best” model for explanation may differ from the “best” model for prediction</li>
+</ul>
+<div class="key-point">
+<p>A good regression model should fit well, make scientific sense, and pass basic diagnostic checks.</p>
+</div>
 
 </section></section>
     </div>
