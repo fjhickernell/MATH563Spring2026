@@ -22,6 +22,13 @@ subtitle: |
   Assignment 2 due 1/30</span>
 ---
 
+# Slide Decks for This Course
+
+- [{{< meta decks.d01.title >}}]({{< meta decks.d01.url >}})
+- [{{< meta decks.d02.title >}}]({{< meta decks.d02.url >}})
+- [{{< meta decks.d03.title >}}]({{< meta decks.d03.url >}})
+- [{{< meta decks.d04.title >}}]({{< meta decks.d04.url >}})
+
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/intro/how-to-read-slides.qmd >}}
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/intro/intro-stats-examples.qmd >}}
