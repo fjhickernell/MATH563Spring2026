@@ -177,9 +177,9 @@ data sets through explanatory text, tables and graphs.
 
 ## Assessment
 
-- [**Homework:**](pages/homework.html) 15%  
-- [**Midterm Tests:**](pages/tests.html) 25%  
-- [**Project:**](pages/project.html) 20%  
+- [**Homework:**](pages/homework.html) 15%  (will drop the lowest 2 homework scores)
+- [**Midterm Tests:**](pages/tests.html) 25%  (2/3 times best score + 1/3 times second best score)
+- [**Project:**](pages/project.html) 20%  (see project page for details)
 - [**Final Exam:**](pages/tests.html) 40%  
 - **Extra Credit:** up to 10%<br>
   Beginning January 20, if you are the first to find an error in
