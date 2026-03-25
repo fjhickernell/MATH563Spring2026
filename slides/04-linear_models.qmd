@@ -24,4 +24,8 @@ subtitle: |
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/linear_frame.qmd >}}
 
-{{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/lsqregress.qmd >}}
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/lsqregressfit.qmd >}}
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/lsqregressinfer.qmd >}}
+
+{{< include ../classlib/classlib/quarto/slides/shared/statistics/linear/lsqregressselect.qmd >}}
