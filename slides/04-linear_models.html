@@ -522,10 +522,10 @@ Fred J. Hickernell
 </ul>
 <p>Types of linear models</p>
 <ul>
-<li><p><a href="#/lsqregress">Ordinary least squares (OLS)</a> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p>
+<li><p><a href="#/lsqregress">Ordinary least squares (OLS)</a> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\Ex(\varepsilon) = 0\)</span> and <span class="math inline">\(\cov(\varepsilon) = \sigma^2 \mI\)</span></p>
 <ul>
-<li><p><a href="#/lsqregress">Solution</a></p></li>
-<li><p><a href="#/ols_inference">Inference</a></p></li>
+<li><p><a href="#/lsqregress">Solution, geometry, unbiasedness</a></p></li>
+<li><p><a href="#/ols_inference">Inference for model parameters and predictions</a></p></li>
 <li><p><a href="#/ols_diagnostics">Diagnostics and model selection</a></p></li>
 </ul></li>
 <li><p><span class="alert">Analysis of variance (ANOVA)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
@@ -537,9 +537,9 @@ Fred J. Hickernell
 <h2>Comparison of inference for linear models and population parameters</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 40%">
-<col style="width: 40%">
+<col style="width: 11%">
+<col style="width: 44%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -551,7 +551,7 @@ Fred J. Hickernell
 <tbody>
 <tr class="odd">
 <td>Model</td>
-<td><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> <br> <span class="math inline">\(\Ex(Y) = \vx^\top \vbeta\)</span></td>
+<td><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span>, &nbsp; <span class="math inline">\(\Ex(\varepsilon) = 0\)</span>, <span class="math inline">\(\var(\varepsilon) = \sigma^2\)</span> <br> <span class="math inline">\(\Ex(Y) = \vx^\top \vbeta =: \mu(\vx)\)</span></td>
 <td><span class="math inline">\(Y \sim \Bern(p)\)</span>, <span class="math inline">\(Y \sim \Exp(\lambda)\)</span>, <span class="math inline">\(Y \sim \Norm(\mu,\sigma^2)\)</span>, …</td>
 </tr>
 <tr class="even">
@@ -584,14 +584,43 @@ Fred J. Hickernell
 <td><span class="math inline">\(\varepsilon_1,\dots,\varepsilon_n\)</span></td>
 <td></td>
 </tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table class="caption-top">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Linear models</th>
+<th>Population parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Model</td>
+<td><span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span>, &nbsp; <span class="math inline">\(\Ex(\varepsilon) = 0\)</span>, <span class="math inline">\(\var(\varepsilon) = \sigma^2\)</span> <br> <span class="math inline">\(\Ex(Y) = \vx^\top \vbeta =: \mu(\vx)\)</span></td>
+<td><span class="math inline">\(Y \sim \Bern(p)\)</span>, <span class="math inline">\(Y \sim \Exp(\lambda)\)</span>, <span class="math inline">\(Y \sim \Norm(\mu,\sigma^2)\)</span>, …</td>
+</tr>
 <tr class="even">
+<td>Model with data</td>
+<td><span class="math inline">\(Y_i = \vx_i^\top \vbeta + \varepsilon_i\)</span> <br> <span class="math inline">\(\underbrace{\vY}_{n \times 1} = \underbrace{\mX}_{n \times d}\, \underbrace{\vbeta}_{d \times 1} + \underbrace{\vveps}_{n \times 1}\)</span></td>
+<td><span class="math inline">\(Y_i \sim \Bern(p)\)</span>, <span class="math inline">\(Y_i \sim \Exp(\lambda)\)</span>, <span class="math inline">\(Y_i \sim \Norm(\mu,\sigma^2)\)</span>, …</td>
+</tr>
+<tr class="odd">
 <td>Point estimators</td>
 <td><span class="math inline">\(\hbeta = (\mX^\top \mX)^{-1} \mX^\top \vY\)</span>, <span class="math inline">\(\hvY = \mX \hbeta\)</span></td>
 <td><span class="math inline">\(\barY\)</span>, <span class="math inline">\(S^2\)</span>, <span class="math inline">\(\hlambda_{\MLE}\)</span>, <span class="math inline">\(\hp_{\MLE}\)</span>, …</td>
 </tr>
-<tr class="odd">
-<td>Confidence/prediction regions for</td>
-<td><span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\Ex(Y \mid \vx)\)</span>, <span class="math inline">\(Y \mid \vx\)</span></td>
+<tr class="even">
+<td>Confidence/ prediction regions for</td>
+<td><span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\mu(\vx)\)</span>, <span class="math inline">\(Y \mid \vx\)</span></td>
 <td><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y\)</span></td>
 </tr>
 </tbody>
@@ -635,7 +664,9 @@ Fred J. Hickernell
 <ul>
 <li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta\)</span></p></li>
 <li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is an estimator of <span class="math inline">\(\mu(\vX) = \Ex(\vY)\)</span></p></li>
-<li><p><span class="math inline">\(\mP\)</span> is the projection matrix onto <span class="math inline">\(\cc(\mX)\)</span>, the column space of <span class="math inline">\(\mX\)</span>, which means the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span>. This means that</p>
+<li><p><span class="math inline">\(\mP\)</span> is the projection matrix onto <span class="math display">\[
+\cc(\mX):= \text{ the column space of } \mX = \text{ the set of all linear combinations of the columns of } \mX = \{ \mX \vb : \vb \in \reals^d \}
+\]</span> This means that</p>
 <ul>
 <li><span class="math inline">\(\mP^2 = \mP\)</span> (idempotent), and so <span class="math inline">\(\mP\)</span> has eigenvalues of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> only</li>
 <li><span class="math inline">\(\mP^\top = \mP\)</span> (symmetric)</li>
@@ -646,14 +677,13 @@ Fred J. Hickernell
 <li><p><span class="math inline">\(\hvveps : = \vY - \hvY = (\mI - \mP) \vY\)</span> is the vector of <span class="alert">residuals</span>,</p>
 <ul>
 <li>Orthogonal to all columns of <span class="math inline">\(\mX\)</span>, i.e., orthogonal to <span class="math inline">\(\cc(\mX)\)</span></li>
-<li><span class="math inline">\(\cc(\mX)\)</span> is the set of all linear combinations of the columns of <span class="math inline">\(\mX\)</span></li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="6ee4b6d9" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="d258eca4" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -668,19 +698,18 @@ Fred J. Hickernell
 <p>Recall that <span class="math inline">\(Y = \mX \vbeta + \vveps\)</span>, with <span class="math inline">\(\Ex(\vveps)=0, \ \cov(\vveps)=\sigma^2 \mI\)</span>, where <span class="math inline">\(\mX\)</span> is fixed and of full column rank</p>
 <h3 id="unbiasedness-of-hvbeta-and-hmuvx">Unbiasedness of <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></h3>
 <p><span class="math display">\[\begin{align*}
-\hvbeta &amp; = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\hvbeta &amp; := (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
 \implies
 \Ex(\hvbeta)
 &amp; = \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
-\hmu(\vx) &amp; = \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\hmu(\vx) &amp; := \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
 \implies
 \Ex(\hmu(\vx))
 &amp;= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}} \\[12pt]
-\hvveps &amp;= \vY - \hvY = (\mI-\mP)\vY,
+\hvveps &amp;: = \underbrace{\vY}_{\text{data}} - \underbrace{\hvY}_{\text{fit}} = (\mI-\mP)\vY,
 \qquad
 \mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
-&amp; = (\mI-\mP)(\mX \vbeta + \vveps) \\
-&amp; = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
+&amp; = (\mI-\mP)(\mX \vbeta + \vveps)  = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
 \implies \Ex(\hvveps) &amp; = \vzero
 \end{align*}\]</span></p>
 </section>
@@ -693,7 +722,7 @@ Fred J. Hickernell
 = \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
 \end{equation*}\]</span></p>
 <p>Now <span class="math inline">\(\mP\)</span> is a projection matrix onto <span class="math inline">\(\cc(\mX)\)</span>, it has eigenvalues of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> only, so <span class="math display">\[
-\trace(\mP)=\rank(\mP)=\rank(\mX)=d
+\trace(\mP)= \text{ sum of the eigenvalues of } \mP = \rank(\mP)=\rank(\mX)=d
 \]</span></p>
 <p>Therefore <span class="math inline">\(\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
 = \sigma^2 (n-d)\)</span> and so <span class="math display">\[
@@ -711,7 +740,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <li><span class="math inline">\(\mX\)</span> is fixed and of full column rank</li>
 <li><span class="math inline">\(\Ex(\vveps)=\vzero\)</span> and <span class="math inline">\(\cov(\vveps)=\sigma^2 \mI\)</span></li>
 </ul>
-<p>Going forward, we will assume that <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span>. This allows us to</p>
+<p>Going forward, we assume that <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span>. This allows us to</p>
 <ul>
 <li>Make probabilistic statements about the estimators <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(\hmu(\vx)\)</span></li>
 <li>Construct confidence intervals for <span class="math inline">\(\vbeta\)</span>, <span class="math inline">\(\mu(\vx)\)</span>, and <span class="math inline">\(\sigma^2\)</span></li>
@@ -726,9 +755,18 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <ul>
 <li><p><span class="math inline">\(\vY = \mX \vbeta + \vveps \sim \Norm(\mX\vbeta,\sigma^2 \mI)\)</span></p></li>
 <li><p><span class="math inline">\(\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top\mX)^{-1}\mX^\top (\mX \vbeta + \vveps) = \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\vbeta,\sigma^2 (\mX^\top \mX)^{-1}\right)\)</span></p></li>
-<li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
+<li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
+<div id="5721e2c3" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="927" height="446"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
