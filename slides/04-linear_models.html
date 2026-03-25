@@ -648,7 +648,7 @@ Fred J. Hickernell
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="d7fe0433" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="04e3d62e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -717,7 +717,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 </section>
 <section id="confidence-regions-for-vbeta-and-muvx-assuming-vveps-sim-normvzerosigma2-mi" class="slide level2">
 <h2>Confidence regions for <span class="math inline">\(\vbeta\)</span> and <span class="math inline">\(\mu(\vx)\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h2>
-<p>Now we assume that <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span>. Since a <span class="alert">linear combination of normal random variables is normal</span>, the following <span class="alert">data-based</span> quantities are all normally distributed:</p>
+<p>Since a <span class="alert">linear combination of normal random variables is normal</span>, the following <span class="alert">data-based</span> quantities are all normally distributed:</p>
 <ul>
 <li><p><span class="math inline">\(\vY = \mX \vbeta + \vveps \sim \Norm(\mX\vbeta,\sigma^2 \mI)\)</span></p></li>
 <li><p><span class="math inline">\(\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top\mX)^{-1}\mX^\top (\mX \vbeta + \vveps) = \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\vbeta,\sigma^2 (\mX^\top \mX)^{-1}\right)\)</span></p></li>
@@ -901,44 +901,45 @@ S
 <section>
 <section id="regression-diagnostics-and-model-selection" class="title-slide slide level1 center">
 <h1>Regression diagnostics and model selection</h1>
-<p>Up to this point, we have assumed that the chosen linear model is appropriate.<br>
-In practice, we should also check whether the model assumptions are reasonable and whether the chosen set of predictors is adequate.</p>
+<p>Up to this point, we have assumed that the chosen linear model is appropriate</p>
+<p>&nbsp;</p>
+<p>In practice, we should also check whether</p>
+<ul>
+<li><p>The model assumptions are reasonable</p></li>
+<li><p>The chosen set of predictors is adequate</p></li>
+<li><p>Our assumptions about the errors are justified</p></li>
+</ul>
 </section>
 <section id="regression-diagnostics" class="slide level2">
 <h2>Regression diagnostics</h2>
-<p>Regression diagnostics help us assess whether the assumptions behind least squares regression are reasonable.</p>
 <p>The main questions are:</p>
 <ul>
-<li>Is the mean response approximately linear in the chosen predictors?</li>
-<li>Does the variability of the errors stay roughly constant?</li>
+<li>Is the mean response approximately linear in the chosen predictors, which themselves may be nonlinear transformations of underlying variables?</li>
+<li>Does the variability of the errors stay roughly constant with respect to the <span class="math inline">\(\vx\)</span> and <span class="math inline">\(\Ex(Y \mid \vx)\)</span>?</li>
 <li>Are the errors approximately normally distributed?</li>
 <li>Are there unusual or influential observations that strongly affect the fit?</li>
 </ul>
-<h3 id="residuals-and-fitted-values">Residuals and fitted values</h3>
-<p>Recall that</p>
-<p><span class="math display">\[
-\hvY = \mX \hvbeta,
-\qquad
-\hvveps = \vY - \hvY
-\]</span></p>
-<p>The residuals <span class="math inline">\(\hat\varepsilon_i = Y_i - \hat Y_i\)</span> estimate the unknown errors <span class="math inline">\(\varepsilon_i\)</span>.</p>
-<p>A good first diagnostic is a plot of residuals versus fitted values.</p>
+</section>
+<section class="slide level2">
+
 <h3 id="residuals-versus-fitted-values">Residuals versus fitted values</h3>
+<ul>
+<li><p><span class="alert">Fitted values</span> <span class="math inline">\(\hvY = \mX \hvbeta = \mP \vY\)</span> are the predicted mean responses</p></li>
+<li><p><span class="alert">Residuals</span> <span class="math inline">\(\hvveps = \vY - \hvY = (\mI - \mP) \vY\)</span> are the differences between observed and fitted values</p></li>
+</ul>
+<p>and these should be independent under the model assumptions. A good first diagnostic is a plot of residuals versus fitted values.</p>
 <p>If the linear model is appropriate, then the residual plot should show</p>
 <ul>
-<li>points scattered around <span class="math inline">\(0\)</span></li>
-<li>no strong curve or pattern</li>
-<li>roughly constant vertical spread across the range of fitted values</li>
-</ul>
-<p>Possible warning signs:</p>
-<ul>
-<li>a curved pattern suggests that the mean response is not linear</li>
-<li>a funnel shape suggests nonconstant variance</li>
-<li>isolated large residuals suggest possible outliers</li>
+<li>Points scattered around <span class="math inline">\(0\)</span></li>
+<li>No strong curve or pattern</li>
+<li>Roughly constant vertical spread across the range of fitted values</li>
 </ul>
 <div class="key-point">
-<p>A residual plot should look like random noise around zero, not like a pattern.</p>
+<p>A residual plot should look like random noise around zero, not like a pattern</p>
 </div>
+</section>
+<section class="slide level2">
+
 <h3 id="normal-q-q-plot">Normal Q-Q plot</h3>
 <p>Many inference procedures for regression assume that the errors are normally distributed.</p>
 <p>A normal Q-Q plot compares the residuals to what we would expect under normality.</p>
@@ -948,6 +949,9 @@ In practice, we should also check whether the model assumptions are reasonable a
 </ul>
 <p>This matters most for small samples.<br>
 For large samples, moderate nonnormality is often less serious for estimation, though it may still affect inference.</p>
+</section>
+<section class="slide level2">
+
 <h3 id="hat-matrix-and-leverage">Hat matrix and leverage</h3>
 <p>The fitted values satisfy</p>
 <p><span class="math display">\[
@@ -961,6 +965,9 @@ For large samples, moderate nonnormality is often less serious for estimation, t
 <li>A large value of <span class="math inline">\(h_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span>.</li>
 <li>Such observations can have a large effect on the fitted regression line or surface.</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <h3 id="standardized-residuals">Standardized residuals</h3>
 <p>Since the variability of <span class="math inline">\(\hat\varepsilon_i\)</span> depends on <span class="math inline">\(h_{ii}\)</span>, it is useful to scale residuals.</p>
 <p>A standardized residual is</p>
@@ -971,20 +978,9 @@ r_i
 \]</span></p>
 <p>Large values of <span class="math inline">\(|r_i|\)</span> indicate observations whose responses are unusual relative to the fitted model.</p>
 <p>As a rough rule of thumb, values with <span class="math inline">\(|r_i|&gt;2\)</span> deserve attention, and values with <span class="math inline">\(|r_i|&gt;3\)</span> deserve serious attention.</p>
-<h3 id="influence-and-cooks-distance">Influence and Cook’s distance</h3>
-<p>An observation can be unusual in two different ways:</p>
-<ul>
-<li>it can have a large residual</li>
-<li>it can have high leverage</li>
-</ul>
-<p>An observation that combines both may be <span class="alert">influential</span>, meaning that removing it could noticeably change the fitted model.</p>
-<p>A common summary measure is Cook’s distance:</p>
-<p><span class="math display">\[
-D_i
-=
-\frac{r_i^2}{d}\frac{h_{ii}}{1-h_{ii}}
-\]</span></p>
-<p>Large values of <span class="math inline">\(D_i\)</span> indicate potentially influential observations.</p>
+</section>
+<section class="slide level2">
+
 <h3 id="summary-of-common-diagnostic-plots">Summary of common diagnostic plots</h3>
 <p>Common diagnostic plots include:</p>
 <ul>
