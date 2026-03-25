@@ -522,7 +522,12 @@ Fred J. Hickernell
 </ul>
 <p>Types of linear models</p>
 <ul>
-<li><p><a href="lsqregress">Ordinary least squares (OLS)</a> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
+<li><p><a href="#/lsqregress">Ordinary least squares (OLS)</a> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p>
+<ul>
+<li><p><a href="#/lsqregress">Solution</a></p></li>
+<li><p><a href="#/ols_inference">Inference</a></p></li>
+<li><p><a href="#/ols_diagnostics">Diagnostics and model selection</a></p></li>
+</ul></li>
 <li><p><span class="alert">Analysis of variance (ANOVA)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
 <li><p><span class="alert">Logistic regression</span> and other generalized linear models</p></li>
 <li><p><span class="alert">Gaussian process regression</span></p></li>
@@ -648,7 +653,7 @@ Fred J. Hickernell
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="04e3d62e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="6ee4b6d9" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -699,7 +704,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 \]</span></p>
 </section></section>
 <section>
-<section id="inference-for-regression-parameters-and-predictions-assuming-vveps-sim-normvzerosigma2-mi" class="title-slide slide level1 center">
+<section id="ols_inference" class="title-slide slide level1 center">
 <h1>Inference for regression parameters and predictions assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h1>
 <p>So far, we have only used the assumptions that</p>
 <ul>
@@ -899,7 +904,7 @@ S
 </div>
 </section></section>
 <section>
-<section id="regression-diagnostics-and-model-selection" class="title-slide slide level1 center">
+<section id="ols_diagnostics" class="title-slide slide level1 center">
 <h1>Regression diagnostics and model selection</h1>
 <p>Up to this point, we have assumed that the chosen linear model is appropriate</p>
 <p>&nbsp;</p>
