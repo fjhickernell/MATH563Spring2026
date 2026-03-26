@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-25">
+  <meta name="dcterms.date" content="2026-03-26">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -510,7 +510,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 25, 2026</p>
+  <p class="date">March 26, 2026</p>
 </section>
 <section>
 <section id="linear-models" class="title-slide slide level1 center">
@@ -664,7 +664,7 @@ Fred J. Hickernell
 <ul>
 <li><p><span class="math inline">\(\hmu(\vx) := \vx^\top \hvbeta\)</span> is an estimator of <span class="math inline">\(\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta\)</span></p></li>
 <li><p><span class="math inline">\(\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY\)</span> is an estimator of <span class="math inline">\(\mu(\vX) = \Ex(\vY)\)</span></p></li>
-<li><p><span class="math inline">\(\mP\)</span> is the projection matrix onto <span class="math display">\[
+<li><p><span class="math inline">\(\mP\)</span> is the projection matrix (also called the hat matrix) onto <span class="math display">\[
 \cc(\mX):= \text{ the column space of } \mX = \text{ the set of all linear combinations of the columns of } \mX = \{ \mX \vb : \vb \in \reals^d \}
 \]</span> This means that</p>
 <ul>
@@ -683,7 +683,7 @@ Fred J. Hickernell
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="86f2de0e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="a41056a8" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -758,11 +758,11 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="36264a84" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="e964a5bf" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="927" height="446"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="927" height="445"></p>
 </figure>
 </div>
 </div>
@@ -799,6 +799,9 @@ F_{d,n-d,\alpha}, \quad \text{where } \Prob(F_{d,n-d} &gt; F_{d,n-d,\alpha}) = \
 <section class="slide level2">
 
 <h3 id="individual-confidence-intervals-for-the-beta_j-assuming-vveps-sim-normvzerosigma2-mi">Individual confidence intervals for the <span class="math inline">\(\beta_j\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h3>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span><span>Show that the variance of <span class="math inline">\(\hbeta_j\)</span> is <span class="math inline">\(\sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}\)</span>, where <span class="math inline">\(\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}\)</span> denotes the <span class="math inline">\(j\)</span>th diagonal entry of <span class="math inline">\((\mX^\top\mX)^{-1}\)</span> </span></p>
+</div>
 <p>Since <span class="math inline">\(\hvbeta \sim
 \Norm\!\left(
 \vbeta,\;
@@ -810,25 +813,22 @@ F_{d,n-d,\alpha}, \quad \text{where } \Prob(F_{d,n-d} &gt; F_{d,n-d,\alpha}) = \
 \sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}
 \right)
 \]</span></p>
-<p>where <span class="math inline">\(\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}\)</span> denotes the <span class="math inline">\(j\)</span>th diagonal entry of <span class="math inline">\((\mX^\top\mX)^{-1}\)</span>.</p>
-<p>Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives</p>
-<p><span class="math display">\[
+<p>where <span class="math inline">\(\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}\)</span> denotes the <span class="math inline">\(j\)</span>th diagonal entry of <span class="math inline">\((\mX^\top\mX)^{-1}\)</span>. Replacing <span class="math inline">\(\sigma^2\)</span> by <span class="math inline">\(S^2\)</span> gives</p>
+<p><span class="math display">\[\begin{gather*}
 \frac{
 \hbeta_j-\beta_j
 }{
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}}
 }
 \sim t_{n-d}
-\]</span></p>
-<p>Therefore</p>
-<p><span class="math display">\[\begin{multline*}
+\\
 \hbeta_j
 \pm
 t_{n-d,\alpha/2}
 \;
-S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \\
-\text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
-\end{multline*}\]</span></p>
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \;
+\text{ is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
+\end{gather*}\]</span></p>
 </section>
 <section class="slide level2">
 
@@ -847,9 +847,24 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div class="key-point">
-<p>Joint confidence for <span class="math inline">\(\vbeta\)</span> is not the same as simultaneous confidence for all <span class="math inline">\(\beta_j\)</span></p>
+<div id="88271cb3" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="924" height="317"></p>
+</figure>
 </div>
+</div>
+</div>
+<div class="key-point">
+<ul>
+<li><p>Joint confidence for <span class="math inline">\(\vbeta\)</span> is not the same as simultaneous confidence for all <span class="math inline">\(\beta_j\)</span></p></li>
+<li><p>The confidence elliposoid for <span class="math inline">\(\vbeta\)</span> and the individual confidence interval for <span class="math inline">\(\beta_1\)</span> both include <span class="math inline">\(\beta_1 = 0\)</span> so one might question whether there should be a constant term in the model</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
 <h3 id="caution-about-many-intervals">Caution about many intervals</h3>
 <p>If we form separate <span class="math inline">\((1-\alpha)\)</span> confidence intervals for each <span class="math inline">\(\beta_j\)</span>, the probability that of them are simultaneously correct is generally less than <span class="math inline">\((1-\alpha)\)</span></p>
 <p>So:</p>
@@ -915,7 +930,7 @@ S
 <h2>Mean vs prediction intervals</h2>
 <div class="columns">
 <div class="column" style="width:49%;">
-<p>Confidence interval for mean response:</p>
+<p><span class="alert">Confidence</span> interval for mean response:</p>
 <p><span class="math display">\[
 \hmu(\vx)
 \pm
@@ -926,7 +941,7 @@ S
 </div><div class="column" style="width:2%;">
 
 </div><div class="column" style="width:49%;">
-<p>Prediction interval for a new observation:</p>
+<p><span class="alert">Prediction</span> interval for a new observation:</p>
 <p><span class="math display">\[
 \hmu(\vx)
 \pm
@@ -937,8 +952,17 @@ S
 }
 \]</span></p>
 </div></div>
+<div id="885b9a71" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="1217" height="370"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="key-point">
-<p>Prediction intervals are wider</p>
+<p>Prediction intervals are wider than confidence intervals</p>
 </div>
 </section></section>
 <section>
@@ -970,7 +994,7 @@ S
 <li><p><span class="alert">Fitted values</span> <span class="math inline">\(\hvY = \mX \hvbeta = \mP \vY\)</span> are the predicted mean responses</p></li>
 <li><p><span class="alert">Residuals</span> <span class="math inline">\(\hvveps = \vY - \hvY = (\mI - \mP) \vY\)</span> are the differences between observed and fitted values</p></li>
 </ul>
-<p>and these should be independent under the model assumptions. A good first diagnostic is a plot of residuals versus fitted values.</p>
+<p>Under the normal linear model, the fitted values and residuals are independent; more generally, they are uncorrelated. A good first diagnostic is a plot of residuals versus fitted values.</p>
 <p>If the linear model is appropriate, then the residual plot should show</p>
 <ul>
 <li>Points scattered around <span class="math inline">\(0\)</span></li>
@@ -980,6 +1004,23 @@ S
 <div class="key-point">
 <p>A residual plot should look like random noise around zero, not like a pattern</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="standardized-residuals">Standardized residuals</h3>
+<p>Because the variability of <span class="math inline">\(\hat\varepsilon_i\)</span> depends on the leverage of observation <span class="math inline">\(i\)</span>, it is useful to scale residuals.</p>
+<p>A standardized residual is <span class="math display">\[
+r_i
+=
+\frac{\hat\varepsilon_i}{S\sqrt{1-p_{ii}}}
+\]</span> where <span class="math inline">\(p_{ii}\)</span> is the <span class="math inline">\(i\)</span>-th diagonal entry of the projection (hat) matrix <span class="math inline">\(\mP\)</span>.</p>
+<p>Large values of <span class="math inline">\(|r_i|\)</span> indicate observations whose responses are unusual relative to the fitted model.</p>
+<p>As a rough rule of thumb:</p>
+<ul>
+<li><span class="math inline">\(|r_i| &gt; 2\)</span>: worth attention<br>
+</li>
+<li><span class="math inline">\(|r_i| &gt; 3\)</span>: potentially serious</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -995,32 +1036,46 @@ For large samples, moderate nonnormality is often less serious for estimation, t
 </section>
 <section class="slide level2">
 
-<h3 id="hat-matrix-and-leverage">Hat matrix and leverage</h3>
-<p>The fitted values satisfy</p>
-<p><span class="math display">\[
-\hvY = \mH \vY,
-\qquad
-\mH := \mX(\mX^\top \mX)^{-1}\mX^\top
+<h3 id="scale-location-plot">Scale-location plot</h3>
+<p>A scale-location plot graphs <span class="math display">\[
+\sqrt{|r_i|}
+\quad \text{versus} \quad
+\widehat{\mu}(x_i).
 \]</span></p>
-<p>The matrix <span class="math inline">\(\mH\)</span> is called the <span class="alert">hat matrix</span> because it puts a “hat” on <span class="math inline">\(\vY\)</span>.</p>
-<p>Its diagonal entries <span class="math inline">\(h_{ii}\)</span> are called the <span class="alert">leverages</span>.</p>
+<p>This is another way to assess whether the error variance is roughly constant.</p>
 <ul>
-<li>A large value of <span class="math inline">\(h_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span>.</li>
-<li>Such observations can have a large effect on the fitted regression line or surface.</li>
+<li>If the variance is approximately constant, the spread should be fairly even.</li>
+<li>A clear trend (e.g., increasing spread) suggests heteroscedasticity.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="standardized-residuals">Standardized residuals</h3>
-<p>Since the variability of <span class="math inline">\(\hat\varepsilon_i\)</span> depends on <span class="math inline">\(h_{ii}\)</span>, it is useful to scale residuals.</p>
-<p>A standardized residual is</p>
+<h3 id="our-example">Our example</h3>
+<div id="e62f8124" class="cell" data-fig-height="7.5" data-fig-width="10" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="1351" height="412"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="hat-matrix-and-leverage">Hat matrix and leverage</h3>
+<p>The fitted values satisfy</p>
 <p><span class="math display">\[
-r_i
-=
-\frac{\hat\varepsilon_i}{S\sqrt{1-h_{ii}}}
+\hvY = \mP \vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top.
 \]</span></p>
-<p>Large values of <span class="math inline">\(|r_i|\)</span> indicate observations whose responses are unusual relative to the fitted model.</p>
-<p>As a rough rule of thumb, values with <span class="math inline">\(|r_i|&gt;2\)</span> deserve attention, and values with <span class="math inline">\(|r_i|&gt;3\)</span> deserve serious attention.</p>
+<p>The matrix <span class="math inline">\(\mP\)</span> is sometimes called the <span class="alert">hat matrix</span> because it puts a “hat” on <span class="math inline">\(\vY\)</span>.</p>
+<p>Its diagonal entries <span class="math inline">\(p_{ii}\)</span> are called the <span class="alert">leverages</span>.</p>
+<ul>
+<li>A large value of <span class="math inline">\(p_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span>.</li>
+<li>Such observations can have a large effect on the fitted regression.</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -1036,6 +1091,7 @@ checks whether residual spread is roughly constant</p></li>
 <li><p>residuals versus leverage, often with Cook’s distance shown<br>
 checks for influential observations</p></li>
 </ul>
+<p>In problems with one main predictor, it is also useful to examine residuals versus that predictor directly, which can sometimes make patterns easier to see.</p>
 <h3 id="what-to-do-if-diagnostics-look-bad">What to do if diagnostics look bad</h3>
 <p>If diagnostics reveal problems, possible responses include:</p>
 <ul>
