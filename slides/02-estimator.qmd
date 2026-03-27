@@ -20,8 +20,8 @@ subtitle: |
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 5–7 (parts) <br>
   Assignment 3 due 2/13 <br>
   Test 1 on 2/26 on <br> <span class="indent">
-  Probability Review, Estimators, & Confidence Intervals
-  </span>
+  Probability Review, Estimators, & </span> <br>
+  <span class="indent">Confidence Intervals</span>
   </span>
 ---
 

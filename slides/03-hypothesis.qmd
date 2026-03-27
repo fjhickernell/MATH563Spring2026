@@ -22,7 +22,8 @@ include-after-body:
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 8<br>
-  Assignment 4 due 3/13</span>
+  Assignment 4 due 3/13 <br>
+  Assignment 5 due 4/10 </span>
 ---
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/hypothesis/hypothesis-frame.qmd >}}
