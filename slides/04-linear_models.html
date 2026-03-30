@@ -687,7 +687,7 @@ Fred J. Hickernell
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="93189883" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="096439b6" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -763,7 +763,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="b497822a" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="f6b35cac" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -852,7 +852,7 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div id="c9e5a8c7" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div id="eeb343e0" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -957,7 +957,7 @@ S
 }
 \]</span></p>
 </div></div>
-<div id="e13722c7" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div id="b89d6293" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1016,7 +1016,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li><p>Simultaneous bands use the larger <span class="math inline">\(\sqrt{dF_{d,n-d,\alpha}}\)</span> multiplier because they must work for all <span class="math inline">\(\vx\)</span> at once.</p></li>
 </ul>
 </div>
-<div id="a1f04c9f" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
+<div id="79c7bf21" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1210,7 +1210,7 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 <section class="slide level2">
 
 <h3 id="our-example">Our example</h3>
-<div id="08fc0e2c" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
+<div id="a213fd90" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1248,7 +1248,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </ul>
 <p>This violates the constant-variance assumption</p>
 </div><div class="column" style="width:50%;">
-<div id="8f275138" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
+<div id="fa8b8245" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1286,8 +1286,8 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 \qquad
 \varepsilon_i \sim \Norm(0,\sigma^2),
 \]</span></p>
-<p>but now one observation has a predictor value far from the rest.</p>
-<p>For example, most of the data may have <span class="math inline">\(0 \le x_i \le 3\)</span>, but one point might have <span class="math inline">\(x_i = 4.5\)</span>.</p>
+<p>but now one observation has a predictor value far from the rest</p>
+<p>For example, most of the data may have <span class="math inline">\(0 \le x_i \le 3\)</span>, but one point might have <span class="math inline">\(x_i = 4.5\)</span></p>
 <p>Then:</p>
 <ul>
 <li>the point may not have a large residual</li>
@@ -1295,7 +1295,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>and it can strongly affect the fitted regression</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="c51efe90" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
+<div id="56f235fd" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
