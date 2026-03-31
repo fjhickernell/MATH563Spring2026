@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="04-linear_models_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="04-linear_models_files/libs/clipboard/clipboard.min.js"></script>
 <script src="04-linear_models_files/libs/quarto-html/tabby.min.js"></script>
 <script src="04-linear_models_files/libs/quarto-html/popper.min.js"></script>
 <script src="04-linear_models_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-03-30">
+  <meta name="dcterms.date" content="2026-03-31">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-4dc75529a40ab9f2c3227f6b2fc45461.css">
+  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-733e8e3704bf958b20ab6a490dc6dece.css">
   <link href="04-linear_models_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -232,6 +232,9 @@
           vol:   "{\\operatorname{vol}}",
           bias:  "{\\operatorname{bias}}",
           RR:   "{\\mathcal{R}}",
+          RSS:  "{\\operatorname{RSS}}",
+          SST:  "{\\operatorname{SST}}",
+          SSR:  "{\\operatorname{SSR}}",
 
           Bern:  "{\\operatorname{Bern}}",
           Bin:   "{\\operatorname{Bin}}",
@@ -496,6 +499,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#004b80">
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -513,7 +519,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">March 30, 2026</p>
+  <p class="date">March 31, 2026</p>
 </section>
 <section>
 <section id="linear-models" class="title-slide slide level1 center">
@@ -529,9 +535,10 @@ Fred J. Hickernell
 <ul>
 <li><p><a href="#/lsqregress">Solution, geometry, unbiasedness</a></p></li>
 <li><p><a href="#/ols_inference">Inference for model parameters and predictions</a></p></li>
-<li><p><a href="#/ols_diagnostics">Diagnostics and model selection</a></p></li>
+<li><p><a href="#/ols_diagnostics">Diagnostics</a></p></li>
+<li><p><a href="#/ols_selection">Model selection</a></p></li>
 </ul></li>
-<li><p><span class="alert">Analysis of variance (ANOVA)</span> <span class="math inline">\(Y = \vx^\top \vbeta + \varepsilon\)</span> with <span class="math inline">\(\varepsilon \sim (0,\sigma^2)\)</span></p></li>
+<li><p><a href="#/oneway_anova">One-way analysis of variance (ANOVA)</a> <span class="math inline">\(Y_{ij} = \mu_i + \varepsilon_{ij}\)</span> with <span class="math inline">\(\Ex(\varepsilon_{ij}) = 0\)</span> and <span class="math inline">\(\cov(\varepsilon_{ij}) = \sigma^2 \mI\)</span></p></li>
 <li><p><span class="alert">Logistic regression</span> and other generalized linear models</p></li>
 <li><p><span class="alert">Gaussian process regression</span></p></li>
 </ul>
@@ -687,7 +694,7 @@ Fred J. Hickernell
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="096439b6" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="ba17d112" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -729,12 +736,12 @@ Fred J. Hickernell
 \trace(\mP)= \text{ sum of the eigenvalues of } \mP = \rank(\mP)=\rank(\mX)=d
 \]</span></p>
 <p>Therefore <span class="math inline">\(\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
-= \sigma^2 (n-d)\)</span> and so <span class="math display">\[
+= \sigma^2 (n-d)\)</span> and so <span class="math display">\[\begin{multline*}
 S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
 = \frac{\lVert \hvveps \rVert^2}{n-d}
-= \frac{1}{n-d}\,\vY^\top(\mI-\mP)\vY \quad \text{
-is an \class{alert}{unbiased} estimator of $\sigma^2$}
-\]</span></p>
+= \frac{\lVert (\mI-\mP)\vY \rVert^2 }{n-d} = \frac{\lVert (\mI-\mP)\vveps \rVert^2 }{n-d} \\
+\text{is an \class{alert}{unbiased} estimator of $\sigma^2$}
+\end{multline*}\]</span></p>
 </section></section>
 <section>
 <section id="ols_inference" class="title-slide slide level1 center">
@@ -763,7 +770,7 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="f6b35cac" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="feb1ca80" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -776,20 +783,27 @@ is an \class{alert}{unbiased} estimator of $\sigma^2$}
 <section class="slide level2">
 
 <h3 id="confidence-ellipsoid-for-vbeta-assuming-vveps-sim-normvzerosigma2-mi">Confidence ellipsoid for <span class="math inline">\(\vbeta\)</span> assuming <span class="math inline">\(\vveps \sim \Norm(\vzero,\sigma^2 \mI)\)</span></h3>
-<p>From the normal distribution of <span class="math inline">\(\hvbeta\)</span>, it follows that <span class="math display">\[\frac{
+<ul>
+<li><p>From the normal distribution of <span class="math inline">\(\hvbeta\)</span>, it follows that <span class="math display">\[\frac{
 (\hvbeta-\vbeta)^\top
 (\mX^\top\mX)
 (\hvbeta-\vbeta)
 }{\sigma^2}
 \sim \chi^2_d
-\]</span></p>
-<p><span class="math inline">\(\hvbeta\)</span> depends on the projection of <span class="math inline">\(\vY\)</span> onto <span class="math inline">\(\cc(\mX)\)</span>, while <span class="math inline">\(S^2\)</span> depends on the projection onto <span class="math inline">\(\cc(\mX)^\perp\)</span>; under normality, these orthogonal components are independent. Therefore, replacing <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(S^2\)</span> gives</p>
-<p><span class="math display">\[
+\]</span></p></li>
+<li><p>Also, <span class="math inline">\(\hvbeta = \vbeta + (\mX^\top \mX)^{-1}\mX^\top \vveps = \vbeta + (\mX^\top \mX)^{-1}\mX^\top \mP \vveps\)</span> since <span class="math inline">\(\mP \mX =  \mX\)</span>, so <span class="math inline">\(\hvbeta\)</span> depends only on <span class="math inline">\(\mP\vveps\)</span></p></li>
+<li><p>Moreover, <span class="math inline">\(S^2 = \lVert(\mI - \mP)\vveps\rVert^2/(n-d)\)</span>, so <span class="math inline">\(S^2\)</span> depends only on <span class="math inline">\((\mI-\mP)\vveps\)</span></p></li>
+<li><p>Since <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(S^2\)</span> depend on orthogonal projections of <span class="math inline">\(\vveps\)</span> onto <span class="math inline">\(\cc(\mX)\)</span> and <span class="math inline">\(\cc(\mX)^\perp\)</span>, respectively, and <span class="math inline">\(\vveps\)</span> is Normal, <span class="math inline">\(\hvbeta\)</span> and <span class="math inline">\(S^2\)</span> are independent.</p></li>
+<li><p>Hence, replacing <span class="math inline">\(\sigma^2\)</span> with <span class="math inline">\(S^2\)</span> gives <span class="math display">\[
 \frac{
 (\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
 }{dS^2}
 \sim F_{d,n-d}
-\]</span></p>
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
 <p>Therefore</p>
 <p><span class="math display">\[
 (\hvbeta-\vbeta)^\top
@@ -852,7 +866,7 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div id="eeb343e0" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div id="809e118c" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -957,7 +971,7 @@ S
 }
 \]</span></p>
 </div></div>
-<div id="b89d6293" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div id="8e06ec78" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -975,19 +989,20 @@ S
 </section>
 <section id="simultaneous-confidence-and-prediction-bands" class="slide level2">
 <h2>Simultaneous confidence and prediction bands</h2>
-<p>Pointwise intervals control uncertainty at one fixed <span class="math inline">\(\vx\)</span>. A <span class="alert">band</span> controls uncertainty <span class="alert">simultaneously</span> for all <span class="math inline">\(\vx\)</span>. Since <span class="math display">\[
-(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
-\le dS^2F_{d,n-d,\alpha},
-\qquad \Prob(F_{d,n-d}&gt;F_{d,n-d,\alpha})=\alpha,
-\]</span> then for every <span class="math inline">\(\vx\)</span>, <span class="math display">\[
+<ul>
+<li><p>Pointwise intervals control uncertainty at one fixed <span class="math inline">\(\vx\)</span></p></li>
+<li><p>A <span class="alert">band</span> controls uncertainty <span class="alert">simultaneously</span> for all <span class="math inline">\(\vx\)</span></p></li>
+</ul>
+<p><span class="math display">\[\begin{multline*}
 \bigl|\hmu(\vx)-\mu(\vx)\bigr|
 =
-\bigl|\vx^\top(\hvbeta-\vbeta)\bigr|
+\bigl|\vx^\top(\hvbeta-\vbeta)\bigr| = \bigl|[(\mX^\top\mX)^{-1/2}\vx]^\top  [(\mX^\top\mX)^{1/2} (\hvbeta-\vbeta)]\bigr| \\
 \le
 \sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
-\sqrt{(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)}
-\]</span></p>
-<p>by Cauchy–Schwarz, so</p>
+\sqrt{(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)} \quad \text{for all }\vx \qquad \text{by Cauchy--Schwarz}
+\end{multline*}\]</span></p>
+<p>So the confidence ellipse,<span class="math inline">\((\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+\le dS^2F_{d,n-d,\alpha}\)</span> with probability <span class="math inline">\(1-\alpha\)</span>, implies the following <span class="alert"><span class="math inline">\((1-\alpha)\)</span> confidence band</span>:</p>
 <p><span class="math display">\[
 \mu(\vx)
 \in
@@ -995,9 +1010,9 @@ S
 \pm
 \sqrt{dF_{d,n-d,\alpha}}\;
 S\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
-\qquad \text{simultaneously for all }\vx
+\qquad \text{for all }\vx
 \]</span></p>
-<p>Similarly, a simultaneous prediction band is</p>
+<p>Similarly, a <span class="alert"><span class="math inline">\((1-\alpha)\)</span> prediction band</span> is</p>
 <p><span class="math display">\[
 Y_{\text{new}}
 \in
@@ -1005,7 +1020,7 @@ Y_{\text{new}}
 \pm
 \sqrt{dF_{d,n-d,\alpha}}\;
 S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
-\qquad \text{simultaneously for all }\vx
+\qquad \text{for all }\vx
 \]</span></p>
 </section>
 <section class="slide level2">
@@ -1016,7 +1031,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li><p>Simultaneous bands use the larger <span class="math inline">\(\sqrt{dF_{d,n-d,\alpha}}\)</span> multiplier because they must work for all <span class="math inline">\(\vx\)</span> at once.</p></li>
 </ul>
 </div>
-<div id="79c7bf21" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
+<div id="f2de95d2" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1091,6 +1106,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <p>Then it follows that</p>
 <ul>
 <li><p><span class="alert">Least squares estimate</span>: <span class="math inline">\(\hvbeta = \mR^{-1} (\mQ^\top \vY)\)</span></p></li>
+<li><p><span class="alert">Projection matrix</span>: <span class="math inline">\(\mP = \mQ \mQ^\top\)</span></p></li>
 <li><p><span class="alert">Fitted values</span> <span class="math inline">\(\hvY = \mQ (\mQ^\top \vY)\)</span></p></li>
 <li><p><span class="alert">Residuals</span>: <span class="math inline">\(\hvveps = \vY  - \hvY\)</span></p></li>
 <li><p><span class="alert">Covariance of <span class="math inline">\(\hvbeta\)</span></span>: <span class="math inline">\(\cov(\hvbeta) = \sigma^2 \mR^{-1} \mR^{-\top}\)</span></p>
@@ -1102,7 +1118,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 </section></section>
 <section>
 <section id="ols_diagnostics" class="title-slide slide level1 center">
-<h1>Regression diagnostics and model selection</h1>
+<h1>Regression diagnostics</h1>
 <p><span class="small">(CB §11.3; WMS §11.14)</span></p>
 <p>Up to this point, we have assumed that the chosen linear model is appropriate.</p>
 <p>&nbsp;</p>
@@ -1113,8 +1129,8 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li>our assumptions about the errors are justified</li>
 </ul>
 </section>
-<section id="regression-diagnostics" class="slide level2">
-<h2>Regression diagnostics</h2>
+<section class="slide level2">
+
 <p>The main questions are:</p>
 <ul>
 <li>Is the mean response approximately linear in the chosen predictors, which themselves may be nonlinear transformations of underlying variables?</li>
@@ -1123,9 +1139,8 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li>Are there unusual or influential observations that strongly affect the fit?</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="residuals-versus-fitted-values">Residuals versus fitted values</h3>
+<section id="residuals-versus-fitted-values" class="slide level2">
+<h2>Residuals versus fitted values</h2>
 <ul>
 <li><p><span class="alert">Fitted values</span> <span class="math inline">\(\hvY = \mX \hvbeta = \mP \vY\)</span> are the predicted mean responses</p></li>
 <li><p><span class="alert">Residuals</span> <span class="math inline">\(\hvveps = \vY - \hvY = (\mI - \mP)\vY\)</span> are the differences between observed and fitted values</p></li>
@@ -1149,9 +1164,9 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <p><span class="math display">\[
 r_i
 =
-\frac{\hat\varepsilon_i}{S\sqrt{1-p_{ii}}},
+\frac{\hat\varepsilon_i}{S\sqrt{1-h_{ii}}},
 \]</span></p>
-<p>where <span class="math inline">\(p_{ii}\)</span> is the <span class="math inline">\(i\)</span>th diagonal entry of the projection (hat) matrix <span class="math inline">\(\mP\)</span>.</p>
+<p>where <span class="math inline">\(h_{ii}\)</span> is the <span class="math inline">\(i\)</span>th diagonal entry of the projection (hat) matrix <span class="math inline">\(\mP\)</span> (using <span class="math inline">\(h_{ii}\)</span> rather than <span class="math inline">\(p_{ii}\)</span> since <span class="math inline">\(p_i\)</span> is common for probabilities))</p>
 <p>Large values of <span class="math inline">\(|r_i|\)</span> indicate observations whose responses are unusual relative to the fitted model.</p>
 <p>As a rough rule of thumb:</p>
 <ul>
@@ -1159,9 +1174,8 @@ r_i
 <li><span class="math inline">\(|r_i| &gt; 3\)</span>: potentially serious</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="normal-qq-plot">Normal Q–Q plot</h3>
+<section id="normal-qq-plot" class="slide level2">
+<h2>Normal Q–Q plot</h2>
 <p>Let <span class="math inline">\(r_1,\dots,r_n\)</span> be standardized residuals, and let <span class="math inline">\(r_{(1)} \le \cdots \le r_{(n)}\)</span> denote the sorted values.</p>
 <p>&nbsp;</p>
 <p>Define plotting positions and corresponding normal quantiles: <span class="math display">\[
@@ -1190,9 +1204,8 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 <p>&nbsp;</p>
 <p>👉 Q–Q plots are preferred because they better reveal <strong>tail departures from Normality</strong></p>
 </section>
-<section class="slide level2">
-
-<h3 id="hat-matrix-and-leverage">Hat matrix and leverage</h3>
+<section id="projection-hat-matrix-and-leverage" class="slide level2">
+<h2>Projection (hat) matrix and leverage</h2>
 <p>The fitted values satisfy</p>
 <p><span class="math display">\[
 \hvY = \mP \vY,
@@ -1200,17 +1213,16 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 \mP := \mX(\mX^\top \mX)^{-1}\mX^\top
 \]</span></p>
 <p>The matrix <span class="math inline">\(\mP\)</span> is sometimes called the <span class="alert">hat matrix</span> because it puts a “hat” on <span class="math inline">\(\vY\)</span></p>
-<p>Its diagonal entries <span class="math inline">\(p_{ii} = (\mP)_{ii} = \|\vQ_{i,\cdot}\|^2\)</span>, where <span class="math inline">\(\mX = \mQ \mR\)</span> is the QR decomposition of <span class="math inline">\(\mX\)</span>, are called the <span class="alert">leverages</span></p>
+<p>Its diagonal entries <span class="math inline">\(h_{ii} = (\mP)_{ii} = \|\vQ_{i,\cdot}\|^2\)</span>, where <span class="math inline">\(\mX = \mQ \mR\)</span> is the QR decomposition of <span class="math inline">\(\mX\)</span>, are called the <span class="alert">leverages</span></p>
 <ul>
-<li>A large value of <span class="math inline">\(p_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span></li>
+<li>A large value of <span class="math inline">\(h_{ii}\)</span> means that observation <span class="math inline">\(i\)</span> has an unusual predictor vector <span class="math inline">\(\vx_i\)</span></li>
 <li>Such observations can have a large effect on the fitted regression</li>
 <li>High leverage by itself is not necessarily bad, but it does mean that the observation deserves attention</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="our-example">Our example</h3>
-<div id="a213fd90" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
+<section id="our-example" class="slide level2">
+<h2>Our example</h2>
+<div id="a50260c3" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1226,9 +1238,9 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 <li><p>The leverage plot shows that no observations have unusually high leverage</p></li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="when-things-go-wrong-heteroscedasticity">When things go wrong: heteroscedasticity</h3>
+<section id="when-things-go-wrong" class="slide level2">
+<h2>When things go wrong</h2>
+<h3 id="heteroscedasticity">Heteroscedasticity</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Suppose the mean model is still correct,</p>
@@ -1248,7 +1260,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </ul>
 <p>This violates the constant-variance assumption</p>
 </div><div class="column" style="width:50%;">
-<div id="fa8b8245" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
+<div id="9a47094d" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1277,7 +1289,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </section>
 <section class="slide level2">
 
-<h3 id="when-things-go-wrong-a-high-leverage-point">When things go wrong: a high-leverage point</h3>
+<h3 id="a-high-leverage-point">A high-leverage point</h3>
 <div class="columns">
 <div class="column" style="width:42%;">
 <p>Suppose the mean model is still</p>
@@ -1295,7 +1307,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>and it can strongly affect the fitted regression</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="56f235fd" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
+<div id="93d7e044" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1319,63 +1331,64 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>collect more data in that region of predictor space if possible</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="summary-of-common-diagnostic-plots">Summary of common diagnostic plots</h3>
+<section id="summary-of-common-diagnostic-plots" class="slide level2">
+<h2>Summary of common diagnostic plots</h2>
 <p>Common diagnostic plots include:</p>
 <ul>
-<li><p>residuals versus fitted values<br>
-checks linearity and constant variance</p></li>
-<li><p>residuals versus a predictor<br>
-can reveal patterns that are easier to see when there is one main predictor</p></li>
-<li><p>normal Q-Q plot<br>
-checks approximate normality of residuals</p></li>
-<li><p>leverage plot<br>
-checks which observations have unusual predictor values</p></li>
-<li><p>residuals versus leverage, often with Cook’s distance shown<br>
-checks for influential observations</p></li>
+<li><p><span class="alert">Standardized residuals versus fitted values</span> checks linearity and constant variance</p></li>
+<li><p><span class="alert">Standardized residuals versus a predictor</span> can reveal patterns that are easier to see when there is one main predictor</p></li>
+<li><p><span class="alert">Normal Q-Q plot</span> checks approximate normality of residuals</p></li>
+<li><p><span class="alert">Leverage plot</span> checks which observations have unusual predictor values</p></li>
 </ul>
-<p>In problems with one main predictor, it is often especially helpful to examine residuals versus that predictor directly.</p>
+<h3 id="what-to-do-if-diagnostics-raise-concerns">What to do if diagnostics raise concerns?</h3>
+<p>If diagnostics reveal problems, one might</p>
+<ul>
+<li>transform the response or some predictors</li>
+<li>add additional predictors or interaction terms</li>
+<li>use weighted least squares if variance is not constant</li>
+<li>check for data-entry errors or unusual observations</li>
+<li>reconsider whether a different model is more appropriate</li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="what-to-do-if-diagnostics-look-bad">What to do if diagnostics look bad</h3>
-<p>If diagnostics reveal problems, possible responses include:</p>
-<ul>
-<li>transforming the response or some predictors</li>
-<li>adding nonlinear terms such as <span class="math inline">\(x^2\)</span></li>
-<li>adding interaction terms</li>
-<li>using weighted least squares if variance is not constant</li>
-<li>checking for data-entry errors or unusual observations</li>
-<li>reconsidering whether a different model is more appropriate</li>
-</ul>
 <div class="key-point">
-<p>Diagnostics do not automatically tell us the right fix, but they do tell us where the model may be going wrong.</p>
+<p>Diagnostics do not automatically tell us the right fix, but they do tell us where the model may be going wrong</p>
 </div>
-</section>
-<section id="model-selection" class="slide level2">
-<h2>Model selection</h2>
-<p>In regression, adding more predictors almost always improves the fit to the observed data.<br>
-However, a more complicated model is not always better.</p>
-<p>Model selection aims to balance</p>
+</section></section>
+<section>
+<section id="ols_selection" class="title-slide slide level1 center">
+<h1>Model selection</h1>
+<p><span class="small">(CB §11.4; WMS §11.15)</span></p>
 <ul>
-<li>goodness of fit</li>
-<li>model simplicity</li>
-<li>interpretability</li>
+<li>Adding more predictors almost always improves the fit to the observed data
+<ul>
+<li>Reduces residual sum of squares (RSS)</li>
+</ul></li>
+<li>However, a more complicated model is not better if the improvement is insignificant</li>
+</ul>
+<p>Model selection aims to balance:</p>
+<ul>
+<li>goodness of fit<br>
+</li>
+<li>model simplicity<br>
+</li>
+<li>interpretability<br>
+</li>
 <li>predictive performance</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="comparing-nested-models">Comparing nested models</h3>
-<p>Suppose we compare two <span class="alert">nested</span> models:</p>
+<section id="comparing-nested-models" class="slide level2">
+<h2>Comparing nested models</h2>
+<p>Suppose we compare two nested models:</p>
 <ul>
-<li>a reduced model with <span class="math inline">\(d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\text{RSS}_0\)</span></li>
-<li>a full model with <span class="math inline">\(d_1&gt;d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\text{RSS}_1\)</span></li>
+<li>reduced model with <span class="math inline">\(d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\RSS_0\)</span><br>
+</li>
+<li>full model with <span class="math inline">\(d_1 &gt; d_0\)</span> parameters and residual sum of squares <span class="math inline">\(\RSS_1\)</span></li>
 </ul>
 <p>Since the full model has more predictors, we always have</p>
 <p><span class="math display">\[
-\text{RSS}_1 \le \text{RSS}_0
+\RSS_1 \le \RSS_0
 \]</span></p>
 <p>The question is whether the reduction in RSS is large enough to justify the extra parameters.</p>
 </section>
@@ -1386,56 +1399,529 @@ However, a more complicated model is not always better.</p>
 <p><span class="math display">\[
 F
 =
-\frac{(\text{RSS}_0-\text{RSS}_1)/(d_1-d_0)}{\text{RSS}_1/(n-d_1)}
+\frac{(\RSS_0-\RSS_1)/(d_1-d_0)}{\RSS_1/(n-d_1)}
 \]</span></p>
-<p>Under the null hypothesis that the extra coefficients are all zero,</p>
+<p>Under the null hypothesis that the extra coefficients are all zero, and assuming the model assumptions hold, we have <span class="math inline">\(\RSS_0-\RSS_1\)</span> and <span class="math inline">\(\RSS_1\)</span> are independent scaled chi-square random variables, so</p>
 <p><span class="math display">\[
 F \sim F_{d_1-d_0,\;n-d_1}
 \]</span></p>
-<p>A large value of <span class="math inline">\(F\)</span> gives evidence that the extra predictors improve the model.</p>
+<ul>
+<li>Large <span class="math inline">\(F\)</span> gives evidence that the extra predictors improve the model<br>
+</li>
+<li>Small <span class="math inline">\(F\)</span> suggests the simpler model is sufficient</li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="measures-of-model-quality">Measures of model quality</h3>
-<p>Several criteria are commonly used to compare models.</p>
-<h4 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h4>
-<p>Ordinary <span class="math inline">\(R^2\)</span> never decreases when more predictors are added.<br>
-Adjusted <span class="math inline">\(R^2\)</span> corrects for this by penalizing model complexity:</p>
+<h3 id="using-t-tests-in-model-selection">Using <span class="math inline">\(t\)</span>-tests in model selection</h3>
+<p>A natural way to simplify a model is to examine individual coefficients:</p>
+<ul>
+<li>If a confidence interval for <span class="math inline">\(\beta_j\)</span> includes 0, the predictor may be unnecessary<br>
+</li>
+<li>If the interval is clearly away from 0, the predictor appears important</li>
+</ul>
+<p>&nbsp;</p>
+<p>This provides a useful <strong>first pass</strong> for identifying weak predictors</p>
+<p>&nbsp;</p>
+<p>However, caution is needed:</p>
+<ul>
+<li>Predictors may be correlated, so their effects can be shared<br>
+</li>
+<li>A variable may be insignificant alone but important together with others<br>
+</li>
+<li>Decisions based only on individual tests can be unstable</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="suggested-strategy">Suggested strategy</h3>
+<ul>
+<li>Use <span class="math inline">\(t\)</span>-tests to <em>identify candidates for removal</em>, but do not automatically remove them based on a single test</li>
+<li>Compare models using an <span class="math inline">\(F\)</span>-test (or another criterion)</li>
+</ul>
+<p>&nbsp;</p>
+<div class="key-point">
+<p>Model selection should be based on <em>the model as a whole</em>, not just individual coefficients</p>
+</div>
+</section>
+<section id="coefficient-of-determination-r2" class="slide level2">
+<h2>Coefficient of determination <span class="math inline">\(R^2\)</span></h2>
+<p>To measure goodness of fit, we decompose the variability in the response:</p>
+<p><span class="math display">\[\begin{gather*}
+\underbrace{\sum_{i=1}^n (Y_i - \barY)^2}_{\SST  = \text{total sum of squares}}
+=
+\underbrace{\sum_{i=1}^n (\hY_i - \barY)^2}_{\SSR = \text{regression sum of squares}}
++
+\underbrace{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}_{\RSS = \text{residual sum of squares}} \\
+R^2 = \frac{\SSR}{\SST} = 1 - \frac{\RSS}{\SST} \in [0,1]
+\end{gather*}\]</span></p>
+<ul>
+<li><p>Interpreted as the <em>proportion of variability in <span class="math inline">\(Y\)</span> explained by the model</em></p></li>
+<li><p>Larger <span class="math inline">\(R^2\)</span> indicates better fit, but it has a major drawback:</p>
+<ul>
+<li>Never decreases when more predictors are added</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
+<p>Adjusted <span class="math inline">\(R^2\)</span> corrects for this by penalizing model complexity:</p>
 <p><span class="math display">\[
 R^2_{\text{adj}}
 =
-1-\frac{\text{RSS}/(n-d)}{\text{TSS}/(n-1)}
+1-\frac{\RSS/(n-d)}{\SST/(n-1)}
 \]</span></p>
-<p>Larger values of adjusted <span class="math inline">\(R^2\)</span> are better.</p>
+<ul>
+<li>Larger values are better</li>
+</ul>
+</section>
+<section id="other-metrics-and-methods-for-model-selection" class="slide level2">
+<h2>Other metrics and methods for model selection</h2>
+<ul>
+<li><span class="alert">Akaike information criterion</span> (AIC) rewards good fit but penalizes complexity</li>
+<li><span class="alert">Bayesian information criterion</span> (BIC) penalizes complexity more strongly than AIC</li>
+<li><span class="alert">Cross-validation</span> (CV) separates the data into a training set and a testing set to estimate predictive performance on new data</li>
+<li><span class="alert">Forward selection</span>, <span class="alert">backward elimination</span>, and <span class="alert">stepwise regression</span> are automated procedures for adding or removing predictors based on criteria like AIC or BIC</li>
+</ul>
+</section>
+<section id="practical-principles-for-model-selection" class="slide level2">
+<h2>Practical principles for model selection</h2>
+<p>When comparing regression models:</p>
+<ul>
+<li>Prefer simpler models if they explain the data nearly as well<br>
+</li>
+<li>Use subject-matter knowledge, not just automatic procedures<br>
+</li>
+<li>Check diagnostics again after selecting a model<br>
+</li>
+<li>Remember that the “best” model for explanation may differ from the “best” model for prediction</li>
+</ul>
+<div class="key-point">
+<p>A good regression model should fit well, make scientific sense, and generalize to new data.</p>
+</div>
+</section>
+<section id="our-example-revisited" class="slide level2">
+<h2>Our example revisited</h2>
+<div id="26da09a1" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[
+y = 0.10 + 0.90 x^2 + \varepsilon,
+\qquad
+\varepsilon \sim \Norm(\vzero, 1.00\,\mI)
+\]</span></p>
+</div>
+</div>
+<p>The <span class="math inline">\(p\)</span>-value is not small, so there is no compelling evidence that the intercept is needed</p>
+<h3 id="coefficient-estimates-full-model">Coefficient Estimates (Full Model)</h3>
+<div id="e46b883a" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Estimate</th>
+<th data-quarto-table-cell-role="th">Std. Error</th>
+<th data-quarto-table-cell-role="th">t value</th>
+<th data-quarto-table-cell-role="th">p value</th>
+<th data-quarto-table-cell-role="th">CI Lower</th>
+<th data-quarto-table-cell-role="th">CI Upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Intercept</th>
+<td>-0.2341</td>
+<td>0.3021</td>
+<td>-0.7749</td>
+<td>0.4449</td>
+<td>-0.8529</td>
+<td>0.3847</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">x^2</th>
+<td>0.9830</td>
+<td>0.0732</td>
+<td>13.4323</td>
+<td>0.0000</td>
+<td>0.8331</td>
+<td>1.1329</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The confidence interval for the intercept includes 0, suggesting it may not be necessary, while the interval for the <span class="math inline">\(x^2\)</span> term is clearly away from 0, indicating it is important</p>
 </section>
 <section class="slide level2">
 
-<h4 id="aic-and-bic">AIC and BIC</h4>
-<p>Two widely used criteria are:</p>
+<h3 id="model-comparison">Model Comparison</h3>
+<div id="ca8a7887" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_0c055" class="caption-top">
+<thead>
+<tr class="header">
+<th id="T_0c055_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_0c055_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
+<th id="T_0c055_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_0c055_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
+<td id="T_0c055_row0_col1" class="data row0 col1">1</td>
+<td id="T_0c055_row0_col2" class="data row0 col2">35.512100</td>
+</tr>
+<tr class="even">
+<td id="T_0c055_row1_col0" class="data row1 col0">Full</td>
+<td id="T_0c055_row1_col1" class="data row1 col1">2</td>
+<td id="T_0c055_row1_col2" class="data row1 col2">34.766600</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The RSS for the full model is not much smaller than the RSS for the reduced model, suggesting that the intercept may not be needed</p>
+<h3 id="f-test-for-removing-intercept">F-test for Removing Intercept</h3>
+<div id="e3448cde" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_9e3ca" class="caption-top">
+<thead>
+<tr class="header">
+<th id="T_9e3ca_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_9e3ca_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_9e3ca_row0_col0" class="data row0 col0">F statistic</td>
+<td id="T_9e3ca_row0_col1" class="data row0 col1">0.600400</td>
+</tr>
+<tr class="even">
+<td id="T_9e3ca_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
+<td id="T_9e3ca_row1_col1" class="data row1 col1">1.000000</td>
+</tr>
+<tr class="odd">
+<td id="T_9e3ca_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
+<td id="T_9e3ca_row2_col1" class="data row2 col1">28.000000</td>
+</tr>
+<tr class="even">
+<td id="T_9e3ca_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_9e3ca_row3_col1" class="data row3 col1">0.444900</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="goodness-of-fit">Goodness of Fit</h3>
+<div id="80856d7c" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_2bc1d" class="caption-top">
+<thead>
+<tr class="header">
+<th id="T_2bc1d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
+<th id="T_2bc1d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_2bc1d_row0_col0" class="data row0 col0">R^2 (full model)</td>
+<td id="T_2bc1d_row0_col1" class="data row0 col1">0.865700</td>
+</tr>
+<tr class="even">
+<td id="T_2bc1d_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
+<td id="T_2bc1d_row1_col1" class="data row1 col1">0.860900</td>
+</tr>
+<tr class="odd">
+<td id="T_2bc1d_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
+<td id="T_2bc1d_row2_col1" class="data row2 col1">0.927300</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>For models without an intercept, we use the uncentered <span class="math inline">\(R^2\)</span>:</p>
+<p><span class="math display">\[
+R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^2}
+\]</span></p>
 <ul>
-<li>AIC = Akaike information criterion</li>
-<li>BIC = Bayesian information criterion</li>
+<li>Measures fit relative to 0 (not <span class="math inline">\(\barY\)</span>)</li>
+<li>Not directly comparable to the usual <span class="math inline">\(R^2\)</span></li>
 </ul>
-<p>Both reward good fit but penalize overly complicated models.</p>
+</section></section>
+<section>
+<section id="oneway_anova" class="title-slide slide level1 center">
+<h1>From Regression to One-Way Analysis of Variance (ANOVA)</h1>
+<p><span class="small">(CB §11.4; WMS §11.15)</span></p>
 <ul>
-<li>AIC usually favors somewhat larger models</li>
-<li>BIC usually favors simpler models more strongly</li>
-</ul>
-<h3 id="training-fit-versus-prediction">Training fit versus prediction</h3>
-<p>A model that fits the observed data extremely well may still predict poorly on new data.</p>
-<p>This is called <span class="alert">overfitting</span>.</p>
-<p>So in practice, we should not judge a model only by how small its RSS is on the training data.</p>
-<h3 id="practical-principles-for-model-selection">Practical principles for model selection</h3>
-<p>When comparing regression models:</p>
-<ul>
-<li>prefer simpler models if they explain the data nearly as well</li>
-<li>use subject-matter knowledge, not just automatic procedures</li>
-<li>check diagnostics again after selecting a model</li>
-<li>remember that the “best” model for explanation may differ from the “best” model for prediction</li>
+<li><p>So far, we modeled relationships with quantitative predictors</p></li>
+<li><p>Now we consider a <em>categorical predictor</em></p></li>
 </ul>
 <div class="key-point">
-<p>A good regression model should fit well, make scientific sense, and pass basic diagnostic checks.</p>
+<p>Do different groups have different means?</p>
 </div>
+<h3>
+Set-up
+</h3>
+<ul>
+<li><p><span class="math inline">\(Y_{ij}\)</span>, <span class="math inline">\(i=1,\ldots,k,\; j=1,\ldots,n_i\)</span> comes from group <span class="math inline">\(i\)</span> and IID observation <span class="math inline">\(j\)</span> in that group</p></li>
+<li><p>Total sample size is <span class="math inline">\(n = \sum_{i=1}^k n_i\)</span></p></li>
+<li><p>Compare the group means, <span class="math inline">\(\mu_i = \Ex(Y_{ij})\)</span>, <span class="math inline">\(i=1,\ldots,k\)</span></p></li>
+</ul>
+</section>
+<section id="model-for-one-way-anova" class="slide level2">
+<h2>Model for one-way ANOVA</h2>
+<ul>
+<li>Model:</li>
+</ul>
+<p><span class="math display">\[
+Y_{ij} = \mu_i + \varepsilon_{ij}
+\]</span></p>
+<ul>
+<li>Assumptions:</li>
+</ul>
+<p><span class="math display">\[
+\varepsilon_{ij} \sim \Norm(0,\sigma^2), \quad \text{independent}
+\]</span></p>
+<ul>
+<li>Each group has its own mean <span class="math inline">\(\mu_i\)</span></li>
+</ul>
+</section>
+<section id="hypotheses" class="slide level2">
+<h2>Hypotheses</h2>
+<ul>
+<li>We test:</li>
+</ul>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+\]</span></p>
+<p><span class="math display">\[
+H_a: \text{not all } \mu_i \text{ are equal}
+\]</span></p>
+</section>
+<section id="sample-means" class="slide level2">
+<h2>Sample means</h2>
+<ul>
+<li>Group means:</li>
+</ul>
+<p><span class="math display">\[
+\bar Y_i = \frac{1}{n_i} \sum_{j=1}^{n_i} Y_{ij}
+\]</span></p>
+<ul>
+<li>Overall mean:</li>
+</ul>
+<p><span class="math display">\[
+\bar Y = \frac{1}{n} \sum_{i=1}^k \sum_{j=1}^{n_i} Y_{ij}
+\]</span></p>
+</section>
+<section id="total-variability" class="slide level2">
+<h2>Total variability</h2>
+<ul>
+<li>Total variation in the data:</li>
+</ul>
+<p><span class="math display">\[
+\text{SST}
+=
+\sum_{i=1}^k \sum_{j=1}^{n_i}
+(Y_{ij} - \bar Y)^2
+\]</span></p>
+<ul>
+<li>Measures how spread out all observations are</li>
+</ul>
+</section>
+<section id="decomposition-of-variability" class="slide level2">
+<h2>Decomposition of variability</h2>
+<ul>
+<li>We decompose total variation:</li>
+</ul>
+<p><span class="math display">\[
+\text{SST} = \text{SSB} + \text{SSW}
+\]</span></p>
+<ul>
+<li>Between-group variation:</li>
+</ul>
+<p><span class="math display">\[
+\text{SSB}
+=
+\sum_{i=1}^k n_i (\bar Y_i - \bar Y)^2
+\]</span></p>
+<ul>
+<li>Within-group variation:</li>
+</ul>
+<p><span class="math display">\[
+\text{SSW}
+=
+\sum_{i=1}^k \sum_{j=1}^{n_i}
+(Y_{ij} - \bar Y_i)^2
+\]</span></p>
+</section>
+<section id="interpretation" class="slide level2">
+<h2>Interpretation</h2>
+<ul>
+<li><p><span class="math inline">\(\text{SSB}\)</span>:</p>
+<ul>
+<li>measures differences between group means</li>
+</ul></li>
+<li><p><span class="math inline">\(\text{SSW}\)</span>:</p>
+<ul>
+<li>measures variability within groups</li>
+</ul></li>
+<li><p>Key idea:</p></li>
+</ul>
+<blockquote>
+<p>Compare signal (between) vs noise (within)</p>
+</blockquote>
+</section>
+<section id="degrees-of-freedom" class="slide level2">
+<h2>Degrees of freedom</h2>
+<ul>
+<li>Between groups:</li>
+</ul>
+<p><span class="math display">\[
+k - 1
+\]</span></p>
+<ul>
+<li>Within groups:</li>
+</ul>
+<p><span class="math display">\[
+n - k
+\]</span></p>
+<ul>
+<li>Total:</li>
+</ul>
+<p><span class="math display">\[
+n - 1
+\]</span></p>
+</section>
+<section id="mean-squares" class="slide level2">
+<h2>Mean squares</h2>
+<ul>
+<li>Define:</li>
+</ul>
+<p><span class="math display">\[
+\text{MSB} = \frac{\text{SSB}}{k-1}
+\]</span></p>
+<p><span class="math display">\[
+\text{MSW} = \frac{\text{SSW}}{n-k}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\text{MSW}\)</span> estimates <span class="math inline">\(\sigma^2\)</span></li>
+</ul>
+</section>
+<section id="f-statistic" class="slide level2">
+<h2>F-statistic</h2>
+<ul>
+<li>Compare variability:</li>
+</ul>
+<p><span class="math display">\[
+F = \frac{\text{MSB}}{\text{MSW}}
+\]</span></p>
+<ul>
+<li>Under <span class="math inline">\(H_0\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+F \sim F_{k-1,\,n-k}
+\]</span></p>
+</section>
+<section id="interpretation-of-the-f-test" class="slide level2">
+<h2>Interpretation of the F-test</h2>
+<ul>
+<li><p>Large <span class="math inline">\(F\)</span>:</p>
+<ul>
+<li>strong evidence that means differ</li>
+</ul></li>
+<li><p>Small <span class="math inline">\(F\)</span>:</p>
+<ul>
+<li>no evidence of differences</li>
+</ul></li>
+<li><p>Important:</p></li>
+</ul>
+<blockquote>
+<p>ANOVA detects differences, not which groups differ</p>
+</blockquote>
+</section>
+<section id="anova-table" class="slide level2">
+<h2>ANOVA table</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Sum of Squares</th>
+<th>df</th>
+<th>Mean Square</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Between groups</td>
+<td>SSB</td>
+<td><span class="math inline">\(k-1\)</span></td>
+<td>MSB</td>
+</tr>
+<tr class="even">
+<td>Within groups</td>
+<td>SSW</td>
+<td><span class="math inline">\(n-k\)</span></td>
+<td>MSW</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>SST</td>
+<td><span class="math inline">\(n-1\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="big-picture" class="slide level2">
+<h2>Big picture</h2>
+<ul>
+<li><p>One-way ANOVA compares multiple means</p></li>
+<li><p>Uses variance decomposition:</p>
+<ul>
+<li>between-group variation<br>
+</li>
+<li>within-group variation</li>
+</ul></li>
+<li><p>Leads to a single global test</p></li>
+</ul>
+</section>
+<section id="next-steps" class="slide level2">
+<h2>Next steps</h2>
+<ul>
+<li><p>How ANOVA connects to regression</p></li>
+<li><p>Dummy variables and design matrices</p></li>
+<li><p>Identifying which groups differ</p></li>
+</ul>
 
 </section></section>
     </div>
