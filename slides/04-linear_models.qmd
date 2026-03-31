@@ -19,8 +19,8 @@ subtitle: |
   <span class="deck-title">{{< meta decks.d04.title >}}</span><br>
   <span class="deck-meta">{{< meta texts.cb.short >}} Ch. 11<br> 
   Test 2 on 4/7 on <br>
-  <span class="indent">
-  Optimality of Estimators, Hypothesis Testing, & </span> <br>
+  <span class="indent"> Optimality of Estimators, </span> <br> 
+  <span class="indent">Hypothesis Testing, & </span> <br>
   <span class="indent">Ordinary Least Squares Through Inference</span>
   </span>
   </span>
