@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-04-03">
+  <meta name="dcterms.date" content="2026-04-05">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -317,6 +317,7 @@
           tX:  "{\\widetilde{X}}",
           tY:  "{\\widetilde{Y}}",
           tZ:  "{\\widetilde{Z}}",
+          tildeh: "{\\widetilde{h}}",
 
           valpha: "{\\boldsymbol{\\alpha}}",
           vbeta:  "{\\boldsymbol{\\beta}}",
@@ -523,7 +524,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">April 3, 2026</p>
+  <p class="date">April 5, 2026</p>
 </section>
 <section id="how-to-learn-this-subject" class="title-slide slide level1 center">
 <h1>How to Learn This Subject</h1>
@@ -822,7 +823,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </ul>
 <p>These <span class="alert">upper critical values</span> are <em>not</em> <span class="math inline">\(\alpha\)</span>-quantiles.</p>
 </div><div class="column" style="width:40%;">
-<div id="fac28f14" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
+<div id="716c13e9" class="cell" data-fig-height="3.6" data-fig-width="4.8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -864,7 +865,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p><em>Example</em>: You observe <span class="math inline">\(\barX_n = 12.0\)</span> minutes for taxis to arrive.You construct a 95% confidence interval for the mean arrival time, <span class="math inline">\(\mu\)</span>, assuming that the arrival times are distributed <span class="math inline">\(\Exp(1/\mu)\)</span>. Recall that <span class="math inline">\(\mu = \sigma = 1/\lambda\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
-<div id="6e938f96" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
+<div id="381f0632" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="9" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -874,7 +875,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 </div>
 </div>
 </div><div class="column" style="width:42%;">
-<div id="6d9dc9a5" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
+<div id="a281b361" class="cell" data-dpi="220" data-fig-height="4.6" data-fig-width="6.5" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -907,7 +908,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 &amp;= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
 \end{align*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="cd6afca7" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
+<div id="30c408a6" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -921,7 +922,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <section class="slide level2">
 
 <h3 id="exact-vs-clt-sampling-distribution-of-overlinex-when-x_i-sim-exp1mu">Exact vs CLT sampling distribution of <span class="math inline">\(\overline{X}\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span></h3>
-<div id="fb78753c" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
+<div id="2d264b76" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -936,7 +937,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <h3 id="exact-vs-clt-confidence-intervals-for-mu-when-x_i-sim-exp1mu-two-sample-sizes">Exact vs CLT confidence intervals for <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(X_i \sim \Exp(1/\mu)\)</span> (two sample sizes)</h3>
 <div class="columns">
 <div class="column" style="width:65%;">
-<div id="f0e5265e" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
+<div id="29be1d8a" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -974,7 +975,7 @@ c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text
 <p>Student’s <span class="math inline">\(t\)</span> CIs are <span class="alert">wider</span> than CLT Normal CIs for small <span class="math inline">\(n\)</span> because <span class="math inline">\(t_{n-1,\alpha/2} &gt; z_{\alpha/2}\)</span></p>
 <p>But they are <span class="alert">exact</span> and thus more accurate for all <span class="math inline">\(n \ge 2\)</span> when the data are Normal</p>
 </div><div class="column" style="width:70%;">
-<div id="68361f26" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
+<div id="61ea41ae" class="cell" data-fig-height="3.4" data-fig-width="6.8" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1333,10 +1334,10 @@ Sample mean
 <strong>Original</strong>
 </td>
 <td>
-6.02, 0.36, 0.32, 5.78, 0.78, 1.39, 0.04, 1.63
+2.28, 1.36, 5.71, 0.45, 0.32, 1.42, 1.59, 6.87
 </td>
 <td>
-2.04
+2.50
 </td>
 </tr>
 <tr>
@@ -1344,10 +1345,10 @@ Sample mean
 Bootstrap 1
 </td>
 <td>
-1.39, 0.36, 5.78, 5.78, 6.02, 5.78, 0.04, 0.04
+1.36, 1.42, 2.28, 1.59, 0.45, 1.59, 1.36, 5.71
 </td>
 <td>
-3.15
+1.97
 </td>
 </tr>
 <tr>
@@ -1355,10 +1356,10 @@ Bootstrap 1
 Bootstrap 2
 </td>
 <td>
-6.02, 1.39, 0.32, 0.32, 0.04, 0.36, 1.39, 1.39
+2.28, 0.32, 6.87, 1.42, 1.36, 6.87, 0.45, 0.45
 </td>
 <td>
-1.40
+2.50
 </td>
 </tr>
 <tr>
@@ -1366,10 +1367,10 @@ Bootstrap 2
 Bootstrap 3
 </td>
 <td>
-1.63, 5.78, 0.04, 0.36, 1.39, 1.63, 0.04, 1.63
+2.28, 0.32, 5.71, 1.36, 1.36, 1.36, 1.42, 0.32
 </td>
 <td>
-1.56
+1.77
 </td>
 </tr>
 <tr>
@@ -1377,10 +1378,10 @@ Bootstrap 3
 Bootstrap 4
 </td>
 <td>
-6.02, 6.02, 5.78, 0.78, 0.32, 1.63, 6.02, 1.63
+1.42, 1.42, 1.59, 0.45, 1.42, 5.71, 6.87, 0.45
 </td>
 <td>
-3.53
+2.42
 </td>
 </tr>
 <tr>
@@ -1610,7 +1611,7 @@ Bootstrap 4
 \varrho(\vx \mid \vtheta) = L(\vtheta \mid \vx)
 &amp; =
 g(T(\vx), \vtheta)\, h(\vx) \\
-\text{or equivalently } \qquad \ell(\vtheta \mid \vx)  = \log(L(\vtheta \mid \vx)) &amp; = \tg(T(\vx), \vtheta) + \th(\vx)
+\text{or equivalently } \qquad \ell(\vtheta \mid \vx)  = \log(L(\vtheta \mid \vx)) &amp; = \tg(T(\vx), \vtheta) + \tildeh(\vx)
 \end{align*}\]</span></p>
 <p>where</p>
 <ul>
@@ -1676,12 +1677,12 @@ T(\vx) = T(\vy)
 </ul>
 <p>For each <span class="math inline">\(t \in \ct\)</span>, find one <span class="math inline">\(\vx_t \in \cx\)</span> such that <span class="math inline">\(T(\vx_t) = t\)</span>, and define</p>
 <ul>
-<li><p><span class="math inline">\(\th(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})\quad \forall x\in \cx \qquad\)</span> (independent of <span class="math inline">\(\vtheta\)</span> by the hypothesis)</p></li>
+<li><p><span class="math inline">\(\tildeh(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})\quad \forall x\in \cx \qquad\)</span> (independent of <span class="math inline">\(\vtheta\)</span> by the hypothesis)</p></li>
 <li><p><span class="math inline">\(\tg(t,\vtheta) : = \ell(\vtheta \mid \vx_t)\quad \forall \vtheta, \forall t \in \ct\)</span></p></li>
 </ul>
 <p>Then for any <span class="math inline">\(\vx \in \cx\)</span>,</p>
 <p><span class="math display">\[
-\ell(\vtheta \mid \vx) \underbrace{=}_{\text{def. of} \th} \th(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) \underbrace{=}_{\text{def. of} \tg}  \th(\vx) + \tg(T(\vx),\vtheta)  
+\ell(\vtheta \mid \vx) \underbrace{=}_{\text{def. of } \tildeh} \tildeh(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) \underbrace{=}_{\text{def. of } \tg}  \tildeh(\vx) + \tg(T(\vx),\vtheta)  
 \quad  \forall \vtheta, \ \forall \vx \in \cx
 \]</span></p>
 <p>so <span class="math inline">\(T\)</span> is sufficient</p>
@@ -1690,9 +1691,9 @@ T(\vx) = T(\vy)
 
 <p><em>Proof that <span class="math inline">\(T(\vX)\)</span> is minimal sufficient</em>:</p>
 <p>Let <span class="math inline">\(T'(\vX)\)</span> be any other sufficient statistic, so</p>
-<p><span class="math display">\[\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \th'(\vx) \quad \text{by the Factorization Theorem}\]</span></p>
+<p><span class="math display">\[\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \tildeh'(\vx) \quad \text{by the Factorization Theorem}\]</span></p>
 <p>For any <span class="math inline">\(\vx, \vy \in \cx\)</span> with <span class="math inline">\(T'(\vx) = T'(\vy)\)</span>, we have <span class="math display">\[
-\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \th'(\vx) - \tg'(T'(\vy),\vtheta) - \th'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \th'(\vx) - \th'(\vy)\]</span> which does not depend on <span class="math inline">\(\vtheta\)</span>. Thus, <span class="math inline">\(T(\vx) = T(\vy)\)</span> by the hypothesis of the theorem.</p>
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \tildeh'(\vx) - \tg'(T'(\vy),\vtheta) - \tildeh'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \tildeh'(\vx) - \tildeh'(\vy)\]</span> which does not depend on <span class="math inline">\(\vtheta\)</span>. Thus, <span class="math inline">\(T(\vx) = T(\vy)\)</span> by the hypothesis of the theorem.</p>
 <p>&nbsp;</p>
 <p>Since <span class="math inline">\(T'(\vx) = T'(\vy) \implies T(\vx) = T(\vy)\)</span>, it follows that <span class="math inline">\(T\)</span> is a function of <span class="math inline">\(T'\)</span> <span class="math inline">\(\qquad \square\)</span></p>
 </section>
@@ -1898,7 +1899,7 @@ X_i \log p
 \frac{1 - X_i}{(1-p)^2}
 \right) \\
 \text{Fisher information} \quad I_n(p) &amp; =
-- \Ex[\ell''(p)] =
+- \Ex[\ell''(p)] = n
 \left(
 \frac{p}{p^2}
 +
@@ -2117,7 +2118,7 @@ T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \t
 </section>
 <section id="manufacturing-example-parameterized" class="slide level2">
 <h2>Manufacturing example (parameterized)</h2>
-<div id="e7f42b6e" class="cell" data-message="false" data-execution_count="12">
+<div id="a7ca30de" class="cell" data-message="false" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <ul>
 <li><span class="math inline">\(n=25\)</span>, <span class="math inline">\(\barx=10.0200\)</span>, <span class="math inline">\(s=0.2000\)</span></li>
@@ -2136,7 +2137,7 @@ T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \t
 </section>
 <section class="slide level2">
 
-<div id="27664ed8" class="cell" data-message="false" data-execution_count="13">
+<div id="c4327e67" class="cell" data-message="false" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
