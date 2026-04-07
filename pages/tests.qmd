@@ -24,8 +24,8 @@ Dates, coverage, and PDFs for this semester will appear here as they become avai
 Date | Assessment  | PDF
 ---|---|---|---
 | Thu Feb 26 | Test 1 | [Test 1 Questions and Answers](../assets/tests/current/MATH563Test1Spring2026Answers.pdf) <br> [Make-Up Test 1 Questions and Answers](../assets/tests/current/MATH563Test1MakeupSpring2026Answers.pdf)
-| Thu Apr 7 | Test 2 | [Test 2 Questions and Answers](...)
-| Tue May ? | Final Exam  | [Final Exam Questions and Answers](...)
+| Thu Apr 7 | Test 2 | [Test 2 Questions and Answers](../assets/tests/current/MATH563Test2Spring2026Answers.pdf)
+| Tue May 5, 10:30 AM, HH003 | Final Exam  | [Final Exam Questions and Answers](...)
 
 ---
 

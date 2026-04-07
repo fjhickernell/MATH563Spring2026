@@ -64,4 +64,4 @@ Classes are normally held in RE 102 at 10 AM on Tuesdays and Thursdays
 
 | Week | Date   | Topic                    | Slides                             |
 |-|--------|---------------------------|-------------------------|
-| 16 | Tue May 5 | **Final Exam** in HH 003 | |
+| 16 | Tue May 5, 10:30 AM | **Final Exam** in HH 003 | |
