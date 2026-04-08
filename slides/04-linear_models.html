@@ -243,7 +243,7 @@
           Bern:  "{\\operatorname{Bern}}",
           Bin:   "{\\operatorname{Bin}}",
           Unif:  "{\\operatorname{Unif}}",
-          Norm:  "{\\operatorname{N}}",
+          Norm:  "{\\operatorname{Norm}}",
           Exp:   "{\\operatorname{Exp}}",
           Gam:   "{\\operatorname{Gamma}}",
           Pois:  "{\\operatorname{Pois}}",
@@ -763,7 +763,7 @@ Moving forward
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="af8fcb6e" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="9f648ded" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -839,7 +839,7 @@ S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="df00131d" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="94f5d5ee" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -935,7 +935,7 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div id="6247b138" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div id="b0e81d1e" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1040,7 +1040,7 @@ S
 }
 \]</span></p>
 </div></div>
-<div id="9616207e" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div id="e2615cce" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1100,7 +1100,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li><p>Simultaneous bands use the larger <span class="math inline">\(\sqrt{dF_{d,n-d,\alpha}}\)</span> multiplier because they must work for all <span class="math inline">\(\vx\)</span> at once</p></li>
 </ul>
 </div>
-<div id="c7f9607f" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
+<div id="01b44cd7" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1291,7 +1291,7 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 </section>
 <section id="our-example" class="slide level2">
 <h2>Our example</h2>
-<div id="63bd7947" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
+<div id="99269656" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1329,7 +1329,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </ul>
 <p>This violates the constant-variance assumption</p>
 </div><div class="column" style="width:50%;">
-<div id="6f1f8345" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
+<div id="4ab8023f" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1376,7 +1376,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>and it can strongly affect the fitted regression</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="7dee7aaf" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
+<div id="6ff5a26c" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1583,7 +1583,7 @@ R^2_{\text{adj}}
 </section>
 <section id="our-example-revisited" class="slide level2">
 <h2>Our example revisited</h2>
-<div id="bf991e86" class="cell" data-execution_count="10">
+<div id="c293156b" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[
 y = 0.10 + 0.90 x^2 + \varepsilon,
@@ -1594,7 +1594,7 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The <span class="math inline">\(p\)</span>-value is not small, so there is no compelling evidence that the intercept is needed</p>
 <h3 id="coefficient-estimates-full-model">Coefficient Estimates (Full Model)</h3>
-<div id="d65754ab" class="cell" data-execution_count="11">
+<div id="e28275a4" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -1653,29 +1653,29 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="model-comparison">Model Comparison</h3>
-<div id="53bf9d00" class="cell" data-execution_count="12">
+<div id="a82c5573" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_bca9c" class="caption-top">
+<table id="T_093fc" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_bca9c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_bca9c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
-<th id="T_bca9c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
+<th id="T_093fc_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_093fc_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
+<th id="T_093fc_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_bca9c_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
-<td id="T_bca9c_row0_col1" class="data row0 col1">1</td>
-<td id="T_bca9c_row0_col2" class="data row0 col2">35.512100</td>
+<td id="T_093fc_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
+<td id="T_093fc_row0_col1" class="data row0 col1">1</td>
+<td id="T_093fc_row0_col2" class="data row0 col2">35.512100</td>
 </tr>
 <tr class="even">
-<td id="T_bca9c_row1_col0" class="data row1 col0">Full</td>
-<td id="T_bca9c_row1_col1" class="data row1 col1">2</td>
-<td id="T_bca9c_row1_col2" class="data row1 col2">34.766600</td>
+<td id="T_093fc_row1_col0" class="data row1 col0">Full</td>
+<td id="T_093fc_row1_col1" class="data row1 col1">2</td>
+<td id="T_093fc_row1_col2" class="data row1 col2">34.766600</td>
 </tr>
 </tbody>
 </table>
@@ -1683,34 +1683,34 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The RSS for the full model is not much smaller than the RSS for the reduced model, suggesting that the intercept may not be needed</p>
 <h3 id="f-test-for-removing-intercept">F-test for Removing Intercept</h3>
-<div id="a12bd44a" class="cell" data-execution_count="13">
+<div id="86a7fb3b" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_854f9" class="caption-top">
+<table id="T_8dccc" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_854f9_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_854f9_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_8dccc_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_8dccc_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_854f9_row0_col0" class="data row0 col0">F statistic</td>
-<td id="T_854f9_row0_col1" class="data row0 col1">0.600400</td>
+<td id="T_8dccc_row0_col0" class="data row0 col0">F statistic</td>
+<td id="T_8dccc_row0_col1" class="data row0 col1">0.600400</td>
 </tr>
 <tr class="even">
-<td id="T_854f9_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
-<td id="T_854f9_row1_col1" class="data row1 col1">1.000000</td>
+<td id="T_8dccc_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
+<td id="T_8dccc_row1_col1" class="data row1 col1">1.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_854f9_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
-<td id="T_854f9_row2_col1" class="data row2 col1">28.000000</td>
+<td id="T_8dccc_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
+<td id="T_8dccc_row2_col1" class="data row2 col1">28.000000</td>
 </tr>
 <tr class="even">
-<td id="T_854f9_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_854f9_row3_col1" class="data row3 col1">0.444900</td>
+<td id="T_8dccc_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_8dccc_row3_col1" class="data row3 col1">0.444900</td>
 </tr>
 </tbody>
 </table>
@@ -1720,30 +1720,30 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="goodness-of-fit">Goodness of Fit</h3>
-<div id="8c8a66ca" class="cell" data-execution_count="14">
+<div id="2b95478f" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_b4674" class="caption-top">
+<table id="T_e2bd0" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_b4674_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
-<th id="T_b4674_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_e2bd0_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
+<th id="T_e2bd0_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_b4674_row0_col0" class="data row0 col0">R^2 (full model)</td>
-<td id="T_b4674_row0_col1" class="data row0 col1">0.865700</td>
+<td id="T_e2bd0_row0_col0" class="data row0 col0">R^2 (full model)</td>
+<td id="T_e2bd0_row0_col1" class="data row0 col1">0.865700</td>
 </tr>
 <tr class="even">
-<td id="T_b4674_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
-<td id="T_b4674_row1_col1" class="data row1 col1">0.860900</td>
+<td id="T_e2bd0_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
+<td id="T_e2bd0_row1_col1" class="data row1 col1">0.860900</td>
 </tr>
 <tr class="odd">
-<td id="T_b4674_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
-<td id="T_b4674_row2_col1" class="data row2 col1">0.927300</td>
+<td id="T_e2bd0_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
+<td id="T_e2bd0_row2_col1" class="data row2 col1">0.927300</td>
 </tr>
 </tbody>
 </table>
@@ -1761,7 +1761,7 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="diagnostic-plots-for-the-reduced-model">Diagnostic plots for the reduced model</h3>
-<div id="a7b0f3c3" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
+<div id="a2a3efad" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1774,7 +1774,7 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="confidenceprediction-intervalsbands-for-the-reduced-model">Confidence/prediction intervals/bands for the reduced model</h3>
-<div id="383c4b7a" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
+<div id="077ca661" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1989,51 +1989,51 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 <p>Here are three groups of data:</p>
 <div class="columns">
 <div class="column" style="width:19%;">
-<div id="5672ab58" class="cell" data-execution_count="17">
+<div id="14e44137" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <style type="text/css">
 </style>
 
-<table id="T_26636" class="caption-top">
+<table id="T_67160" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_26636_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
-<th id="T_26636_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
-<th id="T_26636_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
+<th id="T_67160_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
+<th id="T_67160_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
+<th id="T_67160_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_26636_row0_col0" class="data row0 col0">8.2</td>
-<td id="T_26636_row0_col1" class="data row0 col1">8.0</td>
-<td id="T_26636_row0_col2" class="data row0 col2">10.1</td>
+<td id="T_67160_row0_col0" class="data row0 col0">8.2</td>
+<td id="T_67160_row0_col1" class="data row0 col1">8.0</td>
+<td id="T_67160_row0_col2" class="data row0 col2">10.1</td>
 </tr>
 <tr class="even">
-<td id="T_26636_row1_col0" class="data row1 col0">7.9</td>
-<td id="T_26636_row1_col1" class="data row1 col1">8.3</td>
-<td id="T_26636_row1_col2" class="data row1 col2">9.8</td>
+<td id="T_67160_row1_col0" class="data row1 col0">7.9</td>
+<td id="T_67160_row1_col1" class="data row1 col1">8.3</td>
+<td id="T_67160_row1_col2" class="data row1 col2">9.8</td>
 </tr>
 <tr class="odd">
-<td id="T_26636_row2_col0" class="data row2 col0">8.4</td>
-<td id="T_26636_row2_col1" class="data row2 col1">7.8</td>
-<td id="T_26636_row2_col2" class="data row2 col2">10.4</td>
+<td id="T_67160_row2_col0" class="data row2 col0">8.4</td>
+<td id="T_67160_row2_col1" class="data row2 col1">7.8</td>
+<td id="T_67160_row2_col2" class="data row2 col2">10.4</td>
 </tr>
 <tr class="even">
-<td id="T_26636_row3_col0" class="data row3 col0">8.1</td>
-<td id="T_26636_row3_col1" class="data row3 col1">8.1</td>
-<td id="T_26636_row3_col2" class="data row3 col2">10.0</td>
+<td id="T_67160_row3_col0" class="data row3 col0">8.1</td>
+<td id="T_67160_row3_col1" class="data row3 col1">8.1</td>
+<td id="T_67160_row3_col2" class="data row3 col2">10.0</td>
 </tr>
 <tr class="odd">
-<td id="T_26636_row4_col0" class="data row4 col0">nan</td>
-<td id="T_26636_row4_col1" class="data row4 col1">8.2</td>
-<td id="T_26636_row4_col2" class="data row4 col2">nan</td>
+<td id="T_67160_row4_col0" class="data row4 col0">nan</td>
+<td id="T_67160_row4_col1" class="data row4 col1">8.2</td>
+<td id="T_67160_row4_col2" class="data row4 col2">nan</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div><div class="column" style="width:33%;">
-<div id="34cbf336" class="cell" data-execution_count="18">
+<div id="eeb09f84" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <style scoped="">
@@ -2091,7 +2091,7 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 </div>
 </div>
 </div><div class="column" style="width:48%;">
-<div id="5b745df2" class="cell" data-execution_count="19">
+<div id="f8fb2df8" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <style scoped="">
@@ -2156,34 +2156,34 @@ H_0:\mu_1=\mu_2=\mu_3
 H_a:\text{not all } \mu_i \text{ are equal}
 \end{gather*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="759885b1" class="cell" data-execution_count="20">
+<div id="32b4ce18" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="20">
 <style type="text/css">
 </style>
 
-<table id="T_bff77" class="caption-top">
+<table id="T_7a901" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_bff77_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_bff77_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_7a901_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_7a901_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_bff77_row0_col0" class="data row0 col0">F = MSB/MSW</td>
-<td id="T_bff77_row0_col1" class="data row0 col1">114.838100</td>
+<td id="T_7a901_row0_col0" class="data row0 col0">F = MSB/MSW</td>
+<td id="T_7a901_row0_col1" class="data row0 col1">114.838100</td>
 </tr>
 <tr class="even">
-<td id="T_bff77_row1_col0" class="data row1 col0">df Between</td>
-<td id="T_bff77_row1_col1" class="data row1 col1">2.000000</td>
+<td id="T_7a901_row1_col0" class="data row1 col0">df Between</td>
+<td id="T_7a901_row1_col1" class="data row1 col1">2.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_bff77_row2_col0" class="data row2 col0">df Within</td>
-<td id="T_bff77_row2_col1" class="data row2 col1">10.000000</td>
+<td id="T_7a901_row2_col0" class="data row2 col0">df Within</td>
+<td id="T_7a901_row2_col1" class="data row2 col1">10.000000</td>
 </tr>
 <tr class="even">
-<td id="T_bff77_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_bff77_row3_col1" class="data row3 col1">0.000000</td>
+<td id="T_7a901_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_7a901_row3_col1" class="data row3 col1">0.000000</td>
 </tr>
 </tbody>
 </table>
@@ -2330,7 +2330,7 @@ H_0:
 
 <div class="columns">
 <div class="column" style="width:35%;">
-<div id="37209ea5" class="cell" data-execution_count="21">
+<div id="6497db72" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 <style scoped="">
@@ -2450,14 +2450,29 @@ H_0:
 <p><span class="math display">\[
   p_i = \frac{1}{1 + e^{-\vx_i^\top \vbeta}} \qquad \text{or equivalently} \qquad \log (\text{odds}) = \logit(p_i) = \log\left(\frac{p_i}{1-p_i}\right) = \vx_i^\top \vbeta
   \]</span></p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li><span class="math inline">\(\beta_j = \text{change in log-odds per unit increase in } x_j\)</span></li>
 <li><span class="math inline">\(e^{\beta_j} = \text{multiplicative change in odds per unit increase in } x_j\)</span></li>
-<li><span class="math inline">\(\logit\)</span> is the quantile function of the logistic distribution
+<li><span class="math inline">\(\logit\)</span> is the quantile function of the <a href="https://en.wikipedia.org/wiki/Logistic_distribution">logistic distribution</a>
 <ul>
 <li>which has CDF <span class="math inline">\(\displaystyle F(t) = \frac{1}{1 + e^{-t}}\)</span>, <span class="math inline">\(- \infty &lt; t &lt; \infty\)</span></li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:35%;">
+<div id="f4ccb584" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-23-output-1.png" width="692" height="335"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section>
 <section id="likelihood" class="slide level2">
 <h2>Likelihood</h2>
@@ -2557,17 +2572,694 @@ w_i^{(t)}\bigl(z_i^{(t)} - \vx_i^\top \vb\bigr)^2
 <li>Model is <span class="math inline">\(\probit(p(\vx)) = \vx^\top \vbeta\)</span></li>
 <li><span class="math inline">\(p(\vx) = \Phi(\vx^\top \vbeta)\)</span>, where <span class="math inline">\(\Phi\)</span> is the CDF of <span class="math inline">\(\Norm(0,1)\)</span></li>
 </ul></li>
-<li><p>Both:</p>
+</ul>
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li>Both:
 <ul>
 <li>map <span class="math inline">\((0,1) \to \reals\)</span></li>
 <li>give similar fits</li>
 </ul></li>
-<li><p>probit interpretation:</p>
+<li>probit interpretation:
 <ul>
 <li>latent normal threshold model</li>
 <li>lighter tails than logit</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:60%;">
+<div id="483e1e2c" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-24-output-1.png" width="830" height="484"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-graduate-admissions-explained-by-gre" class="slide level2">
+<h2>Example: Graduate admissions explained by GRE</h2>
+<p>Suppose that we observe whether an applicant is admitted to a graduate program</p>
+<p><span class="math display">\[
+Y =
+\begin{cases}
+1, &amp; \text{if admitted} \\
+0, &amp; \text{if not admitted}
+\end{cases}
+\qquad \text{and} \qquad
+X = \text{GRE score}
+\]</span></p>
+<p>Does the probability of admission depend on the applicant’s GRE score?</p>
+<p><span class="math display">\[
+p(x) = \Prob(Y=1 \mid X=x)
+\]</span></p>
+<p>A logistic regression model assumes that</p>
+<p><span class="math display">\[
+\log\left(\frac{p(x)}{1-p(x)}\right) = \beta_0 + \beta_1 x \qquad \text{or equivalently} \qquad
+p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
+\]</span></p>
+<p>Thus, the probability of admission is an S-shaped function of the GRE score</p>
+</section>
+<section class="slide level2">
+
+<h3 id="simulated-data-with-realistic-gre-scores">Simulated data with realistic GRE scores</h3>
+<div id="971ce14f" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">GRE</th>
+<th data-quarto-table-cell-role="th">p_admit_true</th>
+<th data-quarto-table-cell-role="th">admit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">26</th>
+<td>285</td>
+<td>0.231475</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">19</th>
+<td>291</td>
+<td>0.327393</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">15</th>
+<td>300</td>
+<td>0.500000</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">66</th>
+<td>301</td>
+<td>0.519989</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">77</th>
+<td>305</td>
+<td>0.598688</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">34</th>
+<td>308</td>
+<td>0.654753</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">38</th>
+<td>309</td>
+<td>0.672607</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">110</th>
+<td>311</td>
+<td>0.706822</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">71</th>
+<td>311</td>
+<td>0.706822</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">102</th>
+<td>314</td>
+<td>0.753989</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">56</th>
+<td>318</td>
+<td>0.808455</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">90</th>
+<td>319</td>
+<td>0.820538</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="plot-of-the-binary-data-and-the-true-logistic-curve">Plot of the binary data and the true logistic curve</h3>
+<div id="4c3b6aef" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-26-output-1.png" width="978" height="631"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="fit-a-logistic-regression-model-using-gre-only">Fit a logistic regression model using GRE only</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div id="f04b7f45" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Coefficient</th>
+<th data-quarto-table-cell-role="th">Std. Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">const</th>
+<td>-17.0059</td>
+<td>5.7633</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">GRE</th>
+<td>0.0556</td>
+<td>0.0189</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:60%;">
+<div id="73f475e3" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-28-output-1.png" width="978" height="631"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="example-graduate-admissions-explained-by-both-gre-and-gpa" class="slide level2">
+<h2>Example: Graduate admissions explained by both GRE and GPA</h2>
+<p>Admissions are not based on GRE alone. A more realistic model allows the admission probability to depend on both GRE and GPA:</p>
+<p><span class="math display">\[
+\log\left(\frac{p(x_1,x_2)}{1-p(x_1,x_2)}\right)
+=
+\beta_0 + \beta_1 x_1 + \beta_2 x_2,
+\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(x_1\)</span> is GRE</p></li>
+<li><p><span class="math inline">\(x_2\)</span> is GPA</p></li>
+</ul>
+<p>We cannot visualize this model with a single probability curve against one predictor, but we can still explore model fit through fitted probabilities and grouped summaries</p>
+</section>
+<section class="slide level2">
+
+<h3 id="simulated-data-with-gre-and-gpa">Simulated data with GRE and GPA</h3>
+<div id="f3c3656c" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">GRE</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">p_admit_true</th>
+<th data-quarto-table-cell-role="th">admit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">141</th>
+<td>293</td>
+<td>3.61</td>
+<td>0.462073</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">154</th>
+<td>295</td>
+<td>2.94</td>
+<td>0.173217</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">45</th>
+<td>296</td>
+<td>3.09</td>
+<td>0.239942</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">92</th>
+<td>300</td>
+<td>3.18</td>
+<td>0.334923</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">42</th>
+<td>306</td>
+<td>3.25</td>
+<td>0.466301</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">108</th>
+<td>311</td>
+<td>3.01</td>
+<td>0.410476</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">46</th>
+<td>311</td>
+<td>3.39</td>
+<td>0.625275</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">99</th>
+<td>311</td>
+<td>3.84</td>
+<td>0.824480</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">25</th>
+<td>314</td>
+<td>2.89</td>
+<td>0.391026</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">109</th>
+<td>317</td>
+<td>2.99</td>
+<td>0.495500</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">111</th>
+<td>323</td>
+<td>3.14</td>
+<td>0.671946</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">10</th>
+<td>331</td>
+<td>3.32</td>
+<td>0.839026</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="fit-a-logistic-regression-model-using-gre-and-gpa">Fit a logistic regression model using GRE and GPA</h3>
+<div id="a9b55df9" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="29">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Coefficient</th>
+<th data-quarto-table-cell-role="th">Std. Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">const</th>
+<td>-16.7961</td>
+<td>5.1989</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">GRE</th>
+<td>0.0350</td>
+<td>0.0150</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">GPA</th>
+<td>1.7764</td>
+<td>0.6325</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:50%;">
+<h3 id="predicted-probabilities-for-a-few-applicants">Predicted probabilities for a few applicants</h3>
+<div id="6000f85f" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">GRE</th>
+<th data-quarto-table-cell-role="th">GPA</th>
+<th data-quarto-table-cell-role="th">admit</th>
+<th data-quarto-table-cell-role="th">p_admit_hat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">81</th>
+<td>291</td>
+<td>3.25</td>
+<td>0</td>
+<td>0.301</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">110</th>
+<td>293</td>
+<td>3.76</td>
+<td>1</td>
+<td>0.533</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">45</th>
+<td>296</td>
+<td>3.09</td>
+<td>1</td>
+<td>0.278</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>299</td>
+<td>3.27</td>
+<td>0</td>
+<td>0.371</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">89</th>
+<td>300</td>
+<td>3.35</td>
+<td>0</td>
+<td>0.413</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">44</th>
+<td>300</td>
+<td>3.58</td>
+<td>1</td>
+<td>0.514</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">87</th>
+<td>304</td>
+<td>3.23</td>
+<td>1</td>
+<td>0.395</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">114</th>
+<td>305</td>
+<td>3.47</td>
+<td>0</td>
+<td>0.509</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">119</th>
+<td>311</td>
+<td>3.39</td>
+<td>1</td>
+<td>0.526</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">30</th>
+<td>312</td>
+<td>4.00</td>
+<td>0</td>
+<td>0.773</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">83</th>
+<td>319</td>
+<td>2.75</td>
+<td>0</td>
+<td>0.320</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">102</th>
+<td>327</td>
+<td>3.52</td>
+<td>1</td>
+<td>0.710</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="compare-observed-and-fitted-admission-rates-by-decile-of-fitted-probability">Compare observed and fitted admission rates by decile of fitted probability</h3>
+<div id="4075a051" class="cell" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">prob_bin</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">mean_fitted_probability</th>
+<th data-quarto-table-cell-role="th">observed_admission_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>(0.143, 0.266]</td>
+<td>16</td>
+<td>0.235</td>
+<td>0.250</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>(0.266, 0.308]</td>
+<td>16</td>
+<td>0.284</td>
+<td>0.312</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>(0.308, 0.361]</td>
+<td>16</td>
+<td>0.339</td>
+<td>0.312</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>(0.361, 0.396]</td>
+<td>16</td>
+<td>0.379</td>
+<td>0.375</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>(0.396, 0.427]</td>
+<td>16</td>
+<td>0.414</td>
+<td>0.375</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>(0.427, 0.487]</td>
+<td>16</td>
+<td>0.464</td>
+<td>0.375</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>(0.487, 0.526]</td>
+<td>16</td>
+<td>0.509</td>
+<td>0.562</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>(0.526, 0.588]</td>
+<td>16</td>
+<td>0.549</td>
+<td>0.625</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>(0.588, 0.658]</td>
+<td>16</td>
+<td>0.624</td>
+<td>0.750</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>(0.658, 0.773]</td>
+<td>16</td>
+<td>0.702</td>
+<td>0.562</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="calibration-plot">Calibration plot</h3>
+<div id="da8497fc" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-33-output-1.png" width="662" height="483"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+<p>&nbsp;</p>
+</div><div class="column" style="width:55%;">
+<h3 id="interpretation">Interpretation</h3>
+<ul>
+<li>GRE-only model: probability of admission is a curve as a function of one predictor</li>
+<li>GRE + GPA model: probability depends on two predictors, so no single S-shaped curve to plot against one horizontal axis</li>
+<li>Can still assess fit by examining fitted probabilities and comparing them with observed admission rates in groups</li>
+</ul>
+<p>This is why regression is often explored using:</p>
+<ul>
+<li>fitted probabilities</li>
+<li>grouped summaries</li>
+<li>calibration plots</li>
+<li>classification tables</li>
+</ul>
+<p>rather than only a single scatterplot with a fitted curve</p>
+</div></div>
 </section>
 <section id="big-picture-3" class="slide level2">
 <h2>Big picture</h2>
