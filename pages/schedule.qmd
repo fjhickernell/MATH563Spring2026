@@ -42,15 +42,15 @@ Classes are normally held in RE 102 at 10 AM on Tuesdays and Thursdays
 |  | Tue Mar 17 | **No Class, Spring Break** | |
 |  | Thu Mar 19 | **No Class, Spring Break** | |
 | 10 | Tue Mar 24 | Ordinary least squares and inference | |
-|  | Thu Mar 26 | | Ordinary least squares inference and diagnostics  |
-| 11 | Tue Mar 31 | | |
+|  | Thu Mar 26 | Ordinary least squares inference and diagnostics  | |
+| 11 | Tue Mar 31 | Ordinary least squares diagnostics and model selection | |
 ### April
 
 | Week | Date   | Topic                    | Slides                             |
 |-|--------|---------------------------|-------------------------|
-|  | Thu Apr 2 | | |
+|  | Thu Apr 2 | Ordinary least squares model selection, one-way ANOVA | |
 | 12 | Tue Apr 7 | **Test 2** on Optimality of Estimators, Hypothesis Testing, and Ordinary Least Squares Through Inference | |
-|  | Thu Apr 9 | | |
+|  | Thu Apr 9 | One-way ANOVA, logistic regression | |
 | | Fri Apr 10 | **Assignment 5 Due** | |
 | 13 | Tue Apr 14 | | |
 |  | Thu Apr 16 | | |
