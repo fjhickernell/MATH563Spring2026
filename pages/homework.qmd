@@ -19,11 +19,12 @@ title: "Assignments"
  
 ## List of assignments
 
-| Assignment     | Due Date
-|-------------------------------------|-----------|
+| Assignment            | Due Date              
+|-----------------------|-------------------------|
 | Assignment 1 — Diagnostic survey (Canvas / Microsoft Forms) | January 16
-| Assignment 2 — {{< meta texts.cb.short >}} 3.9, 3.28d, 4.26, 5.8, <br> Find and submit a screenshot, photo or pdf of a statistical claim that you find somewhere in public. Write a paragraph describing what questions you might have about the origin or interpretation of this statistical claim. | January 30 |
+| Assignment 2 — {{< meta texts.cb.short >}} 3.9, 3.28d, 4.26, 5.8, <br> Find and submit a screenshot, photo or pdf of a statistical claim that you find somewhere in public. <br>Write a paragraph describing what questions you might have about the origin or interpretation of this statistical claim. | January 30 |
 | Assignment 3 — {{< meta texts.cb.short >}} 7.3, 7.8, 7.20, 9.2, 9.12 | February 13 |
 | Assignment 4 — {{< meta texts.cb.short >}} 8.2, 8.4, 8.6, 8.14 | March 13 |
 | [Assignment 5 — Exact and Approximate Inference for Call Center Waiting Times](/assignments/math563_waiting_time_homework.html) | April 10 |
+| Assignment 6 — {{< meta texts.cb.short >}} 11.3, 11.15, 11.18, 11.32 | April 30 |
 
