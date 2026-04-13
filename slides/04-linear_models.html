@@ -611,7 +611,7 @@ Moving forward
 </ul></li>
 <li><p><a href="#/oneway_anova">One-way analysis of variance (ANOVA)</a> <span class="math inline">\(Y_{ij} = \mu_i + \varepsilon_{ij}\)</span> with <span class="math inline">\(\Ex(\varepsilon_{ij}) = 0\)</span> and <span class="math inline">\(\cov(\varepsilon_{ij}) = \sigma^2 \mI\)</span></p></li>
 <li><p><a href="#/logistic-glm">Logistic regression</a> and other generalized linear models</p></li>
-<li><p><span class="alert">Gaussian process regression</span></p></li>
+<li><p><span id="gauss_process">Gaussian process regression</span> <span class="alert">non-parametric method</span> where <span class="math inline">\(Y = f(\vx) + \varepsilon\)</span> with <span class="math inline">\(\Ex(\varepsilon) = 0\)</span> and <span class="math inline">\(\cov(\varepsilon) = \sigma^2 \mI\)</span> and <span class="math inline">\(f\)</span> is a Gaussian process</p></li>
 </ul>
 </section>
 <section id="comparison-of-inference-for-linear-models-and-population-parameters" class="slide level2">
@@ -764,7 +764,7 @@ Moving forward
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="1bf87526" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="3d6c39d2" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -840,7 +840,7 @@ S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="bf55f1b0" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="7fb6d0b7" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -936,7 +936,7 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div id="f6bc010b" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div id="e7ffa6a7" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1041,7 +1041,7 @@ S
 }
 \]</span></p>
 </div></div>
-<div id="12153d59" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div id="573279ba" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1101,7 +1101,7 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li><p>Simultaneous bands use the larger <span class="math inline">\(\sqrt{dF_{d,n-d,\alpha}}\)</span> multiplier because they must work for all <span class="math inline">\(\vx\)</span> at once</p></li>
 </ul>
 </div>
-<div id="860dd8c6" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
+<div id="958ed30d" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1292,7 +1292,7 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 </section>
 <section id="our-example" class="slide level2">
 <h2>Our example</h2>
-<div id="4a1d180e" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
+<div id="2c15e8fb" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1330,7 +1330,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </ul>
 <p>This violates the constant-variance assumption</p>
 </div><div class="column" style="width:50%;">
-<div id="af7915dc" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
+<div id="d4a73ba3" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1377,7 +1377,7 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>and it can strongly affect the fitted regression</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="0131007f" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
+<div id="a7ae8e03" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1584,7 +1584,7 @@ R^2_{\text{adj}}
 </section>
 <section id="our-example-revisited" class="slide level2">
 <h2>Our example revisited</h2>
-<div id="0b29f569" class="cell" data-execution_count="10">
+<div id="5dead297" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[
 y = 0.10 + 0.90 x^2 + \varepsilon,
@@ -1595,7 +1595,7 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The <span class="math inline">\(p\)</span>-value is not small, so there is no compelling evidence that the intercept is needed</p>
 <h3 id="coefficient-estimates-full-model">Coefficient Estimates (Full Model)</h3>
-<div id="52d4f5d0" class="cell" data-execution_count="11">
+<div id="8bd42821" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -1654,29 +1654,29 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="model-comparison">Model Comparison</h3>
-<div id="8c43df2b" class="cell" data-execution_count="12">
+<div id="58c162e9" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_9e882" class="caption-top">
+<table id="T_076da" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_9e882_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_9e882_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
-<th id="T_9e882_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
+<th id="T_076da_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_076da_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
+<th id="T_076da_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_9e882_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
-<td id="T_9e882_row0_col1" class="data row0 col1">1</td>
-<td id="T_9e882_row0_col2" class="data row0 col2">35.512100</td>
+<td id="T_076da_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
+<td id="T_076da_row0_col1" class="data row0 col1">1</td>
+<td id="T_076da_row0_col2" class="data row0 col2">35.512100</td>
 </tr>
 <tr class="even">
-<td id="T_9e882_row1_col0" class="data row1 col0">Full</td>
-<td id="T_9e882_row1_col1" class="data row1 col1">2</td>
-<td id="T_9e882_row1_col2" class="data row1 col2">34.766600</td>
+<td id="T_076da_row1_col0" class="data row1 col0">Full</td>
+<td id="T_076da_row1_col1" class="data row1 col1">2</td>
+<td id="T_076da_row1_col2" class="data row1 col2">34.766600</td>
 </tr>
 </tbody>
 </table>
@@ -1684,34 +1684,34 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The RSS for the full model is not much smaller than the RSS for the reduced model, suggesting that the intercept may not be needed</p>
 <h3 id="f-test-for-removing-intercept">F-test for Removing Intercept</h3>
-<div id="31c866b8" class="cell" data-execution_count="13">
+<div id="52cff35f" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_5b264" class="caption-top">
+<table id="T_c713b" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_5b264_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_5b264_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_c713b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_c713b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_5b264_row0_col0" class="data row0 col0">F statistic</td>
-<td id="T_5b264_row0_col1" class="data row0 col1">0.600400</td>
+<td id="T_c713b_row0_col0" class="data row0 col0">F statistic</td>
+<td id="T_c713b_row0_col1" class="data row0 col1">0.600400</td>
 </tr>
 <tr class="even">
-<td id="T_5b264_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
-<td id="T_5b264_row1_col1" class="data row1 col1">1.000000</td>
+<td id="T_c713b_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
+<td id="T_c713b_row1_col1" class="data row1 col1">1.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_5b264_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
-<td id="T_5b264_row2_col1" class="data row2 col1">28.000000</td>
+<td id="T_c713b_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
+<td id="T_c713b_row2_col1" class="data row2 col1">28.000000</td>
 </tr>
 <tr class="even">
-<td id="T_5b264_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_5b264_row3_col1" class="data row3 col1">0.444900</td>
+<td id="T_c713b_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_c713b_row3_col1" class="data row3 col1">0.444900</td>
 </tr>
 </tbody>
 </table>
@@ -1721,30 +1721,30 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="goodness-of-fit">Goodness of Fit</h3>
-<div id="483631af" class="cell" data-execution_count="14">
+<div id="c8b9ef08" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_d7b97" class="caption-top">
+<table id="T_acb6b" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_d7b97_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
-<th id="T_d7b97_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_acb6b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
+<th id="T_acb6b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_d7b97_row0_col0" class="data row0 col0">R^2 (full model)</td>
-<td id="T_d7b97_row0_col1" class="data row0 col1">0.865700</td>
+<td id="T_acb6b_row0_col0" class="data row0 col0">R^2 (full model)</td>
+<td id="T_acb6b_row0_col1" class="data row0 col1">0.865700</td>
 </tr>
 <tr class="even">
-<td id="T_d7b97_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
-<td id="T_d7b97_row1_col1" class="data row1 col1">0.860900</td>
+<td id="T_acb6b_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
+<td id="T_acb6b_row1_col1" class="data row1 col1">0.860900</td>
 </tr>
 <tr class="odd">
-<td id="T_d7b97_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
-<td id="T_d7b97_row2_col1" class="data row2 col1">0.927300</td>
+<td id="T_acb6b_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
+<td id="T_acb6b_row2_col1" class="data row2 col1">0.927300</td>
 </tr>
 </tbody>
 </table>
@@ -1762,7 +1762,7 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="diagnostic-plots-for-the-reduced-model">Diagnostic plots for the reduced model</h3>
-<div id="0b95c746" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
+<div id="20fb34ca" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1775,7 +1775,7 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="confidenceprediction-intervalsbands-for-the-reduced-model">Confidence/prediction intervals/bands for the reduced model</h3>
-<div id="e07c180b" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
+<div id="a18dcfa8" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1990,51 +1990,51 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 <p>Here are three groups of data:</p>
 <div class="columns">
 <div class="column" style="width:19%;">
-<div id="3b7422eb" class="cell" data-execution_count="17">
+<div id="619113fd" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <style type="text/css">
 </style>
 
-<table id="T_968d8" class="caption-top">
+<table id="T_995d6" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_968d8_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
-<th id="T_968d8_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
-<th id="T_968d8_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
+<th id="T_995d6_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
+<th id="T_995d6_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
+<th id="T_995d6_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_968d8_row0_col0" class="data row0 col0">8.2</td>
-<td id="T_968d8_row0_col1" class="data row0 col1">8.0</td>
-<td id="T_968d8_row0_col2" class="data row0 col2">10.1</td>
+<td id="T_995d6_row0_col0" class="data row0 col0">8.2</td>
+<td id="T_995d6_row0_col1" class="data row0 col1">8.0</td>
+<td id="T_995d6_row0_col2" class="data row0 col2">10.1</td>
 </tr>
 <tr class="even">
-<td id="T_968d8_row1_col0" class="data row1 col0">7.9</td>
-<td id="T_968d8_row1_col1" class="data row1 col1">8.3</td>
-<td id="T_968d8_row1_col2" class="data row1 col2">9.8</td>
+<td id="T_995d6_row1_col0" class="data row1 col0">7.9</td>
+<td id="T_995d6_row1_col1" class="data row1 col1">8.3</td>
+<td id="T_995d6_row1_col2" class="data row1 col2">9.8</td>
 </tr>
 <tr class="odd">
-<td id="T_968d8_row2_col0" class="data row2 col0">8.4</td>
-<td id="T_968d8_row2_col1" class="data row2 col1">7.8</td>
-<td id="T_968d8_row2_col2" class="data row2 col2">10.4</td>
+<td id="T_995d6_row2_col0" class="data row2 col0">8.4</td>
+<td id="T_995d6_row2_col1" class="data row2 col1">7.8</td>
+<td id="T_995d6_row2_col2" class="data row2 col2">10.4</td>
 </tr>
 <tr class="even">
-<td id="T_968d8_row3_col0" class="data row3 col0">8.1</td>
-<td id="T_968d8_row3_col1" class="data row3 col1">8.1</td>
-<td id="T_968d8_row3_col2" class="data row3 col2">10.0</td>
+<td id="T_995d6_row3_col0" class="data row3 col0">8.1</td>
+<td id="T_995d6_row3_col1" class="data row3 col1">8.1</td>
+<td id="T_995d6_row3_col2" class="data row3 col2">10.0</td>
 </tr>
 <tr class="odd">
-<td id="T_968d8_row4_col0" class="data row4 col0">nan</td>
-<td id="T_968d8_row4_col1" class="data row4 col1">8.2</td>
-<td id="T_968d8_row4_col2" class="data row4 col2">nan</td>
+<td id="T_995d6_row4_col0" class="data row4 col0">nan</td>
+<td id="T_995d6_row4_col1" class="data row4 col1">8.2</td>
+<td id="T_995d6_row4_col2" class="data row4 col2">nan</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div><div class="column" style="width:33%;">
-<div id="912837d8" class="cell" data-execution_count="18">
+<div id="9e90c48a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <style scoped="">
@@ -2092,7 +2092,7 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 </div>
 </div>
 </div><div class="column" style="width:48%;">
-<div id="eca9db31" class="cell" data-execution_count="19">
+<div id="ce6847a4" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <style scoped="">
@@ -2157,34 +2157,34 @@ H_0:\mu_1=\mu_2=\mu_3
 H_a:\text{not all } \mu_i \text{ are equal}
 \end{gather*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="ce034204" class="cell" data-execution_count="20">
+<div id="2df3a122" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="20">
 <style type="text/css">
 </style>
 
-<table id="T_44576" class="caption-top">
+<table id="T_4d835" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_44576_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_44576_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_4d835_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_4d835_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_44576_row0_col0" class="data row0 col0">F = MSB/MSW</td>
-<td id="T_44576_row0_col1" class="data row0 col1">114.838100</td>
+<td id="T_4d835_row0_col0" class="data row0 col0">F = MSB/MSW</td>
+<td id="T_4d835_row0_col1" class="data row0 col1">114.838100</td>
 </tr>
 <tr class="even">
-<td id="T_44576_row1_col0" class="data row1 col0">df Between</td>
-<td id="T_44576_row1_col1" class="data row1 col1">2.000000</td>
+<td id="T_4d835_row1_col0" class="data row1 col0">df Between</td>
+<td id="T_4d835_row1_col1" class="data row1 col1">2.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_44576_row2_col0" class="data row2 col0">df Within</td>
-<td id="T_44576_row2_col1" class="data row2 col1">10.000000</td>
+<td id="T_4d835_row2_col0" class="data row2 col0">df Within</td>
+<td id="T_4d835_row2_col1" class="data row2 col1">10.000000</td>
 </tr>
 <tr class="even">
-<td id="T_44576_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_44576_row3_col1" class="data row3 col1">0.000000</td>
+<td id="T_4d835_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_4d835_row3_col1" class="data row3 col1">0.000000</td>
 </tr>
 </tbody>
 </table>
@@ -2331,7 +2331,7 @@ H_0:
 
 <div class="columns">
 <div class="column" style="width:35%;">
-<div id="80805796" class="cell" data-execution_count="21">
+<div id="4949b68d" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 <style scoped="">
@@ -2430,7 +2430,7 @@ H_0:
 <ul>
 <li><span class="math inline">\(Y \in \{0,1\}\)</span> (success/failure) <span class="alert">Bernoulli</span> random variable with explanatory variables <span class="math inline">\(\vx\)</span>?
 <ul>
-<li><span class="math inline">\(\Ex[Y \mid \vx] = p(\vx)\)</span> with <span class="math inline">\(p(\vx) \in [0,1]\)</span></li>
+<li><span class="math inline">\(\Ex(Y \mid \vx) = p(\vx)\)</span> with <span class="math inline">\(p(\vx) \in [0,1]\)</span></li>
 </ul></li>
 <li>But <span class="math inline">\(p(\vx) = \vx^\top \vbeta\)</span> can fall outside <span class="math inline">\([0,1]\)</span>
 <ul>
@@ -2464,7 +2464,7 @@ H_0:
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:35%;">
-<div id="6ed01c9a" class="cell" data-execution_count="22">
+<div id="f2e8316d" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2591,7 +2591,7 @@ w_i^{(t)}\bigl(z_i^{(t)} - \vx_i^\top \vb\bigr)^2
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:60%;">
-<div id="473b50e0" class="cell" data-execution_count="23">
+<div id="fb4b085f" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2628,7 +2628,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="simulated-data-with-realistic-gre-scores">Simulated data with realistic GRE scores</h3>
-<div id="d735bb9f" class="cell" data-execution_count="24">
+<div id="75c4fec8" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 <style scoped="">
@@ -2724,7 +2724,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="plot-of-the-binary-data-and-a-gre-only-logistic-curve">Plot of the binary data and a GRE-only logistic curve</h3>
-<div id="60fe7b73" class="cell" data-execution_count="25">
+<div id="5af90825" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2739,7 +2739,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <h3 id="fit-a-logistic-regression-model-using-gre-only">Fit a logistic regression model using GRE only</h3>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div id="9721e94d" class="cell" data-execution_count="26">
+<div id="e99bf90b" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
@@ -2784,7 +2784,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:60%;">
-<div id="0a53d4bb" class="cell" data-execution_count="27">
+<div id="dde7d92b" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2820,7 +2820,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="simulated-data-with-gre-and-gpa">Simulated data with GRE and GPA</h3>
-<div id="1509b4c8" class="cell" data-execution_count="28">
+<div id="207a0fb6" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <style scoped="">
@@ -2931,7 +2931,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="fit-a-logistic-regression-model-using-gre-and-gpa">Fit a logistic regression model using GRE and GPA</h3>
-<div id="9669e153" class="cell" data-execution_count="29">
+<div id="de7ae0a9" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <style scoped="">
@@ -2982,7 +2982,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <p>&nbsp;</p>
 </div><div class="column" style="width:50%;">
 <h3 id="predicted-probabilities-for-a-few-applicants">Predicted probabilities for a few applicants</h3>
-<div id="cc63052b" class="cell" data-execution_count="30">
+<div id="f42ffac4" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 <style scoped="">
@@ -3105,7 +3105,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="compare-fitted-and-observed-admission-rates-by-decile-of-fitted-probability">Compare fitted and observed admission rates by decile of fitted probability</h3>
-<div id="23dc5a02" class="cell" data-execution_count="31">
+<div id="d7701e82" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <style scoped="">
@@ -3216,7 +3216,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <div class="columns">
 <div class="column" style="width:40%;">
 <h3 id="calibration-plot">Calibration plot</h3>
-<div id="d155eae7" class="cell" data-execution_count="32">
+<div id="ced194c6" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -3247,51 +3247,51 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="model-comparison-1">Model comparison</h3>
-<div id="5b767d5e" class="cell" data-execution_count="33">
+<div id="397b2e39" class="cell" data-execution_count="33">
 <div class="cell-output cell-output-display" data-execution_count="33">
 <style type="text/css">
 </style>
 
-<table id="T_49c1b" class="caption-top">
+<table id="T_cfb7a" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_49c1b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_49c1b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Log-Likelihood</th>
-<th id="T_49c1b_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">AIC</th>
+<th id="T_cfb7a_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_cfb7a_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Log-Likelihood</th>
+<th id="T_cfb7a_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">AIC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_49c1b_row0_col0" class="data row0 col0">GRE only</td>
-<td id="T_49c1b_row0_col1" class="data row0 col1">-75.957000</td>
-<td id="T_49c1b_row0_col2" class="data row0 col2">155.915000</td>
+<td id="T_cfb7a_row0_col0" class="data row0 col0">GRE only</td>
+<td id="T_cfb7a_row0_col1" class="data row0 col1">-75.957000</td>
+<td id="T_cfb7a_row0_col2" class="data row0 col2">155.915000</td>
 </tr>
 <tr class="even">
-<td id="T_49c1b_row1_col0" class="data row1 col0">GRE + GPA</td>
-<td id="T_49c1b_row1_col1" class="data row1 col1">-72.669000</td>
-<td id="T_49c1b_row1_col2" class="data row1 col2">151.338000</td>
+<td id="T_cfb7a_row1_col0" class="data row1 col0">GRE + GPA</td>
+<td id="T_cfb7a_row1_col1" class="data row1 col1">-72.669000</td>
+<td id="T_cfb7a_row1_col2" class="data row1 col2">151.338000</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <h3 id="likelihood-ratio-test">Likelihood ratio test</h3>
-<div id="79c62376" class="cell" data-execution_count="34">
+<div id="07c9463f" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display" data-execution_count="34">
 <style type="text/css">
 </style>
 
-<table id="T_64c41" class="caption-top">
+<table id="T_bac96" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_64c41_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Statistic</th>
-<th id="T_64c41_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
+<th id="T_bac96_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Statistic</th>
+<th id="T_bac96_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_64c41_row0_col0" class="data row0 col0">6.576000</td>
-<td id="T_64c41_row0_col1" class="data row0 col1">0.010300</td>
+<td id="T_bac96_row0_col0" class="data row0 col0">6.576000</td>
+<td id="T_bac96_row0_col1" class="data row0 col1">0.010300</td>
 </tr>
 </tbody>
 </table>
@@ -3424,31 +3424,55 @@ g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta
 </ul></li>
 </ul>
 </section>
-<section id="transformations-and-glms" class="slide level2">
-<h2>Transformations and GLMs</h2>
-<ul>
-<li>In linear regression:
-<ul>
-<li>Transform <span class="math inline">\(Y\)</span> to reduce patterns in residuals</li>
-</ul></li>
-<li>In generalized linear models:
-<ul>
-<li>Do <strong>not</strong> transform <span class="math inline">\(Y\)</span> directly</li>
-<li>Instead model: <span class="math display">\[
-g(\mu) = \vx^\top \vbeta
-\]</span></li>
-</ul></li>
-<li>Interpretation:
-<ul>
-<li>Relationship is <span class="alert">linear on the transformed mean scale</span></li>
-<li>Not linear in the original response</li>
-</ul></li>
-<li>Key idea:
-<ul>
-<li>Transformation is built into the model via the link function</li>
-<li>The randomness comes from the chosen distribution, not additive error after transformation</li>
-</ul></li>
-</ul>
+<section id="transformations-of-y-contrasted-with-glms-and-nonlinear-regression" class="slide level2">
+<h2>Transformations of <span class="math inline">\(Y\)</span> contrasted with GLMs and nonlinear regression</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transforming <span class="math inline">\(Y\)</span></th>
+<th>GLM with link function</th>
+<th>Nonlinear regression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(g(Y) = \vx^\top \vbeta + \varepsilon\)</span> <br> <span class="math inline">\(Y = g^{-1}(\vx^\top \vbeta + \varepsilon)\)</span> <br> <span class="math inline">\(\varepsilon \sim \Norm(0,\sigma^2)\)</span></td>
+<td><span class="math inline">\(g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta\)</span>, <span class="math inline">\(\; \mu(\vx)=\Ex(Y \mid \vx)\)</span></td>
+<td><span class="math inline">\(Y = f(\vx; \vbeta) + \varepsilon\)</span> <br> <span class="math inline">\(\varepsilon \sim \Norm(0,\sigma^2)\)</span></td>
+</tr>
+<tr class="even">
+<td>Models <span class="math inline">\(g(Y)\)</span>, not <span class="math inline">\(Y\)</span></td>
+<td>Models <span class="math inline">\(g\bigl(\mu(\vx)\bigr)\)</span> via a <span class="alert">nonlinear</span> link</td>
+<td>Models <span class="math inline">\(\mu(\vx)\)</span> via <span class="alert">nonlinear</span> <span class="math inline">\(f\)</span></td>
+</tr>
+<tr class="odd">
+<td>Additive error on <em>transformed</em> scale</td>
+<td>Variability specified via <em>distribution</em> of <span class="math inline">\(Y\)</span></td>
+<td>Additive error on <em>original</em> scale</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu(\vx) = \Ex(Y \mid \vx) \ne g^{-1}(\vx^\top \vbeta)\)</span></td>
+<td><span class="math inline">\(\mu(\vx) = g^{-1}(\vx^\top \vbeta)\)</span></td>
+<td><span class="math inline">\(\mu(\vx) = f(\vx; \vbeta)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Improves linearity and variance stability</td>
+<td>Models mean–variance relationship</td>
+<td>Flexible mean specification</td>
+</tr>
+<tr class="even">
+<td>Mean is distorted by transformation</td>
+<td>Mean is modeled directly</td>
+<td>Mean depends on chosen <span class="math inline">\(f(\cdot;\vbeta)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\exstar\)</span> What does this mean for <span class="math inline">\(g(Y) = \log(Y)\)</span> and <span class="math inline">\(f(\vx; \vbeta) = \exp(\vx^\top \vbeta)\)</span>?</p>
 </section>
 <section id="big-picture-4" class="slide level2">
 <h2>Big picture</h2>
@@ -3540,6 +3564,445 @@ g \bigl(\Ex(\vY \mid \vx) \bigr) = \begin{pmatrix} g \bigl( \mu(\vx_1)  \bigr) \
 </ul>
 <p>👉 The <em>design matrix controls estimator variance</em></p>
 <p>👉 Statistics is not just analysis — it is also <span class="alert">design</span></p>
+</section></section>
+<section>
+<section id="beyond-predictors-depending-on-vxtop-vbeta" class="title-slide slide level1 center">
+<h1>Beyond predictors depending on <span class="math inline">\(\vx^{\top} \vbeta\)</span></h1>
+<p>So far,</p>
+<ul>
+<li><p>Ordinearly least squares regression: <span class="math inline">\(\Ex(Y \mid \vx) = \mu(\vx) = \vx^\top \vbeta\)</span></p></li>
+<li><p><span class="alert">Transform the response</span>: <span class="math inline">\(\Ex \big( g(Y) \mid \vx \big) = \vx^\top \vbeta\)</span> to stabilize variance or improve linearity</p></li>
+<li><p><a href="#/logistic-glm">Generalized linear models (GLMs)</a> with a link function: <span class="math inline">\(g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta\)</span>, where <span class="math inline">\(\mu(\vx) = \Ex(Y \mid \vx)\)</span>, to model non-Gaussian responses through a link function and a distributional family</p></li>
+<li><p><span class="alert">Nonlinear regression</span> with a nonlinear mean function: <span class="math inline">\(\Ex(Y \mid \vx) = \mu(\vx) = f(\vx; \vbeta)\)</span>, where <span class="math inline">\(f\)</span> is a <span class="alert">known</span> nonlinear function of <span class="math inline">\(\vx\)</span> and <span class="math inline">\(\vbeta\)</span> is a vector of unknown parameters</p></li>
+</ul>
+<div class="fragment">
+<p><span class="alert">Gaussian process regression</span> takes a different point of view (<span class="alert">lose the <span class="math inline">\(\vbeta\)</span></span> and place a <span class="alert">probability model on <span class="math inline">\(f\)</span></span> directly):</p>
+<p><span class="math display">\[
+Y(\vx) = f(\vx) + \varepsilon(\vx),
+\qquad f \sim \GP(m,K), \quad \varepsilon(\vx) \sim \Norm(0,\sigma^2)
+\]</span></p>
+</div>
+</section>
+<section id="from-parameters-to-functions" class="slide level2">
+<h2>From parameters to functions</h2>
+<p>In linear and generalized linear models, the unknown object is</p>
+<p><span class="math display">\[
+\vbeta \in \reals^p
+\]</span></p>
+<p>In Gaussian process regression, the unknown object is a whole function</p>
+<p><span class="math display">\[
+f : \cx \to \reals
+\]</span></p>
+<div class="fragment">
+<p>Instead of estimating coefficients, we are learning a surface:</p>
+<p><span class="math display">\[
+f(\vx_1),\dots,f(\vx_n)
+\]</span></p>
+<p>are jointly modeled.</p>
+</div>
+<div class="fragment">
+<p>We write</p>
+<p><span class="math display">\[
+f \sim \GP(0,K)
+\]</span></p>
+<p>meaning that the function values behave like a multivariate normal vector.</p>
+</div>
+</section>
+<section id="what-does-f-sim-gp0k-mean" class="slide level2">
+<h2>What does <span class="math inline">\(f \sim \GP(0,K)\)</span> mean?</h2>
+<p>For any inputs <span class="math inline">\(\vx_1,\dots,\vx_n\)</span>,</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+f(\vx_1)\\
+\vdots\\
+f(\vx_n)
+\end{pmatrix}
+\sim
+\Norm\!\bigl(
+\vzero,\;
+\mK
+\bigr),
+\qquad
+\mK_{ij} = K(\vx_i,\vx_j)
+\]</span></p>
+<div class="fragment">
+<p>So:</p>
+<ul>
+<li>mean is zero</li>
+<li>covariance comes from the kernel <span class="math inline">\(K\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p>This is just multivariate normal theory applied to function values.</p>
+</div>
+</section>
+<section id="start-with-the-noiseless-model" class="slide level2">
+<h2>Start with the noiseless model</h2>
+<p>We begin with the simplest case:</p>
+<p><span class="math display">\[
+Y(\vx) = f(\vx),
+\qquad f \sim \GP(0,K)
+\]</span></p>
+<p>So for observed data,</p>
+<p><span class="math display">\[
+\vy =
+\begin{pmatrix}
+Y(\vx_1)\\
+\vdots\\
+Y(\vx_n)
+\end{pmatrix}
+=
+\begin{pmatrix}
+f(\vx_1)\\
+\vdots\\
+f(\vx_n)
+\end{pmatrix}
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\vy \sim \Norm(\vzero,\mK)
+\]</span></p>
+<div class="fragment">
+<p>All randomness comes from the function itself.</p>
+</div>
+</section>
+<section id="interpreting-the-kernel-k" class="slide level2">
+<h2>Interpreting the kernel <span class="math inline">\(K\)</span></h2>
+<p>The kernel</p>
+<p><span class="math display">\[
+K(\vx,\vx')
+\]</span></p>
+<p>controls how function values relate.</p>
+<div class="fragment">
+<p>Interpretation:</p>
+<ul>
+<li>if <span class="math inline">\(\vx\)</span> and <span class="math inline">\(\vx'\)</span> are close, then <span class="math inline">\(f(\vx)\)</span> and <span class="math inline">\(f(\vx')\)</span> are strongly correlated</li>
+<li>if far apart, correlation is weaker</li>
+</ul>
+</div>
+<div class="fragment">
+<p>So <span class="math inline">\(K\)</span> determines:</p>
+<ul>
+<li>smoothness</li>
+<li>scale</li>
+<li>how quickly dependence decays</li>
+</ul>
+</div>
+<div class="fragment">
+<p>👉 The kernel plays the role of a covariance matrix for functions.</p>
+</div>
+</section>
+<section id="example-squared-exponential-kernel" class="slide level2">
+<h2>Example: squared exponential kernel</h2>
+<p>A standard choice is</p>
+<p><span class="math display">\[
+K(\vx,\vx')
+=
+\tau^2 \exp\!\left(
+-\frac{\|\vx-\vx'\|^2}{2\ell^2}
+\right)
+\]</span></p>
+<div class="fragment">
+<p>Parameters:</p>
+<ul>
+<li><span class="math inline">\(\tau^2\)</span>: vertical scale</li>
+<li><span class="math inline">\(\ell\)</span>: length scale</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Interpretation:</p>
+<ul>
+<li>small <span class="math inline">\(\ell\)</span> → rapidly varying functions</li>
+<li>large <span class="math inline">\(\ell\)</span> → smoother functions</li>
+</ul>
+</div>
+</section>
+<section id="prediction-in-the-noiseless-case" class="slide level2">
+<h2>Prediction in the noiseless case</h2>
+<p>We want to predict <span class="math inline">\(f(\vx_*)\)</span>.</p>
+<p>Jointly,</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+\vy\\
+f(\vx_*)
+\end{pmatrix}
+\sim
+\Norm\!\left(
+\vzero,
+\begin{pmatrix}
+\mK &amp; \vk_* \\
+\vk_*^\top &amp; K(\vx_*,\vx_*)
+\end{pmatrix}
+\right)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\vk_* =
+\begin{pmatrix}
+K(\vx_1,\vx_*)\\
+\vdots\\
+K(\vx_n,\vx_*)
+\end{pmatrix}
+\]</span></p>
+<div class="fragment">
+<p>Conditioning gives</p>
+<p><span class="math display">\[
+f(\vx_*) \mid \vy
+=
+\vk_*^\top \mK^{-1} \vy
+\]</span></p>
+</div>
+<div class="fragment">
+<p>👉 Prediction is a weighted combination of observed values.</p>
+</div>
+</section>
+<section id="interpretation-of-the-predictor" class="slide level2">
+<h2>Interpretation of the predictor</h2>
+<p>The predictor</p>
+<p><span class="math display">\[
+\vk_*^\top \mK^{-1} \vy
+\]</span></p>
+<p>has a key interpretation:</p>
+<div class="fragment">
+<ul>
+<li>weights depend on similarity via <span class="math inline">\(K\)</span></li>
+<li>nearby points matter more</li>
+<li>far points matter less</li>
+</ul>
+</div>
+<div class="fragment">
+<p>This is a <strong>data-adaptive smoother</strong>.</p>
+</div>
+<div class="fragment">
+<p>Compare:</p>
+<ul>
+<li>linear model → global coefficients <span class="math inline">\(\vbeta\)</span></li>
+<li>GP → local weighting determined by <span class="math inline">\(K\)</span></li>
+</ul>
+</div>
+</section>
+<section id="adding-noise-back-in" class="slide level2">
+<h2>Adding noise back in</h2>
+<p>Now return to</p>
+<p><span class="math display">\[
+Y(\vx) = f(\vx) + \varepsilon(\vx),
+\qquad
+\varepsilon(\vx) \sim \Norm(0,\sigma^2)
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\vy \sim \Norm(\vzero,\mK + \sigma^2 \mI)
+\]</span></p>
+<div class="fragment">
+<p>The noise adds a diagonal term to the covariance.</p>
+</div>
+<div class="fragment">
+<p>Prediction becomes</p>
+<p><span class="math display">\[
+f(\vx_*) \mid \vy
+=
+\vk_*^\top (\mK+\sigma^2\mI)^{-1} \vy
+\]</span></p>
+</div>
+</section>
+<section id="adding-noise-back-in-1" class="slide level2">
+<h2>Adding noise back in</h2>
+<p>Now return to</p>
+<p><span class="math display">\[
+Y(\vx) = f(\vx) + \varepsilon(\vx),
+\qquad
+\varepsilon(\vx) \sim \Norm(0,\sigma^2)
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\vy \sim \Norm(\vzero,\mK + \sigma^2 \mI)
+\]</span></p>
+<div class="fragment">
+<p>The noise adds a diagonal term to the covariance.</p>
+</div>
+<div class="fragment">
+<p>Prediction becomes</p>
+<p><span class="math display">\[
+f(\vx_*) \mid \vy
+=
+\vk_*^\top (\mK+\sigma^2\mI)^{-1} \vy
+\]</span></p>
+</div>
+</section>
+<section id="big-contrast-with-earlier-models" class="slide level2">
+<h2>Big contrast with earlier models</h2>
+<ul>
+<li>Transformations: change <span class="math inline">\(Y\)</span></li>
+<li>GLMs: transform the mean</li>
+<li>Nonlinear regression: specify <span class="math inline">\(f(\vx;\vbeta)\)</span></li>
+</ul>
+<div class="fragment">
+<p>Gaussian processes:</p>
+<p><span class="math display">\[
+\text{do not specify } f \text{ explicitly}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Instead:</p>
+<p><span class="math display">\[
+\text{specify how } f(\vx) \text{ and } f(\vx') \text{ relate via } K
+\]</span></p>
+</div>
+<div class="fragment">
+<p>👉 Modeling moves from formulas to covariance structure.</p>
+</div>
+</section>
+<section id="connection-to-kernel-ridge-regression" class="slide level2">
+<h2>Connection to kernel ridge regression</h2>
+<p>From the noisy GP model:</p>
+<p><span class="math display">\[
+\vy \sim \Norm(\vzero, \mK + \sigma^2 \mI)
+\]</span></p>
+<p>the predictor is</p>
+<p><span class="math display">\[
+\hat f(\vx_*)
+=
+\vk_*^\top (\mK + \sigma^2 \mI)^{-1} \vy
+\]</span></p>
+<div class="fragment">
+<p>This has the same form as <strong>kernel ridge regression</strong>:</p>
+<p><span class="math display">\[
+\hat f(\vx)
+=
+\sum_{i=1}^n \alpha_i K(\vx_i,\vx),
+\qquad
+\valpha = (\mK + \lambda \mI)^{-1}\vy
+\]</span></p>
+</div>
+<div class="fragment">
+<p>So:</p>
+<ul>
+<li>GP regression = kernel ridge regression<br>
+</li>
+<li>with <span class="math inline">\(\lambda = \sigma^2\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p>👉 Same estimator, different interpretation:</p>
+<ul>
+<li>GP: probabilistic model<br>
+</li>
+<li>KRR: optimization problem</li>
+</ul>
+</div>
+</section>
+<section id="kernel-ridge-regression-viewpoint" class="slide level2">
+<h2>Kernel ridge regression viewpoint</h2>
+<p>Kernel ridge regression solves</p>
+<p><span class="math display">\[
+\min_{f \in \mathcal{H}_K}
+\;
+\sum_{i=1}^n \bigl(Y_i - f(\vx_i)\bigr)^2
++
+\lambda \|f\|_{\mathcal{H}_K}^2
+\]</span></p>
+<div class="fragment">
+<p>Key points:</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}_K\)</span> = function space induced by kernel <span class="math inline">\(K\)</span></li>
+<li>penalty enforces smoothness</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Solution has the form</p>
+<p><span class="math display">\[
+\hat f(\vx)
+=
+\sum_{i=1}^n \alpha_i K(\vx_i,\vx)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>👉 This is the <strong>representer theorem</strong> in action.</p>
+</div>
+</section>
+<section id="rkhs-light-introduction" class="slide level2">
+<h2>RKHS (light introduction)</h2>
+<p>Every kernel <span class="math inline">\(K\)</span> defines a function space:</p>
+<p><span class="math display">\[
+\mathcal{H}_K
+\]</span></p>
+<p>called a <strong>reproducing kernel Hilbert space</strong>.</p>
+<div class="fragment">
+<p>Key property:</p>
+<p><span class="math display">\[
+f(\vx)
+=
+\langle f, K(\cdot,\vx) \rangle_{\mathcal{H}_K}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>So evaluation at a point is a linear functional.</p>
+</div>
+<div class="fragment">
+<p>👉 The kernel encodes both</p>
+<ul>
+<li>similarity between inputs<br>
+</li>
+<li>geometry of the function space</li>
+</ul>
+</div>
+</section>
+<section id="gp-vs-rkhs-viewpoint" class="slide level2">
+<h2>GP vs RKHS viewpoint</h2>
+<p>Two perspectives on the same object:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gaussian process</th>
+<th>RKHS / optimization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random function <span class="math inline">\(f \sim \GP(0,K)\)</span></td>
+<td>Deterministic <span class="math inline">\(f \in \mathcal{H}_K\)</span></td>
+</tr>
+<tr class="even">
+<td>Covariance = <span class="math inline">\(K\)</span></td>
+<td>Inner product defined by <span class="math inline">\(K\)</span></td>
+</tr>
+<tr class="odd">
+<td>Inference via conditioning</td>
+<td>Estimation via optimization</td>
+</tr>
+<tr class="even">
+<td>Uncertainty quantification</td>
+<td>Point estimate</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>👉 Same kernel, two interpretations.</p>
+</div>
+<div class="fragment">
+<p>👉 GP adds <strong>uncertainty quantification</strong> to kernel methods.</p>
+</div>
+</section>
+<section id="big-picture-for-563" class="slide level2">
+<h2>Big picture for 563</h2>
+<p>We now have three equivalent lenses:</p>
+<ul>
+<li><strong>Multivariate normal theory</strong> → Gaussian processes<br>
+</li>
+<li><strong>Regularization</strong> → kernel ridge regression<br>
+</li>
+<li><strong>Functional analysis</strong> → RKHS</li>
+</ul>
+<div class="fragment">
+<p>All are tied together by the kernel <span class="math inline">\(K\)</span>.</p>
+</div>
+<div class="fragment">
+<p>👉 Choice of kernel = choice of model class.</p>
+</div>
 
 </section></section>
     </div>
