@@ -64,7 +64,7 @@ website:
           - text: MATH 565 — Monte Carlo Methods
             href: https://QMCSoftware.github.io/MATH565Fall2025/
           - text: QMCPy
-            href: https://qmcpy.github.io/
+            href: https://qmcpy.org
 
   page-footer:
     left: "© 2026 Fred J. Hickernell · Illinois Institute of Technology"
