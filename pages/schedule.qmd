@@ -52,14 +52,14 @@ Classes are normally held in RE 102 at 10 AM on Tuesdays and Thursdays
 | 12 | Tue Apr 7 | **Test 2** on Optimality of Estimators, Hypothesis Testing, and Ordinary Least Squares Through Inference | |
 |  | Thu Apr 9 | One-way ANOVA, logistic regression | |
 | | Fri Apr 10 | **Assignment 5 Due** | |
-| 13 | Tue Apr 14 | | |
+| 13 | Tue Apr 14 | Logistic regression, generalized linear models (GLMs), Gaussian process models | |
 |  | Thu Apr 16 | | |
 | 14| Mon Apr 20 | **Project Presentation** in Galvin Tower 14th Floor West Side Conference Room | |
 | | Tue Apr 21 | **Project Presentation** in Galvin Tower 14th Floor West Side Conference Room | |
 | | Wed Apr 22 | **Project Presentation** in Galvin Tower 14th Floor West Side Conference Room | |
 | | Thu Apr 23 | | |
 | 15 | Tue Apr 28 | | |
-| | Thu Apr 30 | | |
+| | Thu Apr 30 | **Assignment 6 Due**  | |
 ### May
 
 | Week | Date   | Topic                    | Slides                             |
