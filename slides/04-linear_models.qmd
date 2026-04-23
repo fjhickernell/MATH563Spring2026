@@ -65,7 +65,7 @@ subtitle: |
 
 - [Logistic regression](#logistic-glm) and other generalized linear models
 
-- [Gaussian process regression]{#gauss_process} [non-parametric method]{.alert} where $Y = f(\vx) + \varepsilon$ with $\Ex(\varepsilon) = 0$ and $\cov(\varepsilon) = \sigma^2 \mI$ and $f$ is a Gaussian process
+- [Gaussian process regression](#gauss_process) [non-parametric method]{.alert} where $Y = f(\vx) + \varepsilon$ with $\Ex(\varepsilon) = 0$ and $\cov(\varepsilon) = \sigma^2 \mI$ and $f$ is a Gaussian process
 
 
 
