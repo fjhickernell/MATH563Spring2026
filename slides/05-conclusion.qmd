@@ -15,7 +15,7 @@ include-after-body:
       }
       </script>
 
-subtitle: <span class="deck-title">{{< meta decks.d06.title >}}</span>
+subtitle: <span class="deck-title">{{< meta deck_title >}}</span>
 ---
 
 {{< include ../classlib/classlib/quarto/slides/shared/statistics/general/data-modeling.qmd >}}
