@@ -17,7 +17,7 @@ deck_order:
   - d02
   - d03
   - d04
-
+  - d05
 decks:
   d01:
     file: 01-intro.html
@@ -38,6 +38,11 @@ decks:
     file: 04-linear_models.html
     title: Linear Models
     short_title: Linear Models
+
+  d05:
+    file: 05-conclusion.html
+    title: Concluding Remarks
+    short_title: Concluding Remarks
 
 
 format:

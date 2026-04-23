@@ -10,8 +10,8 @@ include-after-body:
       {
         "deck_prev_file": "{{< meta decks.d03.file >}}",
         "deck_prev_title": "{{< meta decks.d03.title >}}",
-        "deck_next_file": "",
-        "deck_next_title": ""
+        "deck_next_file": "{{< meta decks.d05.file >}}",
+        "deck_next_title": "{{< meta decks.d05.title >}}"
       }
       </script>
 
