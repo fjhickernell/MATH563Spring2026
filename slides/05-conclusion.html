@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-04-25">
+  <meta name="dcterms.date" content="2026-04-26">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -570,25 +570,31 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">April 25, 2026</p>
+  <p class="date">April 26, 2026</p>
 </section>
 <section>
 <section id="using-data-wisely" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Using Data Wisely</h1>
 <ul>
-<li><p><span class="alert">Collect</span> the data</p></li>
-<li><p><span class="alert">Explore</span> the data</p></li>
-<li><p><span class="alert">Choose</span> a model / procedure</p></li>
-<li><p><span class="alert">Draw</span> conclusions</p></li>
+<li><span class="alert">Collect</span> the data<br>
+</li>
+<li><span class="alert">Explore</span> the data<br>
+</li>
+<li><span class="alert">Choose</span> a model / procedure<br>
+</li>
+<li><span class="alert">Draw</span> conclusions</li>
 </ul>
 <h3>
 The data have several roles
 </h3>
 <ul>
-<li><p><em>Data collection</em> → what data even exist</p></li>
-<li><p><em>Exploratory Data Analysis (EDA)</em> → learn from the data</p></li>
-<li><p><em>Model selection</em> → choose a procedure</p></li>
-<li><p><em>Data snooping</em> 🚫 → reuse data to chase results</p></li>
+<li><em>Data collection</em> → what data even exist<br>
+</li>
+<li><em>Exploratory Data Analysis (EDA)</em> → learn from the data<br>
+</li>
+<li><em>Model selection</em> → choose a procedure<br>
+</li>
+<li><em>Data snooping</em> 🚫 → reuse data to chase results</li>
 </ul>
 <p>👉 validity starts <em>before</em> analysis</p>
 </section>
@@ -598,52 +604,105 @@ The data have several roles
 <li><p>How are data obtained?</p></li>
 <li><p>Design matters:</p>
 <ul>
-<li><p>random sampling</p></li>
-<li><p>random assignment</p></li>
-<li><p>observational vs experimental</p></li>
+<li>random sampling<br>
+</li>
+<li>random assignment<br>
+</li>
+<li>observational vs experimental</li>
 </ul></li>
 <li><p>Issues:</p>
 <ul>
-<li><p>bias</p></li>
-<li><p>confounding</p></li>
-<li><p>missingness</p></li>
+<li>bias (systematic error)<br>
+</li>
+<li>confounding (hidden drivers)<br>
+</li>
+<li>missingness (not at random?)</li>
+</ul></li>
+<li><p>Examples:</p>
+<ul>
+<li>convenience sample → biased estimates<br>
+</li>
+<li>lurking variable → spurious relationship</li>
 </ul></li>
 </ul>
 <p>👉 No analysis fixes bad data</p>
 </section>
 <section id="exploratory-data-analysis-eda" class="slide level2">
 <h2>Exploratory data analysis (EDA)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
 <ul>
 <li><p>Look first, decide later</p></li>
-<li><p>Plots, summaries, transformations</p></li>
-<li><p>Goals:</p>
+<li><p>Tools:</p>
 <ul>
-<li><p>structure</p></li>
-<li><p>anomalies</p></li>
-<li><p>plausible directions</p></li>
+<li>plots (histogram, scatterplot, boxplot)<br>
+</li>
+<li>summaries (mean, median, spread)<br>
+</li>
+<li>transformations (log, scale)</li>
+</ul></li>
+<li><p>What to look for:</p>
+<ul>
+<li>structure → trends, clusters, nonlinearities<br>
+</li>
+<li>anomalies → outliers, data errors<br>
+</li>
+<li>relationships → associations between variables</li>
+</ul></li>
+<li><p>Examples:</p>
+<ul>
+<li>skewed data → log transform<br>
+</li>
+<li>funnel shape → non-constant variance<br>
+</li>
+<li>outlier → data error or important case?</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:45%;">
 <p>👉 hypothesis-generating, not testing</p>
+<div class="key-point">
+<p>“The greatest value of a picture is when it forces us to notice what we never expected”</p>
+<p>— attribued to <a href="https://en.wikipedia.org/wiki/John_Tukey">John Tukey</a>, see his book, <em>Exploratory Data Analysis</em> (1977)</p>
+</div>
+</div></div>
 </section>
 <section id="model-selection-broad-view" class="slide level2">
 <h2>Model selection (broad view)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
 <li><p>Choose among</p>
 <ul>
-<li><p>probability models</p></li>
-<li><p>regression models</p></li>
-<li><p>test statistics</p></li>
-<li><p>transformations</p></li>
-<li><p>distributions / assumptions</p></li>
+<li>probability models<br>
+</li>
+<li>regression models<br>
+</li>
+<li>test statistics<br>
+</li>
+<li>transformations<br>
+</li>
+<li>distributions / assumptions</li>
 </ul></li>
 <li><p>Criteria:</p>
 <ul>
-<li><p>fit</p></li>
-<li><p>simplicity (parsimony)</p></li>
-<li><p>interpretability</p></li>
+<li>fit (does it match the data?)<br>
+</li>
+<li>simplicity (parsimony)<br>
+</li>
+<li>interpretability</li>
+</ul></li>
+<li><p>Examples:</p>
+<ul>
+<li>linear vs nonlinear regression<br>
+</li>
+<li>normal vs skewed error model<br>
+</li>
+<li>include/exclude predictors</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
 <p>👉 choose a <em>procedure</em> for inference</p>
+</div></div>
 </section>
 <section id="model-selection-a-subtle-point" class="slide level2">
 <h2>Model selection: a subtle point</h2>
@@ -651,18 +710,31 @@ The data have several roles
 <li><p>Selection uses the data</p></li>
 <li><p>Then we perform inference <em>as if the model were fixed</em></p></li>
 <li><p>Consequence: <span class="alert">uncertainty is underestimated</span></p></li>
+<li><p>Example:</p>
+<ul>
+<li>try many regressions → report the “best” one<br>
+</li>
+<li>standard errors ignore the search</li>
+</ul></li>
 </ul>
-<p>👉 p-values too small, confidence/prediction intervals too narrow</p>
+<p>👉 <span class="math inline">\(p\)</span>-values too small, intervals too narrow</p>
 </section>
 <section id="data-snooping" class="slide level2">
 <h2>Data snooping 🚫</h2>
 <ul>
 <li><p>What it is</p>
 <ul>
-<li><p>Trying many things on the same data</p></li>
-<li><p>Reporting what “works”</p></li>
+<li>Trying many things on the same data<br>
+</li>
+<li>Reporting what “works”</li>
 </ul></li>
-<li><p>Consequence: <span class="alert">Type I error is inflated beyond the nominal level <span class="math inline">\(\alpha\)</span></span></p></li>
+<li><p>Examples:</p>
+<ul>
+<li>many hypothesis tests → report significant ones<br>
+</li>
+<li>trying transformations until p &lt; 0.05</li>
+</ul></li>
+<li><p>Consequence: <span class="alert">Type I error is inflated beyond <span class="math inline">\(\alpha\)</span></span></p></li>
 </ul>
 <p>👉 false discoveries become likely</p>
 </section>
@@ -671,14 +743,23 @@ The data have several roles
 <ul>
 <li><p>Separate roles:</p>
 <ul>
-<li><p>exploration / training</p></li>
-<li><p>validation</p></li>
-<li><p>test</p></li>
+<li>exploration / training<br>
+</li>
+<li>validation<br>
+</li>
+<li>test</li>
 </ul></li>
-<li><p>Or</p>
+<li><p>Or:</p>
 <ul>
-<li><p>pre-specify procedures</p></li>
-<li><p>use cross-validation</p></li>
+<li>pre-specify procedures<br>
+</li>
+<li>use cross-validation</li>
+</ul></li>
+<li><p>Mindset:</p>
+<ul>
+<li>exploration is flexible<br>
+</li>
+<li>inference must be disciplined</li>
 </ul></li>
 </ul>
 <p>👉 exploration ≠ confirmation</p>
@@ -686,10 +767,13 @@ The data have several roles
 <section id="takeaway" class="slide level2">
 <h2>Takeaway</h2>
 <ul>
-<li><p>collection → foundation</p></li>
-<li><p>EDA → understand</p></li>
-<li><p>selection → decide</p></li>
-<li><p>snooping → distort</p></li>
+<li>collection → foundation<br>
+</li>
+<li>EDA → understand<br>
+</li>
+<li>selection → decide<br>
+</li>
+<li>snooping → distort</li>
 </ul>
 <p>👉 problems early propagate forward</p>
 </section></section>
