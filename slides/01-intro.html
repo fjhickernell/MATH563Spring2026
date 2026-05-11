@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-05-09">
+  <meta name="dcterms.date" content="2026-05-11">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -575,7 +575,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">May 9, 2026</p>
+  <p class="date">May 11, 2026</p>
 </section>
 <section id="slide-decks-for-this-course" class="title-slide slide level1 center">
 <h1>Slide Decks for This Course</h1>
@@ -702,7 +702,7 @@ T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \; \Prob(T = t) = \binom{n}{t} \m
 <section class="slide level2">
 
 <p>If <span class="math inline">\(Y_1, \ldots, Y_n \IIDsim \Bern(\mu)\)</span>, then we can construct a <span class="alert">confidence interval</span> that <span class="alert">captures</span> the true approval rating with high probability: <span class="math display">\[\begin{align*}
-T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = y) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
+T &amp;:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = t) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
 \barY &amp;:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
 \end{align*}\]</span></p>
 <div class="columns">
@@ -1238,24 +1238,21 @@ F(x) &amp;= \begin{cases}
 <section id="bayesian-inference" class="slide level2">
 <h2>Bayesian inference</h2>
 <p><span class="small">(CB §7.2.3)</span></p>
-<h3 id="bayes-rule-for-densities-1">Bayes’ rule for densities</h3>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{align*}
+\text{Recall that}&amp;&amp;
 \varrho_{X\mid Y}(x\mid y)
-=
-\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)}
-\]</span></p>
-<p>Let <span class="math display">\[\begin{align*}
-X &amp; = \text{random unknown parameter} \\
-Y &amp; = \text{random observed data} \\
-\varrho_X &amp; = \text{prior density or belief about the parameter} \\
-\varrho_{Y\mid X} &amp; = \text{likelihood} \\
-\varrho_{X\mid Y} &amp; = \text{posterior density}
-\end{align*}\]</span> Then <span class="math display">\[\begin{align*}
-\varrho_{X\mid Y}( \text{parameter} \mid \text{data})
+&amp;=
+\frac{\varrho_{Y\mid X}(y\mid x)\,\varrho_X(x)}{\varrho_Y(y)} \\
+\text{Let} &amp;&amp; X &amp; = \text{random unknown parameter} \\
+&amp;&amp; Y &amp; = \text{random observed data} \\
+&amp;&amp; \varrho_X &amp; = \text{prior density or belief about the parameter} \\
+&amp;&amp;\varrho_{Y\mid X} &amp; = \text{likelihood} \\
+&amp;&amp; \varrho_{X\mid Y} &amp; = \text{posterior density} \\
+\text{Then} &amp;&amp; \varrho_{X\mid Y}( \text{parameter} \mid \text{data})
 &amp; =
 \frac{\varrho_{Y\mid X}(\text{data}\mid \text{parameter} ) \,\varrho_X(\text{parameter})}{\varrho_Y(\text{data})}
 \\
-\text{posterior density } &amp;
+&amp;&amp; \text{posterior density } &amp;
 \propto
 \text{likelihood} \times \text{prior density}
 \end{align*}\]</span></p>
@@ -1407,7 +1404,7 @@ Z_n \convd \Norm(0,1)
 <section id="chebyshev-markov-inequality" class="slide level2">
 <h2>Chebyshev (Markov) Inequality</h2>
 <p><span class="small">(CB §3.6, §3.8)</span> <span class="math display">\[
-\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r} \qquad f \text{ is }\class{alert}{\text{non-negative}}
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r} \qquad \text{for } f \class{alert}{\text{ non-negative}}, \ r &gt; 0
 \]</span></p>
 <h3 id="proof">Proof</h3>
 <p><span class="math display">\[\begin{align*}
@@ -1417,8 +1414,7 @@ Z_n \convd \Norm(0,1)
 \qquad \text{(total expectation)} \\
 &amp;\le \Ex\Bigl[\Ex\bigl[f(X)/r \mid X\bigr]\Bigr]
 \qquad \text{since } \indic\bigl(f(X)\ge r\bigr)\le f(X)/r \text{ a.s.} \\
-&amp;= \Ex\bigl[f(X)/r\bigr] \\
-&amp;= \Ex[f(X)]/r
+&amp;= \Ex\bigl[f(X)/r\bigr] = \Ex[f(X)]/r
 \end{align*}\]</span></p>
 <h3 id="important-special-cases">Important special cases</h3>
 <p><span class="math display">\[\begin{gather*}
