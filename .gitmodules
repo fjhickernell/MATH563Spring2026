@@ -1,7 +1,3 @@
-[submodule "classlib"]
-	path = classlib
-	url = git@github.com:fjhickernell/HickernellClassLib.git
-	branch = main
 [submodule "qmcsoftware"]
 	path = qmcsoftware
 	url = git@github.com:QMCSoftware/QMCSoftware.git
@@ -9,3 +5,7 @@
 [submodule "assets/tests/archive"]
 	path = assets/tests/archive
 	url = git@github.com:fjhickernell/HickernellTestArchive.git
+[submodule "classlib"]
+	path = classlib
+	url = git@github.com:fjhickernell/HickernellAcademicLib.git
+	branch = main
