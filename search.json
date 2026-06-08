@@ -84,6 +84,48 @@
     "text": "Assessment\n\nHomework: 15% (will drop the lowest 2 homework scores)\nMidterm Tests: 25% (2/3 times best score + 1/3 times second best score)\nProject: 20% (see project page for details)\nFinal Exam: 40%\n\nExtra Credit: up to 10% Beginning January 20, if you are the first to find an error in\n\nMy lecture slides, Jupyter Notebooks, or assignments at least 24 hours after I have presented them in class, or\nThe textbook,\n\nThen I will award you 0.5 or 1 extra credit points, up to a maximum of 10 points.  The last day for submitting an error is May 3.\nFor course materials hosted on GitHub, you may submit a pull request correcting the error. Alternatively, you may report the error by email with sufficient detail. Extra credit points are added to your final weighted total. Note that the weighted total may not correctly reflect the extra credit until grades are recorded for all categories."
   },
   {
+    "objectID": "classlib/website/software.html",
+    "href": "classlib/website/software.html",
+    "title": "Software",
+    "section": "",
+    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
+  },
+  {
+    "objectID": "classlib/website/software.html#software",
+    "href": "classlib/website/software.html#software",
+    "title": "Software",
+    "section": "",
+    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
+  },
+  {
+    "objectID": "classlib/website/index.html",
+    "href": "classlib/website/index.html",
+    "title": "Fred J. Hickernell",
+    "section": "",
+    "text": "Professor of Applied Mathematics\nIllinois Institute of Technology"
+  },
+  {
+    "objectID": "classlib/website/index.html#featured-resources",
+    "href": "classlib/website/index.html#featured-resources",
+    "title": "Fred J. Hickernell",
+    "section": "Featured Resources",
+    "text": "Featured Resources\n\nMCQMC 2026 Plenary Slides\nQMCPy and QMCSoftware\nCourses\nPublications"
+  },
+  {
+    "objectID": "classlib/website/index.html#research-interests",
+    "href": "classlib/website/index.html#research-interests",
+    "title": "Fred J. Hickernell",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nMonte Carlo Methods\nQuasi-Monte Carlo Methods\nUncertainty Quantification\nHigh-Dimensional Approximation\nInformation-Based Complexity"
+  },
+  {
+    "objectID": "classlib/website/index.html#navigation",
+    "href": "classlib/website/index.html#navigation",
+    "title": "Fred J. Hickernell",
+    "section": "Navigation",
+    "text": "Navigation\n\nTalks\nCourses\nSoftware\nPapers\nTalks\nCourses\nSoftware\nPapers"
+  },
+  {
     "objectID": "classlib/classlib/quarto/snippets/search-test-archives.html",
     "href": "classlib/classlib/quarto/snippets/search-test-archives.html",
     "title": "MATH 563 — Spring 2026",
@@ -229,6 +271,48 @@
     "title": "Big Statistics Questions We Ask",
     "section": "",
     "text": "Filter by course\n\n  \n     MATH 476 Statistics\n     MATH 563 Mathematical Statistics\n     MATH 565 Monte Carlo Methods\n  \n  \n\n\n\nModeling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    What is the population?\n    All US adults? All future units from a production line? All students with bachelor's degree? All continuous functions on a given domain?\n  \n\n\n\n  476, 563, 565\n  \n    What features are we interested in?\n    Mean? Variance? Quantiles? Regression function? Entire distribution?\n  \n\n\n\n  476, 563\n  \n    What does the model fail to capture?\n    Explanatory variables? Interactions? Nonlinearities?\n  \n\n\n\n  476, 563\n  \n    Are the distributional assumptions correct?\n    Normality? Skewness? Heavy tails? Independence?\n  \n\n\n\nSampling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    How do we sample from the population?\n    Independent and identically distributed (IID)? Low discrepancy (LD)? Stratified sampling? Designed experiment?\n  \n\n\n\n  476, 563\n  \n    What can go wrong between intended and actual sampling?\n    Nonresponse and missingness? Measurement error? Coverage error?\n  \n\n\n\nPoint Estimation\n\n  Course(s)\n  Big question\n\n\n\n  476, 563\n  \n    What is the estimand?\n    \n      Parameter vs functional of a distribution\n      What does it mean in context?\n      What is random, what is fixed?\n    \n  \n\n\n\n  563\n  \n    What makes an estimator “optimal”?\n    \n      Loss functions and risk\n      Invariance/equivariance (as appropriate)\n      Benchmarks and lower bounds (when assumptions hold)"
+  },
+  {
+    "objectID": "classlib/website/courses.html",
+    "href": "classlib/website/courses.html",
+    "title": "Courses",
+    "section": "",
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nTBD\n\n\nMATH 563\nTBD\n\n\nMATH 565\nTBD"
+  },
+  {
+    "objectID": "classlib/website/courses.html#current-and-recent-courses",
+    "href": "classlib/website/courses.html#current-and-recent-courses",
+    "title": "Courses",
+    "section": "",
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nTBD\n\n\nMATH 563\nTBD\n\n\nMATH 565\nTBD"
+  },
+  {
+    "objectID": "classlib/website/papers.html",
+    "href": "classlib/website/papers.html",
+    "title": "Papers",
+    "section": "",
+    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
+  },
+  {
+    "objectID": "classlib/website/papers.html#publications",
+    "href": "classlib/website/papers.html#publications",
+    "title": "Papers",
+    "section": "",
+    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
+  },
+  {
+    "objectID": "classlib/website/talks.html",
+    "href": "classlib/website/talks.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Talk\nSlides\n\n\n\n\nMCQMC 2026 Plenary\nComing soon\n\n\nSIAM UQ 2026\nComing soon"
+  },
+  {
+    "objectID": "classlib/website/talks.html#recent-talks",
+    "href": "classlib/website/talks.html#recent-talks",
+    "title": "Talks",
+    "section": "",
+    "text": "Talk\nSlides\n\n\n\n\nMCQMC 2026 Plenary\nComing soon\n\n\nSIAM UQ 2026\nComing soon"
   },
   {
     "objectID": "pages/homework.html",
