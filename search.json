@@ -100,30 +100,23 @@
   {
     "objectID": "classlib/website/index.html",
     "href": "classlib/website/index.html",
-    "title": "Fred J. Hickernell",
+    "title": "Personal Academic Library",
     "section": "",
-    "text": "Professor of Applied Mathematics\nIllinois Institute of Technology"
+    "text": "Professor of Applied Mathematics\nIllinois Institute of Technology\nThis site collects my talks, publications, course materials, software projects, and other academic resources."
   },
   {
     "objectID": "classlib/website/index.html#featured-resources",
     "href": "classlib/website/index.html#featured-resources",
-    "title": "Fred J. Hickernell",
+    "title": "Personal Academic Library",
     "section": "Featured Resources",
-    "text": "Featured Resources\n\nMCQMC 2026 Plenary Slides\nQMCPy and QMCSoftware\nCourses\nPublications"
+    "text": "Featured Resources\n\nMCQMC 2026 Plenary Slides\nQMCPy and QMCSoftware"
   },
   {
     "objectID": "classlib/website/index.html#research-interests",
     "href": "classlib/website/index.html#research-interests",
-    "title": "Fred J. Hickernell",
+    "title": "Personal Academic Library",
     "section": "Research Interests",
-    "text": "Research Interests\n\nMonte Carlo Methods\nQuasi-Monte Carlo Methods\nUncertainty Quantification\nHigh-Dimensional Approximation\nInformation-Based Complexity"
-  },
-  {
-    "objectID": "classlib/website/index.html#navigation",
-    "href": "classlib/website/index.html#navigation",
-    "title": "Fred J. Hickernell",
-    "section": "Navigation",
-    "text": "Navigation\n\nTalks\nCourses\nSoftware\nPapers\nTalks\nCourses\nSoftware\nPapers"
+    "text": "Research Interests\n(Quasi-)Monte Carlo Methods, Information-Based Complexity, High-Dimensional Integraton and Approximation, Uncertainty Quantification, Scientific Software"
   },
   {
     "objectID": "classlib/classlib/quarto/snippets/search-test-archives.html",
@@ -277,26 +270,26 @@
     "href": "classlib/website/courses.html",
     "title": "Courses",
     "section": "",
-    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nTBD\n\n\nMATH 563\nTBD\n\n\nMATH 565\nTBD"
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
   },
   {
     "objectID": "classlib/website/courses.html#current-and-recent-courses",
     "href": "classlib/website/courses.html#current-and-recent-courses",
     "title": "Courses",
     "section": "",
-    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nTBD\n\n\nMATH 563\nTBD\n\n\nMATH 565\nTBD"
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
   },
   {
     "objectID": "classlib/website/papers.html",
     "href": "classlib/website/papers.html",
-    "title": "Papers",
+    "title": "Publications",
     "section": "",
     "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
   },
   {
     "objectID": "classlib/website/papers.html#publications",
     "href": "classlib/website/papers.html#publications",
-    "title": "Papers",
+    "title": "Publications",
     "section": "",
     "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
   },
@@ -305,14 +298,7 @@
     "href": "classlib/website/talks.html",
     "title": "Talks",
     "section": "",
-    "text": "Talk\nSlides\n\n\n\n\nMCQMC 2026 Plenary\nComing soon\n\n\nSIAM UQ 2026\nComing soon"
-  },
-  {
-    "objectID": "classlib/website/talks.html#recent-talks",
-    "href": "classlib/website/talks.html#recent-talks",
-    "title": "Talks",
-    "section": "",
-    "text": "Talk\nSlides\n\n\n\n\nMCQMC 2026 Plenary\nComing soon\n\n\nSIAM UQ 2026\nComing soon"
+    "text": "Recent\n\n\n\n\nMCQMC 2026 Plenary and Special Session Talks\n\n\nSIAM UQ 2026\n\n\n\nSome earliier talks are Speaker Deck"
   },
   {
     "objectID": "pages/homework.html",

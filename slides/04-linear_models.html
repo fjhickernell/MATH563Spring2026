@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-06-11">
+  <meta name="dcterms.date" content="2026-06-15">
   <title>MATH 563 — Mathematical Statistics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-d0bdb337dc731dab5d288f9f2db7c318.css">
+  <link rel="stylesheet" href="04-linear_models_files/libs/revealjs/dist/theme/quarto-b58af031a03075c6f70b6cee6c87cae8.css">
   <link href="04-linear_models_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04-linear_models_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -583,7 +583,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">June 11, 2026</p>
+  <p class="date">June 15, 2026</p>
 </section>
 <section>
 <section id="linear-models" class="title-slide slide level1 center">
@@ -860,7 +860,7 @@ y_n
 <section class="slide level2">
 
 <h3 id="geometric-interpretation-of-least-squares-regression">Geometric interpretation of least squares regression</h3>
-<div id="a35d8123" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
+<div id="8ec1a3fc" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -936,11 +936,11 @@ S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
 <li><p><span class="math inline">\(\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)\)</span></p></li>
 <li><p><span class="math inline">\(\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))\)</span></p></li>
 </ul>
-<div id="2ac41938" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
+<div id="fe780903" class="cell" data-fig-height="3.2" data-fig-width="6.5" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="927" height="445"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="926" height="447"></p>
 </figure>
 </div>
 </div>
@@ -1032,11 +1032,11 @@ t_{n-d,\alpha/2}
 S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
 \; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
 \end{gather*}\]</span></p>
-<div id="f870965a" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
+<div id="facb2c4e" class="cell" data-fig-height="4.6" data-fig-width="5.8" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="924" height="307"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="928" height="312"></p>
 </figure>
 </div>
 </div>
@@ -1137,11 +1137,11 @@ S
 }
 \]</span></p>
 </div></div>
-<div id="80b88377" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
+<div id="00e149e7" class="cell" data-fig-height="4.2" data-fig-width="11" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="1184" height="370"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="1186" height="371"></p>
 </figure>
 </div>
 </div>
@@ -1197,11 +1197,11 @@ S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
 <li><p>Simultaneous bands use the larger <span class="math inline">\(\sqrt{dF_{d,n-d,\alpha}}\)</span> multiplier because they must work for all <span class="math inline">\(\vx\)</span> at once</p></li>
 </ul>
 </div>
-<div id="90163408" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
+<div id="75fcea8f" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="1205" height="390"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="1203" height="390"></p>
 </figure>
 </div>
 </div>
@@ -1388,11 +1388,11 @@ p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad 
 </section>
 <section id="our-example" class="slide level2">
 <h2>Our example</h2>
-<div id="bbef6006" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
+<div id="a0189663" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="1423" height="427"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="1425" height="431"></p>
 </figure>
 </div>
 </div>
@@ -1426,11 +1426,11 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 </ul>
 <p>This violates the constant-variance assumption</p>
 </div><div class="column" style="width:50%;">
-<div id="8a8f1583" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
+<div id="8e365f17" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="736" height="732"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="736" height="735"></p>
 </figure>
 </div>
 </div>
@@ -1473,11 +1473,11 @@ Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
 <li>and it can strongly affect the fitted regression</li>
 </ul>
 </div><div class="column" style="width:58%;">
-<div id="9c540ae6" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
+<div id="aeb30dc2" class="cell" data-fig-height="3.8" data-fig-width="7.2" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="732" height="735"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="736" height="735"></p>
 </figure>
 </div>
 </div>
@@ -1831,7 +1831,7 @@ F_{d-1,n-d}
 </section>
 <section id="our-example-revisited" class="slide level2">
 <h2>Our example revisited</h2>
-<div id="e9c3d8cf" class="cell" data-execution_count="10">
+<div id="39894b67" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[
 y = 0.10 + 0.90 x^2 + \varepsilon,
@@ -1842,7 +1842,7 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The <span class="math inline">\(p\)</span>-value is not small, so there is no compelling evidence that the intercept is needed</p>
 <h3 id="coefficient-estimates-full-model">Coefficient Estimates (Full Model)</h3>
-<div id="0c1d97e3" class="cell" data-execution_count="11">
+<div id="3ce4b772" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -1901,29 +1901,29 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="model-comparison">Model Comparison</h3>
-<div id="24cf9d0f" class="cell" data-execution_count="12">
+<div id="03f1f575" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_c1171" class="caption-top">
+<table id="T_20fac" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_c1171_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_c1171_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
-<th id="T_c1171_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
+<th id="T_20fac_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_20fac_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Parameters (d)</th>
+<th id="T_20fac_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">RSS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_c1171_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
-<td id="T_c1171_row0_col1" class="data row0 col1">1</td>
-<td id="T_c1171_row0_col2" class="data row0 col2">35.512100</td>
+<td id="T_20fac_row0_col0" class="data row0 col0">Reduced (no intercept)</td>
+<td id="T_20fac_row0_col1" class="data row0 col1">1</td>
+<td id="T_20fac_row0_col2" class="data row0 col2">35.512100</td>
 </tr>
 <tr class="even">
-<td id="T_c1171_row1_col0" class="data row1 col0">Full</td>
-<td id="T_c1171_row1_col1" class="data row1 col1">2</td>
-<td id="T_c1171_row1_col2" class="data row1 col2">34.766600</td>
+<td id="T_20fac_row1_col0" class="data row1 col0">Full</td>
+<td id="T_20fac_row1_col1" class="data row1 col1">2</td>
+<td id="T_20fac_row1_col2" class="data row1 col2">34.766600</td>
 </tr>
 </tbody>
 </table>
@@ -1931,34 +1931,34 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 </div>
 <p>The RSS for the full model is not much smaller than the RSS for the reduced model, suggesting that the intercept may not be needed</p>
 <h3 id="f-test-for-removing-intercept">F-test for Removing Intercept</h3>
-<div id="2b2e8349" class="cell" data-execution_count="13">
+<div id="3a2c8a49" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_e1a9d" class="caption-top">
+<table id="T_12831" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_e1a9d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_e1a9d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_12831_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_12831_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_e1a9d_row0_col0" class="data row0 col0">F statistic</td>
-<td id="T_e1a9d_row0_col1" class="data row0 col1">0.600400</td>
+<td id="T_12831_row0_col0" class="data row0 col0">F statistic</td>
+<td id="T_12831_row0_col1" class="data row0 col1">0.600400</td>
 </tr>
 <tr class="even">
-<td id="T_e1a9d_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
-<td id="T_e1a9d_row1_col1" class="data row1 col1">1.000000</td>
+<td id="T_12831_row1_col0" class="data row1 col0">Numerator df (d_full − d_reduced)</td>
+<td id="T_12831_row1_col1" class="data row1 col1">1.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_e1a9d_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
-<td id="T_e1a9d_row2_col1" class="data row2 col1">28.000000</td>
+<td id="T_12831_row2_col0" class="data row2 col0">Denominator df (n − d_full)</td>
+<td id="T_12831_row2_col1" class="data row2 col1">28.000000</td>
 </tr>
 <tr class="even">
-<td id="T_e1a9d_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_e1a9d_row3_col1" class="data row3 col1">0.444900</td>
+<td id="T_12831_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_12831_row3_col1" class="data row3 col1">0.444900</td>
 </tr>
 </tbody>
 </table>
@@ -1968,30 +1968,30 @@ y = 0.10 + 0.90 x^2 + \varepsilon,
 <section class="slide level2">
 
 <h3 id="goodness-of-fit">Goodness of Fit</h3>
-<div id="6e9e6ae2" class="cell" data-execution_count="14">
+<div id="8fc96fd4" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <style type="text/css">
 </style>
 
-<table id="T_9bc63" class="caption-top">
+<table id="T_3e1f8" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_9bc63_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
-<th id="T_9bc63_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_3e1f8_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Metric</th>
+<th id="T_3e1f8_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_9bc63_row0_col0" class="data row0 col0">R^2 (full model)</td>
-<td id="T_9bc63_row0_col1" class="data row0 col1">0.865700</td>
+<td id="T_3e1f8_row0_col0" class="data row0 col0">R^2 (full model)</td>
+<td id="T_3e1f8_row0_col1" class="data row0 col1">0.865700</td>
 </tr>
 <tr class="even">
-<td id="T_9bc63_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
-<td id="T_9bc63_row1_col1" class="data row1 col1">0.860900</td>
+<td id="T_3e1f8_row1_col0" class="data row1 col0">Adjusted R^2 (full model)</td>
+<td id="T_3e1f8_row1_col1" class="data row1 col1">0.860900</td>
 </tr>
 <tr class="odd">
-<td id="T_9bc63_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
-<td id="T_9bc63_row2_col1" class="data row2 col1">0.927300</td>
+<td id="T_3e1f8_row2_col0" class="data row2 col0">Uncentered R^2 (reduced model, no intercept)</td>
+<td id="T_3e1f8_row2_col1" class="data row2 col1">0.927300</td>
 </tr>
 </tbody>
 </table>
@@ -2009,11 +2009,11 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="diagnostic-plots-for-the-reduced-model">Diagnostic plots for the reduced model</h3>
-<div id="eef16db3" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
+<div id="f3903a28" class="cell" data-fig-height="4.2" data-fig-width="18" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-16-output-1.png" class="quarto-figure quarto-figure-center" width="1423" height="427"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-16-output-1.png" class="quarto-figure quarto-figure-center" width="1425" height="431"></p>
 </figure>
 </div>
 </div>
@@ -2022,11 +2022,11 @@ R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^
 <section class="slide level2">
 
 <h3 id="confidenceprediction-intervalsbands-for-the-reduced-model">Confidence/prediction intervals/bands for the reduced model</h3>
-<div id="e93f09de" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
+<div id="d1e643ff" class="cell" data-fig-height="4.4" data-fig-width="11" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center" width="1225" height="389"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center" width="1223" height="390"></p>
 </figure>
 </div>
 </div>
@@ -2240,51 +2240,51 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 <p>Here are three groups of data:</p>
 <div class="columns">
 <div class="column" style="width:19%;">
-<div id="3deb6f94" class="cell" data-execution_count="17">
+<div id="7518aa28" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <style type="text/css">
 </style>
 
-<table id="T_1dd1e" class="caption-top">
+<table id="T_cb6bb" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_1dd1e_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
-<th id="T_1dd1e_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
-<th id="T_1dd1e_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
+<th id="T_cb6bb_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1</th>
+<th id="T_cb6bb_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">2</th>
+<th id="T_cb6bb_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_1dd1e_row0_col0" class="data row0 col0">8.2</td>
-<td id="T_1dd1e_row0_col1" class="data row0 col1">8.0</td>
-<td id="T_1dd1e_row0_col2" class="data row0 col2">10.1</td>
+<td id="T_cb6bb_row0_col0" class="data row0 col0">8.2</td>
+<td id="T_cb6bb_row0_col1" class="data row0 col1">8.0</td>
+<td id="T_cb6bb_row0_col2" class="data row0 col2">10.1</td>
 </tr>
 <tr class="even">
-<td id="T_1dd1e_row1_col0" class="data row1 col0">7.9</td>
-<td id="T_1dd1e_row1_col1" class="data row1 col1">8.3</td>
-<td id="T_1dd1e_row1_col2" class="data row1 col2">9.8</td>
+<td id="T_cb6bb_row1_col0" class="data row1 col0">7.9</td>
+<td id="T_cb6bb_row1_col1" class="data row1 col1">8.3</td>
+<td id="T_cb6bb_row1_col2" class="data row1 col2">9.8</td>
 </tr>
 <tr class="odd">
-<td id="T_1dd1e_row2_col0" class="data row2 col0">8.4</td>
-<td id="T_1dd1e_row2_col1" class="data row2 col1">7.8</td>
-<td id="T_1dd1e_row2_col2" class="data row2 col2">10.4</td>
+<td id="T_cb6bb_row2_col0" class="data row2 col0">8.4</td>
+<td id="T_cb6bb_row2_col1" class="data row2 col1">7.8</td>
+<td id="T_cb6bb_row2_col2" class="data row2 col2">10.4</td>
 </tr>
 <tr class="even">
-<td id="T_1dd1e_row3_col0" class="data row3 col0">8.1</td>
-<td id="T_1dd1e_row3_col1" class="data row3 col1">8.1</td>
-<td id="T_1dd1e_row3_col2" class="data row3 col2">10.0</td>
+<td id="T_cb6bb_row3_col0" class="data row3 col0">8.1</td>
+<td id="T_cb6bb_row3_col1" class="data row3 col1">8.1</td>
+<td id="T_cb6bb_row3_col2" class="data row3 col2">10.0</td>
 </tr>
 <tr class="odd">
-<td id="T_1dd1e_row4_col0" class="data row4 col0">nan</td>
-<td id="T_1dd1e_row4_col1" class="data row4 col1">8.2</td>
-<td id="T_1dd1e_row4_col2" class="data row4 col2">nan</td>
+<td id="T_cb6bb_row4_col0" class="data row4 col0">nan</td>
+<td id="T_cb6bb_row4_col1" class="data row4 col1">8.2</td>
+<td id="T_cb6bb_row4_col2" class="data row4 col2">nan</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div><div class="column" style="width:33%;">
-<div id="4aa47f13" class="cell" data-execution_count="18">
+<div id="22963fac" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <style scoped="">
@@ -2342,7 +2342,7 @@ F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \m
 </div>
 </div>
 </div><div class="column" style="width:48%;">
-<div id="babf3e97" class="cell" data-execution_count="19">
+<div id="bd032511" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <style scoped="">
@@ -2407,34 +2407,34 @@ H_0:\mu_1=\mu_2=\mu_3
 H_a:\text{not all } \mu_i \text{ are equal}
 \end{gather*}\]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="37125a0c" class="cell" data-execution_count="20">
+<div id="5176df31" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="20">
 <style type="text/css">
 </style>
 
-<table id="T_f783b" class="caption-top">
+<table id="T_a70c9" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_f783b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
-<th id="T_f783b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
+<th id="T_a70c9_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Quantity</th>
+<th id="T_a70c9_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_f783b_row0_col0" class="data row0 col0">F = MSB/MSW</td>
-<td id="T_f783b_row0_col1" class="data row0 col1">114.838100</td>
+<td id="T_a70c9_row0_col0" class="data row0 col0">F = MSB/MSW</td>
+<td id="T_a70c9_row0_col1" class="data row0 col1">114.838100</td>
 </tr>
 <tr class="even">
-<td id="T_f783b_row1_col0" class="data row1 col0">df Between</td>
-<td id="T_f783b_row1_col1" class="data row1 col1">2.000000</td>
+<td id="T_a70c9_row1_col0" class="data row1 col0">df Between</td>
+<td id="T_a70c9_row1_col1" class="data row1 col1">2.000000</td>
 </tr>
 <tr class="odd">
-<td id="T_f783b_row2_col0" class="data row2 col0">df Within</td>
-<td id="T_f783b_row2_col1" class="data row2 col1">10.000000</td>
+<td id="T_a70c9_row2_col0" class="data row2 col0">df Within</td>
+<td id="T_a70c9_row2_col1" class="data row2 col1">10.000000</td>
 </tr>
 <tr class="even">
-<td id="T_f783b_row3_col0" class="data row3 col0">p-value</td>
-<td id="T_f783b_row3_col1" class="data row3 col1">0.000000</td>
+<td id="T_a70c9_row3_col0" class="data row3 col0">p-value</td>
+<td id="T_a70c9_row3_col1" class="data row3 col1">0.000000</td>
 </tr>
 </tbody>
 </table>
@@ -2581,7 +2581,7 @@ H_0:
 
 <div class="columns">
 <div class="column" style="width:35%;">
-<div id="1c9e66f1" class="cell" data-execution_count="21">
+<div id="c9b659a7" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 <style scoped="">
@@ -2714,11 +2714,11 @@ H_0:
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:35%;">
-<div id="f6ded8f2" class="cell" data-execution_count="22">
+<div id="584b5858" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-23-output-1.png" width="692" height="335"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-23-output-1.png" width="693" height="342"></p>
 </figure>
 </div>
 </div>
@@ -2841,11 +2841,11 @@ w_i^{(t)}\bigl(z_i^{(t)} - \vx_i^\top \vb\bigr)^2
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:60%;">
-<div id="2d43f1b6" class="cell" data-execution_count="23">
+<div id="486377c4" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-24-output-1.png" width="830" height="484"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-24-output-1.png" width="831" height="489"></p>
 </figure>
 </div>
 </div>
@@ -2878,7 +2878,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="simulated-data-with-realistic-gre-scores">Simulated data with realistic GRE scores</h3>
-<div id="7436e5bf" class="cell" data-execution_count="24">
+<div id="24632b15" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 <style scoped="">
@@ -2974,11 +2974,11 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="plot-of-the-binary-data-and-a-gre-only-logistic-curve">Plot of the binary data and a GRE-only logistic curve</h3>
-<div id="6f91e769" class="cell" data-execution_count="25">
+<div id="1810f39f" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-26-output-1.png" width="978" height="631"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-26-output-1.png" width="980" height="637"></p>
 </figure>
 </div>
 </div>
@@ -2989,7 +2989,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <h3 id="fit-a-logistic-regression-model-using-gre-only">Fit a logistic regression model using GRE only</h3>
 <div class="columns">
 <div class="column" style="width:35%;">
-<div id="e9e1a4b6" class="cell" data-execution_count="26">
+<div id="79330e88" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
@@ -3034,11 +3034,11 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 </div><div class="column" style="width:5%;">
 <p>&nbsp;</p>
 </div><div class="column" style="width:60%;">
-<div id="f14eb670" class="cell" data-execution_count="27">
+<div id="772bf062" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-28-output-1.png" width="978" height="631"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-28-output-1.png" width="980" height="637"></p>
 </figure>
 </div>
 </div>
@@ -3070,7 +3070,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="simulated-data-with-gre-and-gpa">Simulated data with GRE and GPA</h3>
-<div id="570f4b35" class="cell" data-execution_count="28">
+<div id="75b33c68" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <style scoped="">
@@ -3181,7 +3181,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <div class="columns">
 <div class="column" style="width:45%;">
 <h3 id="fit-a-logistic-regression-model-using-gre-and-gpa">Fit a logistic regression model using GRE and GPA</h3>
-<div id="0a8bdf73" class="cell" data-execution_count="29">
+<div id="60fec948" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <style scoped="">
@@ -3232,7 +3232,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <p>&nbsp;</p>
 </div><div class="column" style="width:50%;">
 <h3 id="predicted-probabilities-for-a-few-applicants">Predicted probabilities for a few applicants</h3>
-<div id="d64c8eda" class="cell" data-execution_count="30">
+<div id="5d7927a4" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 <style scoped="">
@@ -3355,7 +3355,7 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="compare-fitted-and-observed-admission-rates-by-decile-of-fitted-probability">Compare fitted and observed admission rates by decile of fitted probability</h3>
-<div id="1e09a7f0" class="cell" data-execution_count="31">
+<div id="70000190" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <style scoped="">
@@ -3466,11 +3466,11 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <div class="columns">
 <div class="column" style="width:40%;">
 <h3 id="calibration-plot">Calibration plot</h3>
-<div id="0020221f" class="cell" data-execution_count="32">
+<div id="b1f055d2" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-33-output-1.png" width="662" height="483"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-33-output-1.png" width="669" height="489"></p>
 </figure>
 </div>
 </div>
@@ -3497,51 +3497,51 @@ p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
 <section class="slide level2">
 
 <h3 id="model-comparison-1">Model comparison</h3>
-<div id="8c3c91d9" class="cell" data-execution_count="33">
+<div id="a68c9310" class="cell" data-execution_count="33">
 <div class="cell-output cell-output-display" data-execution_count="33">
 <style type="text/css">
 </style>
 
-<table id="T_3329d" class="caption-top">
+<table id="T_1aa53" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_3329d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_3329d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Log-Likelihood</th>
-<th id="T_3329d_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">AIC</th>
+<th id="T_1aa53_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_1aa53_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Log-Likelihood</th>
+<th id="T_1aa53_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">AIC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_3329d_row0_col0" class="data row0 col0">GRE only</td>
-<td id="T_3329d_row0_col1" class="data row0 col1">-75.957000</td>
-<td id="T_3329d_row0_col2" class="data row0 col2">155.915000</td>
+<td id="T_1aa53_row0_col0" class="data row0 col0">GRE only</td>
+<td id="T_1aa53_row0_col1" class="data row0 col1">-75.957000</td>
+<td id="T_1aa53_row0_col2" class="data row0 col2">155.915000</td>
 </tr>
 <tr class="even">
-<td id="T_3329d_row1_col0" class="data row1 col0">GRE + GPA</td>
-<td id="T_3329d_row1_col1" class="data row1 col1">-72.669000</td>
-<td id="T_3329d_row1_col2" class="data row1 col2">151.338000</td>
+<td id="T_1aa53_row1_col0" class="data row1 col0">GRE + GPA</td>
+<td id="T_1aa53_row1_col1" class="data row1 col1">-72.669000</td>
+<td id="T_1aa53_row1_col2" class="data row1 col2">151.338000</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <h3 id="likelihood-ratio-test">Likelihood ratio test</h3>
-<div id="2cc5e6e9" class="cell" data-execution_count="34">
+<div id="c10b54e2" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display" data-execution_count="34">
 <style type="text/css">
 </style>
 
-<table id="T_05d6d" class="caption-top">
+<table id="T_bcf6d" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_05d6d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Statistic</th>
-<th id="T_05d6d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
+<th id="T_bcf6d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Statistic</th>
+<th id="T_bcf6d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_05d6d_row0_col0" class="data row0 col0">6.576000</td>
-<td id="T_05d6d_row0_col1" class="data row0 col1">0.010300</td>
+<td id="T_bcf6d_row0_col0" class="data row0 col0">6.576000</td>
+<td id="T_bcf6d_row0_col1" class="data row0 col1">0.010300</td>
 </tr>
 </tbody>
 </table>
@@ -3909,11 +3909,11 @@ K(\vt,\vx)
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="1ce1f364" class="cell" data-execution_count="35">
+<div id="528d6202" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-36-output-1.png" width="827" height="418"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-36-output-1.png" width="832" height="419"></p>
 </figure>
 </div>
 </div>
@@ -4100,11 +4100,11 @@ K(\vt,\vx)
 \tau^2 \exp\!\left(-\frac{\|\vt-\vx\|^2}{2\ell^2}\right)
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="d52e1338" class="cell" data-execution_count="36">
+<div id="606436c1" class="cell" data-execution_count="36">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-37-output-1.png" width="827" height="418"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-37-output-1.png" width="832" height="419"></p>
 </figure>
 </div>
 </div>
@@ -4203,11 +4203,11 @@ K_\nu(r)
 </section>
 <section class="slide level2">
 
-<div id="465f40c8" class="cell" data-execution_count="37">
+<div id="6be761ea" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-38-output-1.png" width="1403" height="831"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-38-output-1.png" width="1408" height="831"></p>
 </figure>
 </div>
 </div>
@@ -4215,11 +4215,11 @@ K_\nu(r)
 </section>
 <section class="slide level2">
 
-<div id="a6029e3f" class="cell" data-execution_count="38">
+<div id="cfd08afd" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-39-output-1.png" width="1119" height="926"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-39-output-1.png" width="1118" height="928"></p>
 </figure>
 </div>
 </div>
@@ -4227,11 +4227,11 @@ K_\nu(r)
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
-<div id="cd91e2ef" class="cell" data-execution_count="39">
+<div id="ca67b541" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-40-output-1.png" width="1127" height="770"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-40-output-1.png" width="1127" height="774"></p>
 </figure>
 </div>
 </div>
@@ -4478,11 +4478,11 @@ Y_i = f(x_i) + \varepsilon_i,
 \varepsilon_i \sim \Norm(0,\sigma^2)
 \]</span></p>
 <p>The posterior mean no longer interpolates the data.</p>
-<div id="a472b19a" class="cell" data-execution_count="40">
+<div id="577e2b08" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="04-linear_models_files/figure-revealjs/cell-41-output-1.png" width="1119" height="542"></p>
+<p><img data-src="04-linear_models_files/figure-revealjs/cell-41-output-1.png" width="1119" height="543"></p>
 </figure>
 </div>
 </div>
